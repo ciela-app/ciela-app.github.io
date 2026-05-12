@@ -13,13 +13,11 @@
     --ink:#2a2620; --ink-2:#5d564b; --ink-3:#8a8275; --ink-4:#b6ad9c;
     --rule:#d9d3c6; --rule-soft:#e8e3d6;
     --sage:#7a9382; --sage-soft:#e3ebe3; --sage-deep:#5b7565;
-    --add:#5b7565; --chg:#7b6a3a; --fix:#9b5d50; --imp:#4f6f86; --sec:#3f3f3f; --test:#7a7a8a;
   }
   *{box-sizing:border-box;}
   html,body{margin:0;padding:0;}
   body{background:var(--paper);color:var(--ink);font-family:"Geist",ui-sans-serif,system-ui,sans-serif;font-size:15px;line-height:1.6;-webkit-font-smoothing:antialiased;}
   a{color:inherit;text-decoration:none;}
-  code{font-family:"Geist Mono",monospace;font-size:0.92em;background:var(--paper-2);border:1px solid var(--rule-soft);border-radius:4px;padding:1px 6px;color:var(--ink);}
   strong{color:var(--ink);font-weight:500;}
   em{font-style:italic;color:var(--ink-2);}
   .wide{max-width:1240px;margin:0 auto;padding:0 40px;}
@@ -44,7 +42,7 @@
   .meta{display:flex;gap:24px;margin-top:24px;font-family:"Geist Mono",monospace;font-size:11px;letter-spacing:.14em;color:var(--ink-3);text-transform:uppercase;}
   hr.rule{border:0;height:1px;background:var(--rule-soft);margin:0;}
 
-  .layout{display:grid;grid-template-columns:240px 1fr;gap:64px;padding:48px 0 96px;align-items:start;}
+  .layout{display:grid;grid-template-columns:220px 1fr;gap:80px;padding:56px 0 96px;align-items:start;}
   .toc{position:sticky;top:120px;max-height:calc(100vh - 140px);overflow:auto;padding-right:8px;}
   .toc h4{font-family:"Geist Mono",monospace;font-size:10.5px;letter-spacing:.18em;color:var(--ink-3);text-transform:uppercase;margin:0 0 14px;font-weight:500;}
   .toc a{display:flex;justify-content:space-between;align-items:baseline;font-size:13px;color:var(--ink-2);padding:7px 0;border-left:1px solid var(--rule-soft);padding-left:14px;margin-left:-1px;gap:12px;}
@@ -52,32 +50,19 @@
   .toc .tnum{font-family:"Geist Mono",monospace;font-size:12px;}
   .toc .tdate{font-family:"Geist Mono",monospace;font-size:10px;color:var(--ink-3);letter-spacing:.04em;}
 
-  .stream{max-width:760px;}
-  .version{padding:30px 0 36px;border-top:1px solid var(--rule-soft);}
+  .stream{max-width:680px;}
+  .version{padding:36px 0 40px;border-top:1px solid var(--rule-soft);}
   .version:first-child{border-top:0;padding-top:0;}
-  .ver-head{display:flex;align-items:baseline;justify-content:space-between;margin-bottom:20px;}
-  .ver-head h2{font-family:"Instrument Serif",serif;font-weight:400;font-size:42px;letter-spacing:-0.02em;line-height:1;margin:0;}
-  .vnum{display:inline;}
+  .ver-head{display:flex;align-items:baseline;justify-content:space-between;margin-bottom:18px;gap:24px;}
+  .ver-head h2{font-family:"Instrument Serif",serif;font-weight:400;font-size:44px;letter-spacing:-0.02em;line-height:1;margin:0;}
   .vnum::before{content:"v";color:var(--ink-3);font-style:italic;font-size:0.7em;margin-right:6px;}
-  .vdate{font-family:"Geist Mono",monospace;font-size:11px;letter-spacing:.14em;color:var(--ink-3);text-transform:uppercase;}
+  .vdate{font-family:"Geist Mono",monospace;font-size:11px;letter-spacing:.14em;color:var(--ink-3);text-transform:uppercase;white-space:nowrap;}
 
-  .ver-body .sec{display:grid;grid-template-columns:104px 1fr;gap:18px;margin:14px 0 18px;align-items:start;}
-  .tag{display:inline-flex;align-items:center;justify-content:flex-start;font-family:"Geist Mono",monospace;font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:#fff;padding:4px 10px 4px 8px;border-radius:4px;background:var(--ink);height:fit-content;line-height:1.4;margin-top:4px;}
-  .tag-add{background:var(--add);}
-  .tag-chg{background:var(--chg);}
-  .tag-fix{background:var(--fix);}
-  .tag-imp{background:var(--imp);}
-  .tag-sec{background:var(--sec);}
-  .tag-test{background:var(--test);}
-  .tag-inf{background:#6a6a6a;}
-  .tag-back{background:#5a5a4a;}
-
-  .sec-body{color:var(--ink-2);font-size:14.5px;line-height:1.65;}
-  .sec-body ul{margin:0;padding-left:20px;}
-  .sec-body li{margin:6px 0;}
-  .sec-body li ul{margin-top:6px;padding-left:18px;}
-  .sec-body li ul li{margin:4px 0;color:var(--ink-3);font-size:13.5px;}
-  .sec-body p{margin:0 0 10px;}
+  .summary{font-family:"Instrument Serif",serif;font-size:24px;line-height:1.35;letter-spacing:-0.012em;color:var(--ink);margin:0 0 18px;font-style:italic;}
+  .notes{margin:0;padding:0;list-style:none;}
+  .notes li{position:relative;padding:6px 0 6px 22px;color:var(--ink-2);font-size:15.5px;line-height:1.65;}
+  .notes li::before{content:"";position:absolute;left:0;top:14px;width:8px;height:1px;background:var(--ink-4);}
+  .notes li + li{border-top:1px dashed var(--rule-soft);}
 
   footer{border-top:1px solid var(--rule-soft);padding:48px 0 36px;background:var(--paper-2);margin-top:24px;}
   .foot-grid{display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr;gap:48px;}
@@ -92,7 +77,6 @@
     .layout{grid-template-columns:1fr;gap:24px;}
     .toc{position:static;max-height:none;}
     h1.title{font-size:48px;}
-    .ver-body .sec{grid-template-columns:1fr;gap:8px;}
     .foot-grid{grid-template-columns:1fr 1fr;}
     .nav-links{display:none;}
   }
@@ -125,9 +109,9 @@
 <header class="pagehead">
   <div class="wide">
     <div class="crumbs"><a href="index.html">Ciela</a><span class="sep">/</span><span>Changelog</span></div>
-    <h1 class="title">Change<span class="em">log.</span></h1>
+    <h1 class="title">What's <span class="em">changed.</span></h1>
     <p class="lede">
-      Every shipped change to Ciela, in reverse chronological order. Tagged for what it is — added, changed, fixed, improved, tested, secured — and dated to the day. Nothing here is a teaser; if it's listed, it's in the build you can download.
+      A quiet record of every shipped version of Ciela, newest first, in plain language. No internal acronyms, no test counts, no celebration. Just what got better, and when.
     </p>
     <div class="meta">
       <span>22 RELEASES</span>
@@ -173,9 +157,10 @@
     <h2><span class="vnum">0.2.17</span></h2>
     <span class="vdate">2026-05-11</span>
   </header>
-  <div class="ver-body">
-    <div class="sec"><span class="tag tag-add">Added</span><div class="sec-body"><ul><li><strong>Education category</strong> — new classifier category for K-12 and university sender platforms. Domain rules cover Canvas/Instructure, Blackboard, D2L Brightspace, Schoology, Ed STEM, PowerSchool, Infinite Campus, Remind/Remind101, SchoolMessenger, Imagine Learning/Edgenuity, iClassPro, Herff Jones, school district domains (NEISD, Kyrene), and myschoolcast.com.</li><li><strong>Healthcare category</strong> — new classifier category for patient communication and appointment platforms. Domain rules cover eClinicalWorks (<code>eclinicalmail.com</code>), Demandforce/Demandforce3, Rapport (<code>rapport2.com</code>), and Zenoti. Keyword signals: "prescription is ready", "refill reminder", "appointment reminder", "appointment confirmation", "lab results", "test results are ready", "patient portal", "your care team".</li></ul></div></div><div class="sec"><span class="tag tag-imp">Improved</span><div class="sec-body"><ul><li><strong>Classifier: Finance domain rules</strong> — added PayPal, Venmo, Sunbit, Synchrony Bank, Fidelity, Mint, MySchoolBucks, Progressive as hard Finance senders (domain match, no keyword required).</li><li><strong>Classifier: Notification domain rules</strong> — added Nextdoor (subdomain-aware), GovDelivery, Realtor.com, SignUpGenius, Evite, Reddit (<code>redditmail.com</code>), Kickstarter, Fitbit.</li><li><strong>Classifier: Personal domains</strong> — added ISP-provided personal email domains: AT&amp;T/SBC/BellSouth, Comcast, Verizon, Cox, Charter/Spectrum/Road Runner, EarthLink.</li><li><strong>Classifier: Notification keywords</strong> — added library hold signals ("your hold is ready", "library hold", "items due"), Google Calendar invitation format ("invitation:"), and bounce/delivery-failure subjects ("delivery status notification", "mail delivery failed", "undeliverable mail").</li><li><strong>Classifier: Subscription keywords</strong> — added job alert signals ("job alert", "jobs matching", "new jobs for you", "career alert").</li><li><strong>Classifier: HTTP 411 fix</strong> — <code>trash_message</code> now sends <code>Content-Length: 0</code> on the empty-body POST to Gmail's <code>/trash</code> endpoint, preventing 411 Length Required errors on bulk clean operations.</li></ul></div></div><div class="sec"><span class="tag tag-test">Testing</span><div class="sec-body"><ul><li>68 classifier unit tests, 0 failures (Education and Healthcare domain + keyword tests added; 21 pre-existing tests updated from Notifications → Education/Healthcare as expected categories)</li></ul></div></div>
-  </div>
+  <p class="summary">Two new categories.</p>
+  <ul class="notes"><li>Mail from schools, universities, and learning platforms now sorts into a dedicated <strong>Education</strong> bucket — Canvas, Blackboard, school districts, the lot.</li>
+<li>Patient portals, appointment reminders, and pharmacy notes now sort into <strong>Healthcare</strong> — they used to scatter across Notifications and Unknown.</li>
+<li>A few familiar senders that had been slipping through — PayPal, Venmo, Nextdoor, Reddit, Realtor.com, Fidelity, Mint — now land where you'd expect.</li></ul>
 </article>
 
 <article class="version" id="v-0-2-16">
@@ -183,9 +168,9 @@
     <h2><span class="vnum">0.2.16</span></h2>
     <span class="vdate">2026-05-06</span>
   </header>
-  <div class="ver-body">
-    <div class="sec"><span class="tag tag-add">Added</span><div class="sec-body"><ul><li><strong>Reclassify sender</strong> — any sender's category badge in the Senders view is now a button; clicking it opens an inline <code>&lt;select&gt;</code> with all 10 categories. Picking a different category immediately updates the local DB and persists a <code>category_overrides</code> record so future scans re-apply the correction automatically.<ul><li>Backend: <code>category_overrides</code> table (schema v6), <code>reclassify_sender_db</code>, <code>apply_category_overrides</code> DB functions, <code>reclassify_sender</code> Tauri command.</li><li>Scan integration: <code>apply_category_overrides</code> is called after every <code>save_senders</code> / <code>merge_senders</code> before results are returned to the frontend.</li><li>Frontend: category badge → clickable button with <code>title="Click to reclassify"</code>; inline <code>&lt;select aria-label="Reclassify category"&gt;</code> appears on click and closes on blur or selection.</li></ul></li></ul></div></div><div class="sec"><span class="tag tag-imp">Improved</span><div class="sec-body"><ul><li><strong>Classifier: notification signals no longer require bulk headers</strong> — signals like "digest", "activity on", "commented on", "mentioned you", "weekly summary", "daily summary" now fire as Notifications without needing a <code>List-Unsubscribe</code> header. This fixes misses for USPS Informed Delivery, Google Calendar, Dropbox, ParentSquare, Canvas/Instructure, Apple Find My, and similar platforms.</li><li><strong>Classifier: health/insurance Finance keywords</strong> — added "explanation of benefits", "health plan", "your benefits", "insurance", "prescription", "medical claim", "eob" to <code>FINANCE_KEYWORDS</code>. Fixes Anthem and similar health-plan senders landing in Unknown.</li><li><strong>Classifier: package shipping Receipt keywords</strong> — added "your package", "has been shipped", "shipping confirmation", "order has shipped" to <code>RECEIPT_KEYWORDS</code>. Improves hit rate for Amazon shipment-tracking emails whose subjects use these phrases.</li></ul></div></div><div class="sec"><span class="tag tag-test">Testing</span><div class="sec-body"><ul><li>101 Rust + 98 frontend = 199 tests, zero failures</li></ul></div></div>
-  </div>
+  <p class="summary">When Ciela gets a sender wrong, you can put it right.</p>
+  <ul class="notes"><li>Click any sender's category badge to reclassify it. The change sticks: future scans honour your correction automatically. No retraining, no waiting.</li>
+<li>Sharper sorting for digests, school-platform alerts, package-shipment confirmations, and health-insurance statements that used to land in Unknown.</li></ul>
 </article>
 
 <article class="version" id="v-0-2-15">
@@ -193,9 +178,8 @@
     <h2><span class="vnum">0.2.15</span></h2>
     <span class="vdate">2026-05-06</span>
   </header>
-  <div class="ver-body">
-    <div class="sec"><span class="tag tag-add">Added</span><div class="sec-body"><ul><li><strong>Virtual scrolling on the sender list</strong> — the Senders view now renders only the rows visible in the viewport using <code>@tanstack/react-virtual</code>. For large inboxes (8,000+ senders) this eliminates the DOM cost of mounting thousands of nodes at once.<ul><li>Items are positioned absolutely with <code>transform: translateY(…px)</code> so the browser can composite them on the GPU without triggering layout.</li><li><code>estimateSize: 80px</code> + <code>overscan: 5</code> rows — smooth scrolling with minimal over-rendering.</li><li><code>initialRect: { width: 800, height: 600 }</code> seeds the viewport size on the first render frame so the list is immediately visible, without waiting for a ResizeObserver callback.</li></ul></li></ul></div></div><div class="sec"><span class="tag tag-inf">Infrastructure</span><div class="sec-body"><ul><li><strong>Test environment</strong> — <code>HTMLElement.prototype.offsetHeight</code> / <code>offsetWidth</code> stubbed to 600 / 800 in <code>src/test/setup.ts</code> so jsdom reports non-zero scroll container dimensions; <code>ResizeObserver</code> stubbed as a no-op. All 97 existing frontend tests continue to pass with no test-code changes.</li></ul></div></div><div class="sec"><span class="tag tag-test">Testing</span><div class="sec-body"><ul><li>95 Rust + 95 frontend = 190 tests, zero failures</li></ul></div></div>
-  </div>
+  <p class="summary">Faster sender list.</p>
+  <ul class="notes"><li>If your inbox has thousands of senders, the list opens instantly and scrolls smoothly. We only draw what you can see.</li></ul>
 </article>
 
 <article class="version" id="v-0-2-14">
@@ -203,9 +187,10 @@
     <h2><span class="vnum">0.2.14</span></h2>
     <span class="vdate">2026-05-06</span>
   </header>
-  <div class="ver-body">
-    <div class="sec"><span class="tag tag-add">Added</span><div class="sec-body"><ul><li><strong>Settings screen</strong> — new dedicated view accessible from the Dashboard gear menu ("Settings" replaces the old "Disconnect" shortcut). Contains three sections:<ul><li><strong>Account</strong> — connected Gmail address, last scan date, total emails (all read from the local DB, no API call required)</li><li><strong>Preferences</strong> — "Default Older Than filter" select; chosen value persists via <code>localStorage</code> and is applied as the initial filter in both the Senders view and Dashboard category clean modals</li><li><strong>Connection</strong> — Disconnect action with inline two-step confirmation ("Disconnect Gmail?" → Cancel / Disconnect); shows that local scan data is preserved on disconnect</li></ul></li><li><strong><code>get_account_info</code> Tauri command</strong> — pure DB read returning <code>AccountInfo { email, last_scan_at, total_emails }</code>; no API call; works offline after any completed scan</li><li><strong><code>get_email_address</code> Gmail client method</strong> — reads <code>emailAddress</code> from the <code>/profile</code> endpoint; called once at the end of each scan and stored in <code>scan_meta</code> as <code>account_email</code></li><li><strong><code>save_account_email</code> / <code>load_account_info</code> DB helpers</strong> — store and retrieve the connected email from <code>scan_meta</code>; <code>load_account_info</code> also reads <code>last_scan_at</code> and sums <code>thread_count</code> across all senders</li></ul></div></div><div class="sec"><span class="tag tag-chg">Changed</span><div class="sec-body"><ul><li><strong>Dashboard gear menu</strong> — "Disconnect" item replaced with "Settings"; Disconnect now lives permanently in the Settings screen</li><li><strong>Default filter persistence</strong> — both ScanView and DashboardView now accept an <code>initialOlderThanDays</code> prop wired from App-level state, so the preference set in Settings takes effect immediately on next navigation</li></ul></div></div><div class="sec"><span class="tag tag-test">Testing</span><div class="sec-body"><ul><li>13 new <code>SettingsView</code> tests: loading skeleton; email/date/total after load; "Never" and "Not yet scanned" edge cases; preference select value and change; disconnect button, confirm state, cancel, and confirm flows; back button</li><li>95 Rust + 95 frontend = 190 tests, zero failures</li></ul></div></div>
-  </div>
+  <p class="summary">A proper Settings screen.</p>
+  <ul class="notes"><li>Find the account you connected, the last time it scanned, the running total — all in one place, all read from your own machine.</li>
+<li>Pick a default for the "older than" filter so the modals open with your preference already chosen.</li>
+<li>Disconnect now lives in Settings, with a quiet two-step confirmation so it never happens by accident.</li></ul>
 </article>
 
 <article class="version" id="v-0-2-13">
@@ -213,9 +198,9 @@
     <h2><span class="vnum">0.2.13</span></h2>
     <span class="vdate">2026-05-06</span>
   </header>
-  <div class="ver-body">
-    <div class="sec"><span class="tag tag-add">Added</span><div class="sec-body"><ul><li><strong>Protected senders</strong> — a sender can now be marked as protected from the ScanView row. Protected senders show a blue "Protected" badge; their Trash button is disabled and they are skipped by bulk-clean operations. Protection is stored in the DB (<code>protected</code> column, schema v5 migration) and survives rescans.</li><li><strong>"Clean all" on category cards</strong> — cleanup category cards (Active Marketing, Dead Marketing, Subscription, Notifications) now have a "Clean all →" footer button. Clicking it opens an outlier-aware confirmation modal showing unprotected sender count, email count, protected-sender exclusion note, outlier warning (if any senders were recently active), and a date-scope filter. Confirms by calling the new <code>trash_category</code> backend command.</li><li><strong><code>trash_category</code> Tauri command</strong> — loads all unprotected senders for a category from the DB, then calls <code>trash_sender_inner</code> sequentially for each, emitting <code>trash_progress</code> events throughout. Removes each sender from the DB on success.</li><li><strong><code>set_sender_protected</code> Tauri command</strong> — sets or clears the <code>protected</code> flag for a (email, category) pair. Input-validated via existing <code>validate_sender_email</code> and <code>validate_category</code> guards.</li><li><strong><code>set_sender_protected()</code> / <code>load_category_senders_unprotected()</code> DB functions</strong> — pure DB helpers; tested independently.</li><li><strong>Schema v5 migration</strong> — non-destructive <code>ALTER TABLE senders ADD COLUMN protected INTEGER NOT NULL DEFAULT 0</code>; existing rows default to unprotected.</li></ul></div></div><div class="sec"><span class="tag tag-test">Testing</span><div class="sec-body"><ul><li>6 new <code>ScanView</code> tests: Protect button visible on unprotected rows; Protected badge visible on protected rows; clicking Protect calls <code>onSetProtected(true)</code>; clicking Protected badge calls <code>onSetProtected(false)</code>; Trash disabled for protected; Trash enabled for unprotected.</li><li>2 new Rust DB tests: <code>set_sender_protected_updates_flag</code>; <code>load_category_senders_unprotected_skips_protected</code>.</li><li>95 Rust + 82 frontend = 177 tests, zero failures</li></ul></div></div>
-  </div>
+  <p class="summary">Protect senders you never want to touch.</p>
+  <ul class="notes"><li>Mark any sender as protected. They get a small badge, the Trash button greys out, and bulk-cleans skip them automatically.</li>
+<li>Every cleanup category card now has a "Clean all" — confirms the exact email count, warns you if a sender in there is still active, and lets you pick a date scope before anything moves.</li></ul>
 </article>
 
 <article class="version" id="v-0-2-12">
@@ -223,9 +208,9 @@
     <h2><span class="vnum">0.2.12</span></h2>
     <span class="vdate">2026-05-06</span>
   </header>
-  <div class="ver-body">
-    <div class="sec"><span class="tag tag-add">Added</span><div class="sec-body"><ul><li><strong>Outlier banner in ScanView</strong> — when browsing a cleanup category (Active Marketing, Dead Marketing, Subscription, Notifications) that contains senders opened within the last 90 days, a dismissible amber banner appears at the top of the list: "X senders were recently active — review before cleaning." Resets each time the ScanView opens.</li><li><strong><code>isOutlierSender()</code> utility</strong> — identifies senders in cleanup categories that were recently engaged; used by the banner and available for the bulk-trash outlier flow in v2.5.4.</li></ul></div></div><div class="sec"><span class="tag tag-chg">Changed</span><div class="sec-body"><ul><li><strong>Confirm modal: effective date scope</strong> — the modal now shows the effective scope of the trash operation at a glance: "Emails older than 1 year will be moved — recent emails will stay." (or "All emails from this sender will be moved." when the filter is all-time). Replaces the confusing "use the date filter in the toolbar" hint, which required dismissing the modal before acting.</li><li><strong>Confirm modal: outlier tip updated</strong> — the amber warning now says <code>Adjust the "Older than" filter above to keep recent emails.</code> instead of pointing to the toolbar.</li></ul></div></div><div class="sec"><span class="tag tag-test">Testing</span><div class="sec-body"><ul><li>5 new <code>ScanView</code> tests: outlier banner appears for cleanup category; not shown for non-cleanup; not shown when no recent senders; dismissible; effective date scope in modal; all-time scope in modal</li><li>93 Rust + 76 frontend = 169 tests, zero failures</li></ul></div></div>
-  </div>
+  <p class="summary">Clearer warnings before cleaning.</p>
+  <ul class="notes"><li>When you open a bulk-clean category that contains senders you've opened recently, a small banner says so up top. Reset every visit, never naggy.</li>
+<li>The trash modal now shows the effective date scope in plain English — "Emails older than 1 year will be moved — recent emails will stay" — instead of a hint to "use the toolbar."</li></ul>
 </article>
 
 <article class="version" id="v-0-2-11">
@@ -233,9 +218,9 @@
     <h2><span class="vnum">0.2.11</span></h2>
     <span class="vdate">2026-05-06</span>
   </header>
-  <div class="ver-body">
-    <div class="sec"><span class="tag tag-chg">Changed</span><div class="sec-body"><ul><li><strong>Category card engagement blurbs</strong> — each category card now shows an engagement signal inline with the sender count: "Most never opened" (≥75% of senders never read), "{X}% never opened" (≥1% threshold), or nothing for actively-read categories. Computed from the local sender list; no backend changes.</li><li><strong>Trash confirm modal: email count</strong> — the confirmation modal now shows the exact email count: "Move 1,247 Active Marketing emails from Brand Promos to Trash." Previously said "Move all {category} emails..."</li><li><strong>Trash confirm modal: display name</strong> — modal now shows the sender's display name instead of raw email address where available</li></ul></div></div><div class="sec"><span class="tag tag-test">Testing</span><div class="sec-body"><ul><li>2 new <code>DashboardView</code> tests: engagement blurb present when senders never opened; blurb absent when recently read</li><li>2 new <code>ScanView</code> tests: email count appears in confirm modal; display name appears in confirm modal</li><li>93 Rust + 70 frontend = 163 tests, zero failures</li></ul></div></div>
-  </div>
+  <p class="summary">A little more honesty per category.</p>
+  <ul class="notes"><li>Each category card now tells you, inline, whether you actually read mail from these senders. "Most never opened." "62% never opened." Or nothing, if you do read them.</li>
+<li>The trash modal shows the sender's display name (not the raw address) and the exact email count it's about to move.</li></ul>
 </article>
 
 <article class="version" id="v-0-2-10">
@@ -243,9 +228,9 @@
     <h2><span class="vnum">0.2.10</span></h2>
     <span class="vdate">2026-05-06</span>
   </header>
-  <div class="ver-body">
-    <div class="sec"><span class="tag tag-chg">Changed</span><div class="sec-body"><ul><li><strong>Token zeroing on disconnect</strong> — access and refresh tokens are now overwritten in memory (via <code>zeroize</code>) before being cleared; prevents token values from persisting in freed heap memory after disconnect</li><li><strong>ConnectView: browser instruction</strong> — button label during OAuth flow changed from "Waiting for Google…" to "Connecting…"; instruction text "A browser window just opened — approve the connection there to continue." now appears below the button (this fix was intended for v2.4 but was not included in that commit)</li></ul></div></div><div class="sec"><span class="tag tag-test">Testing</span><div class="sec-body"><ul><li>93 Rust + 66 frontend = 159 tests, zero failures</li></ul></div></div>
-  </div>
+  <p class="summary">Quieter security work.</p>
+  <ul class="notes"><li>When you disconnect, access tokens are now wiped from memory immediately, not just dereferenced. A small thing nobody will notice — which is the point.</li>
+<li>The Connect screen now explains itself while it waits: "A browser window just opened — approve the connection there to continue."</li></ul>
 </article>
 
 <article class="version" id="v-0-2-9">
@@ -253,9 +238,14 @@
     <h2><span class="vnum">0.2.9</span></h2>
     <span class="vdate">2026-05-05</span>
   </header>
-  <div class="ver-body">
-    <div class="sec"><span class="tag tag-add">Added</span><div class="sec-body"><ul><li><strong>Scan completion overlay</strong> — after every scan a brief "Scan complete · X emails · Y senders" screen appears before landing on the Dashboard; auto-advances after 2.5 seconds or dismiss immediately with "View Dashboard →"</li><li><strong>Stop scanning</strong> — "Stop scanning" link appears below the progress bar during a scan; saves the current checkpoint so the next scan resumes from where it stopped; <code>cancel_scan</code> Tauri command + <code>scan_cancel</code> <code>AtomicBool</code> in <code>AppStateInner</code></li><li><strong>Unsubscribe button on sender rows</strong> — any sender in the ScanView list with a <code>List-Unsubscribe</code> URL now shows an Unsubscribe button inline; clicking opens the URL and records the action; transitions to "Unsubscribed" badge optimistically</li><li><strong>Sort selector on sender list</strong> — dropdown in the ScanView filter bar: Most emails (default) / Not yet opened / Least recently read / Most recently seen</li><li><strong>Date filter in ScanView toolbar</strong> — "Older than" filter promoted from buried inside the confirm modal to a persistent dropdown in the filter bar; default changed from "All time" to "1 year" (safer); applies to all trash operations in the session</li><li><strong>Search and sort persistence</strong> — search text and sort selection are preserved when navigating Dashboard ↔ ScanView, so users mid-cleanup don't lose their place</li><li><strong>Category cards proportional bar</strong> — a 1px bar at the bottom of each category card shows that category's share of the largest category at a glance</li><li><strong>Gear icon for Disconnect</strong> — Disconnect moved from a visible button in the Dashboard header to a ⚙ gear menu; header is now: wordmark | Browse All | Rescan | ⚙</li></ul></div></div><div class="sec"><span class="tag tag-chg">Changed</span><div class="sec-body"><ul><li><strong>Inactive Subscriptions</strong> — "Ghost Subscriptions" section renamed to "Inactive Subscriptions" throughout</li><li><strong>Subdued Trash buttons</strong> — Trash buttons on sender rows and ghost/inactive subscription rows are now border-only (slate); red color appears on hover only, reducing visual alarm across the sender list</li><li><strong>Trash modals: undo messaging</strong> — both trash confirm modals now show "Emails go to Gmail Trash — you have 30 days to recover them in Gmail."</li><li><strong>Rescan / Full rescan tooltips</strong> — hover titles explain the difference: "Checks new mail since last scan (fast)" and "Re-checks everything — use if counts look off (slower)"</li><li><strong>ConnectView: browser instruction</strong> — loading state now shows "A browser window just opened — approve the connection there to continue." instead of the opaque "Waiting for Google…"</li><li><strong>Velocity chart sentiment</strong> — growing inbox trend uses <code>text-red-500</code> (bad signal); shrinking uses <code>text-emerald-500</code> (good); stable stays <code>text-slate-400</code></li><li><strong>ScanningScreen progress bar</strong> — track thickness increased from <code>h-2</code> to <code>h-3</code>; scanned count now includes elapsed time: "23,418 messages · 2:14 elapsed"</li><li><strong>Ghost trash modal default</strong> — "Older than" default changed from "All time" to "1 year"</li></ul></div></div><div class="sec"><span class="tag tag-test">Testing</span><div class="sec-body"><ul><li>New <code>ConnectView</code> test file: 5 tests covering browser instruction display, Cancel, onConnected callback, error display</li><li>7 new <code>ScanningScreen</code> tests: elapsed time display, Stop scanning link, no-stop-link case</li><li>11 new <code>ScanView</code> tests: sort selector, date filter in toolbar, unsubscribe button, Unsubscribed badge, sentiment color tests</li><li>2 new <code>DashboardView</code> tests: undo messaging in ghost modal, sentiment color direction</li><li>Total: <strong>93 Rust + 66 frontend = 159 tests</strong>, zero failures</li></ul></div></div>
-  </div>
+  <p class="summary">A long list of small comforts.</p>
+  <ul class="notes"><li>A brief "Scan complete" page after every scan, so you know what just happened before you land on the Dashboard.</li>
+<li><strong>Stop scanning</strong> mid-run. The next scan picks up where you left off.</li>
+<li><strong>Unsubscribe</strong> appears inline on any sender row that supports it.</li>
+<li>A <strong>sort</strong> dropdown on the sender list — most emails, never opened, oldest unread, most recently seen.</li>
+<li>The <strong>"Older than"</strong> filter moved out of the modal and into the toolbar, defaulting to one year (safer than All time).</li>
+<li>Your <strong>search and sort</strong> are now remembered across navigation; no more losing your place mid-cleanup.</li>
+<li><strong>Disconnect</strong> moved into a quiet gear menu — it was too loud as a button.</li></ul>
 </article>
 
 <article class="version" id="v-0-2-8">
@@ -263,9 +253,10 @@
     <h2><span class="vnum">0.2.8</span></h2>
     <span class="vdate">2026-05-05</span>
   </header>
-  <div class="ver-body">
-    <div class="sec"><span class="tag tag-add">Added</span><div class="sec-body"><ul><li><strong>Storage transparency</strong> — new "What's Taking Up Space" section on the Dashboard explains the gap between Gmail's reported message count and Ciela's scanned count. Shows active mail (scanned by Ciela), Trash estimate, Spam estimate, and a computed "Other" row (chats, calendar invites, drafts — items without a standard From header) so the numbers always add up to Gmail's total.<ul><li>Gmail profile total, Trash estimate, and Spam estimate are fetched in parallel via <code>tokio::join!</code></li><li>"Other" row is <code>gmail_total − active − trash_estimate − spam_estimate</code>; only shown when non-zero</li><li><strong>Empty Trash</strong> and <strong>Clear Spam</strong> action buttons with a distinct destructive confirm modal: red warning icon, "approximately X messages", bold "This cannot be undone." After confirmation, the count updates to ~0</li></ul></li><li><code>get_storage_stats</code> Tauri command — returns <code>{ gmail_total, trash_estimate, spam_estimate }</code></li><li><code>empty_label</code> Tauri command — validates label is <code>TRASH</code> or <code>SPAM</code>; paginates <code>messages.list?labelIds=…&amp;includeSpamTrash=true</code> in pages of 500; batch-deletes in chunks of 1000 via <code>messages/batchDelete</code>; returns total deleted count</li><li>Three new <code>GmailClientTrait</code> methods: <code>get_label_estimate</code> (single-request <code>resultSizeEstimate</code>), <code>list_label_messages</code> (full pagination with <code>includeSpamTrash=true</code>), <code>batch_delete_messages</code> (POST <code>/messages/batchDelete</code>)</li></ul></div></div><div class="sec"><span class="tag tag-fix">Fixed</span><div class="sec-body"><ul><li><strong>Silent scan data loss on batch failure</strong> — <code>batch_get_messages</code> errors previously dropped the entire 100-message chunk with no retry and no record. Now retries up to 3 times with 500 ms / 1 s / 2 s exponential backoff before skipping, consistent with the retry logic already in place on <code>list_messages</code>.</li></ul></div></div><div class="sec"><span class="tag tag-test">Testing</span><div class="sec-body"><ul><li>5 new <code>DashboardView</code> tests: storage rows render with Gmail total and estimates; <code>Empty Trash</code> opens destructive confirm modal with correct message count; Cancel closes modal without action; Delete Permanently calls <code>empty_label</code> and updates estimate to ~0</li><li>3 existing <code>DashboardView</code> tests updated: <code>/trash/i</code> selector narrowed to <code>/^trash$/i</code> to disambiguate from new "Empty Trash" button</li><li><code>MockGmailClient</code> extended with stub implementations of all three new trait methods</li><li>Total: <strong>93 Rust + 45 frontend = 138 tests</strong>, zero failures</li></ul></div></div>
-  </div>
+  <p class="summary">Now you can see where the space goes.</p>
+  <ul class="notes"><li>A new "What's Taking Up Space" panel on the Dashboard explains the gap between what Gmail counts and what Ciela has scanned: active mail, Trash, Spam, and the long tail of chats and drafts that don't look like email.</li>
+<li>Empty Trash and Clear Spam are right there too — destructive enough to deserve a red, three-line confirmation before anything goes.</li>
+<li>Scans no longer silently lose a batch when Gmail blinks; they retry a few times first.</li></ul>
 </article>
 
 <article class="version" id="v-0-2-7">
@@ -273,9 +264,8 @@
     <h2><span class="vnum">0.2.7</span></h2>
     <span class="vdate">2026-05-04</span>
   </header>
-  <div class="ver-body">
-    <div class="sec"><span class="tag tag-add">Added</span><div class="sec-body"><ul><li><strong>Unsubscribe tracking</strong> — clicking the Unsubscribe button in the Ghost Subscriptions panel now records the action in a new local <code>unsubscribe_actions</code> table (schema v4). On subsequent scans, Ciela checks whether the sender has gone quiet and updates the status accordingly:<ul><li><strong>"Unsubscribed"</strong> — pending, no scan yet since click (shown as grey badge)</li><li><strong>"Still sending"</strong> — new mail received since the unsubscribe click (amber badge); Unsubscribe button re-shown so the user can try again</li><li><strong>"Confirmed ✓"</strong> — a scan ran after the click and the sender was not seen (green badge); Unsubscribe button hidden</li></ul></li><li>Status is shown inline in the Ghost Subscriptions row, replacing the Unsubscribe button once actioned (unless "Still sending").</li><li>Unsubscribe click is optimistic: badge appears immediately; <code>record_unsubscribe</code> Tauri command persists it to the DB.</li><li><strong>Schema v4</strong> — non-destructive migration from v3: adds <code>unsubscribe_actions</code> table without dropping existing scan data.</li></ul></div></div><div class="sec"><span class="tag tag-back">Backend</span><div class="sec-body"><ul><li><code>db::upsert_unsubscribe_action</code> — upserts <code>(email, category, clicked_at)</code> into <code>unsubscribe_actions</code></li><li><code>db::load_unsubscribe_statuses</code> — derives status per entry by joining <code>unsubscribe_actions</code> with <code>senders.last_seen_at</code> and <code>scan_history</code></li><li><code>commands::stats::record_unsubscribe</code> and <code>get_unsubscribe_statuses</code> Tauri commands</li></ul></div></div><div class="sec"><span class="tag tag-test">Testing</span><div class="sec-body"><ul><li><code>upsert_unsubscribe_action_records_and_updates</code> — basic upsert and re-click idempotency</li><li><code>unsubscribe_status_is_pending_when_no_post_click_scan</code></li><li><code>unsubscribe_status_is_active_when_sender_seen_after_click</code></li><li><code>unsubscribe_status_is_confirmed_when_scan_ran_but_sender_not_seen</code></li><li><code>DashboardView</code> additions (4 tests): <code>record_unsubscribe</code> called alongside <code>open_url</code>; immediate "Unsubscribed" badge; "Still sending" badge for active status; "Confirmed ✓" badge for confirmed; Unsubscribe button hidden when pending/confirmed</li><li>Total: <strong>93 Rust + 39 frontend = 132 tests</strong>, zero failures</li></ul></div></div>
-  </div>
+  <p class="summary">Unsubscribe, and find out whether it worked.</p>
+  <ul class="notes"><li>When you click Unsubscribe from a Ghost Subscription, Ciela remembers it. On the next scan it checks: did they stop? You'll see "Unsubscribed", then "Confirmed" if they went quiet — or "Still sending" if they didn't, with the button right back where it was.</li></ul>
 </article>
 
 <article class="version" id="v-0-2-6">
@@ -283,9 +273,9 @@
     <h2><span class="vnum">0.2.6</span></h2>
     <span class="vdate">2026-05-04</span>
   </header>
-  <div class="ver-body">
-    <div class="sec"><span class="tag tag-add">Added</span><div class="sec-body"><ul><li><strong>Behavior language per sender row</strong> — each sender row now shows an engagement label inline with the email address:<ul><li>"Never opened" — <code>last_read_at</code> is null (no read activity recorded)</li><li>"Actively read" — last opened within the past 90 days (shown in green)</li><li>"Last read N months ago" — older than 90 days</li></ul></li><li><strong>Outlier warning in Trash modal</strong> — when a sender's most recent read was within the past 90 days, the confirmation modal shows an amber warning banner: <em>"You've recently opened emails from this sender. Double-check the date filter below before trashing."</em> No warning is shown for senders with null or old read timestamps.</li></ul></div></div><div class="sec"><span class="tag tag-test">Testing</span><div class="sec-body"><ul><li><code>ScanView</code> additions (5 tests): "Never opened" label for null <code>last_read_at</code>; "Actively read" for recent timestamp; "Last read N months ago" for old timestamp; outlier warning present when recently read; no warning when never read</li><li>Total: <strong>89 Rust + 35 frontend = 124 tests</strong>, zero failures</li></ul></div></div>
-  </div>
+  <p class="summary">Every sender row admits how you actually treat it.</p>
+  <ul class="notes"><li>"Never opened." "Actively read." "Last read 8 months ago." It's on the row now. No clicks required.</li>
+<li>If a sender is one you've opened recently and you go to trash them anyway, the modal pauses to say so. You can still do it. We just want you to mean it.</li></ul>
 </article>
 
 <article class="version" id="v-0-2-5">
@@ -293,9 +283,9 @@
     <h2><span class="vnum">0.2.5</span></h2>
     <span class="vdate">2026-05-04</span>
   </header>
-  <div class="ver-body">
-    <div class="sec"><span class="tag tag-add">Added</span><div class="sec-body"><ul><li><strong>Dashboard</strong> — new <code>DashboardView</code> screen is now the default landing view after a scan or app restart (when cached data exists). Shows three panels:<ul><li><strong>Inbox overview</strong> — one card per category sorted by email count, showing sender count and total emails with a coloured left accent. Clicking any card navigates to the sender list pre-filtered to that category.</li><li><strong>Ghost Subscriptions</strong> — newsletters with no read activity in 5+ months, each with a one-tap Unsubscribe button that opens the stored unsubscribe URL in the system browser.</li><li><strong>Inbox Growth</strong> — sparkline chart of total email count across scan history entries; shows trend label (↑ growing / ↓ shrinking / → stable).</li></ul></li><li><strong>Navigation update</strong> — scan completion and startup-with-cache now land on Dashboard. <code>ScanView</code> gains a "← Dashboard" back button and accepts an <code>initialCategory</code> prop for pre-filtered navigation from category cards. "Browse All" in the Dashboard header opens the full unfiltered sender list.</li><li><strong><code>open_url</code> command</strong> — new Tauri command that validates the URL is an <code>https</code> public address before opening in the system browser (used by the Unsubscribe button).</li></ul></div></div><div class="sec"><span class="tag tag-test">Testing</span><div class="sec-body"><ul><li><code>DashboardView</code> (10 tests): category cards render and call <code>onBrowse</code> with correct category; total stats display; Browse All; ghost subscriptions list, unsubscribe button, open_url invocation, count badge, All-clear empty state; velocity placeholder; velocity chart with 2+ scans</li><li><code>ScanView</code> additions (2 tests): <code>← Dashboard</code> button calls <code>onBack</code>; <code>initialCategory</code> pre-filters the list on mount</li><li>Total: <strong>89 Rust + 30 frontend = 119 tests</strong>, zero failures</li></ul></div></div>
-  </div>
+  <p class="summary">The Dashboard arrives.</p>
+  <ul class="notes"><li>Three panels: an overview of every category with its size, a list of Ghost Subscriptions you haven't opened in months, and a small chart of how your inbox has grown over time.</li>
+<li>Clicking any category card jumps straight into that part of the sender list — pre-filtered, no detour.</li></ul>
 </article>
 
 <article class="version" id="v-0-2-4">
@@ -303,9 +293,9 @@
     <h2><span class="vnum">0.2.4</span></h2>
     <span class="vdate">2026-05-04</span>
   </header>
-  <div class="ver-body">
-    <div class="sec"><span class="tag tag-chg">Changed</span><div class="sec-body"><ul><li><strong><code>unread_count</code> bug fix</strong> — <code>merge_senders</code> was accumulating unread counts across incremental scans (<code>unread_count + excluded.unread_count</code>). The merge now replaces the value (<code>excluded.unread_count</code>) so counts reflect the current scan, not a running total. A user who read 3 emails between scans would previously see the count increase; now it correctly reflects what the latest scan observed.</li></ul></div></div><div class="sec"><span class="tag tag-add">Added</span><div class="sec-body"><ul><li><strong><code>models.rs</code> shared module</strong> — <code>SenderResult</code>, <code>InboxStats</code>, <code>CategorySummary</code>, and <code>ScanHistoryEntry</code> moved from scattered command modules into a dedicated <code>src-tauri/src/models.rs</code>. All modules now import from <code>crate::models</code>, eliminating a backward dependency (DB layer was importing from the command layer). <code>SenderResult</code> gains an <code>account_id: String</code> field (defaults to <code>"default"</code>) as a non-breaking foundation for v3 multi-account.</li><li><strong>Per-account scan checkpoints</strong> — checkpoint files are now named <code>scan_checkpoint_{account_id}.json</code> (currently always <code>scan_checkpoint_default.json</code>). Prevents concurrent multi-account scans from clobbering each other's checkpoint in v3.</li><li><strong><code>validate_category</code> in <code>trash_sender</code></strong> — the <code>category</code> parameter is now validated against the 10 known category strings before the trash operation begins. Low exploit risk (value originates from the DB) but good hygiene.</li><li><strong>Keyring failure logging</strong> — <code>let _ = entry.set_password(...)</code> / <code>let _ = entry.delete_credential()</code> / silent startup restore failure are now all surfaced as <code>log::warn!</code> messages instead of being silently discarded.</li><li><strong>v3 design docs in <code>state.rs</code></strong> — <code>AppStateInner</code> carries commented-out v3 multi-account shape; rate-limit comment corrected (was "20 req/s", code uses <code>nonzero!(40u32)</code>).</li><li><strong><code>ScanProgress.resuming</code> wired to UI</strong> — the <code>resuming: bool</code> field emitted by the backend was already populated; frontend type now includes it and <code>ScanningScreen</code> shows "Resuming from checkpoint…" when true.</li><li><strong>Frontend type completeness</strong> — <code>SenderResult</code> gains required fields <code>unread_count: number</code> and <code>last_read_at: number | null</code>; <code>ScanProgress</code> gains <code>resuming: boolean</code>.</li><li><strong><code>get_top_senders</code> limit clamped</strong> — <code>limit</code> parameter clamped to <code>1..=500</code> before reaching the DB.</li><li><strong><code>GHOST_CUTOFF_DAYS</code> constant</strong> — replaces the <code>150 <em> 24 </em> 3600</code> magic number in <code>stats.rs</code>.</li><li><strong>CLIENT_SECRET pattern documented</strong> — WHITEPAPER security section explains that bundling a Google OAuth Client Secret is standard practice for desktop PKCE apps.</li></ul></div></div><div class="sec"><span class="tag tag-test">Testing</span><div class="sec-body"><ul><li><code>validate_category_accepts_all_known_values</code> — 10 known category strings accepted</li><li><code>validate_category_rejects_unknown_string</code> — wrong spelling, wrong case, and no-space variants rejected</li><li><code>validate_category_rejects_empty</code> — empty string rejected</li><li><code>merge_replaces_unread_and_keeps_max_last_read_at</code> (renamed + assertion fixed from v2.3.1) — verifies replacement not accumulation</li><li><code>ScanningScreen</code>: <code>resuming: true</code> renders "Resuming from checkpoint…"</li><li><code>ScanView</code> / <code>ScanningScreen</code> test helpers updated with required new fields (<code>unread_count</code>, <code>last_read_at</code>, <code>resuming</code>)</li><li>Total: <strong>89 Rust + 18 frontend = 107 tests</strong>, zero failures</li></ul></div></div>
-  </div>
+  <p class="summary">Tidied house.</p>
+  <ul class="notes"><li>A counting bug that made "unread" totals climb across scans is fixed. The number you see now is what your inbox actually has.</li>
+<li>Some scaffolding for future multi-account support landed quietly. Nothing changes for you yet.</li></ul>
 </article>
 
 <article class="version" id="v-0-2-3">
@@ -313,9 +303,8 @@
     <h2><span class="vnum">0.2.3</span></h2>
     <span class="vdate">2026-05-04</span>
   </header>
-  <div class="ver-body">
-    <div class="sec"><span class="tag tag-add">Added</span><div class="sec-body"><ul><li><strong>Engagement tracking</strong> — scan accumulator now records per-message read state: <code>unread_count</code> (messages with <code>UNREAD</code> label) and <code>last_read_at</code> (Unix timestamp of the most recently read message) per <code>(sender, category)</code> row. <code>labelIds</code> added to the batch message fetch.</li><li><strong>DB schema v3</strong> — <code>senders</code> table gains <code>unread_count INTEGER NOT NULL DEFAULT 0</code> and <code>last_read_at INTEGER</code> columns. Schema version check drops and recreates the table on first launch after upgrade — no user action needed.</li><li><strong><code>scan_history</code> table</strong> — total email and sender counts are recorded on every scan completion for velocity trend charting.</li><li><strong>Stats commands</strong> (new Tauri commands, pure backend — no UI yet):<ul><li><code>get_inbox_stats</code> — total emails, total senders, per-category breakdown</li><li><code>get_ghost_subscriptions</code> — Subscription senders with an unsubscribe URL and no read activity in the last 150 days</li><li><code>get_top_senders</code> — top N senders by thread count across all categories</li><li><code>get_velocity_trend</code> — last 20 scan-history snapshots ordered oldest-first, for inbox growth charting</li></ul></li></ul></div></div><div class="sec"><span class="tag tag-test">Testing</span><div class="sec-body"><ul><li><code>engagement_fields_round_trip</code> — save and load round-trips <code>unread_count</code> and <code>last_read_at</code></li><li><code>merge_accumulates_unread_and_keeps_max_last_read_at</code> — incremental merge accumulates unread and keeps the newer <code>last_read_at</code></li><li><code>ghost_subscriptions_excludes_recently_read</code> — recently-read senders are excluded; stale and never-read are included</li><li><code>ghost_subscriptions_excludes_senders_without_unsubscribe_url</code> — senders without a URL are excluded</li><li><code>load_inbox_stats_aggregates_correctly</code> — per-category totals match inserted data</li><li><code>load_inbox_stats_empty_database_returns_zeros</code> — empty DB returns zero totals</li><li><code>load_top_senders_respects_limit</code> — DB query honours the limit parameter</li><li><code>scan_history_records_and_loads_in_order</code> — velocity snapshots load oldest-first</li><li><code>record_scan_history_stores_entry</code> — scan snapshot is persisted and retrievable</li><li><code>scan_tracks_unread_count_and_last_read_at</code> — scan accumulator correctly populates engagement fields per message</li><li>Total: <strong>86 Rust + 17 frontend = 103 tests</strong>, zero failures</li></ul></div></div>
-  </div>
+  <p class="summary">Foundations for engagement-aware cleaning.</p>
+  <ul class="notes"><li>Every scan now also records, per sender, whether you read anything and when. This is what powers Ghost Subscriptions, the engagement labels on every row, and the velocity chart on the Dashboard. No UI yet in this release — the next few make use of it.</li></ul>
 </article>
 
 <article class="version" id="v-0-2-2">
@@ -323,9 +312,8 @@
     <h2><span class="vnum">0.2.2</span></h2>
     <span class="vdate">2026-05-04</span>
   </header>
-  <div class="ver-body">
-    <div class="sec"><span class="tag tag-add">Added</span><div class="sec-body"><ul><li><strong>Smart Model — email-type-as-entity</strong> — senders who send multiple types of email now appear as separate, independently actionable rows. For example, a sender like Amazon may show as "Amazon — Receipts (450 emails)" and "Amazon — Active Marketing (1,200 emails)". Each row can be trashed independently.</li><li><strong>Category-aware trash</strong> — when trashing a row, Ciela re-fetches message headers and re-runs the local classifier at trash time. Only messages matching the selected category are moved to Trash. A Finance email from the same sender is never touched when trashing their marketing.</li><li><strong>DB schema migration</strong> — the <code>senders</code> table primary key changed from <code>email</code> to <code>(email, category)</code>. Existing databases are automatically detected and recreated on first launch; no user action required.</li></ul></div></div><div class="sec"><span class="tag tag-test">Testing</span><div class="sec-body"><ul><li><code>scan_same_sender_different_categories_produces_multiple_rows</code> — verifies the core v2.2 scan behaviour</li><li><code>trash_skips_messages_not_matching_category</code> — verifies category-aware filtering at trash time</li><li><code>schema_migration_sets_version_and_allows_composite_key</code> — verifies DB migration path</li><li><code>save_and_load_round_trips_multiple_categories_per_sender</code> — verifies DB round-trip with split rows</li><li><code>remove_sender_deletes_only_matching_category</code> — verifies targeted DB deletion</li><li><code>merge_accumulates_thread_count_per_category</code> — verifies incremental scan merging with split rows</li><li>Total: 76 Rust + 17 frontend = <strong>93 tests</strong>, zero failures</li></ul></div></div>
-  </div>
+  <p class="summary">Amazon-the-receipt and Amazon-the-marketing are two different things.</p>
+  <ul class="notes"><li>Senders that send you several kinds of mail now appear as separate rows — one per type. You can trash the marketing without ever touching the order confirmations. Ciela re-checks every message against its category at the moment of trashing, so a Finance email from the same sender is never caught up in a marketing sweep.</li></ul>
 </article>
 
 <article class="version" id="v-0-2-1">
@@ -333,9 +321,11 @@
     <h2><span class="vnum">0.2.1</span></h2>
     <span class="vdate">2026-04-29</span>
   </header>
-  <div class="ver-body">
-    <div class="sec"><span class="tag tag-add">Added</span><div class="sec-body"><ul><li><strong>Incremental scan</strong> — after the first scan, subsequent scans fetch only emails received since the last scan date (<code>after:{timestamp}</code> Gmail query). New senders are merged into the existing database (thread counts accumulate); the complete updated list is returned to the UI. First-time users still get a full scan automatically.</li><li><strong>Gmail batch API</strong> — each page of message IDs is now fetched in batches of up to 100 using the <code>https://www.googleapis.com/batch/gmail/v1</code> endpoint, reducing the number of HTTP round-trips by up to 100x. Individual failures within a batch are skipped without aborting the scan. HTTP 429 / 503 responses retry with exponential backoff (500ms → 30s, up to 5 retries).</li><li><strong>Scan mode indicator</strong> — the scanning screen shows "Checking for new mail…" for incremental scans and "Scanning your inbox…" for full scans.</li></ul></div></div><div class="sec"><span class="tag tag-fix">Fixed</span><div class="sec-body"><ul><li><strong>Rate-limit token accounting in batch fetch</strong> — <code>batch_get_messages</code> now consumes one rate-limiter token per message (not one per batch of 100), matching Gmail's actual quota cost and preventing 403 errors on the second page of results.</li><li><strong>Retry-with-backoff on <code>list_messages</code></strong> — up to 3 retries (5 s / 10 s / 20 s) so a transient 429 on a paginated scan heals silently without surfacing an error to the user.</li><li><strong>Retry-with-backoff on all API calls</strong> — <code>execute()</code> retries 429 / 503 responses up to 5 times with exponential backoff (2 s → 60 s cap).</li><li><strong>DB corruption recovery on startup</strong> — <code>db::open()</code> now catches corrupted or key-mismatched SQLCipher files, silently wipes and recreates the database instead of panicking; prevents a crash-on-startup loop after a hot-reload mid-write.</li><li><strong>Rate limiter ceiling</strong> — bumped from 20 req/s to 40 req/s, giving headroom below Gmail's hard 50 msg/s quota ceiling.</li><li><strong>Milestone toasts removed</strong> — scan screen no longer shows "N senders found!" toasts; finding junk is not an achievement worth celebrating.</li><li><strong>Tip rotation slowed</strong> — rotating tips on the scan screen now cycle every 15 s (was 8 s) to accommodate slower readers.</li></ul></div></div>
-  </div>
+  <p class="summary">Scans got faster, and quieter.</p>
+  <ul class="notes"><li>After your first scan, every later one only checks what's arrived since. New senders merge in; the rest stay put.</li>
+<li>Under the hood, Ciela now asks Gmail in batches instead of one-message-at-a-time — much less back-and-forth.</li>
+<li>The "N senders found!" pop-ups are gone. Finding junk is not an achievement worth celebrating.</li>
+<li>Tips on the scan screen now rotate at a calmer pace.</li></ul>
 </article>
 
 <article class="version" id="v-0-2-0">
@@ -343,9 +333,10 @@
     <h2><span class="vnum">0.2.0</span></h2>
     <span class="vdate">2026-04-28</span>
   </header>
-  <div class="ver-body">
-    <div class="sec"><span class="tag tag-add">Added</span><div class="sec-body"><ul><li><strong>SQLite + SQLCipher persistence</strong> — scan results are saved to an encrypted local database (<code>ciela.db</code> in the app data directory); encryption key is generated on first launch and stored in the OS credential store (Windows Credential Manager)</li><li><strong>Persistent refresh token</strong> — OAuth refresh token is stored in the OS credential store; users stay connected across app restarts without re-authenticating</li><li><strong>Startup cache</strong> — cached sender results are loaded from the database immediately on launch, so the inbox list is visible before a fresh scan completes</li><li><strong>Bundled OAuth credentials</strong> — <code>CLIENT_ID</code> and <code>CLIENT_SECRET</code> are compiled into the binary at build time via <code>build.rs</code> reading a local <code>.env</code> file; users no longer enter credentials in the UI</li><li><strong>Simplified connect screen</strong> — <code>ConnectView</code> is now a single "Connect Gmail" button; no credential fields</li><li><strong>Remove-on-trash</strong> — trashing a sender also removes them from the local database so cached results stay accurate without a rescan</li></ul></div></div>
-  </div>
+  <p class="summary">Ciela learns to remember.</p>
+  <ul class="notes"><li>Scan results now save to an encrypted database on your computer. Restart the app and your sender list is there before the new scan finishes.</li>
+<li>You stay signed in across restarts — no more reconnecting to Gmail every time.</li>
+<li>The Connect screen is now a single button. We carry the credentials so you don't have to.</li></ul>
 </article>
 
 <article class="version" id="v-0-1-3">
@@ -353,9 +344,8 @@
     <h2><span class="vnum">0.1.3</span></h2>
     <span class="vdate">2026-04-29</span>
   </header>
-  <div class="ver-body">
-    <div class="sec"><span class="tag tag-fix">Fixed</span><div class="sec-body"><ul><li><strong>Infinite rescan loop on stale checkpoint (bug fix)</strong> — when a scan was interrupted, the saved page token could expire before the next session. Gmail returned HTTP 400 on the first <code>list_messages</code> call, causing an early return that bypassed <code>scan_state::clear</code>. The stale checkpoint stayed on disk, and every subsequent rescan hit the same error in a loop. Fix: clear the checkpoint in <code>scan_inbox</code> whenever <code>scan_inbox_inner</code> returns an error, so the next rescan starts from page 1.</li></ul></div></div>
-  </div>
+  <p class="summary">One stubborn bug, gone.</p>
+  <ul class="notes"><li>A rare condition where an interrupted scan would loop forever on the next launch is fixed. If it ever happened to you, it won't again.</li></ul>
 </article>
 
 <article class="version" id="v-0-1-2">
@@ -363,9 +353,8 @@
     <h2><span class="vnum">0.1.2</span></h2>
     <span class="vdate">2026-04-28</span>
   </header>
-  <div class="ver-body">
-    <div class="sec"><span class="tag tag-test">Testing</span><div class="sec-body"><ul><li><strong><code>GmailClientTrait</code></strong> — all Gmail API methods extracted into an async trait; <code>GmailClient</code> implements it; commands accept <code>Arc&lt;impl GmailClientTrait&gt;</code> for injection</li><li><strong><code>MockGmailClient</code></strong> — configurable mock with page queue, per-ID trash failures, and call capture; shared across scan and clean test suites</li><li><strong><code>scan_inbox_inner</code></strong> — core scan logic extracted from the Tauri command; tested with mock: empty inbox, single-page grouping by sender, multi-page processing, checkpoint resume, checkpoint file cleared on completion</li><li><strong><code>trash_sender_inner</code></strong> — core trash logic extracted from the Tauri command; tested with mock: single-page, multi-page streaming, <code>older_than</code> query injection, partial failures, empty sender</li><li><strong><code>validate_sender_email</code></strong> unit tests (7): empty, no @, multiple @, no dot, quote injection, valid email, subdomain</li><li><strong>Tier 4 frontend tests</strong> — Vitest + React Testing Library with Tauri API mocked via module alias:<ul><li><code>ScanningScreen</code> (5): no-progress render, percent display, 99% cap, milestone toast trigger, category bars</li><li><code>ScanView</code> (9): empty state, sender list rendering, category badges, search by email, search by name, category filter, no-match message, confirm modal open, modal cancel</li><li><code>App</code> (3): shows ConnectView by default, switches to ScanView when already connected, returns to ConnectView after disconnect</li></ul></li><li><strong>Pre-push hook</strong> updated to run frontend tests on every push</li><li><strong>Total: 78 tests (61 Rust + 17 frontend), all passing</strong></li></ul></div></div>
-  </div>
+  <p class="summary">Tests, tests, tests.</p>
+  <ul class="notes"><li>No visible changes this release. Behind the scenes, we wrote enough tests that we now trust ourselves to ship faster without breaking your inbox.</li></ul>
 </article>
 
 <article class="version" id="v-0-1-1">
@@ -373,9 +362,8 @@
     <h2><span class="vnum">0.1.1</span></h2>
     <span class="vdate">2026-04-28</span>
   </header>
-  <div class="ver-body">
-    <div class="sec"><span class="tag tag-sec">Security</span><div class="sec-body"><ul><li><strong>OAuth CSRF protection (C-1)</strong> — added random <code>state</code> parameter to the auth URL; <code>listen_for_code</code> now verifies the returned value before accepting the authorization code</li><li><strong>Port TOCTOU fix (C-2)</strong> — the TCP listener is now held open from bind time through the OAuth callback; eliminated the race window where a competing process could steal the port between bind/drop/rebind</li><li><strong>Content Security Policy (H-1)</strong> — added strict CSP to the WebView (<code>default-src 'self'</code>, no inline scripts, <code>connect-src</code> limited to IPC and <code>https://ipc.localhost</code>)</li><li><strong>Access token no longer returned to JavaScript (H-2)</strong> — <code>connect_gmail</code> now returns <code>()</code> instead of the live token; the token lives only in Rust state</li><li><strong>Shell plugin removed (L-6)</strong> — <code>shell:default</code> capability removed from the WebView; browser is opened via <code>open::that()</code> on the Rust side only</li><li><strong>Gmail query injection hardened (M-1)</strong> — <code>sender_email</code> is validated against a strict format check and wrapped in quotes in the Gmail query string</li><li><strong>Date filter validated server-side (M-2)</strong> — <code>older_than_days</code> must be one of <code>{30, 90, 180, 365, 1825}</code>; all other values are rejected before reaching the API</li><li><strong>Unsubscribe URL validation (M-3)</strong> — extracted URLs are validated with <code>url::Url::parse</code>; only <code>https</code> scheme and public internet hosts are accepted; RFC-1918 and loopback hosts are rejected</li><li><strong>Internal errors no longer forwarded to frontend (L-3)</strong> — Gmail API errors are logged server-side with <code>log::error!</code> and replaced with opaque user-friendly messages</li></ul></div></div><div class="sec"><span class="tag tag-fix">Fixed</span><div class="sec-body"><ul><li><strong>Shared rate limiter (H-7)</strong> — rate limiter moved to <code>AppStateInner</code> and shared across all <code>GmailClient</code> instances; concurrent scan + trash no longer doubles the effective request rate</li><li><strong>Token expiry checked in <code>is_connected</code> (H-3a)</strong> — expired access tokens are now treated as disconnected</li><li><strong>Refreshed token written back to AppState (H-3b)</strong> — after <code>scan_inbox</code> and <code>trash_sender</code> complete, the current (possibly refreshed) access token is written back to <code>AppStateInner</code></li><li><strong>OAuth timeout (H-4)</strong> — <code>listen_for_code</code> is now wrapped in <code>tokio::time::timeout(120s)</code>; closing the browser tab without signing in returns a clear error instead of hanging forever</li><li><strong>Duplicate Authorization header on 401 retry (H-5)</strong> — the stale <code>Authorization</code> header is stripped from the cloned request before the refreshed token is added</li><li><strong>Checkpoint saved after page processes (H-6)</strong> — <code>scan_state::save</code> now runs after each page's <code>buffer_unordered</code> collect completes; a mid-page crash no longer silently skips up to 500 messages on resume</li><li><strong><code>parse_from</code> panic on malformed headers (M-4)</strong> — replaced <code>rfind('&lt;')</code> with <code>find('&lt;')</code> then a forward search for <code>&gt;</code>, guaranteeing <code>end &gt; start</code> on all inputs</li><li><strong><code>Arc::try_unwrap</code> discarding scan results (M-5)</strong> — replaced with <code>sender_map.lock().await</code>; lock contention can no longer silently discard minutes of API results</li><li><strong>Scan counter overflow in release (M-6)</strong> — <code>scanned</code> counter now uses <code>saturating_add</code> so overflow in a release build can't abort the process</li><li><strong>Stale <code>senders_found</code> in progress events (M-7)</strong> — <code>senders_found</code> is now read from inside the same lock acquisition as <code>category_counts</code>, ensuring both values are from the same snapshot</li><li><strong>Individual trash failures reported (M-8)</strong> — failed trash calls are counted and emitted as a <code>trash_error</code> event instead of being silently ignored</li><li><strong>Atomic checkpoint writes (L-1)</strong> — checkpoint is now written to a <code>.tmp</code> file then renamed into place; a crash mid-write no longer produces partial JSON that causes silent checkpoint loss</li><li><strong><code>disconnect</code> clears <code>expires_at</code> (L-2)</strong> — stale expiry timestamp is cleared on disconnect</li><li><strong><code>has_bulk_headers</code> Precedence check (C-3)</strong> — fixed dead code where <code>"precedence: bulk"</code> was checked against header names (which never contain colons+values); now checks <code>name == "precedence" &amp;&amp; value.contains("bulk")</code> correctly</li><li><strong>Deterministic category tie-breaking (L-4)</strong> — tied vote counts now resolve by a fixed priority order instead of HashMap iteration order; same sender always classifies the same way across runs</li><li><strong>Trash streamed page-by-page (L-5)</strong> — <code>trash_sender</code> no longer accumulates all message IDs in memory before starting; each page is trashed as it is fetched</li><li><strong>Dead dependencies removed (M-9)</strong> — <code>rusqlite</code>, <code>aes-gcm</code>, and the <code>db</code> module removed; these were unused in v1 and added unnecessary attack surface and binary size</li></ul></div></div><div class="sec"><span class="tag tag-test">Tests</span><div class="sec-body"><ul><li>6 new unit tests for <code>validate_unsubscribe_url</code> (https-only, RFC-1918 rejection, loopback rejection, javascript: scheme rejection)</li><li>Total: 44 unit tests passing</li></ul></div></div>
-  </div>
+  <p class="summary">A quiet security pass.</p>
+  <ul class="notes"><li>A careful read of the OAuth flow, the Gmail query string, and every place we handle a URL. A handful of small holes patched, none ever exploited. The kind of work you only notice in its absence.</li></ul>
 </article>
 
 <article class="version" id="v-0-1-0">
@@ -383,9 +371,9 @@
     <h2><span class="vnum">0.1.0</span></h2>
     <span class="vdate">2026-04-28</span>
   </header>
-  <div class="ver-body">
-    <div class="sec"><span class="tag tag-add">Added</span><div class="sec-body"><ul><li><strong>Gmail OAuth2 connection</strong> — PKCE desktop flow via system browser; loopback redirect on <code>127.0.0.1</code>; automatic token refresh on 401</li><li><strong>Full mailbox scan</strong> — fetches all message metadata with 20 concurrent requests; rate-limited to stay within Gmail's quota</li><li><strong>Scan resume from checkpoint</strong> — scan state is saved after every page; interrupted scans resume from the last checkpoint rather than restarting</li><li><strong>Real-time scan progress</strong> — live progress bar with accurate percentage, senders-found counter, per-category breakdown bars, rotating tips, and milestone toasts (100, 250, 500 … 50,000 senders)</li><li><strong>9-category local classifier</strong> — rule-based Rust classifier assigns every sender to one of: Personal, Security, Finance, Travel, Receipts, Notifications, Subscription, Active Marketing, Dead Marketing</li><li><strong>Sender list</strong> — sorted by email volume; category badge on each row; search by name or address; filter by category</li><li><strong>Trash action</strong> — confirmation modal with optional "older than" date filter (30 days → 5 years); moves emails to Gmail Trash (not permanent delete)</li><li><strong>Live trash progress</strong> — sender row button shows <code>45 / 120…</code> count while a trash operation is running</li><li><strong>Disconnect button</strong> — clears session and returns to the connect screen without restarting the app</li><li><strong>NSIS installer</strong> — Windows installer in <code>currentUser</code> mode; no administrator rights required; WebView2 bootstrapper included</li></ul></div></div>
-  </div>
+  <p class="summary">First light.</p>
+  <ul class="notes"><li>The first build of Ciela. Connect Gmail, scan the inbox, classify every sender into one of nine plain-language categories, and move what you want to Trash. Resume an interrupted scan. Filter by category, search by name, decide a sender at a time.</li>
+<li>Everything still local. Everything still reversible. Everything still free.</li></ul>
 </article>
     </div>
   </div>
