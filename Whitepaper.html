@@ -648,7 +648,7 @@
 
         <h3><span class="num">3</span>Classification</h3>
         <p>
-          Every email is classified by a local rule engine written in Rust. The classifier evaluates the sender domain, subject line, snippet text, and bulk email headers to assign one of ten categories:
+          Every email is classified by a local rule engine written in Rust. The classifier evaluates the sender domain, subject line, snippet text, and bulk email headers to assign one of twelve categories:
         </p>
         <div class="table-wrap">
           <table>
@@ -668,6 +668,8 @@
               <tr><td>Subscription</td><td>Newsletters and curated content</td></tr>
               <tr><td>Active Marketing</td><td>Promotional email from senders who are actively mailing</td></tr>
               <tr><td>Dead Marketing</td><td>Promotional email from senders who haven't been engaged with in years</td></tr>
+              <tr><td>Education</td><td>K-12 and university platforms — Canvas, Blackboard, PowerSchool, Remind, school districts</td></tr>
+              <tr><td>Healthcare</td><td>Patient communication and appointment platforms — appointment reminders, prescription alerts, lab results</td></tr>
               <tr><td>Unknown</td><td>Senders that don't match any category — reviewed and reclassified by the user</td></tr>
             </tbody>
           </table>
@@ -747,7 +749,7 @@
 
         <h3><span class="num">Classification</span></h3>
         <ul>
-          <li>Ten-category local classifier — Personal, Security, Finance, Travel, Receipts, Notifications, Subscription, Active Marketing, Dead Marketing, Unknown</li>
+          <li>Twelve-category local classifier — Personal, Security, Finance, Travel, Receipts, Notifications, Subscription, Active Marketing, Dead Marketing, Education, Healthcare, Unknown</li>
           <li>Sender-type model — one sender can appear as multiple rows when they send different types of email (e.g. Amazon Receipts and Amazon Marketing are separate, independently actionable entries)</li>
           <li>Reclassify any sender — corrections persist across rescans automatically</li>
           <li>Domain-rule engine — hundreds of known platforms classified by sender domain, not just subject keywords</li>
