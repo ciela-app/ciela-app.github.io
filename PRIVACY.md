@@ -1,112 +1,260 @@
-# Privacy Policy
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Ciela — Privacy</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Geist:wght@300;400;500;600&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#faf7f2; --paper-2:#f3efe6; --paper-3:#efece6;
+    --ink:#2a2620; --ink-2:#5d564b; --ink-3:#8a8275; --ink-4:#b6ad9c;
+    --rule:#d9d3c6; --rule-soft:#e8e3d6;
+    --sage:#7a9382; --sage-soft:#e3ebe3; --sage-deep:#5b7565;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  body{background:var(--paper);color:var(--ink);font-family:"Geist",ui-sans-serif,system-ui,sans-serif;font-size:15px;line-height:1.6;-webkit-font-smoothing:antialiased;}
+  a{color:inherit;text-decoration:none;}
+  .display{font-family:"Instrument Serif",serif;font-weight:400;letter-spacing:-0.02em;}
+  .mono{font-family:"Geist Mono",monospace;letter-spacing:.04em;}
+  .muted{color:var(--ink-3);}
+  .em{font-style:italic;color:var(--ink-2);}
+  hr.rule{border:0;height:1px;background:var(--rule-soft);margin:0;}
+  .wide{max-width:1240px;margin:0 auto;padding:0 40px;}
 
-**Ciela**
-Last updated: May 7, 2026
+  /* nav */
+  .nav{position:sticky;top:0;z-index:30;background:rgba(250,247,242,.86);backdrop-filter:saturate(140%) blur(8px);-webkit-backdrop-filter:saturate(140%) blur(8px);border-bottom:1px solid var(--rule-soft);}
+  .nav-inner{display:flex;align-items:center;justify-content:space-between;padding:18px 0;}
+  .brand{display:flex;align-items:center;gap:11px;color:var(--ink);}
+  .brand .word{font-family:"Instrument Serif",serif;font-size:24px;letter-spacing:-0.01em;line-height:1;}
+  .brand .sub{font-family:"Geist Mono",monospace;font-size:9.5px;color:var(--ink-3);letter-spacing:.2em;text-transform:uppercase;margin-left:4px;border-left:1px solid var(--rule);padding-left:10px;}
+  .nav-links{display:flex;gap:30px;align-items:center;color:var(--ink-2);font-size:13.5px;}
+  .nav-links a:hover{color:var(--ink);}
+  .nav-links a.on{color:var(--ink);font-weight:500;}
+  .btn{display:inline-flex;align-items:center;gap:8px;padding:10px 16px;border-radius:8px;border:1px solid var(--rule);background:#fff;color:var(--ink);font:inherit;font-size:13.5px;font-weight:500;letter-spacing:-0.005em;cursor:pointer;}
+  .btn.dark{background:var(--ink);color:#fff;border-color:var(--ink);}
+  .btn.small{padding:8px 12px;font-size:12.5px;}
 
----
+  /* page header */
+  .pagehead{padding:80px 0 32px;}
+  .crumbs{font-family:"Geist Mono",monospace;font-size:10.5px;letter-spacing:.18em;color:var(--ink-3);text-transform:uppercase;display:flex;align-items:center;gap:10px;}
+  .crumbs .sep{opacity:.5;}
+  h1.title{font-family:"Instrument Serif",serif;font-weight:400;font-size:72px;line-height:1;letter-spacing:-0.025em;margin:18px 0 0;}
+  h1.title .em{font-style:italic;color:var(--ink-2);}
+  .lede{color:var(--ink-2);font-size:17px;line-height:1.65;margin-top:22px;max-width:680px;}
+  .meta{display:flex;gap:24px;margin-top:24px;font-family:"Geist Mono",monospace;font-size:11px;letter-spacing:.14em;color:var(--ink-3);text-transform:uppercase;}
 
-## Overview
+  /* article layout */
+  .article{display:grid;grid-template-columns:240px 1fr;gap:64px;padding:48px 0 96px;align-items:start;}
+  .toc{position:sticky;top:120px;}
+  .toc h4{font-family:"Geist Mono",monospace;font-size:10.5px;letter-spacing:.18em;color:var(--ink-3);text-transform:uppercase;margin:0 0 14px;font-weight:500;}
+  .toc a{display:block;font-size:13px;color:var(--ink-2);padding:6px 0;border-left:1px solid var(--rule-soft);padding-left:14px;margin-left:-1px;}
+  .toc a:hover{color:var(--ink);border-color:var(--ink-3);}
 
-Ciela is a desktop application that helps you understand and clean up your Gmail inbox. This policy explains what data Ciela accesses, what it stores, and what it does not do.
+  .prose{max-width:720px;}
+  .prose h2{font-family:"Instrument Serif",serif;font-weight:400;font-size:36px;letter-spacing:-0.02em;line-height:1.1;margin:48px 0 14px;}
+  .prose h2:first-child{margin-top:0;}
+  .prose h2 .num{font-family:"Geist Mono",monospace;font-size:11px;letter-spacing:.18em;color:var(--ink-3);display:block;text-transform:uppercase;margin-bottom:10px;}
+  .prose h3{font-family:"Geist",sans-serif;font-weight:500;font-size:15px;margin:28px 0 6px;letter-spacing:-0.005em;}
+  .prose p{color:var(--ink-2);font-size:15.5px;line-height:1.7;margin:0 0 16px;}
+  .prose p strong{color:var(--ink);font-weight:500;}
+  .prose a{color:var(--sage-deep);border-bottom:1px solid var(--sage-soft);}
+  .prose ul{margin:0 0 18px;padding-left:20px;color:var(--ink-2);}
+  .prose li{margin:6px 0;line-height:1.65;}
+  .prose .callout{background:var(--paper-2);border:1px solid var(--rule-soft);border-radius:12px;padding:18px 22px;margin:24px 0;color:var(--ink-2);font-size:14.5px;line-height:1.65;}
+  .prose .callout strong{color:var(--ink);}
+  .prose .mono{font-family:"Geist Mono",monospace;font-size:13.5px;color:var(--ink);}
+  .prose blockquote{border-left:2px solid var(--sage);padding:6px 18px;margin:18px 0;color:var(--ink-2);font-family:"Instrument Serif",serif;font-size:22px;line-height:1.4;font-style:italic;}
 
-**Short version:** Ciela reads your Gmail metadata to classify your senders. Everything stays on your computer. Nothing is sent to any server. We do not collect, sell, or share your data.
+  table.facts{width:100%;border-collapse:collapse;margin:18px 0 24px;}
+  table.facts td,table.facts th{padding:14px 0;border-bottom:1px solid var(--rule-soft);text-align:left;font-size:14px;color:var(--ink-2);vertical-align:top;}
+  table.facts th{font-family:"Geist Mono",monospace;font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-3);font-weight:500;}
+  table.facts td.k{color:var(--ink);font-weight:500;width:36%;}
 
----
+  /* footer */
+  footer{border-top:1px solid var(--rule-soft);padding:48px 0 36px;background:var(--paper-2);}
+  .foot-grid{display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr;gap:48px;}
+  .foot-grid h4{font-family:"Geist Mono",monospace;font-size:10.5px;letter-spacing:.16em;color:var(--ink-3);text-transform:uppercase;margin:0 0 14px;font-weight:500;}
+  .foot-grid a{display:block;color:var(--ink-2);font-size:13.5px;padding:4px 0;}
+  .foot-grid a:hover{color:var(--ink);}
+  .foot-bottom{display:flex;justify-content:space-between;align-items:center;margin-top:40px;padding-top:24px;border-top:1px solid var(--rule-soft);color:var(--ink-3);font-family:"Geist Mono",monospace;font-size:11px;letter-spacing:.06em;}
+  .foot-bottom .right{display:flex;gap:18px;align-items:center;}
 
-## What Ciela Accesses
+  @media (max-width:900px){
+    .article{grid-template-columns:1fr;gap:24px;}
+    .toc{position:static;}
+    h1.title{font-size:48px;}
+    .foot-grid{grid-template-columns:1fr 1fr;}
+    .nav-links{display:none;}
+  }
+</style>
+</head>
+<body>
 
-When you connect your Google account, Ciela requests **read-only** access to your Gmail. It uses the Gmail API to read:
+<nav class="nav">
+  <div class="wide nav-inner">
+    <a class="brand" href="index.html" aria-label="Ciela home">
+      <svg width="26" height="26" viewBox="0 0 100 100" aria-hidden>
+        <circle cx="50" cy="50" r="42" fill="none" stroke="currentColor" stroke-width="6"/>
+        <path d="M 78 30 A 42 42 0 0 0 78 70" fill="none" stroke="var(--paper)" stroke-width="11"/>
+        <path d="M 78 30 A 42 42 0 0 0 78 70" fill="none" stroke="#7a9382" stroke-width="6" stroke-linecap="round"/>
+      </svg>
+      <span class="word">ciela</span>
+      <span class="sub">the inbox curator</span>
+    </a>
+    <div class="nav-links">
+      <a href="index.html#how">How it works</a>
+      <a href="index.html#free">What it costs</a>
+      <a href="index.html#faq">FAQ</a>
+    </div>
+    <div>
+      <a class="btn dark small" href="index.html#download">Coming soon to Windows</a>
+    </div>
+  </div>
+</nav>
 
-- Sender email addresses and display names
-- Email subjects and short preview snippets
-- Message headers (for classification purposes)
-- Message counts and dates
+<header class="pagehead">
+  <div class="wide">
+    <div class="crumbs"><a href="index.html">Ciela</a><span class="sep">/</span><span>Privacy policy</span></div>
+    <h1 class="title">Privacy <span class="em">policy.</span></h1>
+    <p class="lede">
+      A short policy for a short product. Ciela runs on your computer, reads your inbox there, and sends nothing anywhere. This page exists to say that plainly, and to spell out the few edges where we touch the outside world.
+    </p>
+    <div class="meta">
+      <span>EFFECTIVE · MAY 2026</span>
+      <span>VERSION · 1.0</span>
+      <span>PLAIN LANGUAGE</span>
+    </div>
+  </div>
+</header>
 
-Ciela does **not** access or read:
+<hr class="rule"/>
 
-- The full body of your emails
-- Email attachments
-- Your contacts
-- Your Google Drive, Calendar, or any other Google service
-- Any other Google account data
+<section class="wide">
+  <div class="article">
+    <aside class="toc">
+      <h4>On this page</h4>
+      <a href="#summary">The short version</a>
+      <a href="#data">What data we touch</a>
+      <a href="#storage">Where it lives</a>
+      <a href="#telemetry">Telemetry &amp; analytics</a>
+      <a href="#third-parties">Third parties</a>
+      <a href="#children">Children</a>
+      <a href="#changes">Changes to this policy</a>
+      <a href="#contact">Contact</a>
+    </aside>
 
----
+    <article class="prose">
+      <h2 id="summary"><span class="num">01 · The short version</span>What you need to know.</h2>
+      <p>Ciela is a desktop application. When you connect it to Gmail, it reads metadata from your inbox <strong>on your computer</strong>, classifies it locally, and stores the results in a local encrypted database on your machine. We do not run servers that hold a copy of your mail. We do not have user accounts. We have no way to identify you.</p>
+      <blockquote>Your email stays yours. Your computer stays yours. We're not in the middle.</blockquote>
+      <div class="callout">
+        <strong>The single edge.</strong> Ciela only reaches out to two services on the internet: Google's OAuth endpoint (so you can sign in) and Gmail's API (so it can read your inbox and, when you ask, move mail to your Trash). That is the entire network surface.
+      </div>
 
-## What Ciela Stores
+      <h2 id="data"><span class="num">02 · Data we touch</span>What we read, and what we don't.</h2>
+      <p>For classification, Ciela reads the following fields from each message in your Gmail account:</p>
+      <ul>
+        <li>Sender address and display name</li>
+        <li>Subject line</li>
+        <li>Snippet (the short preview Gmail already shows in your inbox list)</li>
+        <li><span class="mono">List-Unsubscribe</span> and related bulk-mail headers</li>
+        <li>Received timestamp, read/unread state, label list</li>
+      </ul>
+      <h3>What we never read</h3>
+      <ul>
+        <li>Message bodies</li>
+        <li>Attachments</li>
+        <li>Contacts, calendar, drive, or any other Google service</li>
+      </ul>
+      <p>Ciela requests the narrowest Gmail scope that supports its features (<span class="mono">gmail.modify</span>). You can revoke that access at any time from your Google account &rarr; Security &rarr; Third-party access.</p>
 
-All data Ciela collects is stored **locally on your device only**, in an encrypted database protected by a key stored in your operating system's secure credential store (Windows Credential Manager).
+      <h2 id="storage"><span class="num">03 · Where it lives</span>Storage is local.</h2>
+      <p>Classification results are written to a single SQLite database file on your computer. That file is encrypted with SQLCipher using a key derived from your device, so removing the drive and reading it elsewhere will not work.</p>
+      <p>OAuth tokens are held in memory for the duration of a session. When persistence is needed, they are written to your operating system's encrypted credential vault — Windows Credential Manager on Windows, Keychain on macOS, Secret Service on Linux — never as a plaintext file.</p>
 
-Ciela stores:
+      <table class="facts">
+        <thead><tr><th>What</th><th>Where</th></tr></thead>
+        <tbody>
+          <tr><td class="k">Email metadata (sender, subject, snippet)</td><td>Local SQLite, encrypted at rest</td></tr>
+          <tr><td class="k">OAuth tokens</td><td>OS keychain, encrypted by the OS</td></tr>
+          <tr><td class="k">Encryption key</td><td>Derived from your device — never written to disk in plaintext</td></tr>
+          <tr><td class="k">Classifier rules</td><td>Bundled in the application binary</td></tr>
+          <tr><td class="k">Anything on our servers</td><td>— Nothing. We don't have any. —</td></tr>
+        </tbody>
+      </table>
 
-- A list of your email senders (address, display name, message count, last message date)
-- The category assigned to each sender (e.g. Finance, Notifications, Marketing)
-- Any manual reclassifications you make
-- Your account email address
+      <h2 id="telemetry"><span class="num">04 · Telemetry</span>None.</h2>
+      <p>Ciela does not include analytics, crash reporting, usage tracking, A/B testing, install pings, feature-flag checks, or any other form of telemetry. The application never connects to <em>any</em> server other than Google's OAuth and Gmail's API endpoints. We do not know how many people use Ciela, which features they use, or whether they exist at all.</p>
+      <p>This is a deliberate trade-off: it means we cannot detect bugs you do not report. It also means we cannot accidentally betray you.</p>
 
-Ciela does **not** store:
+      <h2 id="third-parties"><span class="num">05 · Third parties</span>The whole list.</h2>
+      <p>Two:</p>
+      <ul>
+        <li><strong>Google</strong> — to authenticate you (OAuth2 PKCE) and to read your mailbox over Gmail's API. Their <a href="https://policies.google.com/privacy">privacy policy</a> governs that side of the connection.</li>
+        <li><strong>Your operating system</strong> — to store OAuth tokens in its native credential vault. Apple, Microsoft, and your Linux distribution govern that storage.</li>
+      </ul>
+      <p>This website (the page you're reading) loads a font from Google Fonts. The Ciela application itself does not load fonts or anything else over the network.</p>
 
-- Email subjects, bodies, or content of any kind
-- OAuth tokens beyond what is required for the current session
-- Any data in the cloud or on any external server
+      <h2 id="children"><span class="num">06 · Children</span>Not intended for under-13s.</h2>
+      <p>Ciela is not directed to children under 13, and we do not knowingly process any data from them — though, since we do not process data from <em>anyone</em>, this is largely a formality.</p>
 
----
+      <h2 id="changes"><span class="num">07 · Changes</span>If anything here changes.</h2>
+      <p>We will update this page and bump the version stamp at the top. The application will not change its data behaviour without a visible release note. There is no mailing list to inform you, by design — checking the <a href="index.html#changelog">changelog</a> when you update is the right way to stay current.</p>
 
-## How Ciela Uses Your Data
+      <h2 id="contact"><span class="num">08 · Contact</span>If you need to reach us.</h2>
+      <p>We don't run a support inbox — for reasons that should now be obvious. If you've spotted a bug or have a question, the in-app "Report an issue" link is the right path; it opens a private form, not an email thread.</p>
+    </article>
+  </div>
+</section>
 
-Your data is used solely to:
+<footer>
+  <div class="wide">
+    <div class="foot-grid">
+      <div>
+        <a class="brand" href="index.html" style="margin-bottom:14px;">
+          <svg width="24" height="24" viewBox="0 0 100 100" aria-hidden>
+            <circle cx="50" cy="50" r="42" fill="none" stroke="currentColor" stroke-width="6"/>
+            <path d="M 78 30 A 42 42 0 0 0 78 70" fill="none" stroke="var(--paper-2)" stroke-width="11"/>
+            <path d="M 78 30 A 42 42 0 0 0 78 70" fill="none" stroke="#7a9382" stroke-width="6" stroke-linecap="round"/>
+          </svg>
+          <span class="word">ciela</span>
+        </a>
+        <p class="muted" style="font-size:13px;line-height:1.6;max-width:300px;margin:14px 0 0;">A free, local-only desktop app that helps you clean, understand, and take control of your inbox.</p>
+      </div>
+      <div>
+        <h4>Product</h4>
+        <a href="index.html#how">How it works</a>
+        <a href="index.html#privacy">Privacy</a>
+        <a href="index.html#free">What it costs</a>
+        <a href="index.html#faq">FAQ</a>
+      </div>
+      <div>
+        <h4>Legal</h4>
+        <a href="Privacy.html">Privacy policy</a>
+        <a href="Terms.html">Terms</a>
+        <a href="Changelog.html">Changelog</a>
+      </div>
+      <div>
+        <h4>Get in touch</h4>
+        <a href="#">Report an issue</a>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>CIELA · THE INBOX CURATOR™</span>
+      <span class="right">
+        <a href="https://ciela.app/PRIVACY">Privacy</a>
+        <span>·</span>
+        <a href="https://ciela.app/TERMS">Terms</a>
+        <span>·</span>
+        <span>NOT AFFILIATED WITH GOOGLE</span>
+      </span>
+    </div>
+  </div>
+</footer>
 
-- Display your sender list and categories within the app
-- Improve classification accuracy across scans
-- Apply your manual reclassification preferences on future scans
-
-Ciela does not use your data for advertising, analytics, or any purpose beyond operating the app on your device.
-
----
-
-## Data Transmission
-
-Ciela makes two types of outbound connections:
-
-1. **Google OAuth** — to authenticate your Google account via Google's standard OAuth 2.0 flow
-2. **Gmail API** — to fetch your email metadata during a scan
-
-Both connections go directly from your device to Google's servers. No data is routed through any Ciela server. There are no Ciela servers.
-
----
-
-## Third-Party Services
-
-Ciela uses the **Google Gmail API**. Your use of Google's services is governed by [Google's Privacy Policy](https://policies.google.com/privacy) and [Google's Terms of Service](https://policies.google.com/terms).
-
-Ciela does not use any other third-party services, analytics platforms, crash reporting tools, or advertising networks.
-
----
-
-## Data Retention and Deletion
-
-Your data exists only in the local database on your device. To delete all data Ciela has stored:
-
-1. Uninstall Ciela, or
-2. Use the disconnect option within the app, which removes your local database
-
-There is no account to delete because no account is created. No data exists anywhere other than your device.
-
----
-
-## Children's Privacy
-
-Ciela is not directed at children under the age of 13 and does not knowingly collect information from children.
-
----
-
-## Changes to This Policy
-
-If this policy changes in a material way, the updated date at the top of this page will be updated. Significant changes will be noted in the application's release notes.
-
----
-
-## Contact
-
-Questions about this privacy policy can be directed to:
-
-privacy@ciela.app
+</body>
+</html>
