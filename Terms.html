@@ -1,0 +1,237 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Ciela — Terms</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Geist:wght@300;400;500;600&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#faf7f2; --paper-2:#f3efe6; --paper-3:#efece6;
+    --ink:#2a2620; --ink-2:#5d564b; --ink-3:#8a8275; --ink-4:#b6ad9c;
+    --rule:#d9d3c6; --rule-soft:#e8e3d6;
+    --sage:#7a9382; --sage-soft:#e3ebe3; --sage-deep:#5b7565;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  body{background:var(--paper);color:var(--ink);font-family:"Geist",ui-sans-serif,system-ui,sans-serif;font-size:15px;line-height:1.6;-webkit-font-smoothing:antialiased;}
+  a{color:inherit;text-decoration:none;}
+  .display{font-family:"Instrument Serif",serif;font-weight:400;letter-spacing:-0.02em;}
+  .mono{font-family:"Geist Mono",monospace;letter-spacing:.04em;}
+  .muted{color:var(--ink-3);}
+  .em{font-style:italic;color:var(--ink-2);}
+  hr.rule{border:0;height:1px;background:var(--rule-soft);margin:0;}
+  .wide{max-width:1240px;margin:0 auto;padding:0 40px;}
+
+  .nav{position:sticky;top:0;z-index:30;background:rgba(250,247,242,.86);backdrop-filter:saturate(140%) blur(8px);-webkit-backdrop-filter:saturate(140%) blur(8px);border-bottom:1px solid var(--rule-soft);}
+  .nav-inner{display:flex;align-items:center;justify-content:space-between;padding:18px 0;}
+  .brand{display:flex;align-items:center;gap:11px;color:var(--ink);}
+  .brand .word{font-family:"Instrument Serif",serif;font-size:24px;letter-spacing:-0.01em;line-height:1;}
+  .brand .sub{font-family:"Geist Mono",monospace;font-size:9.5px;color:var(--ink-3);letter-spacing:.2em;text-transform:uppercase;margin-left:4px;border-left:1px solid var(--rule);padding-left:10px;}
+  .nav-links{display:flex;gap:30px;align-items:center;color:var(--ink-2);font-size:13.5px;}
+  .nav-links a:hover{color:var(--ink);}
+  .nav-links a.on{color:var(--ink);font-weight:500;}
+  .btn{display:inline-flex;align-items:center;gap:8px;padding:10px 16px;border-radius:8px;border:1px solid var(--rule);background:#fff;color:var(--ink);font:inherit;font-size:13.5px;font-weight:500;letter-spacing:-0.005em;cursor:pointer;}
+  .btn.dark{background:var(--ink);color:#fff;border-color:var(--ink);}
+  .btn.small{padding:8px 12px;font-size:12.5px;}
+
+  .pagehead{padding:80px 0 32px;}
+  .crumbs{font-family:"Geist Mono",monospace;font-size:10.5px;letter-spacing:.18em;color:var(--ink-3);text-transform:uppercase;display:flex;align-items:center;gap:10px;}
+  .crumbs .sep{opacity:.5;}
+  h1.title{font-family:"Instrument Serif",serif;font-weight:400;font-size:72px;line-height:1;letter-spacing:-0.025em;margin:18px 0 0;}
+  h1.title .em{font-style:italic;color:var(--ink-2);}
+  .lede{color:var(--ink-2);font-size:17px;line-height:1.65;margin-top:22px;max-width:680px;}
+  .meta{display:flex;gap:24px;margin-top:24px;font-family:"Geist Mono",monospace;font-size:11px;letter-spacing:.14em;color:var(--ink-3);text-transform:uppercase;}
+
+  .article{display:grid;grid-template-columns:240px 1fr;gap:64px;padding:48px 0 96px;align-items:start;}
+  .toc{position:sticky;top:120px;}
+  .toc h4{font-family:"Geist Mono",monospace;font-size:10.5px;letter-spacing:.18em;color:var(--ink-3);text-transform:uppercase;margin:0 0 14px;font-weight:500;}
+  .toc a{display:block;font-size:13px;color:var(--ink-2);padding:6px 0;border-left:1px solid var(--rule-soft);padding-left:14px;margin-left:-1px;}
+  .toc a:hover{color:var(--ink);border-color:var(--ink-3);}
+
+  .prose{max-width:720px;}
+  .prose h2{font-family:"Instrument Serif",serif;font-weight:400;font-size:36px;letter-spacing:-0.02em;line-height:1.1;margin:48px 0 14px;}
+  .prose h2:first-child{margin-top:0;}
+  .prose h2 .num{font-family:"Geist Mono",monospace;font-size:11px;letter-spacing:.18em;color:var(--ink-3);display:block;text-transform:uppercase;margin-bottom:10px;}
+  .prose h3{font-family:"Geist",sans-serif;font-weight:500;font-size:15px;margin:28px 0 6px;letter-spacing:-0.005em;}
+  .prose p{color:var(--ink-2);font-size:15.5px;line-height:1.7;margin:0 0 16px;}
+  .prose p strong{color:var(--ink);font-weight:500;}
+  .prose a{color:var(--sage-deep);border-bottom:1px solid var(--sage-soft);}
+  .prose ul{margin:0 0 18px;padding-left:20px;color:var(--ink-2);}
+  .prose li{margin:6px 0;line-height:1.65;}
+  .prose .callout{background:var(--paper-2);border:1px solid var(--rule-soft);border-radius:12px;padding:18px 22px;margin:24px 0;color:var(--ink-2);font-size:14.5px;line-height:1.65;}
+  .prose .callout strong{color:var(--ink);}
+  .prose .mono{font-family:"Geist Mono",monospace;font-size:13.5px;color:var(--ink);}
+  .prose blockquote{border-left:2px solid var(--sage);padding:6px 18px;margin:18px 0;color:var(--ink-2);font-family:"Instrument Serif",serif;font-size:22px;line-height:1.4;font-style:italic;}
+  .prose .small-print{font-size:13px;color:var(--ink-3);line-height:1.65;border-top:1px solid var(--rule-soft);padding-top:18px;margin-top:36px;}
+
+  footer{border-top:1px solid var(--rule-soft);padding:48px 0 36px;background:var(--paper-2);}
+  .foot-grid{display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr;gap:48px;}
+  .foot-grid h4{font-family:"Geist Mono",monospace;font-size:10.5px;letter-spacing:.16em;color:var(--ink-3);text-transform:uppercase;margin:0 0 14px;font-weight:500;}
+  .foot-grid a{display:block;color:var(--ink-2);font-size:13.5px;padding:4px 0;}
+  .foot-grid a:hover{color:var(--ink);}
+  .foot-bottom{display:flex;justify-content:space-between;align-items:center;margin-top:40px;padding-top:24px;border-top:1px solid var(--rule-soft);color:var(--ink-3);font-family:"Geist Mono",monospace;font-size:11px;letter-spacing:.06em;}
+  .foot-bottom .right{display:flex;gap:18px;align-items:center;}
+
+  @media (max-width:900px){
+    .article{grid-template-columns:1fr;gap:24px;}
+    .toc{position:static;}
+    h1.title{font-size:48px;}
+    .foot-grid{grid-template-columns:1fr 1fr;}
+    .nav-links{display:none;}
+  }
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="wide nav-inner">
+    <a class="brand" href="index.html" aria-label="Ciela home">
+      <svg width="26" height="26" viewBox="0 0 100 100" aria-hidden>
+        <circle cx="50" cy="50" r="42" fill="none" stroke="currentColor" stroke-width="6"/>
+        <path d="M 78 30 A 42 42 0 0 0 78 70" fill="none" stroke="var(--paper)" stroke-width="11"/>
+        <path d="M 78 30 A 42 42 0 0 0 78 70" fill="none" stroke="#7a9382" stroke-width="6" stroke-linecap="round"/>
+      </svg>
+      <span class="word">ciela</span>
+      <span class="sub">the inbox curator</span>
+    </a>
+    <div class="nav-links">
+      <a href="index.html#how">How it works</a>
+      <a href="index.html#free">What it costs</a>
+      <a href="index.html#faq">FAQ</a>
+    </div>
+    <div>
+      <a class="btn dark small" href="index.html#download">Coming soon to Windows</a>
+    </div>
+  </div>
+</nav>
+
+<header class="pagehead">
+  <div class="wide">
+    <div class="crumbs"><a href="index.html">Ciela</a><span class="sep">/</span><span>Terms of use</span></div>
+    <h1 class="title">Terms <span class="em">of use.</span></h1>
+    <p class="lede">
+      Ciela is given away freely. These terms describe the small set of agreements we ask of you in exchange — mostly things you'd expect for a tool that touches your email.
+    </p>
+    <div class="meta">
+      <span>EFFECTIVE · MAY 2026</span>
+      <span>VERSION · 1.0</span>
+      <span>PLAIN LANGUAGE</span>
+    </div>
+  </div>
+</header>
+
+<hr class="rule"/>
+
+<section class="wide">
+  <div class="article">
+    <aside class="toc">
+      <h4>On this page</h4>
+      <a href="#summary">The short version</a>
+      <a href="#use">Acceptable use</a>
+      <a href="#warranty">No warranty</a>
+      <a href="#liability">Limitation of liability</a>
+      <a href="#license">License</a>
+      <a href="#trademarks">Trademarks</a>
+      <a href="#third-parties">Third-party services</a>
+      <a href="#changes">Changes</a>
+      <a href="#law">Governing law</a>
+    </aside>
+
+    <article class="prose">
+      <h2 id="summary"><span class="num">01 · The short version</span>What you're agreeing to.</h2>
+      <p>By downloading and using Ciela, you agree to use it responsibly with email accounts that belong to you (or that you have explicit permission to manage), and you accept that — like all software — Ciela is provided as-is, with no guarantees. We don't collect anything in exchange. There's no account, no payment, no fine print past the obvious.</p>
+      <blockquote>Use it on email that's yours to clean. Don't blame us if it surprises you. That's most of it.</blockquote>
+
+      <h2 id="use"><span class="num">02 · Acceptable use</span>What we ask of you.</h2>
+      <p>You agree that:</p>
+      <ul>
+        <li>You will only connect Ciela to <strong>email accounts you own or are explicitly authorized to manage</strong>. Don't use Ciela to read or clean someone else's inbox without their permission.</li>
+        <li>You will not use Ciela to violate any laws, Google's <a href="https://workspace.google.com/terms/api_terms.html">Gmail API terms</a>, or anyone else's rights.</li>
+        <li>You will not try to circumvent Google's rate limits, abuse OAuth, or pretend to be a different application.</li>
+        <li>You will not modify, repackage, and redistribute Ciela in a way that misrepresents who built it or hides that the original is free.</li>
+      </ul>
+      <p>Because Ciela has no accounts and no servers, we cannot suspend or ban a user — there's no user to suspend. If you behave badly, the consequences are between you, Google, and whoever you harmed.</p>
+
+      <h2 id="warranty"><span class="num">03 · No warranty</span>As-is.</h2>
+      <div class="callout">
+        <strong>Ciela is provided "as is," without warranty of any kind</strong>, express or implied, including but not limited to the warranties of merchantability, fitness for a particular purpose, and noninfringement. We do not warrant that the software will be uninterrupted, error-free, or that any classification or cleanup action will be correct.
+      </div>
+      <p>Plainly: Ciela can mis-classify a sender. The Gmail API can return an unexpected error. Your network can go down mid-action. We've designed Ciela to fail safely — it moves mail to Trash rather than deleting, and Gmail keeps Trash for thirty days — but you remain in charge of your inbox. Review what Ciela proposes before you confirm it.</p>
+
+      <h2 id="liability"><span class="num">04 · Limitation of liability</span>What we're not on the hook for.</h2>
+      <p>To the maximum extent permitted by applicable law, in no event will Ciela, its authors, or its contributors be liable for any indirect, incidental, special, consequential, or punitive damages, or any loss of profits, data, use, or goodwill, arising out of or in connection with your use of (or inability to use) Ciela — even if advised of the possibility of such damages.</p>
+      <p>Our total cumulative liability for any claim arising out of these terms or your use of Ciela is limited to the amount you paid for the software, which, since Ciela is free, is <strong>zero</strong>.</p>
+
+      <h2 id="license"><span class="num">05 · License</span>You may use it. You may read it.</h2>
+      <p>The Ciela application binaries are provided to you under a free, non-exclusive, non-transferable license to install and run the software on devices you control, for any lawful purpose. The source code is published under an open-source license — see the <a href="#">repository</a> for the exact terms, which take precedence over this paragraph where they differ.</p>
+
+      <h2 id="trademarks"><span class="num">06 · Trademarks</span>"Ciela" is ours.</h2>
+      <p>"Ciela" and "The Inbox Curator" are trademarks of the project. You may refer to Ciela by name in reviews, articles, and discussion — please do — but do not use the marks to imply endorsement, partnership, or affiliation we have not agreed to.</p>
+
+      <h2 id="third-parties"><span class="num">07 · Third-party services</span>Mostly: Google.</h2>
+      <p>Ciela interacts with Google's OAuth and Gmail services. Your use of those services is governed by Google's own terms and privacy policy. We are not affiliated with, endorsed by, or sponsored by Google.</p>
+      <p>If Google changes its API, rate limits, or scope policies in a way that affects Ciela's ability to function, we will adapt as quickly as we reasonably can, but we cannot guarantee continued operation across such changes.</p>
+
+      <h2 id="changes"><span class="num">08 · Changes to these terms</span>If anything material changes.</h2>
+      <p>We may update these terms over time. The version stamp at the top of this page will be bumped, and material changes will be noted in the <a href="index.html#changelog">changelog</a>. Continued use of Ciela after a change indicates your acceptance of the new terms.</p>
+
+      <h2 id="law"><span class="num">09 · Governing law</span>Which courts hear what.</h2>
+      <p>These terms are governed by the laws of the jurisdiction in which the Ciela project is published, without regard to its conflict-of-laws provisions. Any dispute arising out of these terms or your use of Ciela will be resolved exclusively in the competent courts of that jurisdiction. If any provision of these terms is held unenforceable, the remaining provisions remain in full force.</p>
+
+      <p class="small-print">
+        Plain-language note: this isn't legal advice and it isn't bullet-proof boilerplate. If your use of Ciela has legal stakes (for example, you're cleaning email tied to an employer, a regulated industry, or a legal matter), please talk to an attorney before doing so.
+      </p>
+    </article>
+  </div>
+</section>
+
+<footer>
+  <div class="wide">
+    <div class="foot-grid">
+      <div>
+        <a class="brand" href="index.html" style="margin-bottom:14px;">
+          <svg width="24" height="24" viewBox="0 0 100 100" aria-hidden>
+            <circle cx="50" cy="50" r="42" fill="none" stroke="currentColor" stroke-width="6"/>
+            <path d="M 78 30 A 42 42 0 0 0 78 70" fill="none" stroke="var(--paper-2)" stroke-width="11"/>
+            <path d="M 78 30 A 42 42 0 0 0 78 70" fill="none" stroke="#7a9382" stroke-width="6" stroke-linecap="round"/>
+          </svg>
+          <span class="word">ciela</span>
+        </a>
+        <p class="muted" style="font-size:13px;line-height:1.6;max-width:300px;margin:14px 0 0;">A free, local-only desktop app that helps you clean, understand, and take control of your inbox.</p>
+      </div>
+      <div>
+        <h4>Product</h4>
+        <a href="index.html#how">How it works</a>
+        <a href="index.html#privacy">Privacy</a>
+        <a href="index.html#free">What it costs</a>
+        <a href="index.html#faq">FAQ</a>
+      </div>
+      <div>
+        <h4>Legal</h4>
+        <a href="https://ciela.app/PRIVACY">Privacy policy</a>
+        <a href="https://ciela.app/TERMS">Terms</a>
+        <a href="#">Source code</a>
+      </div>
+      <div>
+        <h4>Get in touch</h4>
+        <a href="#">Report an issue</a>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>CIELA · THE INBOX CURATOR™</span>
+      <span class="right">
+        <a href="https://ciela.app/PRIVACY">Privacy</a>
+        <span>·</span>
+        <a href="https://ciela.app/TERMS">Terms</a>
+        <span>·</span>
+        <span>NOT AFFILIATED WITH GOOGLE</span>
+      </span>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
