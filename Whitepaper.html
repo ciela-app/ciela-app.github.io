@@ -1,0 +1,941 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>White Paper — Ciela: The Inbox Curator™</title>
+<meta name="description" content="A full technical and product overview of Ciela — architecture, privacy model, classification system, and roadmap." />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Geist:wght@300;400;500;600&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#faf7f2; --paper-2:#f3efe6; --paper-3:#efece6;
+    --ink:#2a2620; --ink-2:#5d564b; --ink-3:#8a8275; --ink-4:#b6ad9c;
+    --rule:#d9d3c6; --rule-soft:#e8e3d6;
+    --sage:#7a9382; --sage-soft:#e3ebe3; --sage-deep:#5b7565;
+    --warn:#c98a4b; --warn-soft:#f3e6d3;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  body{
+    background:var(--paper);
+    color:var(--ink);
+    font-family:"Geist",ui-sans-serif,system-ui,sans-serif;
+    font-size:15px;
+    line-height:1.55;
+    -webkit-font-smoothing:antialiased;
+    text-rendering:optimizeLegibility;
+  }
+  .display{font-family:"Instrument Serif",serif;font-weight:400;letter-spacing:-0.02em;}
+  .mono{font-family:"Geist Mono",monospace;letter-spacing:.04em;}
+  .muted{color:var(--ink-3);}
+  .ink-2{color:var(--ink-2);}
+  .it{font-style:italic;}
+  a{color:inherit;text-decoration:none;}
+  hr.rule{border:0;height:1px;background:var(--rule-soft);margin:0;}
+
+  /* ── shell ───────────────────────────── */
+  .container{max-width:1240px;margin:0 auto;padding:0 40px;}
+  .wide{max-width:1320px;margin:0 auto;padding:0 40px;}
+
+  /* ── nav ─────────────────────────────── */
+  .nav{
+    position:sticky;top:0;z-index:30;
+    background:rgba(250,247,242,.86);
+    backdrop-filter:saturate(140%) blur(8px);
+    -webkit-backdrop-filter:saturate(140%) blur(8px);
+    border-bottom:1px solid var(--rule-soft);
+  }
+  .nav-inner{display:flex;align-items:center;justify-content:space-between;padding:18px 0;}
+  .brand{display:flex;align-items:center;gap:11px;color:var(--ink);}
+  .brand .word{font-family:"Instrument Serif",serif;font-size:24px;letter-spacing:-0.01em;line-height:1;}
+  .brand .sub{font-family:"Geist Mono",monospace;font-size:9.5px;color:var(--ink-3);letter-spacing:.2em;text-transform:uppercase;margin-left:4px;border-left:1px solid var(--rule);padding-left:10px;}
+  .nav-links{display:flex;gap:30px;align-items:center;color:var(--ink-2);font-size:13.5px;}
+  .nav-links a:hover{color:var(--ink);}
+  .nav-right{display:flex;gap:14px;align-items:center;}
+  .btn{
+    display:inline-flex;align-items:center;gap:8px;
+    padding:10px 16px;border-radius:8px;
+    border:1px solid var(--rule);background:#fff;color:var(--ink);
+    font:inherit;font-size:13.5px;font-weight:500;letter-spacing:-0.005em;
+    cursor:pointer;transition:transform .12s ease, border-color .12s ease, background .12s ease;
+  }
+  .btn:hover{border-color:var(--ink-3);}
+  .btn.dark{background:var(--ink);color:#fff;border-color:var(--ink);}
+  .btn.dark:hover{background:#1d1a15;}
+  .btn.small{padding:8px 12px;font-size:12.5px;}
+
+  /* ── whitepaper header ───────────────── */
+  .wp-header{
+    padding:80px 0 64px;
+    border-bottom:1px solid var(--rule-soft);
+  }
+  .wp-header-inner{max-width:780px;}
+  .eyebrow{
+    display:inline-flex;align-items:center;gap:10px;
+    font-family:"Geist Mono",monospace;font-size:10.5px;letter-spacing:.18em;
+    color:var(--ink-3);text-transform:uppercase;
+    padding:7px 12px;border:1px solid var(--rule);border-radius:99px;background:#fff;
+  }
+  .eyebrow .dot{width:6px;height:6px;border-radius:99px;background:var(--sage);}
+  .wp-header h1{
+    font-family:"Instrument Serif",serif;font-weight:400;
+    font-size:72px;line-height:.98;letter-spacing:-0.025em;
+    margin:22px 0 0;color:var(--ink);
+  }
+  .wp-header h1 em{font-style:italic;color:var(--ink-2);}
+  .wp-header .lede{
+    color:var(--ink-2);font-size:17px;line-height:1.65;margin-top:22px;max-width:620px;
+  }
+  .wp-meta{
+    display:flex;align-items:center;gap:24px;margin-top:28px;
+    font-family:"Geist Mono",monospace;font-size:11px;letter-spacing:.10em;color:var(--ink-3);
+    text-transform:uppercase;
+  }
+  .wp-meta span{display:inline-flex;align-items:center;gap:8px;}
+  .wp-meta .sep{color:var(--rule);}
+
+  /* ── layout ──────────────────────────── */
+  .wp-layout{
+    display:grid;
+    grid-template-columns:220px 1fr;
+    gap:80px;
+    align-items:start;
+    padding:80px 0 120px;
+  }
+
+  /* ── table of contents ───────────────── */
+  .toc{
+    position:sticky;top:88px;
+    font-size:12.5px;
+    line-height:1.55;
+  }
+  .toc-label{
+    font-family:"Geist Mono",monospace;font-size:9.5px;letter-spacing:.20em;color:var(--ink-3);
+    text-transform:uppercase;margin-bottom:14px;
+  }
+  .toc ol{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:0;}
+  .toc li a{
+    display:block;padding:7px 10px 7px 12px;
+    color:var(--ink-3);border-left:2px solid var(--rule-soft);
+    font-size:12.5px;line-height:1.45;
+    transition:color .12s, border-color .12s;
+  }
+  .toc li a:hover{color:var(--ink);border-left-color:var(--sage);}
+  .toc li a.active{color:var(--ink-2);border-left-color:var(--sage);}
+
+  /* ── prose ───────────────────────────── */
+  .wp-prose{min-width:0;}
+
+  .wp-section{
+    padding-top:72px;
+    margin-top:0;
+    border-top:1px solid var(--rule-soft);
+  }
+  .wp-section:first-child{border-top:0;padding-top:0;}
+
+  .section-eyebrow{
+    font-family:"Geist Mono",monospace;font-size:10.5px;letter-spacing:.22em;color:var(--ink-3);
+    text-transform:uppercase;display:inline-flex;align-items:center;gap:10px;
+    margin-bottom:14px;
+  }
+  .section-eyebrow::before{content:'';width:18px;height:1px;background:var(--ink-3);display:inline-block;}
+
+  .wp-prose h2{
+    font-family:"Instrument Serif",serif;font-weight:400;
+    font-size:44px;line-height:1.08;letter-spacing:-0.020em;
+    margin:0 0 22px;color:var(--ink);
+  }
+  .wp-prose h2 em{font-style:italic;color:var(--ink-2);}
+
+  .wp-prose h3{
+    font-family:"Instrument Serif",serif;font-weight:400;
+    font-size:26px;line-height:1.15;letter-spacing:-0.012em;
+    margin:42px 0 12px;color:var(--ink);
+    display:flex;align-items:baseline;gap:14px;
+  }
+  .wp-prose h3 .num{
+    font-family:"Geist Mono",monospace;font-size:11px;letter-spacing:.14em;
+    color:var(--ink-3);font-style:normal;margin-top:2px;flex-shrink:0;
+  }
+
+  .wp-prose p{
+    color:var(--ink-2);font-size:15px;line-height:1.75;margin:0 0 18px;
+  }
+  .wp-prose p strong{color:var(--ink);font-weight:500;}
+
+  .wp-prose ul, .wp-prose ol{
+    color:var(--ink-2);font-size:15px;line-height:1.7;
+    padding-left:0;margin:0 0 22px;list-style:none;
+    display:flex;flex-direction:column;gap:8px;
+  }
+  .wp-prose ul li, .wp-prose ol li{
+    padding-left:20px;position:relative;
+  }
+  .wp-prose ul li::before{
+    content:'';position:absolute;left:0;top:10px;
+    width:5px;height:5px;border-radius:99px;background:var(--ink-4);
+  }
+  .wp-prose ol{counter-reset:item;}
+  .wp-prose ol li{counter-increment:item;}
+  .wp-prose ol li::before{
+    content:counter(item);
+    position:absolute;left:0;top:0;
+    font-family:"Geist Mono",monospace;font-size:11px;color:var(--ink-3);letter-spacing:.04em;
+  }
+  .wp-prose li strong{color:var(--ink);font-weight:500;}
+
+  blockquote.pull{
+    font-family:"Instrument Serif",serif;font-size:28px;line-height:1.25;
+    letter-spacing:-0.015em;color:var(--ink);font-weight:400;
+    margin:32px 0;padding:28px 32px;
+    border-left:3px solid var(--sage);
+    background:#fff;border-radius:0 10px 10px 0;
+  }
+  blockquote.pull em{color:var(--sage-deep);}
+
+  /* ── tables ──────────────────────────── */
+  .table-wrap{overflow-x:auto;margin:28px 0 32px;}
+  table{
+    width:100%;border-collapse:collapse;
+    font-size:13.5px;
+  }
+  thead th{
+    font-family:"Geist Mono",monospace;font-size:10px;letter-spacing:.16em;
+    color:var(--ink-3);text-transform:uppercase;text-align:left;
+    padding:10px 16px;border-bottom:1px solid var(--rule);background:var(--paper-2);
+  }
+  thead th:first-child{border-radius:8px 0 0 0;}
+  thead th:last-child{border-radius:0 8px 0 0;}
+  tbody tr{border-bottom:1px solid var(--rule-soft);}
+  tbody tr:last-child{border-bottom:0;}
+  tbody td{
+    padding:13px 16px;vertical-align:top;
+    color:var(--ink-2);line-height:1.55;
+  }
+  tbody td:first-child{color:var(--ink);font-weight:500;}
+  table{border:1px solid var(--rule-soft);border-radius:10px;overflow:hidden;}
+
+  /* ── check / cross lists ─────────────── */
+  .check-list{display:flex;flex-direction:column;gap:14px;margin:22px 0 28px;}
+  .check-list .item{display:grid;grid-template-columns:22px 1fr;gap:12px;align-items:flex-start;}
+  .check-list .yes{
+    width:18px;height:18px;border-radius:99px;background:var(--sage-soft);
+    border:1px solid var(--sage);display:flex;align-items:center;justify-content:center;
+    margin-top:2px;flex-shrink:0;
+  }
+  .check-list .no{
+    width:18px;height:18px;border-radius:99px;background:var(--paper-2);
+    border:1px solid var(--rule);display:flex;align-items:center;justify-content:center;
+    margin-top:2px;color:var(--ink-3);flex-shrink:0;
+  }
+  .check-list .t{font-size:14px;color:var(--ink);}
+  .check-list .s{font-size:12.5px;color:var(--ink-3);margin-top:3px;line-height:1.55;}
+
+  /* ── callout box ─────────────────────── */
+  .callout{
+    background:#fff;border:1px solid var(--rule-soft);border-radius:14px;
+    padding:28px 32px;margin:28px 0;
+  }
+  .callout .k{
+    font-family:"Geist Mono",monospace;font-size:10px;letter-spacing:.18em;
+    color:var(--ink-3);text-transform:uppercase;margin-bottom:10px;
+  }
+  .callout p{margin:0;color:var(--ink-2);font-size:14px;line-height:1.7;}
+  .callout p strong{color:var(--ink);}
+
+  /* ── jewel banner ────────────────────── */
+  .jewel-banner{
+    background:#fff;border:1px solid var(--rule-soft);border-radius:18px;
+    padding:48px 52px;margin:28px 0;
+    position:relative;overflow:hidden;
+  }
+  .jewel-banner::before{
+    content:'';position:absolute;right:-180px;bottom:-180px;width:440px;height:440px;
+    border-radius:50%;border:1px solid var(--rule-soft);
+  }
+  .jewel-banner::after{
+    content:'';position:absolute;right:-120px;bottom:-120px;width:320px;height:320px;
+    border-radius:50%;border:1px solid var(--rule-soft);
+  }
+  .jewel-banner blockquote{
+    font-family:"Instrument Serif",serif;font-size:36px;line-height:1.15;
+    letter-spacing:-0.018em;color:var(--ink);font-weight:400;
+    margin:0 0 18px;position:relative;z-index:1;
+  }
+  .jewel-banner blockquote em{color:var(--sage-deep);}
+  .jewel-banner .attrib{
+    font-size:13.5px;color:var(--ink-3);position:relative;z-index:1;
+    font-family:"Geist Mono",monospace;letter-spacing:.06em;text-transform:uppercase;
+  }
+
+  /* ── stack label ─────────────────────── */
+  .stack-label{
+    display:inline-flex;align-items:center;gap:6px;
+    background:var(--paper-2);border:1px solid var(--rule-soft);border-radius:6px;
+    padding:3px 8px;
+    font-family:"Geist Mono",monospace;font-size:11px;color:var(--ink-2);letter-spacing:.04em;
+    vertical-align:middle;
+  }
+
+  /* ── about strip ─────────────────────── */
+  .about-strip{
+    background:var(--ink);color:#fff;border-radius:18px;
+    padding:64px 56px;margin-top:72px;
+    position:relative;overflow:hidden;
+  }
+  .about-strip::before{
+    content:'';position:absolute;inset:20px;
+    border:1px solid rgba(255,255,255,.07);border-radius:12px;pointer-events:none;
+  }
+  .about-strip h2{
+    font-family:"Instrument Serif",serif;font-weight:400;
+    font-size:48px;line-height:1.05;letter-spacing:-0.02em;
+    margin:0 0 18px;color:#fff;position:relative;z-index:1;
+  }
+  .about-strip h2 em{font-style:italic;color:#b9c8a8;}
+  .about-strip p{
+    color:rgba(255,255,255,.72);font-size:16px;line-height:1.7;
+    max-width:600px;margin:0 0 28px;position:relative;z-index:1;
+  }
+  .about-strip .btn-row{display:flex;gap:12px;flex-wrap:wrap;position:relative;z-index:1;}
+  .about-strip .btn{background:#fff;color:var(--ink);border-color:#fff;}
+  .about-strip .btn:hover{background:#f2eee5;}
+  .about-strip .micro{
+    margin-top:24px;color:rgba(255,255,255,.38);
+    font-family:"Geist Mono",monospace;font-size:11px;letter-spacing:.16em;
+    position:relative;z-index:1;
+  }
+
+  /* ── footer ─────────────────────────── */
+  footer{
+    border-top:1px solid var(--rule-soft);
+    padding:56px 0 40px;background:var(--paper-2);
+    margin-top:80px;
+  }
+  .foot-grid{display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr 1fr;gap:40px;}
+  .foot-grid h4{font-family:"Geist Mono",monospace;font-size:10.5px;letter-spacing:.16em;color:var(--ink-3);text-transform:uppercase;margin:0 0 14px;font-weight:500;}
+  .foot-grid a, .foot-grid span{display:block;color:var(--ink-2);font-size:13.5px;padding:4px 0;}
+  .foot-grid a:hover{color:var(--ink);}
+  .foot-bottom{
+    display:flex;justify-content:space-between;align-items:center;
+    margin-top:48px;padding-top:24px;border-top:1px solid var(--rule-soft);
+    color:var(--ink-3);font-family:"Geist Mono",monospace;font-size:11px;letter-spacing:.06em;
+  }
+  .foot-bottom .right{display:flex;gap:18px;}
+
+  /* ── responsive ──────────────────────── */
+  @media (max-width:1000px){
+    .wp-layout{grid-template-columns:1fr;gap:0;}
+    .toc{display:none;}
+    .wp-header h1{font-size:52px;}
+  }
+  @media (max-width:640px){
+    .container,.wide{padding:0 24px;}
+    .wp-header h1{font-size:40px;}
+    .wp-prose h2{font-size:32px;}
+    .jewel-banner{padding:32px 28px;}
+    .jewel-banner blockquote{font-size:26px;}
+    .about-strip{padding:40px 32px;}
+    .about-strip h2{font-size:34px;}
+    .foot-grid{grid-template-columns:1fr 1fr;}
+  }
+</style>
+</head>
+<body>
+
+<!-- ─── NAV ────────────────────────────────────────────────────────── -->
+<nav class="nav">
+  <div class="wide nav-inner">
+    <a class="brand" href="index.html" aria-label="Ciela home">
+      <svg width="26" height="26" viewBox="0 0 100 100" aria-hidden>
+        <circle cx="50" cy="50" r="42" fill="none" stroke="currentColor" stroke-width="6"/>
+        <path d="M 78 30 A 42 42 0 0 0 78 70" fill="none" stroke="var(--paper)" stroke-width="11"/>
+        <path d="M 78 30 A 42 42 0 0 0 78 70" fill="none" stroke="#7a9382" stroke-width="6" stroke-linecap="round"/>
+      </svg>
+      <span class="word">ciela</span>
+      <span class="sub">the inbox curator</span>
+    </a>
+    <div class="nav-links">
+      <a href="index.html#how">How it works</a>
+      <a href="index.html#free">What it costs</a>
+      <a href="index.html#faq">FAQ</a>
+      <a href="Changelog.html" class="muted">Changelog</a>
+    </div>
+    <div class="nav-right">
+      <a class="btn dark small" href="index.html#download">
+        Download for Windows
+      </a>
+    </div>
+  </div>
+</nav>
+
+<!-- ─── HEADER ──────────────────────────────────────────────────────── -->
+<section class="wp-header">
+  <div class="wide">
+    <div class="wp-header-inner">
+      <span class="eyebrow"><span class="dot"></span>White Paper · Living Document</span>
+      <h1>Ciela: <em>The Inbox Curator™</em></h1>
+      <p class="lede">
+        A full technical and product overview — architecture, privacy model, classification system, and what's coming next.
+      </p>
+      <div class="wp-meta">
+        <span>Updated May 2026</span>
+        <span class="sep">·</span>
+        <span>v2.x</span>
+        <span class="sep">·</span>
+        <span>Independent, not venture-backed</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── BODY ────────────────────────────────────────────────────────── -->
+<div class="wide">
+  <div class="wp-layout">
+
+    <!-- TOC -->
+    <aside class="toc" aria-label="Table of contents">
+      <div class="toc-label">Contents</div>
+      <ol>
+        <li><a href="#executive-summary">Executive Summary</a></li>
+        <li><a href="#the-problem">The Problem</a></li>
+        <li><a href="#the-vision">The Vision</a></li>
+        <li><a href="#jewel-experience">The Jewel Experience</a></li>
+        <li><a href="#privacy">Privacy &amp; Security</a></li>
+        <li><a href="#how-it-works">How It Works</a></li>
+        <li><a href="#architecture">Architecture</a></li>
+        <li><a href="#what-ciela-does">What Ciela Does Today</a></li>
+        <li><a href="#whats-coming">What's Coming</a></li>
+        <li><a href="#monetization">Monetization</a></li>
+        <li><a href="#technology-stack">Technology Stack</a></li>
+        <li><a href="#about">About</a></li>
+      </ol>
+    </aside>
+
+    <!-- Prose -->
+    <article class="wp-prose">
+
+      <!-- 1. Executive Summary -->
+      <section id="executive-summary" class="wp-section">
+        <span class="section-eyebrow">01</span>
+        <h2>Executive Summary</h2>
+        <p>
+          Ciela is a free, local-only desktop application that helps people clean, understand, and take control of their email inbox. It connects to Gmail via secure OAuth2, scans your mailbox entirely on your own device, classifies emails into meaningful categories, and gives you the tools to clean years of unwanted email in minutes.
+        </p>
+        <p>
+          <strong>No cloud. No servers. No accounts. No ads. No subscriptions.</strong> Your email stays yours.
+        </p>
+        <p>
+          Ciela is built for everyone — from the grandmother overwhelmed by 15 years of promotional email, to the privacy-conscious professional who refuses to hand their inbox to a third-party cloud service. The core cleanup tool is free and always will be.
+        </p>
+      </section>
+
+      <!-- 2. The Problem -->
+      <section id="the-problem" class="wp-section">
+        <span class="section-eyebrow">02</span>
+        <h2>The Problem</h2>
+        <p>
+          The average person receives over 120 emails per day. After a decade of inbox accumulation, many users carry 50,000 to 200,000 emails — the vast majority of which are promotional, automated, or long-expired notifications they never asked for and will never read.
+        </p>
+        <p>Existing solutions fall into two categories, both unsatisfactory:</p>
+        <ul>
+          <li><strong>Cloud-based cleaners</strong> (Unroll.me, Clean Email, Mailstrom) require users to grant full Gmail access to a third-party server. These services read, index, and in some cases monetize inbox data. For privacy-conscious users — and for anyone who has thought carefully about what their inbox actually contains — this is unacceptable.</li>
+          <li><strong>Manual cleanup</strong> is simply not viable at scale. Deleting 50,000 emails one by one, or even sender by sender through Gmail's search interface, takes hours of tedious work that most people never finish.</li>
+        </ul>
+        <p>Ciela solves both problems. It does the heavy lifting of a cloud cleaner, with the privacy guarantees of a local tool.</p>
+      </section>
+
+      <!-- 3. The Vision -->
+      <section id="the-vision" class="wp-section">
+        <span class="section-eyebrow">03</span>
+        <h2>The Vision</h2>
+        <p>
+          Ciela is a tool, not a companion. It is calm, precise, and trustworthy. It does not have a personality. It does not send notifications. It does not ask for reviews.
+        </p>
+        <p>
+          The personal edition is free and always will be. A Pro edition for teams and organizations is in development — it will never compromise the core free product.
+        </p>
+        <p>
+          It does one thing exceptionally well: it clears the air in your inbox.
+        </p>
+        <p>
+          The name Ciela draws from the Italian <em>cielo</em> — sky. The mission is to make your inbox feel light again.
+        </p>
+      </section>
+
+      <!-- 4. The Jewel Experience -->
+      <section id="jewel-experience" class="wp-section">
+        <span class="section-eyebrow">04</span>
+        <h2><em>The Jewel Experience</em></h2>
+        <p>Every design decision in Ciela is evaluated against a single question:</p>
+
+        <div class="jewel-banner">
+          <blockquote>Would <em>Jewel</em> understand this?<br>Would Jewel feel safe?</blockquote>
+          <p class="attrib">The Jewel Test — applied to every screen</p>
+        </div>
+
+        <p>
+          Jewel is our design persona — a non-technical user in her 60s, comfortable with tablets and Chromebooks, overwhelmed by her inbox but unwilling to hand it to a service she doesn't trust. She is patient and curious, but easily overwhelmed by jargon, error codes, or interfaces that assume technical knowledge.
+        </p>
+        <p>Ciela must pass the Jewel test at every screen:</p>
+        <ul>
+          <li>No raw error codes — ever</li>
+          <li>No technical terminology without plain-language explanation</li>
+          <li>No blank screens or silent failures</li>
+          <li>Every action has a clear, reversible consequence</li>
+          <li>The app always tells Jewel what it is doing and why</li>
+        </ul>
+        <p>The Jewel Experience also defines the scan screen. Rather than a blank spinner during a long first scan, Jewel sees:</p>
+        <ul>
+          <li>A real-time progress bar with accurate percentage</li>
+          <li>A live category breakdown building as emails are classified</li>
+          <li>Rotating tips that teach her what Ciela can do</li>
+        </ul>
+      </section>
+
+      <!-- 5. Privacy & Security -->
+      <section id="privacy" class="wp-section">
+        <span class="section-eyebrow">05</span>
+        <h2>Privacy &amp; Security</h2>
+
+        <blockquote class="pull">Privacy is not a feature in Ciela. It is the <em>foundation.</em></blockquote>
+
+        <div class="check-list">
+          <div class="item">
+            <span class="yes">
+              <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="var(--sage-deep)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
+            </span>
+            <div>
+              <div class="t">Connects to Gmail via OAuth2 PKCE</div>
+              <div class="s">The same secure flow used by every major email client.</div>
+            </div>
+          </div>
+          <div class="item">
+            <span class="yes">
+              <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="var(--sage-deep)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
+            </span>
+            <div>
+              <div class="t">Reads email metadata locally on your device</div>
+              <div class="s">Sender, subject line, snippet — never the full body or attachments.</div>
+            </div>
+          </div>
+          <div class="item">
+            <span class="yes">
+              <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="var(--sage-deep)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
+            </span>
+            <div>
+              <div class="t">Classifies emails using local rules</div>
+              <div class="s">No machine learning API, no cloud inference — a Rust rule engine running on your machine.</div>
+            </div>
+          </div>
+          <div class="item">
+            <span class="yes">
+              <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="var(--sage-deep)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
+            </span>
+            <div>
+              <div class="t">Stores results in an encrypted local database</div>
+              <div class="s">SQLite via SQLCipher — encrypted at rest, key derived from device hardware.</div>
+            </div>
+          </div>
+          <div class="item">
+            <span class="yes">
+              <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="var(--sage-deep)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
+            </span>
+            <div>
+              <div class="t">Requests only the Gmail scopes it actually needs</div>
+              <div class="s"><span class="mono" style="font-size:12px;">gmail.modify</span> — not full account access.</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="check-list" style="margin-top:0;">
+          <div class="item">
+            <span class="no">
+              <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M18 6L6 18M6 6l12 12"/></svg>
+            </span>
+            <div>
+              <div class="t">Never sends your email content to any server</div>
+            </div>
+          </div>
+          <div class="item">
+            <span class="no">
+              <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M18 6L6 18M6 6l12 12"/></svg>
+            </span>
+            <div>
+              <div class="t">Never stores credentials in plaintext</div>
+            </div>
+          </div>
+          <div class="item">
+            <span class="no">
+              <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M18 6L6 18M6 6l12 12"/></svg>
+            </span>
+            <div>
+              <div class="t">No analytics, telemetry, or usage tracking</div>
+            </div>
+          </div>
+          <div class="item">
+            <span class="no">
+              <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M18 6L6 18M6 6l12 12"/></svg>
+            </span>
+            <div>
+              <div class="t">No external resources loaded in the app interface</div>
+            </div>
+          </div>
+          <div class="item">
+            <span class="no">
+              <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M18 6L6 18M6 6l12 12"/></svg>
+            </span>
+            <div>
+              <div class="t">Connects to no server except Gmail's API and Google's OAuth endpoints</div>
+            </div>
+          </div>
+        </div>
+
+        <h3><span class="num">5.1</span>Offline-first after scan</h3>
+        <p>
+          The initial scan is the only time Ciela requires a live Gmail connection. Once complete, every sender list, subject line, stat, and insight is read from the local encrypted database — no network required. Ciela only reaches out to Gmail again when you explicitly take action: moving emails to Trash or opening an unsubscribe URL. You can disconnect your internet after scanning and the entire inbox intelligence layer continues to work.
+        </p>
+
+        <h3><span class="num">5.2</span>Credential storage</h3>
+        <p>
+          OAuth tokens are held in memory during a session. When persistence is needed, credentials are stored in the OS-level encrypted vault — Windows Credential Manager, macOS Keychain, or Linux Secret Service — never in a plaintext file.
+        </p>
+
+        <h3><span class="num">5.3</span>Database encryption</h3>
+        <p>
+          The local SQLite database is encrypted using SQLCipher. The encryption key is derived from the device's hardware identifier, making the database unreadable if the storage is removed from the machine, while remaining completely transparent to the user.
+        </p>
+
+        <h3><span class="num">5.4</span>OAuth client credential</h3>
+        <p>
+          Ciela bundles a Google OAuth Client ID and Client Secret in the application binary. This is the standard, Google-endorsed pattern for installed desktop applications using the PKCE authorization flow. The Client Secret does not grant access to any user data on its own — it merely identifies the application to Google's OAuth server. All actual authorization requires explicit user consent, and the resulting tokens are stored in the OS credential store, not in the binary. Google's documentation explicitly permits this model for desktop apps.
+        </p>
+
+        <h3><span class="num">5.5</span>Security as a design principle</h3>
+        <p>
+          Every new feature is evaluated through a security lens before implementation. The guiding question is always: <em>does this require data to leave the device?</em> If yes, it requires explicit justification or is removed from scope.
+        </p>
+      </section>
+
+      <!-- 6. How It Works -->
+      <section id="how-it-works" class="wp-section">
+        <span class="section-eyebrow">06</span>
+        <h2>How It Works</h2>
+
+        <h3><span class="num">1</span>Connection</h3>
+        <p>
+          The user connects their Gmail account via a standard OAuth2 PKCE flow. A browser window opens to Google's sign-in page. After authentication, the browser redirects to a local loopback server (<span class="mono" style="font-size:12px;">http://127.0.0.1</span>) that Ciela has opened for exactly this purpose. The authorization code is exchanged for access and refresh tokens entirely on the user's device.
+        </p>
+        <p>
+          Google's OAuth policy requires the system browser for this flow — embedded webviews are prohibited for security reasons. Ciela makes this seamless: the app shows a "waiting for Google" screen, and the browser tab closes automatically after authentication completes.
+        </p>
+
+        <h3><span class="num">2</span>Scan</h3>
+        <p>
+          Ciela fetches your inbox using Gmail's API, reading only the metadata fields needed for classification: sender, subject line, message snippet, and the <span class="mono" style="font-size:12px;">List-Unsubscribe</span> header. Full email content is never downloaded.
+        </p>
+        <p>
+          Ciela fetches messages in batches of up to 100 per HTTP call using Gmail's batch API, dramatically reducing network round-trips. Rate limiting is tuned to 40 messages per second — safely below Gmail's 250 quota-units-per-second ceiling (each message fetch costs 5 units). A first scan of a 100,000-email inbox takes roughly 40–50 minutes; the quota ceiling, not hardware, is the limiting factor.
+        </p>
+        <p>
+          Scan state is checkpointed after every page of results. If the scan is interrupted — app closed, connection lost — it resumes from the last checkpoint rather than starting over.
+        </p>
+        <p>
+          On subsequent runs, Ciela performs an incremental scan — fetching only emails received since the last scan date. A typical weekly incremental scan completes in seconds to a few minutes.
+        </p>
+
+        <h3><span class="num">3</span>Classification</h3>
+        <p>
+          Every email is classified by a local rule engine written in Rust. The classifier evaluates the sender domain, subject line, snippet text, and bulk email headers to assign one of ten categories:
+        </p>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Category</th>
+                <th>Description</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td>Personal</td><td>Emails from real people on personal domains</td></tr>
+              <tr><td>Security &amp; Auth</td><td>Login alerts, verification codes, password resets</td></tr>
+              <tr><td>Finance</td><td>Statements, invoices, transactions, tax documents</td></tr>
+              <tr><td>Travel</td><td>Bookings, itineraries, boarding passes</td></tr>
+              <tr><td>Receipts &amp; Orders</td><td>Order confirmations, shipping updates, delivery notifications</td></tr>
+              <tr><td>Notifications</td><td>App alerts, digests, activity summaries</td></tr>
+              <tr><td>Subscription</td><td>Newsletters and curated content</td></tr>
+              <tr><td>Active Marketing</td><td>Promotional email from senders who are actively mailing</td></tr>
+              <tr><td>Dead Marketing</td><td>Promotional email from senders who haven't been engaged with in years</td></tr>
+              <tr><td>Unknown</td><td>Senders that don't match any category — reviewed and reclassified by the user</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p>
+          Senders with mixed email behavior — Amazon sending both receipts and marketing, for example — display their primary category alongside secondary category badges.
+        </p>
+        <p>
+          In v2, the model advances to treat email type as the primary entity. "Amazon Receipts" and "Amazon Marketing" become distinct action targets, allowing users to trash all marketing from Amazon while leaving every receipt untouched.
+        </p>
+
+        <h3><span class="num">4</span>Cleanup</h3>
+        <p>
+          The user reviews their sender list, filtered by category. Each sender shows their email count and category classification. Clicking Trash opens a confirmation modal with four date-scope options (Older than 30 days / 6 months / 1 year / All time). If the sender has a stored unsubscribe URL, an "Also try to unsubscribe" checkbox appears in the same modal. An amber warning appears if the selected date window would include emails opened in the last 90 days, prompting the user to choose a safer scope.
+        </p>
+        <p>
+          For bulk category cleaning, clicking "Clean all" on a cleanup category (Active Marketing, Dead Marketing, Subscription, Notifications) first checks whether any unprotected sender in that category was recently active. If so, an OutlierView review screen appears before any action is taken. The user can protect recently-active senders one by one; the summary panel updates in real time to show exactly how many senders and emails will be affected. Protected senders are excluded from the clean without needing to dismiss the modal or lose their place.
+        </p>
+        <p>
+          Ciela moves emails to Gmail's Trash folder — it does not permanently delete. Gmail's standard 30-day trash retention applies, giving users a safety net. The trash operation uses Gmail's <span class="mono" style="font-size:12px;">batchModify</span> endpoint, processing up to 1,000 messages per API call; trashing a 10,000-email sender takes roughly the same time as a single network round-trip.
+        </p>
+
+        <h3><span class="num">5</span>Stats <span style="font-family:'Geist Mono',monospace;font-size:13px;color:var(--ink-3);letter-spacing:.06em;">(v2)</span></h3>
+        <p>After scanning, Ciela surfaces inbox intelligence:</p>
+        <ul>
+          <li>Total email breakdown by category</li>
+          <li>Top senders by volume</li>
+          <li>Ghost subscriptions — newsletters not opened in 5+ months</li>
+          <li>Inbox history — a bar chart of email volume by year, showing how the inbox grew from its oldest message to today. After a cleanup session, the bars for affected years shrink — the chart reflects the current state of the inbox, not Ciela's scan history.</li>
+          <li>Attachment inventory — what file types are taking up space</li>
+          <li>Storage reclaimed after a clean session</li>
+        </ul>
+      </section>
+
+      <!-- 7. Architecture -->
+      <section id="architecture" class="wp-section">
+        <span class="section-eyebrow">07</span>
+        <h2>Architecture</h2>
+        <p>
+          Ciela is built on Tauri 2.x — a Rust-based framework for native desktop applications that uses the system's built-in web renderer rather than bundling a full browser engine. This is what allows Ciela to ship as a sub-10MB installer while delivering a modern, responsive interface.
+        </p>
+
+        <div class="callout">
+          <div class="k">Backend — Rust</div>
+          <p>Gmail API client with automatic token refresh and rate limiting · Local rule-based email classifier · Tauri command layer exposing backend functionality to the frontend · SQLite via rusqlite + SQLCipher encryption (v2)</p>
+        </div>
+
+        <div class="callout">
+          <div class="k">Frontend — React + TypeScript + Tailwind CSS</div>
+          <p>Component-based UI with type-safe Tauri command invocations · Real-time scan progress via Tauri event system · Tile-based customizable dashboard</p>
+        </div>
+
+        <div class="callout">
+          <div class="k">Database — SQLite</div>
+          <p>Fully local, single file · Schema includes account_id from v1 — no migration needed for multi-account in v3 · WAL journal mode for performance · Encrypted with SQLCipher (v2)</p>
+        </div>
+
+        <div class="callout">
+          <div class="k">Installer — NSIS</div>
+          <p>currentUser install mode — no administrator rights required · WebView2 bootstrapper (pre-installed on Windows 10/11, downloaded silently if missing) · Sub-10MB installer target</p>
+        </div>
+      </section>
+
+      <!-- 8. What Ciela Does Today -->
+      <section id="what-ciela-does" class="wp-section">
+        <span class="section-eyebrow">08</span>
+        <h2>What Ciela Does <em>Today</em></h2>
+
+        <h3><span class="num">Connect &amp; Scan</span></h3>
+        <ul>
+          <li>One-click Gmail connection via secure OAuth2 — no credentials to enter, no account to create</li>
+          <li>Full mailbox scan across your entire email history</li>
+          <li>Incremental rescans — fast, checks only new mail since the last scan</li>
+          <li>Scan resumes from checkpoint if interrupted — no starting over</li>
+          <li>Works offline after the first scan — browse, filter, and clean without a network connection</li>
+        </ul>
+
+        <h3><span class="num">Classification</span></h3>
+        <ul>
+          <li>Ten-category local classifier — Personal, Security, Finance, Travel, Receipts, Notifications, Subscription, Active Marketing, Dead Marketing, Unknown</li>
+          <li>Sender-type model — one sender can appear as multiple rows when they send different types of email (e.g. Amazon Receipts and Amazon Marketing are separate, independently actionable entries)</li>
+          <li>Reclassify any sender — corrections persist across rescans automatically</li>
+          <li>Domain-rule engine — hundreds of known platforms classified by sender domain, not just subject keywords</li>
+        </ul>
+
+        <h3><span class="num">Clean Up</span></h3>
+        <ul>
+          <li>Trash action with date-scope picker — 4 options (Older than 30 days / 6 months / 1 year / All time); pre-selects your last-used preference; amber warning if selected scope would include recently-opened emails</li>
+          <li>"Also try to unsubscribe" — optional checkbox in the trash modal, shown when a sender has a stored unsubscribe URL; queues unsubscribe alongside trash in one action</li>
+          <li>Bulk clean by category — "Clean all" on any cleanup category opens a confirmation; proceeds directly when no recently-active senders are present</li>
+          <li>Outlier review before bulk clean — if any sender in a cleanup category was opened in the last 90 days, an OutlierView screen appears first; protect specific senders before the clean fires; summary updates in real time</li>
+          <li>Protected senders — mark any sender as untouchable; excluded from all bulk operations and the OutlierView clean flow</li>
+          <li>Unsubscribe tracking — one click to open the sender's unsubscribe URL; Ciela tracks whether they actually stop sending</li>
+          <li>Batch trash API — up to 1,000 emails per API call; trashing a large sender is near-instant rather than minutes</li>
+        </ul>
+
+        <h3><span class="num">Dashboard &amp; Insights</span></h3>
+        <ul>
+          <li>Inbox overview — category cards showing email and sender counts at a glance</li>
+          <li>Sender behavior signals — "Never opened", "Actively read", "Last read N months ago"</li>
+          <li>Outlier protection — amber warning when a sender you're about to clean was recently active</li>
+          <li>Inactive Subscriptions panel — surfaces newsletters you haven't opened in months</li>
+          <li>Unsubscribe status tracking — "Unsubscribed", "Still sending", or "Confirmed ✓"</li>
+          <li>Inbox growth trend — sparkline showing how your inbox has grown across scans</li>
+          <li>Storage breakdown — explains the gap between Gmail's total and Ciela's scanned count; empty Trash and clear Spam directly from the app</li>
+        </ul>
+
+        <h3><span class="num">Settings &amp; Safety</span></h3>
+        <ul>
+          <li>Settings screen — account info, default date filter preference, disconnect</li>
+          <li>Sort and filter — by email volume, engagement, or recency; state persists across navigation</li>
+          <li>No admin rights required — installs per-user on Windows</li>
+        </ul>
+      </section>
+
+      <!-- 9. What's Coming -->
+      <section id="whats-coming" class="wp-section">
+        <span class="section-eyebrow">09</span>
+        <h2>What's <em>Coming</em></h2>
+
+        <h3><span class="num">Sender Intelligence</span></h3>
+        <ul>
+          <li>Sender detail view — full subject history, stats, and actions for any sender</li>
+          <li>Inbox history chart — email volume by year, showing how your inbox grew and shrank over time</li>
+          <li>Similarity suggestions — after reclassifying a sender, Ciela surfaces other senders that look similar</li>
+        </ul>
+
+        <h3><span class="num">Platform</span></h3>
+        <ul>
+          <li>Auto-updater — silent background updates</li>
+          <li>Code signing — no more Windows SmartScreen warnings</li>
+          <li>macOS support</li>
+          <li>Linux support</li>
+          <li>Multi-account — multiple Gmail accounts in one app</li>
+        </ul>
+
+        <h3><span class="num">Ciela Pro</span></h3>
+        <p>
+          A Pro edition for teams and organizations is in development. It will extend the core product with capabilities for shared inboxes, company-wide inbox hygiene, and administrative oversight. The personal edition will not be affected.
+        </p>
+      </section>
+
+      <!-- 10. Monetization -->
+      <section id="monetization" class="wp-section">
+        <span class="section-eyebrow">10</span>
+        <h2>Monetization</h2>
+
+        <h3><span class="num">Personal — Free, forever</span></h3>
+        <p>
+          Ciela's personal edition is free. No ads. No subscriptions. No data selling.
+        </p>
+        <blockquote class="pull">
+          Your data never leaves your computer. Ciela runs entirely on your device — <em>no servers, no accounts, no tracking.</em> Your email stays yours.
+        </blockquote>
+        <p>
+          This reflects a belief that useful software should be accessible to everyone — including the college student who can't afford a subscription and the grandmother who doesn't understand why email costs money to clean.
+        </p>
+
+        <h3><span class="num">Ciela Pro — Coming soon</span></h3>
+        <p>
+          A Pro edition is in development for teams and organizations. It will extend the core product with capabilities designed for shared inboxes, company-wide inbox hygiene, and administrative oversight.
+        </p>
+        <p>
+          The personal edition will never be paywalled. Pro features are additive — they will not remove or restrict anything available today.
+        </p>
+      </section>
+
+      <!-- 11. Technology Stack -->
+      <section id="technology-stack" class="wp-section">
+        <span class="section-eyebrow">11</span>
+        <h2>Technology Stack</h2>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Component</th>
+                <th>Technology</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td>Application framework</td><td>Tauri 2.x</td></tr>
+              <tr><td>Backend language</td><td>Rust</td></tr>
+              <tr><td>Frontend</td><td>React 19 + TypeScript + Tailwind CSS</td></tr>
+              <tr><td>Build tool</td><td>Vite</td></tr>
+              <tr><td>Database</td><td>SQLite via rusqlite (bundled) — v2</td></tr>
+              <tr><td>Encryption</td><td>SQLCipher / AES-GCM — v2</td></tr>
+              <tr><td>HTTP client</td><td>reqwest (rustls, no OpenSSL dependency)</td></tr>
+              <tr><td>Rate limiting</td><td>governor crate (token bucket)</td></tr>
+              <tr><td>OAuth</td><td>PKCE desktop flow, loopback redirect</td></tr>
+              <tr><td>Installer</td><td>NSIS (Windows), DMG (macOS v3), AppImage (Linux v3)</td></tr>
+              <tr><td>Auto-update</td><td>Tauri updater via GitHub Releases (v3)</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- 12. About -->
+      <section id="about" class="wp-section">
+        <span class="section-eyebrow">12</span>
+        <h2>About</h2>
+        <div class="about-strip">
+          <h2>Independent. <em>Not venture-backed.</em></h2>
+          <p>
+            Ciela is an independent software product. It is not trying to grow into something else. It is a tool built to solve a real problem, built right, and given away freely.
+          </p>
+          <div class="btn-row">
+            <a href="index.html#download" class="btn">Download for Windows</a>
+          </div>
+          <div class="micro">FREE · LOCAL-ONLY · YOUR EMAIL STAYS YOURS</div>
+        </div>
+      </section>
+
+    </article>
+  </div>
+</div>
+
+<!-- ─── FOOTER ────────────────────────────────────────────────────── -->
+<footer>
+  <div class="wide">
+    <div class="foot-grid">
+      <div>
+        <a class="brand" href="index.html" style="margin-bottom:14px;">
+          <svg width="24" height="24" viewBox="0 0 100 100" aria-hidden>
+            <circle cx="50" cy="50" r="42" fill="none" stroke="currentColor" stroke-width="6"/>
+            <path d="M 78 30 A 42 42 0 0 0 78 70" fill="none" stroke="var(--paper-2)" stroke-width="11"/>
+            <path d="M 78 30 A 42 42 0 0 0 78 70" fill="none" stroke="#7a9382" stroke-width="6" stroke-linecap="round"/>
+          </svg>
+          <span class="word">ciela</span>
+        </a>
+        <p class="muted" style="font-size:13px;line-height:1.6;max-width:300px;margin:14px 0 0;">
+          A free, local-only desktop app that helps you clean, understand, and take control of your inbox. From the Italian <em>cielo</em> — sky.
+        </p>
+      </div>
+      <div>
+        <h4>Product</h4>
+        <a href="index.html#how">How it works</a>
+        <a href="index.html#privacy">Privacy</a>
+        <a href="index.html#free">What it costs</a>
+        <a href="Changelog.html">Changelog</a>
+      </div>
+      <div>
+        <h4>Resources</h4>
+        <a href="index.html#faq">FAQ</a>
+        <a href="Whitepaper.html">White paper</a>
+        <a href="Changelog.html">Changelog</a>
+      </div>
+      <div>
+        <h4>Legal</h4>
+        <a href="Privacy.html">Privacy policy</a>
+        <a href="Terms.html">Terms</a>
+      </div>
+      <div>
+        <h4>Get in touch</h4>
+        <span>Report an issue — use the in-app link</span>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>CIELA · THE INBOX CURATOR™ · INDEPENDENT, NOT VENTURE-BACKED</span>
+      <span class="right">
+        <a href="Privacy.html">Privacy</a>
+        <span>·</span>
+        <a href="Terms.html">Terms</a>
+        <span>·</span>
+        <span>NOT AFFILIATED WITH GOOGLE</span>
+      </span>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
