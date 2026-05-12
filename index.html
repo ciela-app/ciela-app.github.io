@@ -3,7 +3,110 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
-<title>Ciela — The Inbox Curator</title>
+<title>Ciela — Free Gmail Inbox Cleaner for Windows</title>
+<meta name="description" content="Ciela is a free Windows desktop app that scans your Gmail, groups emails by sender, and lets you clean years of inbox clutter in minutes. No cloud. No accounts. Your email never leaves your PC." />
+<meta name="robots" content="index, follow" />
+<link rel="canonical" href="https://ciela.app/" />
+
+<!-- Open Graph -->
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://ciela.app/" />
+<meta property="og:title" content="Ciela — Free Gmail Inbox Cleaner for Windows" />
+<meta property="og:description" content="Ciela scans your Gmail, classifies senders into twelve categories, and lets you bulk-clean years of inbox clutter in minutes. Free. Local-only. No accounts." />
+<meta property="og:site_name" content="Ciela" />
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:title" content="Ciela — Free Gmail Inbox Cleaner for Windows" />
+<meta name="twitter:description" content="Free desktop app that cleans your Gmail inbox. Everything runs on your PC — no cloud, no accounts, no data sharing." />
+
+<!-- Structured data -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "SoftwareApplication",
+      "name": "Ciela",
+      "alternateName": "Ciela: The Inbox Curator",
+      "description": "Free, local-only Gmail inbox cleaner for Windows. Classifies emails by sender across twelve categories and lets you bulk-clean years of inbox clutter in minutes. No cloud, no accounts, no telemetry.",
+      "applicationCategory": "UtilitiesApplication",
+      "operatingSystem": "Windows 10, Windows 11",
+      "softwareVersion": "0.2.18",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD",
+        "availability": "https://schema.org/InStock"
+      },
+      "url": "https://ciela.app",
+      "downloadUrl": "https://ciela.app/#download",
+      "featureList": [
+        "Gmail OAuth2 — no password stored",
+        "Local-only processing — email never leaves your PC",
+        "Twelve-category email classifier",
+        "Bulk trash with date-scope picker",
+        "Unsubscribe tracking",
+        "Offline after first scan"
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Is Ciela actually free, or will I get pushed into a paid tier?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Genuinely free. Every feature listed on this page is included, with no usage caps, no watermarks, and no upgrade prompts hidden anywhere in the app."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Does Ciela read the body of my emails?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. Ciela reads only sender address, subject line, message snippet (the first ~150 characters Gmail already shows in your inbox), and the List-Unsubscribe header. Attachments and full message bodies are never downloaded."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What happens when I click Move to Trash?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Ciela calls Gmail's API and moves those messages to your Trash folder — exactly the same place they'd go if you trashed them by hand. Gmail keeps Trash for thirty days, so anything you change your mind on can be restored from Gmail itself."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Why does the first scan take so long?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Gmail's API limits how fast a single app can read from a single mailbox. Ciela batches requests to stay safely under the ceiling — about forty minutes for a 100,000-email inbox. After that, incremental scans take seconds. Scans resume from a checkpoint if interrupted, so you can close the app at any time."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is Ciela available on macOS, iOS, Android, or Linux?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Windows ships today. macOS, iOS, Android and Linux are all in active development."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Does Ciela work with Outlook, iCloud, or Fastmail?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Gmail today. Outlook is in development. iCloud and Fastmail are on the roadmap but unscheduled."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Geist:wght@300;400;500;600&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
