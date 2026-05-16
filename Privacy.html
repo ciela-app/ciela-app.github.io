@@ -186,6 +186,8 @@
         <li>Contacts, calendar, drive, or any other Google service</li>
       </ul>
       <p>Ciela requests the narrowest Gmail scope that supports its features (<span class="mono">gmail.modify</span>). You can revoke that access at any time from your Google account &rarr; Security &rarr; Third-party access.</p>
+      <h3>Triage: what Ciela shows when you open a sender</h3>
+      <p>When you open a sender in the triage view, Ciela fetches all email threads involving that address — including messages from your Sent folder and Drafts. This is intentional: to decide whether to keep or remove a sender, you want the full picture of your correspondence with them, not just what arrived in your inbox. Nothing is sent anywhere; the fetch happens over the Gmail API directly to your device.</p>
 
       <h2 id="storage"><span class="num">03 · Where it lives</span>Storage is local.</h2>
       <p>Classification results are written to a single SQLite database file on your computer. That file is encrypted with SQLCipher using a key derived from your device, so removing the drive and reading it elsewhere will not work.</p>
