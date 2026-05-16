@@ -129,8 +129,8 @@
       A quiet record of every shipped version of Ciela, newest first, in plain language. No internal acronyms, no test counts, no celebration. Just what got better, and when.
     </p>
     <div class="meta">
-      <span>32 RELEASES</span>
-      <span>LATEST · v0.2.27 · 2026-05-14</span>
+      <span>34 RELEASES</span>
+      <span>LATEST · v0.2.29 · 2026-05-16</span>
       <span>FIRST · v0.1.0 · 2026-04-28</span>
     </div>
   </div>
@@ -142,7 +142,9 @@
   <div class="layout">
     <aside class="toc">
       <h4>Releases</h4>
-      <a href="#v-0-2-27"><span class="tnum">0.2.27</span><span class="tdate">2026-05-14</span></a>
+      <a href="#v-0-2-29"><span class="tnum">0.2.29</span><span class="tdate">2026-05-16</span></a>
+<a href="#v-0-2-28"><span class="tnum">0.2.28</span><span class="tdate">2026-05-16</span></a>
+<a href="#v-0-2-27"><span class="tnum">0.2.27</span><span class="tdate">2026-05-14</span></a>
 <a href="#v-0-2-26"><span class="tnum">0.2.26</span><span class="tdate">2026-05-13</span></a>
 <a href="#v-0-2-25"><span class="tnum">0.2.25</span><span class="tdate">2026-05-13</span></a>
 <a href="#v-0-2-24"><span class="tnum">0.2.24</span><span class="tdate">2026-05-13</span></a>
@@ -176,6 +178,34 @@
 <a href="#v-0-1-0"><span class="tnum">0.1.0</span><span class="tdate">2026-04-28</span></a>
     </aside>
     <div class="stream">
+
+<article class="version" id="v-0-2-29">
+  <header class="ver-head">
+    <h2><span class="vnum">0.2.29</span></h2>
+    <span class="vdate">2026-05-16</span>
+  </header>
+  <p class="summary">Category pill polish and navigation fixes.</p>
+  <ul class="notes">
+    <li>Category pill now renders correctly for all 12 categories — Personal, Security, Healthcare, Notifications, and Unknown were showing as plain text instead of a colored badge.</li>
+    <li>Clicking a category in the left rail while viewing a sender now navigates to that category correctly.</li>
+    <li>Category pill shows a permanent dropdown caret so the reclassify affordance is always visible.</li>
+  </ul>
+</article>
+
+<article class="version" id="v-0-2-28">
+  <header class="ver-head">
+    <h2><span class="vnum">0.2.28</span></h2>
+    <span class="vdate">2026-05-16</span>
+  </header>
+  <p class="summary">Sort &amp; protect triage, smarter clustering, and 33 new classifier rules.</p>
+  <ul class="notes">
+    <li>New Sort &amp; protect mode in sender detail — flag one email to keep, Ciela surfaces the full cluster of similar subjects, you confirm what to protect, then trash everything else at once.</li>
+    <li>After protecting a cluster, Ciela checks for similar groups and asks if you want to keep those too.</li>
+    <li>Category reclassify dropdown now opens inline at the pill — no separate "Move to…" button.</li>
+    <li>Subject normalization: price-drop and shipping emails now cluster correctly — "5% price drop on Bag A" and "5% price drop on Bag B" map to the same group.</li>
+    <li>33 new sender classification rules across Healthcare, Finance, Education, and Notifications.</li>
+  </ul>
+</article>
 
 <article class="version" id="v-0-2-27">
   <header class="ver-head">
