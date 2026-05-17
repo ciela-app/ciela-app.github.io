@@ -344,9 +344,12 @@
     .wp-layout{grid-template-columns:1fr;gap:0;}
     .toc{display:none;}
     .wp-header h1{font-size:52px;}
+    .nav-links{display:none;}
   }
   @media (max-width:640px){
-    .container,.wide{padding:0 24px;}
+    .container,.wide{padding:0 20px;}
+    .brand .sub{display:none;}
+    .nav-right{display:none;}
     .wp-header h1{font-size:40px;}
     .wp-prose h2{font-size:32px;}
     .jewel-banner{padding:32px 28px;}
@@ -354,6 +357,8 @@
     .about-strip{padding:40px 32px;}
     .about-strip h2{font-size:34px;}
     .foot-grid{grid-template-columns:1fr 1fr;}
+    .foot-bottom{flex-direction:column;gap:12px;text-align:center;}
+    .foot-bottom .right{justify-content:center;}
   }
 </style>
 </head>

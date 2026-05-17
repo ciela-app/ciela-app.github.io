@@ -439,14 +439,26 @@
     .jewel{padding:40px;}
     .jewel blockquote{font-size:36px;}
   }
+  @media (max-width:900px){
+    .nav-links{display:none;}
+  }
   @media (max-width:640px){
-    .container,.wide{padding:0 24px;}
-    h1.headline{font-size:48px;}
-    h2.section-title{font-size:36px;}
+    .container,.wide{padding:0 20px;}
+    .brand .sub{display:none;}
+    .nav-right{display:none;}
+    h1.headline{font-size:44px;}
+    h2.section-title{font-size:34px;}
+    .free h2{font-size:44px;}
+    .jewel{padding:24px 20px;}
+    .jewel blockquote{font-size:26px;}
     .steps{grid-template-columns:1fr;}
     .promise-grid{grid-template-columns:1fr;}
     .foot-grid{grid-template-columns:1fr 1fr;}
-    section.bay{padding:80px 0;}
+    .foot-bottom{flex-direction:column;gap:12px;text-align:center;}
+    .foot-bottom .right{justify-content:center;}
+    .peek-stats{grid-template-columns:1fr 1fr;}
+    section.bay{padding:72px 0;}
+    section.bay.tight{padding:48px 0;}
   }
 </style>
 </head>
