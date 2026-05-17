@@ -667,7 +667,7 @@
 
         <h3><span class="num">3</span>Classification</h3>
         <p>
-          Every email is classified by a local rule engine written in Rust. The classifier evaluates the sender domain, subject line, snippet text, and bulk email headers to assign one of twelve categories:
+          Every email is classified by a local rule engine written in Rust. The classifier evaluates the sender domain, subject line, snippet text, and bulk email headers to assign one of thirteen categories:
         </p>
         <div class="table-wrap">
           <table>
@@ -689,6 +689,7 @@
               <tr><td>Dead Marketing</td><td>Promotional email from senders who haven't been engaged with in years</td></tr>
               <tr><td>Education</td><td>K-12 and university platforms — Canvas, Blackboard, PowerSchool, Remind, school districts</td></tr>
               <tr><td>Healthcare</td><td>Patient communication and appointment platforms — appointment reminders, prescription alerts, lab results</td></tr>
+              <tr><td>Food &amp; Dining</td><td>Food delivery (DoorDash, Uber Eats, Grubhub), restaurant reservations (OpenTable, Resy), meal kits, and restaurant loyalty programs</td></tr>
               <tr><td>Unknown</td><td>Senders that don't match any category — reviewed and reclassified by the user</td></tr>
             </tbody>
           </table>

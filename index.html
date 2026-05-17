@@ -12,7 +12,7 @@
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://ciela.app/" />
 <meta property="og:title" content="Ciela — Free Gmail Inbox Cleaner for Windows" />
-<meta property="og:description" content="Ciela scans your Gmail, classifies senders into twelve categories, and lets you bulk-clean years of inbox clutter in minutes. Free. Local-only. No accounts." />
+<meta property="og:description" content="Ciela scans your Gmail, classifies senders into thirteen categories, and lets you bulk-clean years of inbox clutter in minutes. Free. Local-only. No accounts." />
 <meta property="og:site_name" content="Ciela" />
 
 <!-- Twitter Card -->
@@ -29,10 +29,10 @@
       "@type": "SoftwareApplication",
       "name": "Ciela",
       "alternateName": "Ciela: The Inbox Curator",
-      "description": "Free, local-only Gmail inbox cleaner for Windows. Classifies emails by sender across twelve categories and lets you bulk-clean years of inbox clutter in minutes. No cloud, no accounts, no telemetry.",
+      "description": "Free, local-only Gmail inbox cleaner for Windows. Classifies emails by sender across thirteen categories and lets you bulk-clean years of inbox clutter in minutes. No cloud, no accounts, no telemetry.",
       "applicationCategory": "UtilitiesApplication",
       "operatingSystem": "Windows 10, Windows 11",
-      "softwareVersion": "0.2.41",
+      "softwareVersion": "0.2.42",
       "offers": {
         "@type": "Offer",
         "price": "0",
@@ -44,7 +44,7 @@
       "featureList": [
         "Gmail OAuth2 — no password stored",
         "Local-only processing — email never leaves your PC",
-        "Twelve-category email classifier",
+        "Thirteen-category email classifier",
         "Bulk trash with date-scope picker",
         "Unsubscribe tracking",
         "Inbox history chart — email volume by year",
@@ -644,7 +644,7 @@
       <div class="step">
         <div class="num">STEP 03</div>
         <h3>Sort by sender.</h3>
-        <p>Twelve plain-language categories. One row per sender, with a count, last-read date, and a quiet badge if they've been active recently. Sort the noise to the top and the people you love to the bottom — or the other way around.</p>
+        <p>Thirteen plain-language categories. One row per sender, with a count, last-read date, and a quiet badge if they've been active recently. Sort the noise to the top and the people you love to the bottom — or the other way around.</p>
         <div class="micro">FOR EVERY SENDER YOU HAVE</div>
         <svg class="glyph" width="36" height="36" viewBox="0 0 100 100"><circle cx="30" cy="50" r="14" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="70" cy="50" r="14" fill="none" stroke="currentColor" stroke-width="2"/></svg>
       </div>
@@ -698,7 +698,7 @@
     <div class="cats-wrap">
       <div class="cats-text">
         <span class="section-eyebrow">The classifier</span>
-        <h2 class="section-title">Twelve categories. <span class="em">All decided on your device.</span></h2>
+        <h2 class="section-title">Thirteen categories. <span class="em">All decided on your device.</span></h2>
         <p style="margin-top:24px;">
           A rule-based engine — written in Rust, running locally, with no machine-learning API in the loop — looks at the sender domain, subject, snippet, and the <span class="mono" style="font-size:13px;color:var(--ink-2);">List-Unsubscribe</span> header. It assigns each message to one of twelve plain categories.
         </p>
@@ -720,6 +720,7 @@
         <div class="cat-row"><span class="dot"></span><div><div class="name">Subscription</div><div class="desc">Newsletters and curated content.</div></div><span class="count">2,818</span></div>
         <div class="cat-row"><span class="dot"></span><div><div class="name">Education</div><div class="desc">Schools, universities, and learning platforms.</div></div><span class="count">812</span></div>
         <div class="cat-row"><span class="dot"></span><div><div class="name">Healthcare</div><div class="desc">Patient portals, appointment reminders, pharmacies.</div></div><span class="count">448</span></div>
+        <div class="cat-row"><span class="dot"></span><div><div class="name">Food &amp; Dining</div><div class="desc">Delivery apps, reservations, meal kits, restaurant loyalty.</div></div><span class="count">1,204</span></div>
         <div class="cat-row sage"><span class="dot"></span><div><div class="name">Active marketing</div><div class="desc">Promotional senders, still mailing.</div></div><span class="count">23,975</span></div>
         <div class="cat-row"><span class="dot"></span><div><div class="name">Dead marketing</div><div class="desc">Promotional senders you've ignored for years.</div></div><span class="count">855</span></div>
         <div class="cat-row warn"><span class="dot"></span><div><div class="name">Unknown</div><div class="desc">Reviewed and reclassified by you.</div></div><span class="count">17,265</span></div>
