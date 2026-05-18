@@ -133,8 +133,8 @@
       A quiet record of every shipped version of Ciela, newest first, in plain language. No internal acronyms, no test counts, no celebration. Just what got better, and when.
     </p>
     <div class="meta">
-      <span>48 RELEASES</span>
-      <span>LATEST · v0.2.43 · 2026-05-17</span>
+      <span>49 RELEASES</span>
+      <span>LATEST · v0.2.44 · 2026-05-17</span>
       <span>FIRST · v0.1.0 · 2026-04-28</span>
     </div>
   </div>
@@ -146,7 +146,8 @@
   <div class="layout">
     <aside class="toc">
       <h4>Releases</h4>
-      <a href="#v-0-2-43"><span class="tnum">0.2.43</span><span class="tdate">2026-05-17</span></a>
+      <a href="#v-0-2-44"><span class="tnum">0.2.44</span><span class="tdate">2026-05-17</span></a>
+<a href="#v-0-2-43"><span class="tnum">0.2.43</span><span class="tdate">2026-05-17</span></a>
 <a href="#v-0-2-42"><span class="tnum">0.2.42</span><span class="tdate">2026-05-17</span></a>
 <a href="#v-0-2-41"><span class="tnum">0.2.41</span><span class="tdate">2026-05-17</span></a>
 <a href="#v-0-2-40"><span class="tnum">0.2.40</span><span class="tdate">2026-05-17</span></a>
@@ -196,6 +197,17 @@
 <a href="#v-0-1-0"><span class="tnum">0.1.0</span><span class="tdate">2026-04-28</span></a>
     </aside>
     <div class="stream">
+
+<article class="version" id="v-0-2-44">
+  <header class="ver-head">
+    <h2><span class="vnum">0.2.44</span></h2>
+    <span class="vdate">2026-05-17</span>
+  </header>
+  <p class="summary">Scan checkpoint moved to the encrypted database — mid-scan progress now survives an app restart.</p>
+  <ul class="notes">
+    <li>Previously, closing Ciela mid-scan left a plain JSON checkpoint file on disk. The checkpoint is now written to the same encrypted SQLCipher database as all other data, so your scan position is protected by the same key that guards your inbox data. If the app is closed or crashes during a long scan, the next launch will resume from exactly where it left off.</li>
+  </ul>
+</article>
 
 <article class="version" id="v-0-2-43">
   <header class="ver-head">
