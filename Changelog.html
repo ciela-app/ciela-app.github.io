@@ -180,9 +180,9 @@
       A quiet record of every shipped version of Ciela, newest first, in plain language. No internal acronyms, no test counts, no celebration. Just what got better, and when.
     </p>
     <div class="meta">
-      <span>5 RELEASES</span>
-      <span>50 UPDATES</span>
-      <span>LATEST · v0.2.29 · 2026-05-16</span>
+      <span>6 RELEASES</span>
+      <span>56 UPDATES</span>
+      <span>LATEST · v0.2.51 · 2026-05-18</span>
       <span>FIRST · v0.1.0 · 2026-04-28</span>
     </div>
   </div>
@@ -198,11 +198,17 @@
       <h4>Releases</h4>
 
       <div class="toc-release">
-        <a class="toc-rel wip" href="#rel-inprogress">
-          <span class="toc-rel-name">In the Works</span>
-          <span class="toc-badge wip">16 updates</span>
+        <a class="toc-rel" href="#rel-categories">
+          <span class="toc-rel-name">Categories &amp; Control</span>
+          <span class="toc-badge">Current</span>
         </a>
         <div class="toc-pushes">
+          <a href="#v-0-2-51"><span class="tnum">0.2.51</span><span class="tdate">May 18</span></a>
+          <a href="#v-0-2-50"><span class="tnum">0.2.50</span><span class="tdate">May 18</span></a>
+          <a href="#v-0-2-49"><span class="tnum">0.2.49</span><span class="tdate">May 18</span></a>
+          <a href="#v-0-2-48"><span class="tnum">0.2.48</span><span class="tdate">May 18</span></a>
+          <a href="#v-0-2-47"><span class="tnum">0.2.47</span><span class="tdate">May 18</span></a>
+          <a href="#v-0-2-46"><span class="tnum">0.2.46</span><span class="tdate">May 18</span></a>
           <a href="#v-0-2-45"><span class="tnum">0.2.45</span><span class="tdate">May 17</span></a>
           <a href="#v-0-2-44"><span class="tnum">0.2.44</span><span class="tdate">May 17</span></a>
           <a href="#v-0-2-43"><span class="tnum">0.2.43</span><span class="tdate">May 17</span></a>
@@ -225,7 +231,6 @@
       <div class="toc-release">
         <a class="toc-rel" href="#rel-sort">
           <span class="toc-rel-name">Sort &amp; Rescue</span>
-          <span class="toc-badge">Current</span>
         </a>
         <div class="toc-pushes">
           <a href="#v-0-2-29"><span class="tnum">0.2.29</span><span class="tdate">May 16</span></a>
@@ -302,19 +307,100 @@
     <div class="stream">
 
       <!-- ══════════════════════════════════════════
-           IN THE WORKS — unreleased patches
+           CATEGORIES & CONTROL — current public release
       ══════════════════════════════════════════ -->
-      <section class="release" id="rel-inprogress">
+      <section class="release" id="rel-categories">
         <div class="rel-eyebrow">
-          <span class="rel-badge wip">In the Works</span>
-          <span>Not yet packaged for public release</span>
+          <span class="rel-badge">Current Release</span>
+          <span>v0.2.30 — v0.2.51 · May 2026</span>
         </div>
-        <h2 class="rel-title">What we've <em>been building.</em></h2>
-        <p class="rel-lede">Sixteen improvements accumulated since the last public release. Security hardened, a session undo log so you can recover a cleanup you regret, scan time estimates, a new Food &amp; Dining category, and a steady pass that makes Ciela feel more deliberate and less jangly. When these are ready to ship together, this section becomes the next named release.</p>
+        <h2 class="rel-title">Categories &amp; <em>Control.</em></h2>
+        <p class="rel-lede">Twenty-one classifier categories — up from thirteen — and a Trash History panel that gives you 24 hours to undo any cleanup. Eight new categories cover Government, Utilities, Jobs, Faith, Dating, Real Estate, Gaming, and Gambling. A dedicated Trash History section in the left nav lists every cleanup from the last 24 hours, with an Undo button for each.</p>
+        <a class="btn dark rel-download" href="https://github.com/Opoohwan/Ciela/releases/download/v0.2.51/Ciela_0.2.51_x64-setup.exe">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M3 5.5l8-1.1v8.1H3zm0 8h8v8.1l-8-1.1zm9-9.2l11-1.6v10.8H12zm0 10.2h11v10.8l-11-1.6z"/></svg>
+          Download v0.2.51 for Windows
+        </a>
 
         <details class="sub-releases" open>
-          <summary>16 updates — not yet released</summary>
+          <summary>22 updates in this release</summary>
           <div class="sub-stream">
+
+            <article class="version" id="v-0-2-51">
+              <header class="ver-head">
+                <h2><span class="vnum">0.2.51</span></h2>
+                <span class="vdate">2026-05-18</span>
+              </header>
+              <p class="summary">Trash History — a dedicated panel to review and undo every cleanup.</p>
+              <ul class="notes">
+                <li>A new Trash History section appears in the left nav, below Insights. It lists every trash operation from the last 24 hours: sender (or category), email count, and time elapsed.</li>
+                <li>Each entry has an Undo button. Tapping it sends those emails back to your inbox and removes the entry from the list.</li>
+                <li>A slim banner at the top of the inbox list shows how many operations are available to undo and links directly to the history panel.</li>
+                <li>After a successful undo, Ciela notes that emails permanently deleted from Gmail outside the app cannot be recovered.</li>
+                <li>A failed undo stays in the list so you can retry. The error reason is shown alongside the entry.</li>
+              </ul>
+            </article>
+
+            <article class="version" id="v-0-2-50">
+              <header class="ver-head">
+                <h2><span class="vnum">0.2.50</span></h2>
+                <span class="vdate">2026-05-18</span>
+              </header>
+              <p class="summary">Undo now records every trash path — including Trash Unprotected in sender detail.</p>
+              <ul class="notes">
+                <li>Trashing from the sender detail "Trash Unprotected" button was not recording the operation for undo. Any cleanup done from that view was invisible to the undo log. Now all trash paths write to the same record.</li>
+              </ul>
+            </article>
+
+            <article class="version" id="v-0-2-49">
+              <header class="ver-head">
+                <h2><span class="vnum">0.2.49</span></h2>
+                <span class="vdate">2026-05-18</span>
+              </header>
+              <p class="summary">Faith category refined — no longer catches job titles.</p>
+              <ul class="notes">
+                <li>Faith keywords were matching senders with job titles containing words like "ministry" or "mission" that had nothing to do with religious organizations. The keyword list is now narrowed to reduce false positives.</li>
+              </ul>
+            </article>
+
+            <article class="version" id="v-0-2-48">
+              <header class="ver-head">
+                <h2><span class="vnum">0.2.48</span></h2>
+                <span class="vdate">2026-05-18</span>
+              </header>
+              <p class="summary">Classifier domain coverage expanded.</p>
+              <ul class="notes">
+                <li>Four additional domain rules added across existing categories — catching known senders that were previously landing in Unknown despite fitting a clear category.</li>
+              </ul>
+            </article>
+
+            <article class="version" id="v-0-2-47">
+              <header class="ver-head">
+                <h2><span class="vnum">0.2.47</span></h2>
+                <span class="vdate">2026-05-18</span>
+              </header>
+              <p class="summary">Seven new classifier categories — Utilities, Jobs, Faith, Dating, Real Estate, Gaming, and Gambling.</p>
+              <ul class="notes">
+                <li>Utilities covers electric, gas, water, internet, and phone providers.</li>
+                <li>Jobs covers job boards, recruiters, and career platforms like LinkedIn job alerts, Indeed, and ZipRecruiter.</li>
+                <li>Faith covers religious organizations, churches, temples, and faith-based communities.</li>
+                <li>Dating covers apps and relationship platforms.</li>
+                <li>Real Estate covers listing services, mortgage lenders, and rental platforms.</li>
+                <li>Gaming covers game studios, platforms, and esports.</li>
+                <li>Gambling covers casinos, sports betting apps, and lottery services.</li>
+              </ul>
+            </article>
+
+            <article class="version" id="v-0-2-46">
+              <header class="ver-head">
+                <h2><span class="vnum">0.2.46</span></h2>
+                <span class="vdate">2026-05-18</span>
+              </header>
+              <p class="summary">Government category added; Amazon order emails reclassified.</p>
+              <ul class="notes">
+                <li>A new Government category catches federal, state, and local agency email — .gov domains, county offices, and government-adjacent nonprofits.</li>
+                <li>Amazon "Your order has shipped" and "Order placed" emails now land in Receipts &amp; Orders instead of Notifications.</li>
+              </ul>
+            </article>
 
             <article class="version" id="v-0-2-45">
               <header class="ver-head">
@@ -557,11 +643,10 @@
       </section>
 
       <!-- ══════════════════════════════════════════
-           SORT & RESCUE — current public release
+           SORT & RESCUE
       ══════════════════════════════════════════ -->
       <section class="release" id="rel-sort">
         <div class="rel-eyebrow">
-          <span class="rel-badge">Current Release</span>
           <span>v0.2.27 — v0.2.29 · May 2026</span>
         </div>
         <h2 class="rel-title">Sort &amp; <em>Rescue.</em></h2>

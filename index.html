@@ -12,7 +12,7 @@
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://ciela.app/" />
 <meta property="og:title" content="Ciela — Free Gmail Inbox Cleaner for Windows" />
-<meta property="og:description" content="Ciela scans your Gmail, classifies senders into thirteen categories, and lets you bulk-clean years of inbox clutter in minutes. Free. Local-only. No accounts." />
+<meta property="og:description" content="Ciela scans your Gmail, classifies senders into twenty-one categories, and lets you bulk-clean years of inbox clutter in minutes. Free. Local-only. No accounts." />
 <meta property="og:site_name" content="Ciela" />
 
 <!-- Twitter Card -->
@@ -29,10 +29,10 @@
       "@type": "SoftwareApplication",
       "name": "Ciela",
       "alternateName": "Ciela: The Inbox Curator",
-      "description": "Free, local-only Gmail inbox cleaner for Windows. Classifies emails by sender across thirteen categories and lets you bulk-clean years of inbox clutter in minutes. No cloud, no accounts, no telemetry.",
+      "description": "Free, local-only Gmail inbox cleaner for Windows. Classifies emails by sender across twenty-one categories and lets you bulk-clean years of inbox clutter in minutes. No cloud, no accounts, no telemetry.",
       "applicationCategory": "UtilitiesApplication",
       "operatingSystem": "Windows 10, Windows 11",
-      "softwareVersion": "0.2.29",
+      "softwareVersion": "0.2.51",
       "offers": {
         "@type": "Offer",
         "price": "0",
@@ -44,7 +44,7 @@
       "featureList": [
         "Gmail OAuth2 — no password stored",
         "Local-only processing — email never leaves your PC",
-        "Thirteen-category email classifier",
+        "Twenty-one-category email classifier",
         "Bulk trash with date-scope picker",
         "Unsubscribe tracking",
         "Inbox history chart — email volume by year",
@@ -644,7 +644,7 @@
       <div class="step">
         <div class="num">STEP 03</div>
         <h3>Sort by sender.</h3>
-        <p>Thirteen plain-language categories. One row per sender, with a count, last-read date, and a quiet badge if they've been active recently. Sort the noise to the top and the people you love to the bottom — or the other way around.</p>
+        <p>Twenty-one plain-language categories. One row per sender, with a count, last-read date, and a quiet badge if they've been active recently. Sort the noise to the top and the people you love to the bottom — or the other way around.</p>
         <div class="micro">FOR EVERY SENDER YOU HAVE</div>
         <svg class="glyph" width="36" height="36" viewBox="0 0 100 100"><circle cx="30" cy="50" r="14" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="70" cy="50" r="14" fill="none" stroke="currentColor" stroke-width="2"/></svg>
       </div>
@@ -698,9 +698,9 @@
     <div class="cats-wrap">
       <div class="cats-text">
         <span class="section-eyebrow">The classifier</span>
-        <h2 class="section-title">Thirteen categories. <span class="em">All decided on your device.</span></h2>
+        <h2 class="section-title">Twenty-one categories. <span class="em">All decided on your device.</span></h2>
         <p style="margin-top:24px;">
-          A rule-based engine — written in Rust, running locally, with no machine-learning API in the loop — looks at the sender domain, subject, snippet, and the <span class="mono" style="font-size:13px;color:var(--ink-2);">List-Unsubscribe</span> header. It assigns each message to one of thirteen plain categories.
+          A rule-based engine — written in Rust, running locally, with no machine-learning API in the loop — looks at the sender domain, subject, snippet, and the <span class="mono" style="font-size:13px;color:var(--ink-2);">List-Unsubscribe</span> header. It assigns each message to one of twenty-one plain categories.
         </p>
         <p>
           <strong>Senders with mixed behaviour</strong> — Amazon sending both receipts and marketing, for example — get split into separate, independently actionable rows. Trash the marketing. Keep every receipt.
@@ -723,6 +723,14 @@
         <div class="cat-row"><span class="dot"></span><div><div class="name">Food &amp; Dining</div><div class="desc">Delivery apps, reservations, meal kits, restaurant loyalty.</div></div><span class="count">1,204</span></div>
         <div class="cat-row sage"><span class="dot"></span><div><div class="name">Active marketing</div><div class="desc">Promotional senders, still mailing.</div></div><span class="count">23,975</span></div>
         <div class="cat-row"><span class="dot"></span><div><div class="name">Dead marketing</div><div class="desc">Promotional senders you've ignored for years.</div></div><span class="count">855</span></div>
+        <div class="cat-row"><span class="dot"></span><div><div class="name">Government</div><div class="desc">Federal, state, and local agencies.</div></div></div>
+        <div class="cat-row"><span class="dot"></span><div><div class="name">Utilities</div><div class="desc">Electric, gas, water, internet, phone.</div></div></div>
+        <div class="cat-row"><span class="dot"></span><div><div class="name">Jobs</div><div class="desc">Job boards, recruiters, career platforms.</div></div></div>
+        <div class="cat-row"><span class="dot"></span><div><div class="name">Faith</div><div class="desc">Religious organizations and communities.</div></div></div>
+        <div class="cat-row"><span class="dot"></span><div><div class="name">Dating</div><div class="desc">Dating apps and relationship platforms.</div></div></div>
+        <div class="cat-row"><span class="dot"></span><div><div class="name">Real Estate</div><div class="desc">Listings, agents, mortgage, and rentals.</div></div></div>
+        <div class="cat-row"><span class="dot"></span><div><div class="name">Gaming</div><div class="desc">Games, platforms, and esports.</div></div></div>
+        <div class="cat-row"><span class="dot"></span><div><div class="name">Gambling</div><div class="desc">Casinos, sports betting, and lotteries.</div></div></div>
         <div class="cat-row warn"><span class="dot"></span><div><div class="name">Unknown</div><div class="desc">Reviewed and reclassified by you.</div></div><span class="count">17,265</span></div>
       </div>
     </div>
@@ -888,7 +896,7 @@
         Useful software should be accessible to everyone — the college student who can't afford a subscription and the parent who doesn't understand why email costs money to clean. Ciela is not venture-backed. The personal edition is free and always will be.
       </p>
       <div class="row">
-        <a class="btn big" href="https://github.com/ciela-app/ciela-app.github.io/releases/download/v0.2.29/Ciela_0.2.29_x64-setup.exe">
+        <a class="btn big" href="https://github.com/Opoohwan/Ciela/releases/download/v0.2.51/Ciela_0.2.51_x64-setup.exe">
           <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M3 5.5l8-1.1v8.1H3zm0 8h8v8.1l-8-1.1zm9-9.2l11-1.6v10.8H12zm0 10.2h11v10.8l-11-1.6z"/></svg>
           Download for Windows
         </a>
