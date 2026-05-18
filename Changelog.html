@@ -133,8 +133,8 @@
       A quiet record of every shipped version of Ciela, newest first, in plain language. No internal acronyms, no test counts, no celebration. Just what got better, and when.
     </p>
     <div class="meta">
-      <span>47 RELEASES</span>
-      <span>LATEST · v0.2.42 · 2026-05-17</span>
+      <span>48 RELEASES</span>
+      <span>LATEST · v0.2.43 · 2026-05-17</span>
       <span>FIRST · v0.1.0 · 2026-04-28</span>
     </div>
   </div>
@@ -146,7 +146,8 @@
   <div class="layout">
     <aside class="toc">
       <h4>Releases</h4>
-      <a href="#v-0-2-42"><span class="tnum">0.2.42</span><span class="tdate">2026-05-17</span></a>
+      <a href="#v-0-2-43"><span class="tnum">0.2.43</span><span class="tdate">2026-05-17</span></a>
+<a href="#v-0-2-42"><span class="tnum">0.2.42</span><span class="tdate">2026-05-17</span></a>
 <a href="#v-0-2-41"><span class="tnum">0.2.41</span><span class="tdate">2026-05-17</span></a>
 <a href="#v-0-2-40"><span class="tnum">0.2.40</span><span class="tdate">2026-05-17</span></a>
 <a href="#v-0-2-39"><span class="tnum">0.2.39</span><span class="tdate">2026-05-17</span></a>
@@ -195,6 +196,17 @@
 <a href="#v-0-1-0"><span class="tnum">0.1.0</span><span class="tdate">2026-04-28</span></a>
     </aside>
     <div class="stream">
+
+<article class="version" id="v-0-2-43">
+  <header class="ver-head">
+    <h2><span class="vnum">0.2.43</span></h2>
+    <span class="vdate">2026-05-17</span>
+  </header>
+  <p class="summary">Error handling completeness — silent failures now log warnings.</p>
+  <ul class="notes">
+    <li>Six post-operation code paths that previously swallowed errors silently now emit <code>log::warn!</code> entries. Affected paths: <code>remove_sender</code> in the trash-category loop, <code>log_action</code> in trash-category and empty-trash/spam, <code>log_action</code> in trash-sender-unprotected, <code>cache_storage_stats</code> after live storage fetch, and <code>get_email_address</code> at scan start. These are all bookkeeping calls — the primary operation already succeeded — but failures are now visible in the log rather than silent.</li>
+  </ul>
+</article>
 
 <article class="version" id="v-0-2-42">
   <header class="ver-head">
