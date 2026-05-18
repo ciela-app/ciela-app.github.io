@@ -79,6 +79,18 @@
   .notes li::before{content:"";position:absolute;left:0;top:14px;width:8px;height:1px;background:var(--ink-4);}
   .notes li + li{border-top:1px dashed var(--rule-soft);}
 
+  .tech-notes{margin-top:20px;}
+  .tech-notes summary{display:inline-flex;align-items:center;gap:6px;font-family:"Geist Mono",monospace;font-size:10.5px;letter-spacing:.14em;color:var(--ink-4);text-transform:uppercase;cursor:pointer;list-style:none;user-select:none;}
+  .tech-notes summary::-webkit-details-marker{display:none;}
+  .tech-notes summary::before{content:"▸";font-size:8px;transition:transform .15s;display:inline-block;}
+  .tech-notes[open] summary::before{transform:rotate(90deg);}
+  .tech-notes summary:hover{color:var(--ink-3);}
+  .tech-notes .tech-body{margin-top:10px;padding:12px 16px;background:var(--paper-2);border:1px solid var(--rule-soft);border-radius:6px;}
+  .tech-body ul{margin:0;padding:0;list-style:none;}
+  .tech-body li{position:relative;padding:4px 0 4px 18px;font-family:"Geist Mono",monospace;font-size:11.5px;color:var(--ink-3);line-height:1.6;}
+  .tech-body li::before{content:"";position:absolute;left:0;top:12px;width:6px;height:1px;background:var(--ink-4);}
+  .tech-body li+li{border-top:1px dashed var(--rule-soft);}
+
   footer{border-top:1px solid var(--rule-soft);padding:48px 0 36px;background:var(--paper-2);margin-top:24px;}
   .foot-grid{display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr;gap:48px;}
   .foot-grid h4{font-family:"Geist Mono",monospace;font-size:10.5px;letter-spacing:.16em;color:var(--ink-3);text-transform:uppercase;margin:0 0 14px;font-weight:500;}
@@ -133,8 +145,8 @@
       A quiet record of every shipped version of Ciela, newest first, in plain language. No internal acronyms, no test counts, no celebration. Just what got better, and when.
     </p>
     <div class="meta">
-      <span>49 RELEASES</span>
-      <span>LATEST · v0.2.44 · 2026-05-17</span>
+      <span>50 RELEASES</span>
+      <span>LATEST · v0.2.45 · 2026-05-17</span>
       <span>FIRST · v0.1.0 · 2026-04-28</span>
     </div>
   </div>
@@ -146,7 +158,8 @@
   <div class="layout">
     <aside class="toc">
       <h4>Releases</h4>
-      <a href="#v-0-2-44"><span class="tnum">0.2.44</span><span class="tdate">2026-05-17</span></a>
+      <a href="#v-0-2-45"><span class="tnum">0.2.45</span><span class="tdate">2026-05-17</span></a>
+<a href="#v-0-2-44"><span class="tnum">0.2.44</span><span class="tdate">2026-05-17</span></a>
 <a href="#v-0-2-43"><span class="tnum">0.2.43</span><span class="tdate">2026-05-17</span></a>
 <a href="#v-0-2-42"><span class="tnum">0.2.42</span><span class="tdate">2026-05-17</span></a>
 <a href="#v-0-2-41"><span class="tnum">0.2.41</span><span class="tdate">2026-05-17</span></a>
@@ -197,6 +210,31 @@
 <a href="#v-0-1-0"><span class="tnum">0.1.0</span><span class="tdate">2026-04-28</span></a>
     </aside>
     <div class="stream">
+
+<article class="version" id="v-0-2-45">
+  <header class="ver-head">
+    <h2><span class="vnum">0.2.45</span></h2>
+    <span class="vdate">2026-05-17</span>
+  </header>
+  <p class="summary">The app now waits for you — and asks before it acts.</p>
+  <ul class="notes">
+    <li>When a scan finishes, the results screen stays on screen until you choose to continue. Previously Ciela advanced automatically after a few seconds, which didn't leave much time to look at the summary.</li>
+    <li>The Disconnect button now asks you to confirm before logging you out. One extra click prevents an accidental disconnect mid-session.</li>
+    <li>When a search or category filter returns no senders, a "Clear filters" link appears alongside the empty state. No more hunting for which filter is active — one click and you're back to the full list.</li>
+    <li>Errors that previously vanished silently — a failed trash operation, a reclassify that didn't take — now surface as on-screen messages so you know something needs attention.</li>
+  </ul>
+  <details class="tech-notes">
+    <summary>Technical notes</summary>
+    <div class="tech-body">
+      <ul>
+        <li>Credential store writes now fail hard. If the OS rejects a write to Windows Credential Manager, the OAuth refresh token or database encryption key is not stored at all — there is no silent plaintext fallback path.</li>
+        <li>Email address validation is now enforced inside <code>trash_sender_inner</code> as a defense-in-depth measure, independent of caller-side validation.</li>
+        <li>Sender list filtering in ScanView is memoized — eliminates recomputation on unrelated state changes for large inboxes.</li>
+        <li><code>TRASH_DATE_OPTIONS</code> extracted to <code>constants.ts</code>. <code>SenderDetailView</code> detail state converted to a typed discriminated union; null and string sentinels removed. Subject clustering logic moved to <code>src/utils/clustering.ts</code>.</li>
+      </ul>
+    </div>
+  </details>
+</article>
 
 <article class="version" id="v-0-2-44">
   <header class="ver-head">
