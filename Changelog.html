@@ -180,9 +180,9 @@
       A quiet record of every shipped version of Ciela, newest first, in plain language. No internal acronyms, no test counts, no celebration. Just what got better, and when.
     </p>
     <div class="meta">
-      <span>9 RELEASES</span>
-      <span>64 UPDATES</span>
-      <span>LATEST · v0.2.58 · 2026-05-19</span>
+      <span>12 RELEASES</span>
+      <span>80 UPDATES</span>
+      <span>LATEST · v0.3.2 · 2026-05-19</span>
       <span>FIRST · v0.1.0 · 2026-04-28</span>
     </div>
   </div>
@@ -198,9 +198,20 @@
       <h4>Releases</h4>
 
       <div class="toc-release">
+        <a class="toc-rel" href="#rel-jewel">
+          <span class="toc-rel-name">The Jewel Experience</span>
+          <span class="toc-badge">Current</span>
+        </a>
+        <div class="toc-pushes">
+          <a href="#v-0-3-2"><span class="tnum">0.3.2</span><span class="tdate">May 19</span></a>
+          <a href="#v-0-3-1"><span class="tnum">0.3.1</span><span class="tdate">May 19</span></a>
+          <a href="#v-0-3-0"><span class="tnum">0.3.0</span><span class="tdate">May 19</span></a>
+        </div>
+      </div>
+
+      <div class="toc-release">
         <a class="toc-rel" href="#rel-fewer">
           <span class="toc-rel-name">Fewer Unknowns</span>
-          <span class="toc-badge">Current</span>
         </a>
         <div class="toc-pushes">
           <a href="#v-0-2-58"><span class="tnum">0.2.58</span><span class="tdate">May 19</span></a>
@@ -329,11 +340,80 @@
     <div class="stream">
 
       <!-- ══════════════════════════════════════════
-           FEWER UNKNOWNS — current public release
+           THE JEWEL EXPERIENCE — current public release
+      ══════════════════════════════════════════ -->
+      <section class="release" id="rel-jewel">
+        <div class="rel-eyebrow">
+          <span class="rel-badge">Current Release</span>
+          <span>v0.3.0 — v0.3.2 · May 2026</span>
+        </div>
+        <h2 class="rel-title">The Jewel <em>Experience.</em></h2>
+        <p class="rel-lede">A full visual redesign of the inbox view — stat cards, a new tab strip, a wider category panel — plus the biggest classifier expansion yet. Ciela now recognizes 70+ more senders across healthcare, finance, travel, jobs, subscriptions, and more, so fewer emails land in the Unknown pile.</p>
+        <a class="btn dark rel-download" href="https://github.com/ciela-app/ciela-app.github.io/releases/download/v0.3.2/Ciela_0.3.2_x64-setup.exe">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M3 5.5l8-1.1v8.1H3zm0 8h8v8.1l-8-1.1zm9-9.2l11-1.6v10.8H12zm0 10.2h11v10.8l-11-1.6z"/></svg>
+          Download v0.3.2 for Windows
+        </a>
+        <div class="micro"><a href="https://www.virustotal.com/gui/file/d4afbfb15fb1a60ac40dcf162ccbd19517e7804422ae7a26d0de9fa748e770b3" target="_blank" rel="noopener">VirusTotal scan — v0.3.2</a> · 2 heuristic flags from unsigned binary, 69 clean</div>
+
+        <details class="sub-releases" open>
+          <summary>3 updates in this release</summary>
+          <div class="sub-stream">
+
+            <article class="version" id="v-0-3-2">
+              <header class="ver-head">
+                <h2><span class="vnum">0.3.2</span></h2>
+                <span class="vdate">2026-05-19</span>
+              </header>
+              <p class="summary">Another 30 senders named, one longstanding misclassification fixed.</p>
+              <ul class="notes">
+                <li>30 more domain rules added: Apple Card, Experian, Esurance, OneGuard (Finance); MelMed Center, Vagaro, Otto Vet (Healthcare); FlexMLS, Authentisign (Real Estate); Mercari, Children's Place, PODS, PSA Card, Goldin Auctions (Receipts); swim leagues, Edmentum, Scholastic (Education); Taco Bell (Food); Niantic (Gaming); and more.</li>
+                <li>Disney+ and Peacock now land in Subscriptions — they were previously sorting into Notifications.</li>
+                <li>LastPass, Dropbox, Discord, Shutterfly, CompTIA, and MLB.com added to Notifications.</li>
+                <li>13 more staffing firm domains recognized in Jobs: XceedSearch, Insight Global, Talener, TalentBurst, and others.</li>
+                <li>Regional ISP email addresses (like socal.rr.com) now correctly match their provider — a bug caused addresses with ISP subdomains to land in Unknown instead of Personal.</li>
+              </ul>
+            </article>
+
+            <article class="version" id="v-0-3-1">
+              <header class="ver-head">
+                <h2><span class="vnum">0.3.1</span></h2>
+                <span class="vdate">2026-05-19</span>
+              </header>
+              <p class="summary">26 more senders recognized across 10 categories.</p>
+              <ul class="notes">
+                <li>Healthcare: Anthem, SimonMed, Exact Sciences, VSP, Valley Sleep Center, and Guidance Autism added.</li>
+                <li>Finance: Citi, Equifax, Sallie Mae, Barclaycard, Nelnet, and proxy vote platforms added.</li>
+                <li>Travel: Frontier, Southwest, Holland America, Alamo, U-Haul, and Carrier added.</li>
+                <li>Jobs: Glassdoor and 12 staffing firm domains added.</li>
+                <li>Education, Utilities, Receipts, Food, Notifications, and Real Estate each received additional domain rules.</li>
+              </ul>
+            </article>
+
+            <article class="version" id="v-0-3-0">
+              <header class="ver-head">
+                <h2><span class="vnum">0.3.0</span></h2>
+                <span class="vdate">2026-05-19</span>
+              </header>
+              <p class="summary">A new look for your inbox, built around how you actually clean.</p>
+              <ul class="notes">
+                <li>The inbox view has a new tab strip at the top — Inbox, Insights, and Trash History are one click away instead of buried in a sidebar.</li>
+                <li>Four stat cards now sit at the top of every category view: total senders, never-opened percentage, emails active in the last 90 days, and the single heaviest sender by email count.</li>
+                <li>The left category panel is wider and cleaner, with the Protected count visible at a glance.</li>
+                <li>The "Clean all" action is now styled in Ciela's sage color instead of red — intentional calm for a consequential action.</li>
+                <li>Keyboard navigation through the sender list now works with Arrow, Page Up/Down, Home, and End keys.</li>
+                <li>13 additional domain rules: staffing firms, Zendesk, CVS Pharmacy, Naviance, Chewy, Tango, AYSO, and Shutterfly school notifications.</li>
+              </ul>
+            </article>
+
+          </div>
+        </details>
+      </section>
+
+      <!-- ══════════════════════════════════════════
+           FEWER UNKNOWNS
       ══════════════════════════════════════════ -->
       <section class="release" id="rel-fewer">
         <div class="rel-eyebrow">
-          <span class="rel-badge">Current Release</span>
           <span>v0.2.57 · May 2026</span>
         </div>
         <h2 class="rel-title">Fewer <em>Unknowns.</em></h2>
