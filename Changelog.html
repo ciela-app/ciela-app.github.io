@@ -180,9 +180,9 @@
       A quiet record of every shipped version of Ciela, newest first, in plain language. No internal acronyms, no test counts, no celebration. Just what got better, and when.
     </p>
     <div class="meta">
-      <span>6 RELEASES</span>
-      <span>58 UPDATES</span>
-      <span>LATEST · v0.2.52 · 2026-05-18</span>
+      <span>7 RELEASES</span>
+      <span>61 UPDATES</span>
+      <span>LATEST · v0.2.56 · 2026-05-18</span>
       <span>FIRST · v0.1.0 · 2026-04-28</span>
     </div>
   </div>
@@ -198,9 +198,20 @@
       <h4>Releases</h4>
 
       <div class="toc-release">
+        <a class="toc-rel" href="#rel-open">
+          <span class="toc-rel-name">Open by Default</span>
+          <span class="toc-badge">Current</span>
+        </a>
+        <div class="toc-pushes">
+          <a href="#v-0-2-56"><span class="tnum">0.2.56</span><span class="tdate">May 18</span></a>
+          <a href="#v-0-2-55"><span class="tnum">0.2.55</span><span class="tdate">May 18</span></a>
+          <a href="#v-0-2-54"><span class="tnum">0.2.54</span><span class="tdate">May 18</span></a>
+        </div>
+      </div>
+
+      <div class="toc-release">
         <a class="toc-rel" href="#rel-categories">
           <span class="toc-rel-name">Categories &amp; Control</span>
-          <span class="toc-badge">Current</span>
         </a>
         <div class="toc-pushes">
           <a href="#v-0-2-52"><span class="tnum">0.2.52</span><span class="tdate">May 18</span></a>
@@ -308,11 +319,71 @@
     <div class="stream">
 
       <!-- ══════════════════════════════════════════
-           CATEGORIES & CONTROL — current public release
+           OPEN BY DEFAULT — current public release
+      ══════════════════════════════════════════ -->
+      <section class="release" id="rel-open">
+        <div class="rel-eyebrow">
+          <span class="rel-badge">Current Release</span>
+          <span>v0.2.54 — v0.2.56 · May 2026</span>
+        </div>
+        <h2 class="rel-title">Open by <em>Default.</em></h2>
+        <p class="rel-lede">Ciela now shows your inbox as it builds — senders appear live as each page of email is scanned, so you're never staring at a spinner waiting for results before you can act. Domain names appear on every sender row. And the Connect screen now says plainly what Ciela reads — and what it never touches.</p>
+        <a class="btn dark rel-download" href="https://github.com/ciela-app/ciela-app.github.io/releases/download/v0.2.56/Ciela_0.2.56_x64-setup.exe">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M3 5.5l8-1.1v8.1H3zm0 8h8v8.1l-8-1.1zm9-9.2l11-1.6v10.8H12zm0 10.2h11v10.8l-11-1.6z"/></svg>
+          Download v0.2.56 for Windows
+        </a>
+        <div class="micro"><span>VirusTotal scan — v0.2.56 · link pending binary upload</span></div>
+
+        <details class="sub-releases" open>
+          <summary>3 updates in this release</summary>
+          <div class="sub-stream">
+
+            <article class="version" id="v-0-2-56">
+              <header class="ver-head">
+                <h2><span class="vnum">0.2.56</span></h2>
+                <span class="vdate">2026-05-18</span>
+              </header>
+              <p class="summary">Your inbox builds in real time, page by page.</p>
+              <ul class="notes">
+                <li>Senders appear in your inbox as Ciela scans — after the first 10% of your mailbox is processed, results start populating immediately. No more waiting for a fully complete scan before you see anything.</li>
+                <li>The "Scan complete" splash is gone. When the scan finishes, you're already looking at your inbox with the full results there.</li>
+                <li>If Ciela is closed or crashes mid-scan, the partial results already saved to your local database are not lost — they'll be there when you reopen.</li>
+              </ul>
+            </article>
+
+            <article class="version" id="v-0-2-55">
+              <header class="ver-head">
+                <h2><span class="vnum">0.2.55</span></h2>
+                <span class="vdate">2026-05-18</span>
+              </header>
+              <p class="summary">An honest first impression.</p>
+              <ul class="notes">
+                <li>The Connect screen now states exactly what Ciela reads: sender addresses, subject lines, and the first ~150 characters Gmail already shows in your inbox list. Full email bodies and attachments are never downloaded.</li>
+                <li>The scan time estimate has been corrected — "5–20 minutes depending on inbox size" replaces an earlier estimate that alarmed first-time users.</li>
+              </ul>
+            </article>
+
+            <article class="version" id="v-0-2-54">
+              <header class="ver-head">
+                <h2><span class="vnum">0.2.54</span></h2>
+                <span class="vdate">2026-05-18</span>
+              </header>
+              <p class="summary">See where every sender comes from.</p>
+              <ul class="notes">
+                <li>The domain of each sender now appears as a second line in the inbox list — "Amazon" becomes "Amazon · amazon.com." — making it easy to spot when two different display names are actually the same company.</li>
+                <li>The same domain label appears in the sender detail header.</li>
+              </ul>
+            </article>
+
+          </div>
+        </details>
+      </section>
+
+      <!-- ══════════════════════════════════════════
+           CATEGORIES & CONTROL
       ══════════════════════════════════════════ -->
       <section class="release" id="rel-categories">
         <div class="rel-eyebrow">
-          <span class="rel-badge">Current Release</span>
           <span>v0.2.30 — v0.2.52 · May 2026</span>
         </div>
         <h2 class="rel-title">Categories &amp; <em>Control.</em></h2>
