@@ -3,35 +3,35 @@
 
   <url>
     <loc>https://ciela.app/</loc>
-    <lastmod>2026-05-14</lastmod>
+    <lastmod>2026-05-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
 
   <url>
     <loc>https://ciela.app/Whitepaper.html</loc>
-    <lastmod>2026-05-14</lastmod>
+    <lastmod>2026-05-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <url>
     <loc>https://ciela.app/Changelog.html</loc>
-    <lastmod>2026-05-14</lastmod>
+    <lastmod>2026-05-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
 
   <url>
     <loc>https://ciela.app/Privacy.html</loc>
-    <lastmod>2026-05-11</lastmod>
+    <lastmod>2026-05-20</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
 
   <url>
     <loc>https://ciela.app/Terms.html</loc>
-    <lastmod>2026-05-11</lastmod>
+    <lastmod>2026-05-20</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
