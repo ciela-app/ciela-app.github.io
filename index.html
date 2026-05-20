@@ -414,6 +414,9 @@
   .dl-split .dl-menu a .badge{font-size:10px;font-family:"Geist Mono",monospace;background:var(--paper-2);color:var(--ink-3);padding:2px 6px;border-radius:4px;}
   .dl-split.open .dl-menu{display:block;}
   .dl-split.open .dl-caret{background:#f2eee5;}
+  .v-current{font-size:11px;opacity:0.6;}
+  .v-behind{font-size:11px;color:#e05252;font-weight:600;}
+  .btn.disabled{opacity:0.55;cursor:not-allowed;pointer-events:none;}
 
   /* ── FAQ ─────────────────────────────── */
   .faq{display:grid;grid-template-columns:1fr 1.4fr;gap:80px;margin-top:48px;}
@@ -907,12 +910,16 @@
       <div class="row">
         <a class="btn big" href="https://github.com/ciela-app/ciela-app.github.io/releases/download/v0.4.4/Ciela_0.4.4_x64-setup.exe">
           <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M3 5.5l8-1.1v8.1H3zm0 8h8v8.1l-8-1.1zm9-9.2l11-1.6v10.8H12zm0 10.2h11v10.8l-11-1.6z"/></svg>
-          Download for Windows <span style="font-size:11px;opacity:0.6;">v0.4.4</span>
+          Download for Windows <span class="v-current">v0.4.4</span>
+        </a>
+        <a class="btn big disabled" href="#" tabindex="-1" aria-disabled="true">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+          Download for Mac <span class="v-behind">coming soon</span>
         </a>
         <div class="dl-split" id="dl-linux">
           <a class="btn big dl-main" href="https://github.com/ciela-app/ciela-app.github.io/releases/download/v0.4.4/Ciela_0.4.4_amd64.AppImage">
             <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14H9V8h2v8zm4 0h-2V8h2v8z"/><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"/></svg>
-            Download for Linux <span style="font-size:11px;opacity:0.6;">v0.4.4</span>
+            Download for Linux <span class="v-current">v0.4.4</span>
           </a>
           <button class="dl-caret" onclick="document.getElementById('dl-linux').classList.toggle('open')" aria-label="Choose Linux package format">▾</button>
           <div class="dl-menu">
@@ -932,7 +939,7 @@
           <svg width="12" height="12" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
         </a>
       </div>
-      <div class="micro">WINDOWS 10+ · LINUX (AMD64) · macOS COMING SOON</div>
+      <div class="micro">WINDOWS 10+ · macOS APPLE SILICON (M1+) · LINUX (AMD64)</div>
       <div class="micro"><a href="https://www.virustotal.com/gui/file/a8254fb0b12bff090e2e5321c71c005dce713471e87662925f889ef559515d3a" target="_blank" rel="noopener">VirusTotal — Windows</a> · 3 flags, 68 clean &nbsp;·&nbsp; <a href="https://www.virustotal.com/gui/file/c08a9de224c015b703040960f1398a6175f2082219f7324adce19df75db43a5a" target="_blank" rel="noopener">AppImage</a> · 0/62 &nbsp;·&nbsp; <a href="https://www.virustotal.com/gui/file/ab131b5818617b585b1a1300b6f2891f23d0e946393dfa653a1640c66c580726" target="_blank" rel="noopener">.deb</a> · 0/61 &nbsp;·&nbsp; <a href="https://www.virustotal.com/gui/file/8a873067714a019abfa837b94604fb8f47941192163de9c1abd7511822cc2af6" target="_blank" rel="noopener">.rpm</a> · 0/61</div>
     </div>
   </div>
