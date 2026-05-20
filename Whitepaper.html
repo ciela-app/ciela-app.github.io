@@ -4,7 +4,7 @@
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
 <title>White Paper — Ciela: The Inbox Curator™</title>
-<meta name="description" content="A full technical and product overview of Ciela — architecture, privacy model, thirteen-category classifier, and roadmap. Free Gmail inbox cleaner for Windows." />
+<meta name="description" content="A full technical and product overview of Ciela — architecture, privacy model, classifier design, and roadmap. Free Gmail inbox cleaner for Windows, Mac, and Linux." />
 <meta name="robots" content="index, follow" />
 <link rel="canonical" href="https://ciela.app/Whitepaper.html" />
 
@@ -667,7 +667,7 @@
 
         <h3><span class="num">3</span>Classification</h3>
         <p>
-          Every email is classified by a local rule engine written in Rust. The classifier evaluates the sender domain, subject line, snippet text, and bulk email headers to assign one of thirteen categories:
+          Every email is classified by a local rule engine written in Rust. The classifier evaluates the sender domain, subject line, snippet text, and bulk email headers to assign one of twelve categories:
         </p>
         <div class="table-wrap">
           <table>
