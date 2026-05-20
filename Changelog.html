@@ -180,9 +180,9 @@
       A quiet record of every shipped version of Ciela, newest first, in plain language. No internal acronyms, no test counts, no celebration. Just what got better, and when.
     </p>
     <div class="meta">
-      <span>12 RELEASES</span>
-      <span>80 UPDATES</span>
-      <span>LATEST · v0.3.2 · 2026-05-19</span>
+      <span>17 RELEASES</span>
+      <span>85 UPDATES</span>
+      <span>LATEST · v0.4.3 · 2026-05-19</span>
       <span>FIRST · v0.1.0 · 2026-04-28</span>
     </div>
   </div>
@@ -203,6 +203,9 @@
           <span class="toc-badge">Current</span>
         </a>
         <div class="toc-pushes">
+          <a href="#v-0-4-3"><span class="tnum">0.4.3</span><span class="tdate">May 19</span></a>
+          <a href="#v-0-3-4"><span class="tnum">0.3.4</span><span class="tdate">May 19</span></a>
+          <a href="#v-0-3-3"><span class="tnum">0.3.3</span><span class="tdate">May 19</span></a>
           <a href="#v-0-3-2"><span class="tnum">0.3.2</span><span class="tdate">May 19</span></a>
           <a href="#v-0-3-1"><span class="tnum">0.3.1</span><span class="tdate">May 19</span></a>
           <a href="#v-0-3-0"><span class="tnum">0.3.0</span><span class="tdate">May 19</span></a>
@@ -345,19 +348,62 @@
       <section class="release" id="rel-jewel">
         <div class="rel-eyebrow">
           <span class="rel-badge">Current Release</span>
-          <span>v0.3.0 — v0.3.2 · May 2026</span>
+          <span>v0.3.0 — v0.4.3 · May 2026</span>
         </div>
         <h2 class="rel-title">The Jewel <em>Experience.</em></h2>
         <p class="rel-lede">A full visual redesign of the inbox view — stat cards, a new tab strip, a wider category panel — plus the biggest classifier expansion yet. Ciela now recognizes 70+ more senders across healthcare, finance, travel, jobs, subscriptions, and more, so fewer emails land in the Unknown pile.</p>
-        <a class="btn dark rel-download" href="https://github.com/ciela-app/ciela-app.github.io/releases/download/v0.3.2/Ciela_0.3.2_x64-setup.exe">
+        <a class="btn dark rel-download" href="https://github.com/ciela-app/ciela-app.github.io/releases/download/v0.4.3/Ciela_0.4.3_x64-setup.exe">
           <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M3 5.5l8-1.1v8.1H3zm0 8h8v8.1l-8-1.1zm9-9.2l11-1.6v10.8H12zm0 10.2h11v10.8l-11-1.6z"/></svg>
-          Download v0.3.2 for Windows
+          Download v0.4.3 for Windows
         </a>
-        <div class="micro"><a href="https://www.virustotal.com/gui/file/d4afbfb15fb1a60ac40dcf162ccbd19517e7804422ae7a26d0de9fa748e770b3" target="_blank" rel="noopener">VirusTotal scan — v0.3.2</a> · 2 heuristic flags from unsigned binary, 69 clean</div>
+        <div class="micro"><a href="https://www.virustotal.com/gui/file/cd1180580be775f63a7ad9e0a3ba88e44bee8a7b0081dbf72f8d8cbf4e6dad19" target="_blank" rel="noopener">VirusTotal scan — v0.4.3</a> · 3 heuristic flags from unsigned binary, 68 clean</div>
 
         <details class="sub-releases" open>
-          <summary>3 updates in this release</summary>
+          <summary>6 updates in this release</summary>
           <div class="sub-stream">
+
+            <article class="version" id="v-0-4-3">
+              <header class="ver-head">
+                <h2><span class="vnum">0.4.3</span></h2>
+                <span class="vdate">2026-05-19</span>
+              </header>
+              <p class="summary">UI polish, reliability fixes, and a preview of what's coming next.</p>
+              <ul class="notes">
+                <li>Stat cards now show context hints — "55% of inbox", "12% of senders", "8% of category" — so counts have meaning at a glance.</li>
+                <li>Settings gear icon fixed — displayed as a black square on some Windows installs due to a Unicode rendering gap.</li>
+                <li>The "Last scan" timestamp no longer uppercases the time string ("4 MIN AGO" → "4 min ago").</li>
+                <li>The bulk clean count now reflects your active search filter instead of the full category count.</li>
+                <li>Modal titles use Instrument Serif — consistent with the rest of the design system.</li>
+                <li>Connect screen now shows Outlook and Yahoo / AOL as "Coming soon" — multi-provider support is in progress.</li>
+                <li>Four database transaction bugs fixed — partial writes on crash or force-quit are no longer possible.</li>
+                <li>Email domain matching is faster, with no heap allocations in the per-message hot path.</li>
+              </ul>
+            </article>
+
+            <article class="version" id="v-0-3-4">
+              <header class="ver-head">
+                <h2><span class="vnum">0.3.4</span></h2>
+                <span class="vdate">2026-05-19</span>
+              </header>
+              <p class="summary">Small UI fixes surfaced during internal review.</p>
+              <ul class="notes">
+                <li>Active sender behavior labels ("quiet", "active") now refresh every 60 seconds so they don't go stale in long-running sessions.</li>
+                <li>The outlier count shown in the bulk clean modal now matches the sender list exactly.</li>
+              </ul>
+            </article>
+
+            <article class="version" id="v-0-3-3">
+              <header class="ver-head">
+                <h2><span class="vnum">0.3.3</span></h2>
+                <span class="vdate">2026-05-19</span>
+              </header>
+              <p class="summary">Rust reliability sprint — data integrity and performance.</p>
+              <ul class="notes">
+                <li>Four database operations that previously wrote one row at a time are now wrapped in transactions — an interrupted scan or force-quit can no longer leave the database in a partial state.</li>
+                <li>Scan progress tracking is now lock-free, reducing contention during large inbox scans.</li>
+                <li>Per-message domain matching no longer allocates on the heap — measurable improvement on large inboxes.</li>
+              </ul>
+            </article>
 
             <article class="version" id="v-0-3-2">
               <header class="ver-head">
