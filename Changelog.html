@@ -182,11 +182,11 @@
       A quiet record of every shipped version of Ciela, newest first, in plain language. No internal acronyms, no test counts, no celebration. Just what got better, and when.
     </p>
     <div class="meta">
-      <span>20 RELEASES</span>
-      <span>88 UPDATES</span>
-      <span>LATEST · v0.4.10 · 2026-05-20</span>
+      <span>21 RELEASES</span>
+      <span>93 UPDATES</span>
+      <span>LATEST · v0.5.3 · 2026-05-22</span>
       <span>FIRST · v0.1.0 · 2026-04-28</span>
-      <span>LAST UPDATED · MAY 21, 2026</span>
+      <span>LAST UPDATED · MAY 22, 2026</span>
     </div>
   </div>
 </header>
@@ -201,9 +201,18 @@
       <h4>Releases</h4>
 
       <div class="toc-release">
+        <a class="toc-rel" href="#rel-multiaccountux">
+          <span class="toc-rel-name">Side by Side</span>
+          <span class="toc-badge">Current</span>
+        </a>
+        <div class="toc-pushes">
+          <a href="#v-0-5-3"><span class="tnum">0.5.3</span><span class="tdate">May 22</span></a>
+        </div>
+      </div>
+
+      <div class="toc-release">
         <a class="toc-rel" href="#rel-connected">
           <span class="toc-rel-name">Connected</span>
-          <span class="toc-badge">Current</span>
         </a>
         <div class="toc-pushes">
           <a href="#v-0-4-10"><span class="tnum">0.4.10</span><span class="tdate">May 20</span></a>
@@ -358,11 +367,56 @@
     <div class="stream">
 
       <!-- ══════════════════════════════════════════
-           CONNECTED — current public release
+           SIDE BY SIDE — current public release
+      ══════════════════════════════════════════ -->
+      <section class="release" id="rel-multiaccountux">
+        <div class="rel-eyebrow">
+          <span class="rel-badge">Current Release</span>
+          <span>v0.5.3 · May 2026</span>
+        </div>
+        <h2 class="rel-title"><em>Side by Side.</em></h2>
+        <p class="rel-lede">Multi-account switching that actually works. The account pill now shows your full email so you always know which inbox you're in — and a + button next to it lets you connect another account without leaving the dashboard.</p>
+        <div style="display:flex;gap:10px;flex-wrap:wrap;margin-bottom:6px;">
+          <a class="btn dark rel-download" href="https://github.com/ciela-app/ciela-app.github.io/releases/download/v0.5.3/Ciela_0.5.3_x64-setup.exe">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M3 5.5l8-1.1v8.1H3zm0 8h8v8.1l-8-1.1zm9-9.2l11-1.6v10.8H12zm0 10.2h11v10.8l-11-1.6z"/></svg>
+            Download v0.5.3 for Windows
+          </a>
+          <a class="btn dark rel-download" href="https://github.com/ciela-app/ciela-app.github.io/releases/download/v0.5.3/Ciela_0.5.3_amd64.AppImage">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"/></svg>
+            Download v0.5.3 for Linux
+          </a>
+        </div>
+        <div class="micro"><a href="https://www.virustotal.com/gui/file/5ecc56bc4b874315336a0de6cec106bd8a802ab3ec83f4e3cc92e6dd0365708b" target="_blank" rel="noopener">VirusTotal — Windows</a> · 4 flags, 67 clean</div>
+
+        <details class="sub-releases" open>
+          <summary>1 update in this release</summary>
+          <div class="sub-stream">
+
+            <article class="version" id="v-0-5-3">
+              <header class="ver-head">
+                <h2><span class="vnum">0.5.3</span></h2>
+                <span class="vdate">2026-05-22</span>
+              </header>
+              <p class="summary">Account switching fixed, full email in the pill, and a + button to add accounts without leaving the inbox.</p>
+              <ul class="notes">
+                <li><strong>Account pill shows your full email.</strong> The initial-only circle is replaced with a pill showing your complete email address so you always know which account you're looking at.</li>
+                <li><strong>+ button for adding accounts.</strong> A dashed circle next to the pill opens the add-account flow directly — no longer buried inside a dropdown menu.</li>
+                <li><strong>Account switching now works.</strong> Clicking an account in the switcher dropdown was displaying as interactive but not actually switching — fixed. The sender list now reloads immediately with the selected account's data.</li>
+                <li>When two or more accounts are connected, the scan timestamp shows the active account: <em>LAST SCAN 31 min ago · dnclyon@gmail.com</em>.</li>
+                <li>Fixed a false "Different account detected" warning that appeared when scanning a second registered account for the first time.</li>
+                <li>Error messages no longer say "Gmail" when you're signed in to an Outlook account. Several failure paths that were silently swallowed now surface a plain-language message to the user.</li>
+              </ul>
+            </article>
+
+          </div>
+        </details>
+      </section>
+
+      <!-- ══════════════════════════════════════════
+           CONNECTED
       ══════════════════════════════════════════ -->
       <section class="release" id="rel-connected">
         <div class="rel-eyebrow">
-          <span class="rel-badge">Current Release</span>
           <span>v0.4.8 — v0.4.10 · May 2026</span>
         </div>
         <h2 class="rel-title"><em>Connected.</em></h2>
