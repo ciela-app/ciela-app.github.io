@@ -182,8 +182,8 @@
       A quiet record of every shipped version of Ciela, newest first, in plain language. No internal acronyms, no test counts, no celebration. Just what got better, and when.
     </p>
     <div class="meta">
-      <span>21 RELEASES</span>
-      <span>93 UPDATES</span>
+      <span>24 RELEASES</span>
+      <span>107 UPDATES</span>
       <span>LATEST · v0.5.3 · 2026-05-22</span>
       <span>FIRST · v0.1.0 · 2026-04-28</span>
       <span>LAST UPDATED · MAY 22, 2026</span>
@@ -207,6 +207,17 @@
         </a>
         <div class="toc-pushes">
           <a href="#v-0-5-3"><span class="tnum">0.5.3</span><span class="tdate">May 22</span></a>
+        </div>
+      </div>
+
+      <div class="toc-release">
+        <a class="toc-rel" href="#rel-foundation">
+          <span class="toc-rel-name">The Foundation</span>
+        </a>
+        <div class="toc-pushes">
+          <a href="#v-0-5-2"><span class="tnum">0.5.2</span><span class="tdate">May 21</span></a>
+          <a href="#v-0-5-1"><span class="tnum">0.5.1</span><span class="tdate">May 21</span></a>
+          <a href="#v-0-5-0"><span class="tnum">0.5.0</span><span class="tdate">May 21</span></a>
         </div>
       </div>
 
@@ -405,6 +416,69 @@
                 <li>When two or more accounts are connected, the scan timestamp shows the active account: <em>LAST SCAN 31 min ago · dnclyon@gmail.com</em>.</li>
                 <li>Fixed a false "Different account detected" warning that appeared when scanning a second registered account for the first time.</li>
                 <li>Error messages no longer say "Gmail" when you're signed in to an Outlook account. Several failure paths that were silently swallowed now surface a plain-language message to the user.</li>
+              </ul>
+            </article>
+
+          </div>
+        </details>
+      </section>
+
+      <!-- ══════════════════════════════════════════
+           THE FOUNDATION
+      ══════════════════════════════════════════ -->
+      <section class="release" id="rel-foundation">
+        <div class="rel-eyebrow">
+          <span>v0.5.0 — v0.5.2 · May 2026</span>
+        </div>
+        <h2 class="rel-title"><em>The Foundation.</em></h2>
+        <p class="rel-lede">Three internal sprints that never shipped a public installer. A new dashboard surface, a Rust backend overhaul, and a frontend structural cleanup — all the unglamorous work that makes the next features faster to build.</p>
+
+        <details class="sub-releases" open>
+          <summary>3 updates in this release</summary>
+          <div class="sub-stream">
+
+            <article class="version" id="v-0-5-2">
+              <header class="ver-head">
+                <h2><span class="vnum">0.5.2</span></h2>
+                <span class="vdate">2026-05-21</span>
+              </header>
+              <p class="summary">Frontend structural cleanup — no user-facing changes.</p>
+              <ul class="notes">
+                <li>Lifted the <code>trash_progress</code> event listener from two components into the parent shell; <code>InsightsPanel</code> now receives progress as a prop instead of registering its own listener.</li>
+                <li>Extracted the shared <code>Modal</code> shell that was duplicated in <code>InboxView</code> and <code>InsightsPanel</code> into <code>src/components/ui/atoms.tsx</code>.</li>
+                <li>Removed <code>ScanProgress.senders</code> — populated by Rust but never read by the frontend.</li>
+                <li>Moved all shared TypeScript types out of <code>App.tsx</code> into a dedicated <code>src/types/</code> directory. All raw <code>invoke()</code> calls replaced with typed wrappers in <code>src/api/commands.ts</code>.</li>
+              </ul>
+            </article>
+
+            <article class="version" id="v-0-5-1">
+              <header class="ver-head">
+                <h2><span class="vnum">0.5.1</span></h2>
+                <span class="vdate">2026-05-21</span>
+              </header>
+              <p class="summary">Rust backend correctness and performance fixes — no user-facing changes.</p>
+              <ul class="notes">
+                <li>Scan memory use capped: the message buffer now flushes to the database every 5,000 rows instead of accumulating unbounded (~20 MB for a 100k inbox).</li>
+                <li>Category count tracking during scan rewritten from an O(n) full-map scan per batch to an incremental counter updated at merge time.</li>
+                <li><code>db/mod.rs</code> split from ~2,300 lines into five focused modules: <code>senders</code>, <code>messages</code>, <code>stats</code>, <code>operations</code>, <code>accounts</code>.</li>
+                <li>Fixed a transaction safety issue in <code>record_trash_op</code>.</li>
+              </ul>
+            </article>
+
+            <article class="version" id="v-0-5-0">
+              <header class="ver-head">
+                <h2><span class="vnum">0.5.0</span></h2>
+                <span class="vdate">2026-05-21</span>
+              </header>
+              <p class="summary">Dashboard — surface what your inbox data already knows.</p>
+              <ul class="notes">
+                <li><strong>Your Inbox at a Glance.</strong> Three stat pills at the top: total emails, unique senders, years of history.</li>
+                <li><strong>Signal vs. Noise.</strong> A hero number showing what percentage of your inbox is marketing, subscriptions, and notifications.</li>
+                <li><strong>Read Rate by Category.</strong> Horizontal bars showing the percentage of senders per category you've ever opened.</li>
+                <li><strong>Senders You've Never Opened.</strong> Count with a Browse link to filter the inbox to that set.</li>
+                <li><strong>Peak mail hours chart.</strong> Hourly histogram of when your email actually arrives (local time).</li>
+                <li><strong>Oldest email surfacing.</strong> "Your oldest email arrived in [year], from a [category] sender."</li>
+                <li>Dashboard set as the default landing panel; previously labelled "Insights".</li>
               </ul>
             </article>
 
