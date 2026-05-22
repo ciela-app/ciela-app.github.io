@@ -4,7 +4,7 @@
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
 <title>White Paper — Ciela: The Inbox Curator™</title>
-<meta name="description" content="A full technical and product overview of Ciela — architecture, privacy model, classifier design, and roadmap. Free Gmail inbox cleaner for Windows, Mac, and Linux." />
+<meta name="description" content="A full technical and product overview of Ciela — architecture, privacy model, classifier design, and roadmap. Free Gmail and Outlook inbox cleaner for Windows, Mac, and Linux." />
 <meta name="robots" content="index, follow" />
 <link rel="canonical" href="https://ciela.app/Whitepaper.html" />
 <meta name="theme-color" content="#faf7f2" />
@@ -402,9 +402,9 @@
         A full technical and product overview — architecture, privacy model, classification system, and what's coming next.
       </p>
       <div class="wp-meta">
-        <span>Updated May 2026</span>
+        <span>Last updated May 21, 2026</span>
         <span class="sep">·</span>
-        <span>v2.x</span>
+        <span>v0.5.2</span>
         <span class="sep">·</span>
         <span>Independent, not venture-backed</span>
       </div>
@@ -443,7 +443,7 @@
         <span class="section-eyebrow">01</span>
         <h2>Executive Summary</h2>
         <p>
-          Ciela is a free, local-only desktop application that helps people clean, understand, and take control of their email inbox. It connects to Gmail via secure OAuth2, scans your mailbox entirely on your own device, classifies emails into meaningful categories, and gives you the tools to clean years of unwanted email in minutes.
+          Ciela is a free, local-only desktop application that helps people clean, understand, and take control of their email inbox. It connects to Gmail and Outlook via secure OAuth2, scans your mailbox entirely on your own device, classifies emails into twenty-one categories, and gives you the tools to clean years of unwanted email in minutes.
         </p>
         <p>
           <strong>No cloud. No servers. No accounts. No ads. No subscriptions.</strong> Your email stays yours.
@@ -529,7 +529,7 @@
               <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="var(--sage-deep)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
             </span>
             <div>
-              <div class="t">Connects to Gmail via OAuth2 PKCE</div>
+              <div class="t">Connects to Gmail and Outlook via OAuth2 PKCE</div>
               <div class="s">The same secure flow used by every major email client.</div>
             </div>
           </div>
@@ -565,8 +565,8 @@
               <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="var(--sage-deep)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
             </span>
             <div>
-              <div class="t">Requests only the Gmail scopes it actually needs</div>
-              <div class="s"><span class="mono" style="font-size:12px;">gmail.modify</span> — not full account access.</div>
+              <div class="t">Requests only the scopes it actually needs</div>
+              <div class="s"><span class="mono" style="font-size:12px;">gmail.modify</span> for Gmail · <span class="mono" style="font-size:12px;">Mail.ReadWrite</span> for Outlook — not full account access.</div>
             </div>
           </div>
         </div>
@@ -609,14 +609,14 @@
               <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M18 6L6 18M6 6l12 12"/></svg>
             </span>
             <div>
-              <div class="t">Connects to no server except Gmail's API and Google's OAuth endpoints</div>
+              <div class="t">Connects to no server except your email provider's API and OAuth endpoints</div>
             </div>
           </div>
         </div>
 
         <h3><span class="num">5.1</span>Offline-first after scan</h3>
         <p>
-          The initial scan is the only time Ciela requires a live Gmail connection. Once complete, every sender list, subject line, stat, and insight is read from the local encrypted database — no network required. Ciela only reaches out to Gmail again when you explicitly take action: moving emails to Trash or opening an unsubscribe URL. You can disconnect your internet after scanning and the entire inbox intelligence layer continues to work.
+          The initial scan is the only time Ciela requires a live network connection. Once complete, every sender list, subject line, stat, and insight is read from the local encrypted database — no network required. Ciela only reaches out to your provider again when you explicitly take action: moving emails to Trash or opening an unsubscribe URL. You can disconnect your internet after scanning and the entire inbox intelligence layer continues to work.
         </p>
 
         <h3><span class="num">5.2</span>Credential storage</h3>
@@ -629,9 +629,9 @@
           The local SQLite database is encrypted using SQLCipher. The encryption key is derived from the device's hardware identifier, making the database unreadable if the storage is removed from the machine, while remaining completely transparent to the user.
         </p>
 
-        <h3><span class="num">5.4</span>OAuth client credential</h3>
+        <h3><span class="num">5.4</span>OAuth client credentials</h3>
         <p>
-          Ciela bundles a Google OAuth Client ID and Client Secret in the application binary. This is the standard, Google-endorsed pattern for installed desktop applications using the PKCE authorization flow. The Client Secret does not grant access to any user data on its own — it merely identifies the application to Google's OAuth server. All actual authorization requires explicit user consent, and the resulting tokens are stored in the OS credential store, not in the binary. Google's documentation explicitly permits this model for desktop apps.
+          Ciela bundles Google and Microsoft OAuth Client IDs in the application binary. This is the standard, platform-endorsed pattern for installed desktop applications using the PKCE authorization flow. The credentials do not grant access to any user data on their own — they merely identify the application to the OAuth server. All actual authorization requires explicit user consent, and the resulting tokens are stored in the OS credential store, not in the binary.
         </p>
 
         <h3><span class="num">5.5</span>Security as a design principle</h3>
@@ -647,18 +647,18 @@
 
         <h3><span class="num">1</span>Connection</h3>
         <p>
-          The user connects their Gmail account via a standard OAuth2 PKCE flow. A browser window opens to Google's sign-in page. After authentication, the browser redirects to a local loopback server (<span class="mono" style="font-size:12px;">http://127.0.0.1</span>) that Ciela has opened for exactly this purpose. The authorization code is exchanged for access and refresh tokens entirely on the user's device.
+          The user selects Gmail or Outlook on the connect screen. A browser window opens to the provider's sign-in page. After authentication, the browser redirects to a local loopback server (<span class="mono" style="font-size:12px;">http://127.0.0.1</span>) that Ciela has opened for exactly this purpose. The authorization code is exchanged for access and refresh tokens entirely on the user's device. Multiple accounts can be connected; each is isolated in its own keyring entry and DB partition.
         </p>
         <p>
-          Google's OAuth policy requires the system browser for this flow — embedded webviews are prohibited for security reasons. Ciela makes this seamless: the app shows a "waiting for Google" screen, and the browser tab closes automatically after authentication completes.
+          OAuth policy requires the system browser — embedded webviews are prohibited for security reasons. Ciela makes this seamless: the app shows a waiting screen, and the browser tab closes automatically after authentication completes.
         </p>
 
         <h3><span class="num">2</span>Scan</h3>
         <p>
-          Ciela fetches your inbox using Gmail's API, reading only the metadata fields needed for classification: sender, subject line, message snippet, and the <span class="mono" style="font-size:12px;">List-Unsubscribe</span> header. Full email content is never downloaded.
+          Ciela fetches your inbox using the provider's API, reading only the metadata fields needed for classification: sender, subject line, message snippet, and the <span class="mono" style="font-size:12px;">List-Unsubscribe</span> header. Full email content is never downloaded.
         </p>
         <p>
-          Ciela fetches messages in batches of up to 100 per HTTP call using Gmail's batch API, dramatically reducing network round-trips. Rate limiting is tuned to 40 messages per second — safely below Gmail's 250 quota-units-per-second ceiling (each message fetch costs 5 units). A first scan of a 100,000-email inbox takes roughly 40–50 minutes; the quota ceiling, not hardware, is the limiting factor.
+          For Gmail, messages are fetched in batches of up to 100 per HTTP call using Gmail's batch API. For Outlook, Microsoft Graph API is used with batch sizes up to 20. Rate limiting is tuned to stay safely below each provider's quota ceiling. A first scan of a 100,000-email inbox typically takes 5–20 minutes; API rate limits, not hardware, are the constraining factor.
         </p>
         <p>
           Scan state is checkpointed after every page of results. If the scan is interrupted — app closed, connection lost — it resumes from the last checkpoint rather than starting over.
@@ -669,7 +669,7 @@
 
         <h3><span class="num">3</span>Classification</h3>
         <p>
-          Every email is classified by a local rule engine written in Rust. The classifier evaluates the sender domain, subject line, snippet text, and bulk email headers to assign one of twelve categories:
+          Every email is classified by a local rule engine written in Rust. The classifier evaluates the sender domain, subject line, snippet text, and bulk email headers to assign one of twenty-one categories:
         </p>
         <div class="table-wrap">
           <table>
@@ -681,17 +681,25 @@
             </thead>
             <tbody>
               <tr><td>Personal</td><td>Emails from real people on personal domains</td></tr>
-              <tr><td>Security &amp; Auth</td><td>Login alerts, verification codes, password resets</td></tr>
+              <tr><td>Security</td><td>Login alerts, verification codes, password resets</td></tr>
+              <tr><td>Government</td><td>Federal, state, and local government agencies; .gov domains</td></tr>
               <tr><td>Finance</td><td>Statements, invoices, transactions, tax documents</td></tr>
+              <tr><td>Utilities</td><td>Electric, gas, water, internet, and phone providers</td></tr>
               <tr><td>Travel</td><td>Bookings, itineraries, boarding passes</td></tr>
-              <tr><td>Receipts &amp; Orders</td><td>Order confirmations, shipping updates, delivery notifications</td></tr>
+              <tr><td>Receipts</td><td>Order confirmations, shipping updates, delivery notifications</td></tr>
               <tr><td>Notifications</td><td>App alerts, digests, activity summaries</td></tr>
+              <tr><td>Education</td><td>K-12 and university platforms — Canvas, Blackboard, school districts</td></tr>
+              <tr><td>Healthcare</td><td>Patient portals, appointment reminders, pharmacy, medical offices</td></tr>
+              <tr><td>Food</td><td>Food delivery (DoorDash, Uber Eats, Grubhub), restaurant loyalty, meal kits</td></tr>
               <tr><td>Subscription</td><td>Newsletters and curated content</td></tr>
+              <tr><td>Jobs</td><td>Recruiters, job boards, staffing agencies, application updates</td></tr>
+              <tr><td>Dating</td><td>Dating app notifications and match alerts</td></tr>
+              <tr><td>Faith</td><td>Religious organizations, places of worship, faith-based charities</td></tr>
+              <tr><td>Real Estate</td><td>Listings, agent updates, mortgage, rental platforms</td></tr>
+              <tr><td>Gaming</td><td>Game launchers, in-game alerts, esports</td></tr>
+              <tr><td>Gambling</td><td>Casinos, sports betting, lottery</td></tr>
               <tr><td>Active Marketing</td><td>Promotional email from senders who are actively mailing</td></tr>
-              <tr><td>Dead Marketing</td><td>Promotional email from senders who haven't been engaged with in years</td></tr>
-              <tr><td>Education</td><td>K-12 and university platforms — Canvas, Blackboard, PowerSchool, Remind, school districts</td></tr>
-              <tr><td>Healthcare</td><td>Patient communication and appointment platforms — appointment reminders, prescription alerts, lab results</td></tr>
-              <tr><td>Food &amp; Dining</td><td>Food delivery (DoorDash, Uber Eats, Grubhub), restaurant reservations (OpenTable, Resy), meal kits, and restaurant loyalty programs</td></tr>
+              <tr><td>Dead Marketing</td><td>Promotional email from senders who haven't mailed in years</td></tr>
               <tr><td>Unknown</td><td>Senders that don't match any category — reviewed and reclassified by the user</td></tr>
             </tbody>
           </table>
@@ -700,7 +708,7 @@
           Senders with mixed email behavior — Amazon sending both receipts and marketing, for example — display their primary category alongside secondary category badges.
         </p>
         <p>
-          In v2, the model advances to treat email type as the primary entity. "Amazon Receipts" and "Amazon Marketing" become distinct action targets, allowing users to trash all marketing from Amazon while leaving every receipt untouched.
+          The sender-type model treats email type as the primary entity. "Amazon Receipts" and "Amazon Marketing" are distinct, independently actionable entries — trash all marketing from a sender while leaving every receipt untouched.
         </p>
 
         <h3><span class="num">4</span>Cleanup</h3>
@@ -711,16 +719,22 @@
           For bulk category cleaning, clicking "Clean all" on a cleanup category (Active Marketing, Dead Marketing, Subscription, Notifications) first checks whether any unprotected sender in that category was recently active. If so, an OutlierView review screen appears before any action is taken. The user can protect recently-active senders one by one; the summary panel updates in real time to show exactly how many senders and emails will be affected. Protected senders are excluded from the clean without needing to dismiss the modal or lose their place.
         </p>
         <p>
-          Ciela moves emails to Gmail's Trash folder — it does not permanently delete. Gmail's standard 30-day trash retention applies, giving users a safety net. The trash operation uses Gmail's <span class="mono" style="font-size:12px;">batchModify</span> endpoint, processing up to 1,000 messages per API call; trashing a 10,000-email sender takes roughly the same time as a single network round-trip.
+          Ciela moves emails to the provider's Trash (Gmail) or Deleted Items (Outlook) folder — it does not permanently delete. Standard 30-day retention applies, giving users a safety net. The trash operation batches up to 1,000 messages per API call; trashing a 10,000-email sender takes roughly the same time as a single network round-trip.
         </p>
 
-        <h3><span class="num">5</span>Stats <span style="font-family:'Geist Mono',monospace;font-size:13px;color:var(--ink-3);letter-spacing:.06em;">(v2)</span></h3>
-        <p>After scanning, Ciela surfaces inbox intelligence:</p>
+        <h3><span class="num">5</span>Stats &amp; Intelligence</h3>
+        <p>After scanning, Ciela surfaces inbox intelligence on the Dashboard tab:</p>
         <ul>
+          <li>Inbox at a Glance — total emails, active senders, years of history, and noise percentage in one snapshot</li>
+          <li>Signal vs. Noise — what share of your inbox is promotional or automated vs. email that actually matters</li>
+          <li>Read Rate by Category — per-category engagement showing which types of email you actually open</li>
+          <li>Senders Never Opened — count and list of senders you've never read a single email from</li>
           <li>Total email breakdown by category</li>
           <li>Top senders by volume</li>
           <li>Ghost subscriptions — newsletters not opened in 5+ months</li>
-          <li>Inbox history — a bar chart of email volume by year, showing how the inbox grew from its oldest message to today. After a cleanup session, the bars for affected years shrink — the chart reflects the current state of the inbox, not Ciela's scan history.</li>
+          <li>Inbox history — a bar chart of email volume by year; after a cleanup session, the bars shrink to reflect the current state of the inbox</li>
+          <li>Peak Mail Hours — histogram of the hours when you receive the most email</li>
+          <li>Your Oldest Email — the year your earliest stored message was received and what category it fell into</li>
           <li>Storage reclaimed after a clean session</li>
         </ul>
       </section>
@@ -735,7 +749,7 @@
 
         <div class="callout">
           <div class="k">Backend — Rust</div>
-          <p>Gmail API client with automatic token refresh and rate limiting · Local rule-based email classifier · Tauri command layer exposing backend functionality to the frontend · SQLite via rusqlite + SQLCipher encryption (v2)</p>
+          <p>Gmail and Outlook (Microsoft Graph) API clients with automatic token refresh and rate limiting · Local rule-based email classifier (twenty-one categories) · Tauri command layer exposing backend functionality to the frontend · SQLite via rusqlite + SQLCipher encryption</p>
         </div>
 
         <div class="callout">
@@ -745,7 +759,7 @@
 
         <div class="callout">
           <div class="k">Database — SQLite</div>
-          <p>Fully local, single file · Schema includes account_id from v1 — no migration needed for multi-account in v3 · WAL journal mode for performance · Encrypted with SQLCipher (v2)</p>
+          <p>Fully local, single file · Multi-account schema with per-account data isolation · WAL journal mode for performance · Encrypted with SQLCipher</p>
         </div>
 
         <div class="callout">
@@ -761,7 +775,8 @@
 
         <h3><span class="num">Connect &amp; Scan</span></h3>
         <ul>
-          <li>One-click Gmail connection via secure OAuth2 — no credentials to enter, no account to create</li>
+          <li>Connect Gmail or Outlook via secure OAuth2 — no credentials to enter, no account to create</li>
+          <li>Multiple accounts supported — switch between connected inboxes in one click; add or remove from Settings</li>
           <li>Full mailbox scan across your entire email history</li>
           <li>Incremental rescans — fast, checks only new mail since the last scan</li>
           <li>Scan resumes from checkpoint if interrupted — no starting over</li>
@@ -770,7 +785,7 @@
 
         <h3><span class="num">Classification</span></h3>
         <ul>
-          <li>Thirteen-category local classifier — Personal, Security, Finance, Travel, Receipts, Notifications, Subscription, Food &amp; Dining, Active Marketing, Dead Marketing, Education, Healthcare, Unknown</li>
+          <li>Twenty-one-category local classifier — Personal, Security, Government, Finance, Utilities, Travel, Receipts, Notifications, Subscription, Food &amp; Dining, Active Marketing, Dead Marketing, Education, Healthcare, Jobs, Dating, Faith, Real Estate, Gaming, Gambling, Unknown</li>
           <li>Sender-type model — one sender can appear as multiple rows when they send different types of email (e.g. Amazon Receipts and Amazon Marketing are separate, independently actionable entries)</li>
           <li>Reclassify any sender — corrections persist across rescans automatically</li>
           <li>Similarity suggestions — after reclassifying a sender, Ciela surfaces other senders with similar patterns for bulk reclassification in one step</li>
@@ -790,15 +805,21 @@
 
         <h3><span class="num">Dashboard &amp; Insights</span></h3>
         <ul>
-          <li>Inbox overview — category cards showing email and sender counts at a glance</li>
+          <li>Inbox at a Glance — total emails, active senders, years of history, and noise percentage on the landing screen</li>
+          <li>Signal vs. Noise — single-number read on what share of your inbox is promotional or automated</li>
+          <li>Read Rate by Category — engagement bar for each category; see at a glance which types of email you actually open</li>
+          <li>Senders Never Opened — how many senders have never had a single email read; one click to browse them</li>
+          <li>Inbox overview — category cards showing email and sender counts; click any category to jump directly to that sender list</li>
           <li>Sender detail view — click any sender for their full subject history, engagement chart, open-rate trend, and individual actions (protect, reclassify, trash)</li>
           <li>Inbox history — bar chart of email volume by year; shrinks in real time as you clean</li>
+          <li>Peak Mail Hours — 24-hour histogram of when you receive the most email; peak hour highlighted</li>
+          <li>Your Oldest Email — the year and category of the earliest message in your inbox</li>
           <li>Sender behavior signals — "Never opened", "Actively read", "Last read N months ago"</li>
           <li>Outlier protection — amber warning when a sender you're about to clean was recently active</li>
           <li>Inactive Subscriptions panel — surfaces newsletters you haven't opened in months</li>
           <li>Unsubscribe status tracking — "Unsubscribed", "Still sending", or "Confirmed ✓"</li>
           <li>Inbox growth trend — sparkline showing how your inbox has grown across scans</li>
-          <li>Storage breakdown — explains the gap between Gmail's total and Ciela's scanned count; empty Trash and clear Spam directly from the app</li>
+          <li>Storage breakdown — explains the gap between the provider's total and Ciela's scanned count; empty Trash and clear Spam directly from the app</li>
         </ul>
 
         <h3><span class="num">Settings &amp; Safety</span></h3>
@@ -817,11 +838,9 @@
 
         <h3><span class="num">Platform</span></h3>
         <ul>
-          <li>Auto-updater — silent background updates</li>
-          <li>Code signing — no more Windows SmartScreen warnings</li>
-          <li>macOS support</li>
-          <li>Linux support</li>
-          <li>Multi-account — multiple Gmail accounts in one app</li>
+          <li><strong>Microsoft Store — MSIX packaging</strong> (v0.6.0) — pass Windows App Certification Kit; distribute via the Store for zero-friction Windows discovery</li>
+          <li><strong>Microsoft Store — listing &amp; submit</strong> (v0.6.1) — go live on the Microsoft Store</li>
+          <li><strong>Auto-updater + EV code signing</strong> (v0.7.0) — silent background updates; Extended Validation certificate permanently eliminates SmartScreen warnings</li>
         </ul>
 
         <h3><span class="num">Ciela Pro</span></h3>
@@ -872,13 +891,13 @@
               <tr><td>Backend language</td><td>Rust</td></tr>
               <tr><td>Frontend</td><td>React 19 + TypeScript + Tailwind CSS</td></tr>
               <tr><td>Build tool</td><td>Vite</td></tr>
-              <tr><td>Database</td><td>SQLite via rusqlite (bundled) — v2</td></tr>
-              <tr><td>Encryption</td><td>SQLCipher / AES-GCM — v2</td></tr>
+              <tr><td>Database</td><td>SQLite via rusqlite (bundled)</td></tr>
+              <tr><td>Encryption</td><td>SQLCipher / AES-GCM</td></tr>
               <tr><td>HTTP client</td><td>reqwest (rustls, no OpenSSL dependency)</td></tr>
               <tr><td>Rate limiting</td><td>governor crate (token bucket)</td></tr>
               <tr><td>OAuth</td><td>PKCE desktop flow, loopback redirect</td></tr>
               <tr><td>Installer</td><td>NSIS (Windows), DMG (macOS), AppImage (Linux)</td></tr>
-              <tr><td>Auto-update</td><td>Tauri updater via GitHub Releases (v3)</td></tr>
+              <tr><td>Auto-update</td><td>Tauri updater via GitHub Releases (v0.7.0)</td></tr>
             </tbody>
           </table>
         </div>
@@ -951,7 +970,7 @@
         <span>·</span>
         <a href="Terms.html">Terms</a>
         <span>·</span>
-        <span>NOT AFFILIATED WITH GOOGLE</span>
+        <span>NOT AFFILIATED WITH GOOGLE OR MICROSOFT</span>
       </span>
     </div>
   </div>

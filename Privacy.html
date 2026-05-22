@@ -170,18 +170,18 @@
 
     <article class="prose">
       <h2 id="summary"><span class="num">01 · The short version</span>What you need to know.</h2>
-      <p>Ciela is a desktop application. When you connect it to Gmail, it reads metadata from your inbox <strong>on your computer</strong>, classifies it locally, and stores the results in a local encrypted database on your machine. We do not run servers that hold a copy of your mail. We do not have user accounts. We have no way to identify you.</p>
+      <p>Ciela is a desktop application. When you connect it to Gmail or Outlook, it reads metadata from your inbox <strong>on your computer</strong>, classifies it locally, and stores the results in a local encrypted database on your machine. We do not run servers that hold a copy of your mail. We do not have user accounts. We have no way to identify you.</p>
       <blockquote>Your email stays yours. Your computer stays yours. We're not in the middle.</blockquote>
       <div class="callout">
-        <strong>The single edge.</strong> Ciela only reaches out to two services on the internet: Google's OAuth endpoint (so you can sign in) and Gmail's API (so it can read your inbox and, when you ask, move mail to your Trash). That is the entire network surface.
+        <strong>The network surface.</strong> Ciela only reaches out to your email provider: Google's OAuth endpoint and Gmail's API (Gmail users), or Microsoft's OAuth endpoint and the Graph API (Outlook users). That is the entire network surface.
       </div>
 
       <h2 id="data"><span class="num">02 · Data we touch</span>What we read, and what we don't.</h2>
-      <p>For classification, Ciela reads the following fields from each message in your Gmail account:</p>
+      <p>For classification, Ciela reads the following fields from each message in your inbox:</p>
       <ul>
         <li>Sender address and display name</li>
         <li>Subject line</li>
-        <li>Snippet (the short preview Gmail already shows in your inbox list)</li>
+        <li>Snippet (the short preview your email app already shows in the inbox list)</li>
         <li><span class="mono">List-Unsubscribe</span> and related bulk-mail headers</li>
         <li>Received timestamp, read/unread state, label list</li>
       </ul>
@@ -189,11 +189,11 @@
       <ul>
         <li>Message bodies</li>
         <li>Attachments</li>
-        <li>Contacts, calendar, drive, or any other Google service</li>
+        <li>Contacts, calendar, drive, or any other service beyond your inbox</li>
       </ul>
-      <p>Ciela requests the narrowest Gmail scope that supports its features (<span class="mono">gmail.modify</span>). You can revoke that access at any time from your Google account &rarr; Security &rarr; Third-party access.</p>
+      <p>Ciela requests the narrowest scope that supports its features (<span class="mono">gmail.modify</span> for Gmail; <span class="mono">Mail.ReadWrite</span> for Outlook). You can revoke that access at any time from your Google account or Microsoft account security settings, or by removing the account within Ciela.</p>
       <h3>Triage: what Ciela shows when you open a sender</h3>
-      <p>When you open a sender in the triage view, Ciela fetches all email threads involving that address — including messages from your Sent folder and Drafts. This is intentional: to decide whether to keep or remove a sender, you want the full picture of your correspondence with them, not just what arrived in your inbox. Nothing is sent anywhere; the fetch happens over the Gmail API directly to your device.</p>
+      <p>When you open a sender in the triage view, Ciela fetches all email threads involving that address — including messages from your Sent folder. This is intentional: to decide whether to keep or remove a sender, you want the full picture of your correspondence with them, not just what arrived in your inbox. Nothing is sent anywhere; the fetch happens over the provider API directly to your device.</p>
 
       <h2 id="storage"><span class="num">03 · Where it lives</span>Storage is local.</h2>
       <p>Classification results are written to a single SQLite database file on your computer. That file is encrypted with SQLCipher using a key derived from your device, so removing the drive and reading it elsewhere will not work.</p>
@@ -211,13 +211,14 @@
       </table>
 
       <h2 id="telemetry"><span class="num">04 · Telemetry</span>None.</h2>
-      <p>Ciela does not include analytics, crash reporting, usage tracking, A/B testing, install pings, feature-flag checks, or any other form of telemetry. The application never connects to <em>any</em> server other than Google's OAuth and Gmail's API endpoints. We do not know how many people use Ciela, which features they use, or whether they exist at all.</p>
+      <p>Ciela does not include analytics, crash reporting, usage tracking, A/B testing, install pings, feature-flag checks, or any other form of telemetry. The application never connects to <em>any</em> server other than your email provider's OAuth and API endpoints. We do not know how many people use Ciela, which features they use, or whether they exist at all.</p>
       <p>This is a deliberate trade-off: it means we cannot detect bugs you do not report. It also means we cannot accidentally betray you.</p>
 
       <h2 id="third-parties"><span class="num">05 · Third parties</span>The whole list.</h2>
-      <p>Two:</p>
+      <p>Up to three, depending on which accounts you connect:</p>
       <ul>
-        <li><strong>Google</strong> — to authenticate you (OAuth2 PKCE) and to read your mailbox over Gmail's API. Their <a href="https://policies.google.com/privacy">privacy policy</a> governs that side of the connection.</li>
+        <li><strong>Google</strong> — Gmail users only. To authenticate you (OAuth2 PKCE) and to read your mailbox over Gmail's API. Their <a href="https://policies.google.com/privacy">privacy policy</a> governs that side of the connection.</li>
+        <li><strong>Microsoft</strong> — Outlook users only. To authenticate you (OAuth2 PKCE) and to read your mailbox over the Microsoft Graph API. Their <a href="https://privacy.microsoft.com/en-us/privacystatement">privacy statement</a> governs that side of the connection.</li>
         <li><strong>Your operating system</strong> — to store OAuth tokens in its native credential vault. Apple, Microsoft, and your Linux distribution govern that storage.</li>
       </ul>
       <p>This website (the page you're reading) loads a font from Google Fonts. The Ciela application itself does not load fonts or anything else over the network.</p>
