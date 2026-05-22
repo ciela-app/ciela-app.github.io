@@ -348,36 +348,36 @@
   .cat-row .count{font-family:"Geist Mono",monospace;font-size:11px;color:var(--ink-3);letter-spacing:.06em;}
 
   /* ── Jewel principle ─────────────────── */
-  .jewel{
+  .ruth{
     background:#fff;border:1px solid var(--rule-soft);border-radius:18px;
     padding:64px;margin-top:8px;
     display:grid;grid-template-columns:1.1fr 1fr;gap:56px;align-items:center;
     position:relative;overflow:hidden;
   }
-  .jewel::before{
+  .ruth::before{
     content:'';position:absolute;right:-220px;bottom:-220px;width:540px;height:540px;
     border-radius:50%;border:1px solid var(--rule-soft);
   }
-  .jewel::after{
+  .ruth::after{
     content:'';position:absolute;right:-160px;bottom:-160px;width:420px;height:420px;
     border-radius:50%;border:1px solid var(--rule-soft);
   }
-  .jewel-arc{position:absolute;right:-50px;bottom:-50px;opacity:.5;}
-  .jewel-content{position:relative;z-index:1;}
-  .jewel blockquote{
+  .ruth-arc{position:absolute;right:-50px;bottom:-50px;opacity:.5;}
+  .ruth-content{position:relative;z-index:1;}
+  .ruth blockquote{
     font-family:"Instrument Serif",serif;font-size:48px;line-height:1.1;letter-spacing:-0.02em;
     margin:18px 0 0;color:var(--ink);font-weight:400;
   }
-  .jewel blockquote em{color:var(--sage-deep);}
-  .jewel .attrib{margin-top:24px;font-size:14px;color:var(--ink-2);max-width:520px;line-height:1.65;}
-  .jewel-tests{position:relative;z-index:1;display:flex;flex-direction:column;gap:14px;}
-  .jewel-test{display:grid;grid-template-columns:22px 1fr;gap:14px;align-items:flex-start;}
-  .jewel-test .chk{
+  .ruth blockquote em{color:var(--sage-deep);}
+  .ruth .attrib{margin-top:24px;font-size:14px;color:var(--ink-2);max-width:520px;line-height:1.65;}
+  .ruth-tests{position:relative;z-index:1;display:flex;flex-direction:column;gap:14px;}
+  .ruth-test{display:grid;grid-template-columns:22px 1fr;gap:14px;align-items:flex-start;}
+  .ruth-test .chk{
     width:18px;height:18px;border-radius:99px;background:var(--sage-soft);
     border:1px solid var(--sage);display:flex;align-items:center;justify-content:center;margin-top:2px;
   }
-  .jewel-test .t{font-size:14px;color:var(--ink);}
-  .jewel-test .s{font-size:12.5px;color:var(--ink-3);margin-top:3px;line-height:1.55;}
+  .ruth-test .t{font-size:14px;color:var(--ink);}
+  .ruth-test .s{font-size:12.5px;color:var(--ink-3);margin-top:3px;line-height:1.55;}
 
   /* ── privacy / two-column letter ────── */
   .letter{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:start;}
@@ -466,13 +466,13 @@
 
   /* ── small ───────────────────────────── */
   @media (max-width:1100px){
-    .hero-inner, .cats-wrap, .jewel, .letter, .faq{grid-template-columns:1fr;gap:48px;}
+    .hero-inner, .cats-wrap, .ruth, .letter, .faq{grid-template-columns:1fr;gap:48px;}
     .steps{grid-template-columns:1fr 1fr;}
     .promise-grid{grid-template-columns:1fr 1fr;gap:32px;}
     h1.headline{font-size:64px;}
     .free h2{font-size:60px;}
-    .jewel{padding:40px;}
-    .jewel blockquote{font-size:36px;}
+    .ruth{padding:40px;}
+    .ruth blockquote{font-size:36px;}
   }
   @media (max-width:900px){
     .nav-links{display:none;}
@@ -487,8 +487,8 @@
     h1.headline{font-size:44px;}
     h2.section-title{font-size:34px;}
     .free h2{font-size:44px;}
-    .jewel{padding:24px 20px;}
-    .jewel blockquote{font-size:26px;}
+    .ruth{padding:24px 20px;}
+    .ruth blockquote{font-size:26px;}
     .steps{grid-template-columns:1fr;}
     .promise-grid{grid-template-columns:1fr;}
     .peek-stats{grid-template-columns:1fr 1fr;}
@@ -697,26 +697,26 @@
 <!-- ─── TRIAGE CALLOUT ────────────────────────────────────────────── -->
 <section class="bay tight">
   <div class="wide">
-    <div class="jewel">
-      <svg class="jewel-arc" width="420" height="420" viewBox="0 0 420 420" aria-hidden="true">
+    <div class="ruth">
+      <svg class="ruth-arc" width="420" height="420" viewBox="0 0 420 420" aria-hidden="true">
         <circle cx="420" cy="420" r="380" fill="none" stroke="var(--rule-soft)" stroke-width="1"/>
         <circle cx="420" cy="420" r="300" fill="none" stroke="var(--rule-soft)" stroke-width="1"/>
       </svg>
-      <div class="jewel-content">
+      <div class="ruth-content">
         <span class="section-eyebrow">Sender triage</span>
         <blockquote>Some senders are a mix. <em>Keep the receipts. Trash the noise.</em></blockquote>
         <p class="attrib">Amazon sends your order confirmations and their marketing blasts from the same address. Most cleaners make you choose: all or nothing. Ciela doesn't.</p>
       </div>
-      <div class="jewel-tests">
-        <div class="jewel-test">
+      <div class="ruth-tests">
+        <div class="ruth-test">
           <div class="chk"><svg width="10" height="7" viewBox="0 0 10 7" fill="none"><path d="M1 3.5L4 6.5L9 1" stroke="var(--sage-deep)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
           <div><div class="t">Open a sender.</div><div class="s">See every email they've ever sent you — subjects, dates, all of it — loaded from your device, no extra network calls.</div></div>
         </div>
-        <div class="jewel-test">
+        <div class="ruth-test">
           <div class="chk"><svg width="10" height="7" viewBox="0 0 10 7" fill="none"><path d="M1 3.5L4 6.5L9 1" stroke="var(--sage-deep)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
           <div><div class="t">Flag one email you want to keep.</div><div class="s">Ciela finds all similar emails — same subject template, different order number — and asks "protect these too?"</div></div>
         </div>
-        <div class="jewel-test">
+        <div class="ruth-test">
           <div class="chk"><svg width="10" height="7" viewBox="0 0 10 7" fill="none"><path d="M1 3.5L4 6.5L9 1" stroke="var(--sage-deep)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
           <div><div class="t">Confirm. Those are safe.</div><div class="s">Protected emails are locked. One tap trashes everything unprotected. Your receipts stay. The marketing blast from last Tuesday does not.</div></div>
         </div>
@@ -780,13 +780,13 @@
     <span class="section-eyebrow">Who it's for</span>
     <h2 class="section-title">Plain enough for anyone. <span class="em">Built for people who care how it works.</span></h2>
 
-    <div class="jewel">
-      <svg class="jewel-arc" width="420" height="420" viewBox="0 0 420 420" aria-hidden>
+    <div class="ruth">
+      <svg class="ruth-arc" width="420" height="420" viewBox="0 0 420 420" aria-hidden>
         <circle cx="210" cy="210" r="200" fill="none" stroke="var(--rule)" stroke-width="1"/>
         <circle cx="210" cy="210" r="150" fill="none" stroke="var(--rule)" stroke-width="1"/>
         <path d="M 360 110 A 200 200 0 0 0 360 310" fill="none" stroke="var(--sage)" stroke-width="1.5"/>
       </svg>
-      <div class="jewel-content">
+      <div class="ruth-content">
         <div class="mono" style="font-size:10.5px;letter-spacing:.2em;color:var(--ink-3);">— OUR DESIGN PRINCIPLE</div>
         <blockquote>
           Every screen has to<br>
@@ -797,29 +797,29 @@
           Ciela is built for the patient, curious person who is overwhelmed by their inbox but unwilling to hand it to a service they don't trust. If a screen would confuse them, it doesn't ship.
         </p>
       </div>
-      <div class="jewel-tests">
-        <div class="jewel-test">
+      <div class="ruth-tests">
+        <div class="ruth-test">
           <span class="chk"><svg width="10" height="10" viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5" fill="none" stroke="var(--sage-deep)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
           <div>
             <div class="t">No raw error codes. Ever.</div>
             <div class="s">If something fails, Ciela explains in a sentence what happened and what to do.</div>
           </div>
         </div>
-        <div class="jewel-test">
+        <div class="ruth-test">
           <span class="chk"><svg width="10" height="10" viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5" fill="none" stroke="var(--sage-deep)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
           <div>
             <div class="t">No silent failures.</div>
             <div class="s">The app always says what it is doing, even if "doing" is "waiting on your browser."</div>
           </div>
         </div>
-        <div class="jewel-test">
+        <div class="ruth-test">
           <span class="chk"><svg width="10" height="10" viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5" fill="none" stroke="var(--sage-deep)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
           <div>
             <div class="t">Every action is reversible.</div>
             <div class="s">Ciela moves to Trash, never deletes. Gmail's thirty-day window is yours.</div>
           </div>
         </div>
-        <div class="jewel-test">
+        <div class="ruth-test">
           <span class="chk"><svg width="10" height="10" viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5" fill="none" stroke="var(--sage-deep)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
           <div>
             <div class="t">No streaks, scores, or judgment.</div>
