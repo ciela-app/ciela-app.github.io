@@ -554,6 +554,7 @@
       <div class="cta-note">
         <span><span class="tick"></span>NO ACCOUNT, EVER</span>
         <span><span class="tick"></span>FREE TO USE</span>
+        <span><span class="tick"></span><span id="dl-count">—</span> DOWNLOADS</span>
       </div>
     </div>
 
@@ -1074,6 +1075,16 @@
       document.getElementById('dl-linux').classList.remove('open');
     }
   });
+
+  fetch('https://api.github.com/repos/ciela-app/ciela-app.github.io/releases')
+    .then(function(r) { return r.json(); })
+    .then(function(releases) {
+      var total = releases.reduce(function(sum, r) {
+        return sum + r.assets.reduce(function(s, a) { return s + a.download_count; }, 0);
+      }, 0);
+      if (total > 0) document.getElementById('dl-count').textContent = total.toLocaleString();
+    })
+    .catch(function() {});
 </script>
 </body>
 </html>
