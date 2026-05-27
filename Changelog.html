@@ -183,11 +183,11 @@
       A quiet record of every shipped version of Ciela, newest first, in plain language. No internal acronyms, no test counts, no celebration. Just what got better, and when.
     </p>
     <div class="meta">
-      <span>21 RELEASES</span>
-      <span>93 UPDATES</span>
-      <span>LATEST · v0.5.3 · 2026-05-22</span>
+      <span>23 RELEASES</span>
+      <span>102 UPDATES</span>
+      <span>LATEST · v0.5.5 · 2026-05-27</span>
       <span>FIRST · v0.1.0 · 2026-04-28</span>
-      <span>LAST UPDATED · MAY 22, 2026</span>
+      <span>LAST UPDATED · MAY 27, 2026</span>
     </div>
   </div>
 </header>
@@ -202,9 +202,19 @@
       <h4>Releases</h4>
 
       <div class="toc-release">
+        <a class="toc-rel" href="#rel-cleanrecord">
+          <span class="toc-rel-name">Clean Record</span>
+          <span class="toc-badge">Current</span>
+        </a>
+        <div class="toc-pushes">
+          <a href="#v-0-5-5"><span class="tnum">0.5.5</span><span class="tdate">May 27</span></a>
+          <a href="#v-0-5-4"><span class="tnum">0.5.4</span><span class="tdate">May 26</span></a>
+        </div>
+      </div>
+
+      <div class="toc-release">
         <a class="toc-rel" href="#rel-multiaccountux">
           <span class="toc-rel-name">Side by Side</span>
-          <span class="toc-badge">Current</span>
         </a>
         <div class="toc-pushes">
           <a href="#v-0-5-3"><span class="tnum">0.5.3</span><span class="tdate">May 22</span></a>
@@ -371,14 +381,76 @@
     <div class="stream">
 
       <!-- ══════════════════════════════════════════
+           CLEAN RECORD — current public release
+      ══════════════════════════════════════════ -->
+      <section class="release" id="rel-cleanrecord">
+        <div class="rel-eyebrow">
+          <span class="rel-badge">Current Release</span>
+          <span>v0.5.4 — v0.5.5 · May 2026</span>
+        </div>
+        <h2 class="rel-title"><em>Clean Record.</em></h2>
+        <p class="rel-lede">The inbox list works correctly for large mailboxes. Stale sender records from old classification runs are pruned on upgrade and after every full scan. Trash operations now respect your manual reclassifications. Your active account choice survives a restart. The macOS build now runs natively on every Mac made in the last decade.</p>
+        <div style="display:flex;gap:10px;flex-wrap:wrap;margin-bottom:6px;">
+          <a class="btn dark rel-download" href="https://github.com/ciela-app/ciela-app.github.io/releases/download/v0.5.5/Ciela_0.5.5_x64-setup.exe">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M3 5.5l8-1.1v8.1H3zm0 8h8v8.1l-8-1.1zm9-9.2l11-1.6v10.8H12zm0 10.2h11v10.8l-11-1.6z"/></svg>
+            Download v0.5.5 for Windows
+          </a>
+          <a class="btn dark rel-download" href="https://github.com/ciela-app/ciela-app.github.io/releases/download/v0.5.5/Ciela_0.5.5_universal.dmg">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+            Download v0.5.5 for Mac
+          </a>
+          <a class="btn dark rel-download" href="https://github.com/ciela-app/ciela-app.github.io/releases/download/v0.5.5/Ciela_0.5.5_amd64.AppImage">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"/></svg>
+            Download v0.5.5 for Linux
+          </a>
+        </div>
+        <div class="micro"><a href="https://www.virustotal.com/gui/file/9b70df479a38b865fbdde708695219fc19066db79b418922f656d63a0f5de5c3" target="_blank" rel="noopener">VirusTotal — Windows</a> · 4 flags, 67 clean &nbsp;·&nbsp; <a href="https://www.virustotal.com/gui/file/eb4ab5b7cb566525258e5df6d592f206b95b5cce523bca7deec81d394e44464f" target="_blank" rel="noopener">VirusTotal — Mac</a> · 1 flag, 60 clean &nbsp;·&nbsp; <a href="https://www.virustotal.com/gui/file/edfd3fd801230f21330ced1f23905a2a0166fe5d9f43b6891c5696ea1177798c" target="_blank" rel="noopener">VirusTotal — Linux AppImage</a> · 0 flags, 63 clean &nbsp;·&nbsp; <a href="https://www.virustotal.com/gui/file/61f852c66bebf8b163b0b66b0a9251e5df02fb001482bb3d7fa310069fefc97c" target="_blank" rel="noopener">.deb</a> · 0 flags, 61 clean &nbsp;·&nbsp; <a href="https://www.virustotal.com/gui/file/f60f3871997a8c372c0bb64b6d855d6316ddc3f0cd7297069705a761a2d2bd1a" target="_blank" rel="noopener">.rpm</a> · 0 flags, 61 clean</div>
+
+        <details class="sub-releases" open>
+          <summary>2 updates in this release</summary>
+          <div class="sub-stream">
+
+            <article class="version" id="v-0-5-5">
+              <header class="ver-head">
+                <h2><span class="vnum">0.5.5</span></h2>
+                <span class="vdate">2026-05-27</span>
+              </header>
+              <p class="summary">Old data cleaned up, Trash does what you told it to, and the Mac installer now runs on every Mac made in the last decade.</p>
+              <ul class="notes">
+                <li><strong>Stale Unknown senders pruned.</strong> When the classifier improves and a sender moves from Unknown to the correct category, the old Unknown row used to persist indefinitely. A one-time migration on upgrade removes accumulated stale rows; a prune also runs after every full scan going forward. Unknown% dropped from ~14% to ~7% in testing.</li>
+                <li><strong>Trash respects your reclassifications.</strong> If you manually reclassified a sender, clicking Trash now acts on your override instead of re-running the classifier — which would have silently ignored your decision and matched nothing.</li>
+                <li><strong>Active account persists across restarts.</strong> Multi-account users now land on the last-selected inbox on startup instead of always defaulting to the first connected account.</li>
+                <li>Fixed a race condition where a simultaneous "Clean All" and per-sender Trash could interleave and produce incomplete results.</li>
+                <li><strong>Universal macOS binary.</strong> The DMG now runs natively on both Intel and Apple Silicon — no Rosetta required on Intel.</li>
+              </ul>
+            </article>
+
+            <article class="version" id="v-0-5-4">
+              <header class="ver-head">
+                <h2><span class="vnum">0.5.4</span></h2>
+                <span class="vdate">2026-05-26</span>
+              </header>
+              <p class="summary">Large inboxes no longer show a blank sender detail — plus three targeted fixes from field testing.</p>
+              <ul class="notes">
+                <li><strong>Sender detail blank for large inboxes — fixed.</strong> Accounts with more than ~500 senders showed an empty email list when drilling into a sender. The message query now pages correctly regardless of inbox size.</li>
+                <li>Fixed several classifier domain rules that were mis-categorising senders from major providers.</li>
+                <li>Fixed oldest-email surfacing showing "1970" for messages where the Gmail API returned no date field.</li>
+                <li>Fixed the Dashboard "Browse" button not navigating back to the inbox when clicked from inside Sender Detail.</li>
+              </ul>
+            </article>
+
+          </div>
+        </details>
+      </section>
+
+      <!-- ══════════════════════════════════════════
            SIDE BY SIDE — current public release
       ══════════════════════════════════════════ -->
       <section class="release" id="rel-multiaccountux">
         <div class="rel-eyebrow">
-          <span class="rel-badge">Current Release</span>
           <span>v0.5.0 — v0.5.3 · May 2026</span>
         </div>
-        <h2 class="rel-title"><em>Side by Side.</em></h2>
+        <h2 class="rel-title">Side by Side.</h2>
         <p class="rel-lede">Ciela gets a dashboard, a cleaner codebase, and multi-account switching that actually works. Connect Gmail and Outlook accounts side by side, switch between them with one click, and always know which inbox you're in.</p>
         <div style="display:flex;gap:10px;flex-wrap:wrap;margin-bottom:6px;">
           <a class="btn dark rel-download" href="https://github.com/ciela-app/ciela-app.github.io/releases/download/v0.5.3/Ciela_0.5.3_x64-setup.exe">
