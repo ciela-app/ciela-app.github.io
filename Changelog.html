@@ -183,11 +183,11 @@
       A quiet record of every shipped version of Ciela, newest first, in plain language. No internal acronyms, no test counts, no celebration. Just what got better, and when.
     </p>
     <div class="meta">
-      <span>23 RELEASES</span>
-      <span>102 UPDATES</span>
-      <span>LATEST · v0.5.5 · 2026-05-27</span>
+      <span>24 RELEASES</span>
+      <span>103 UPDATES</span>
+      <span>LATEST · v0.5.6 · 2026-06-08</span>
       <span>FIRST · v0.1.0 · 2026-04-28</span>
-      <span>LAST UPDATED · MAY 27, 2026</span>
+      <span>LAST UPDATED · JUNE 8, 2026</span>
     </div>
   </div>
 </header>
@@ -202,9 +202,18 @@
       <h4>Releases</h4>
 
       <div class="toc-release">
+        <a class="toc-rel" href="#rel-setit">
+          <span class="toc-rel-name">Set It.</span>
+          <span class="toc-badge">Current</span>
+        </a>
+        <div class="toc-pushes">
+          <a href="#v-0-5-6"><span class="tnum">0.5.6</span><span class="tdate">Jun 8</span></a>
+        </div>
+      </div>
+
+      <div class="toc-release">
         <a class="toc-rel" href="#rel-cleanrecord">
           <span class="toc-rel-name">Clean Record</span>
-          <span class="toc-badge">Current</span>
         </a>
         <div class="toc-pushes">
           <a href="#v-0-5-5"><span class="tnum">0.5.5</span><span class="tdate">May 27</span></a>
@@ -381,11 +390,64 @@
     <div class="stream">
 
       <!-- ══════════════════════════════════════════
-           CLEAN RECORD — current public release
+           SET IT — current public release
+      ══════════════════════════════════════════ -->
+      <section class="release" id="rel-setit">
+        <div class="rel-eyebrow">
+          <span class="rel-badge">Current Release</span>
+          <span>v0.5.6 · June 2026</span>
+        </div>
+        <h2 class="rel-title"><em>Set It.</em></h2>
+        <p class="rel-lede">Ciela now works between visits. Auto-clean rules trash recurring junk automatically after every scan. Outlook Filters run server-side — even when Ciela isn't open. The Smart Purge Tray catches repeat offenders the moment they return. Scan History shows you exactly what changed and what was cleaned.</p>
+        <div style="display:flex;gap:10px;flex-wrap:wrap;margin-bottom:6px;">
+          <a class="btn dark rel-download" href="https://github.com/ciela-app/ciela-app.github.io/releases/download/v0.5.6/Ciela_0.5.6_x64-setup.exe">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M3 5.5l8-1.1v8.1H3zm0 8h8v8.1l-8-1.1zm9-9.2l11-1.6v10.8H12zm0 10.2h11v10.8l-11-1.6z"/></svg>
+            Download v0.5.6 for Windows
+          </a>
+          <a class="btn dark rel-download" href="https://github.com/ciela-app/ciela-app.github.io/releases/download/v0.5.6/Ciela_0.5.6_universal.dmg">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+            Download v0.5.6 for Mac
+          </a>
+          <a class="btn dark rel-download" href="https://github.com/ciela-app/ciela-app.github.io/releases/download/v0.5.6/Ciela_0.5.6_amd64.AppImage">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"/></svg>
+            Download v0.5.6 for Linux
+          </a>
+        </div>
+        <div class="micro"><a href="https://www.virustotal.com/gui/file/11079a0b048cb0561d91fee465407ac2d67f10486a5ef7748ac8de72ba199894" target="_blank" rel="noopener">VirusTotal — Windows</a> · 3 flags, 67 clean &nbsp;·&nbsp; Mac &amp; Linux — scanning</div>
+
+        <details class="sub-releases" open>
+          <summary>1 update in this release</summary>
+          <div class="sub-stream">
+
+            <article class="version" id="v-0-5-6">
+              <header class="ver-head">
+                <h2><span class="vnum">0.5.6</span></h2>
+                <span class="vdate">2026-06-08</span>
+              </header>
+              <p class="summary">Auto-clean rules, server-side Outlook Filters, Smart Purge Tray, Scan History, Inbox Health trend, and error message polish throughout.</p>
+              <ul class="notes">
+                <li><strong>Auto-clean rules.</strong> After cleaning the same category 3 times, Ciela offers to save it as a rule. Rules run automatically at the end of every full scan. A pre-scan screen shows what will run with a link to change it. Settings lists all rules with on/off and delete controls.</li>
+                <li><strong>Your Outlook Filters.</strong> For Outlook accounts: once a sender has been trashed in two separate scans, Ciela can create an Outlook inbox rule that sends their emails straight to Trash — even when Ciela isn't open. Settings → Your Outlook Filters lists every active rule with a Remove button.</li>
+                <li><strong>Smart Purge Tray.</strong> After a scan, if senders you trashed in a prior session have returned, a compact tray shows: "These senders are back. You trashed them last time." Trash all, look first, or skip.</li>
+                <li><strong>Scan History &amp; Scan Reports.</strong> A new tab logs every scan. Click any row to see what changed — category deltas since the last scan, and the full cleanup history (recoverable → rescued → gone) with Undo available for recoverable ops.</li>
+                <li><strong>Inbox Health trend.</strong> The Insights panel now tracks noise % across your last 8 scans and shows a sender delta indicator vs. the previous scan.</li>
+                <li><strong>Error message clarity.</strong> Every error in the app now uses plain language. Six specific strings were rewritten: sign-in cancellation, keyring failure, undo failure, empty Trash vs. Spam, local database errors, and session expiry.</li>
+                <li>50+ new classifier rules: staffing firms, notification platforms, healthcare, education, finance additions.</li>
+                <li>3 new Security keywords: "new login", "has been reset", "password change".</li>
+                <li>Schema v17–v20: FK cascades, scan history tables, auto-clean rule tables, Outlook filter table.</li>
+                <li>Bug fixes: olderThanDays null override in TrashModal, silent trash_category errors, multi-account trash ops.</li>
+              </ul>
+            </article>
+
+          </div>
+        </details>
+      </section>
+
+      <!-- ══════════════════════════════════════════
+           CLEAN RECORD
       ══════════════════════════════════════════ -->
       <section class="release" id="rel-cleanrecord">
         <div class="rel-eyebrow">
-          <span class="rel-badge">Current Release</span>
           <span>v0.5.4 — v0.5.5 · May 2026</span>
         </div>
         <h2 class="rel-title"><em>Clean Record.</em></h2>
