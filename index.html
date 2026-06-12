@@ -3,8 +3,9 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
-<title>Ciela — Free Gmail &amp; Outlook Inbox Cleaner for Windows, Mac &amp; Linux</title>
-<meta name="description" content="Ciela is a free desktop app for Windows, macOS, and Linux that scans your Gmail or Outlook inbox, groups emails by sender, and lets you clean years of inbox clutter in minutes. No cloud. No accounts. Your email never leaves your device." />
+<title>Ciela — Free Gmail, Outlook &amp; IMAP Inbox Cleaner for Windows, Mac &amp; Linux</title>
+<meta name="description" content="Ciela is a free desktop app for Windows, macOS, and Linux that cleans Gmail, Outlook, iCloud, Yahoo, Fastmail, Zoho Mail, and 32+ IMAP inboxes. Groups emails by sender across 21 categories and bulk-cleans years of inbox clutter in minutes. No cloud. No accounts." />
+<meta name="keywords" content="free email cleaner, gmail inbox cleaner, outlook inbox cleaner, imap email cleaner, icloud mail cleaner, yahoo mail cleaner, fastmail cleaner, bulk delete emails, inbox zero, desktop email cleaner, local email cleaner, privacy email tool, email organizer, free inbox cleaner" />
 <meta name="robots" content="index, follow" />
 <link rel="canonical" href="https://ciela.app/" />
 <meta name="theme-color" content="#faf7f2" />
@@ -12,15 +13,15 @@
 <!-- Open Graph -->
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://ciela.app/" />
-<meta property="og:title" content="Ciela — Free Gmail &amp; Outlook Inbox Cleaner for Windows, Mac &amp; Linux" />
-<meta property="og:description" content="Ciela scans your Gmail or Outlook inbox, classifies senders into twenty-one categories, and lets you bulk-clean years of inbox clutter in minutes. Free. Local-only. No accounts." />
+<meta property="og:title" content="Ciela — Free Gmail, Outlook &amp; IMAP Inbox Cleaner for Windows, Mac &amp; Linux" />
+<meta property="og:description" content="Free desktop inbox cleaner for Gmail, Outlook, iCloud, Yahoo, Fastmail, and 32+ IMAP providers. Classifies senders into 21 categories. Bulk-clean years of inbox clutter in minutes. Local-only — no cloud, no accounts." />
 <meta property="og:site_name" content="Ciela" />
 <meta property="og:locale" content="en_US" />
 
 <!-- Twitter Card -->
 <meta name="twitter:card" content="summary" />
-<meta name="twitter:title" content="Ciela — Free Gmail &amp; Outlook Inbox Cleaner for Windows, Mac &amp; Linux" />
-<meta name="twitter:description" content="Free desktop app for Windows, Mac, and Linux that cleans your Gmail or Outlook inbox. Everything runs on your device — no cloud, no accounts, no data sharing." />
+<meta name="twitter:title" content="Ciela — Free Gmail, Outlook &amp; IMAP Inbox Cleaner for Windows, Mac &amp; Linux" />
+<meta name="twitter:description" content="Free desktop app for Windows, Mac, and Linux that cleans Gmail, Outlook, iCloud, Yahoo, and 32+ IMAP inboxes. Everything runs on your device — no cloud, no accounts, no data sharing." />
 
 <!-- Structured data -->
 <script type="application/ld+json">
@@ -36,10 +37,10 @@
         "name": "Aetheric Labs LLC",
         "url": "https://ciela.app"
       },
-      "description": "Free, local-only inbox cleaner for Gmail and Outlook on Windows, macOS, and Linux. Classifies emails by sender across twenty-one categories and lets you bulk-clean years of inbox clutter in minutes. No cloud, no accounts, no telemetry.",
+      "description": "Free, local-only inbox cleaner for Gmail, Outlook, iCloud, Yahoo, Fastmail, Zoho, AOL, GMX, and 32+ IMAP providers on Windows, macOS, and Linux. Classifies emails by sender across twenty-one categories and lets you bulk-clean years of inbox clutter in minutes. No cloud, no accounts, no telemetry.",
       "applicationCategory": "UtilitiesApplication",
       "operatingSystem": "Windows 10, Windows 11, macOS (Apple Silicon), Linux (AMD64)",
-      "softwareVersion": "0.5.6",
+      "softwareVersion": "0.6.2",
       "offers": {
         "@type": "Offer",
         "price": "0",
@@ -49,8 +50,11 @@
       "url": "https://ciela.app",
       "downloadUrl": "https://ciela.app/#download",
       "featureList": [
-        "Gmail and Outlook OAuth2 — no password stored",
-        "Multiple accounts — connect as many Gmail or Outlook accounts as you like",
+        "Gmail OAuth2 — no password stored",
+        "Outlook / Hotmail / Microsoft 365 OAuth2 — no password stored",
+        "IMAP support — iCloud, Yahoo, Fastmail, Zoho Mail, AOL, GMX, Mail.com, Comcast, AT&T, Cox, T-Online, BT, Orange, Telstra, and 32 preset providers plus any custom IMAP server",
+        "App password stored in OS keychain — IMAP credentials never written to disk",
+        "Multiple accounts — connect as many accounts as you like",
         "Local-only processing — email never leaves your PC",
         "Twenty-one-category email classifier",
         "Bulk trash with date-scope picker",
@@ -96,7 +100,7 @@
           "name": "Does Ciela read the body of my emails?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "No. Ciela reads only sender address, subject line, message snippet (the first ~150 characters Gmail already shows in your inbox), and the List-Unsubscribe header. Attachments and full message bodies are never downloaded."
+            "text": "No. Ciela reads only sender address, subject line, and the List-Unsubscribe header. For Gmail and Outlook accounts it also reads the message snippet (the first ~150 characters already shown in your inbox list). IMAP accounts (iCloud, Yahoo, etc.) have no snippet — only sender and subject are read. Full message bodies and attachments are never downloaded."
           }
         },
         {
@@ -104,7 +108,7 @@
           "name": "What happens when I click Move to Trash?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Ciela calls Gmail's API and moves those messages to your Trash folder — exactly the same place they'd go if you trashed them by hand. Gmail keeps Trash for thirty days, so anything you change your mind on can be restored from Gmail itself."
+            "text": "Ciela calls your email provider's API (or IMAP server) and moves those messages to your Trash folder — exactly the same place they'd go if you trashed them by hand in your email app. Anything you change your mind on can be restored from your provider's Trash."
           }
         },
         {
@@ -136,7 +140,31 @@
           "name": "Does Ciela work with Outlook?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Yes. Gmail and Outlook / Hotmail / Microsoft 365 are both supported. iCloud and Fastmail are on the roadmap but unscheduled."
+            "text": "Yes. Gmail and Outlook / Hotmail / Microsoft 365 connect via OAuth2 — no password stored. iCloud, Yahoo, Zoho Mail, AOL, Fastmail, GMX, and 32+ other providers connect via IMAP using an app-specific password stored in your OS keychain. Connect as many accounts as you like — add them from Settings and switch between them in one click."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Which email providers does Ciela support?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Gmail and Outlook / Hotmail / Microsoft 365 connect via OAuth2 — no password ever stored. Ciela also supports 32 preset IMAP providers: iCloud, Yahoo Mail, AOL, Fastmail, GMX, Zoho Mail, Mail.com, Comcast, AT&T, Cox, Spectrum, Verizon, EarthLink, T-Online, Web.de, IONOS, BT, Bell Canada, Rogers, Orange, Telstra, and more. A Custom IMAP option lets you connect any provider not on the list by entering your own host and port."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How do I connect iCloud, Yahoo, or another IMAP account?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Select your provider from the list on the Connect screen, enter your email address and an app-specific password (a separate password generated in your provider's security settings — not your main login). Ciela tests the connection live and stores the app password in your OS keychain. Setup takes about two minutes. Your main account password is never used or stored."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can Ciela automatically clean my inbox without me clicking every time?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. Auto-clean rules let you tell Ciela to always trash a specific category or sender at the end of every full scan — set it once, runs forever. Outlook users can also create server-side inbox rules directly from Ciela's Settings, so mail is handled before it even reaches your inbox."
           }
         }
       ]
@@ -469,6 +497,28 @@
   }
   .foot-bottom .right{display:flex;gap:18px;}
 
+  /* ── providers ──────────────────────── */
+  .provider-bands{display:flex;flex-direction:column;gap:36px;margin-top:52px;}
+  .provider-band-label{font-family:"Geist Mono",monospace;font-size:10.5px;letter-spacing:.18em;color:var(--ink-3);text-transform:uppercase;margin-bottom:14px;}
+  .provider-pills{display:flex;flex-wrap:wrap;gap:8px;}
+  .provider-pill{
+    display:inline-flex;align-items:center;
+    padding:7px 15px;border-radius:99px;
+    border:1px solid var(--rule);background:#fff;
+    font-size:13px;color:var(--ink-2);letter-spacing:-0.01em;
+  }
+  .provider-pill.strong{background:var(--paper-2);color:var(--ink);font-weight:500;}
+  .provider-pill.accent{background:var(--sage-soft);color:var(--sage-deep);border-color:var(--sage);}
+
+  /* ── feature grid ────────────────────── */
+  .feature-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;margin-top:56px;background:var(--rule-soft);border:1px solid var(--rule-soft);border-radius:16px;overflow:hidden;}
+  .feature-cell{background:var(--paper);padding:28px 26px 32px;display:flex;flex-direction:column;gap:10px;}
+  .feature-cell .fc-label{font-family:"Geist Mono",monospace;font-size:10px;letter-spacing:.18em;color:var(--ink-3);text-transform:uppercase;}
+  .feature-cell h4{font-family:"Instrument Serif",serif;font-size:22px;letter-spacing:-0.01em;font-weight:400;margin:0;line-height:1.1;}
+  .feature-cell p{color:var(--ink-2);font-size:13.5px;line-height:1.6;margin:0;}
+  @media(max-width:900px){.feature-grid{grid-template-columns:1fr 1fr;}}
+  @media(max-width:640px){.feature-grid{grid-template-columns:1fr;}}
+
   /* ── small ───────────────────────────── */
   @media (max-width:1100px){
     .hero-inner, .cats-wrap, .ruth, .letter, .faq{grid-template-columns:1fr;gap:48px;}
@@ -543,7 +593,7 @@
         <span class="sage">fewer arrivals.</span>
       </h1>
       <p class="lede">
-        Ciela is a free desktop app that reads what's already in your Gmail or Outlook inbox, groups it by sender, and shows you what's worth keeping. Everything happens on your computer — <strong style="color:var(--ink);font-weight:500;">no accounts to create, no password to store, no second copy of your mailbox in the cloud.</strong>
+        Ciela is a free desktop app that reads what's already in your Gmail, Outlook, iCloud, Yahoo, Fastmail, or any IMAP inbox, groups it by sender, and shows you what's worth keeping. Everything happens on your computer — <strong style="color:var(--ink);font-weight:500;">no accounts to create, no password to store, no second copy of your mailbox in the cloud.</strong>
       </p>
 
       <div class="cta-row">
@@ -640,7 +690,7 @@
   <div class="wide promise-grid">
     <div class="promise-item">
       <div class="k"><span class="em">No</span> account</div>
-      <div class="h">There is nothing to sign up for. Download, connect Gmail or Outlook, done.</div>
+      <div class="h">There is nothing to sign up for. Download, connect your email, done.</div>
     </div>
     <div class="promise-item">
       <div class="k"><span class="em">Local</span>‑only</div>
@@ -652,7 +702,7 @@
     </div>
     <div class="promise-item">
       <div class="k"><span class="em">Reversible</span></div>
-      <div class="h">Ciela moves mail to Trash. Thirty days to change your mind.</div>
+      <div class="h">Ciela moves mail to Trash. Nothing is gone until you empty it.</div>
     </div>
   </div>
 </section>
@@ -669,9 +719,9 @@
     <div class="steps">
       <div class="step">
         <div class="num">STEP 01</div>
-        <h3>Connect Gmail or Outlook.</h3>
-        <p>Ciela opens Google's or Microsoft's sign-in page in your browser. After you approve, the page closes itself and we listen for the answer on your own machine. No password stored.</p>
-        <div class="micro">~ 20 SECONDS</div>
+        <h3>Connect your inbox.</h3>
+        <p>Gmail and Outlook open their sign-in page in your browser — OAuth2, no password stored. iCloud, Yahoo, Fastmail, and 32 other IMAP providers connect with an app-specific password stored in your OS keychain. Connect as many accounts as you like.</p>
+        <div class="micro">~ 1–2 MINUTES</div>
         <svg class="glyph" width="36" height="36" viewBox="0 0 100 100"><circle cx="50" cy="50" r="42" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="50" cy="50" r="4" fill="currentColor"/></svg>
       </div>
       <div class="step">
@@ -698,6 +748,57 @@
     </div>
   </div>
 </section>
+
+<!-- ─── PROVIDERS ─────────────────────────────────────────────────── -->
+<section id="providers" class="bay tight">
+  <div class="wide">
+    <span class="section-eyebrow">Supported providers</span>
+    <h2 class="section-title">Gmail, Outlook, iCloud, Yahoo, <span class="em">and thirty-two more.</span></h2>
+    <p class="section-lede">
+      Gmail and Outlook connect via OAuth2 — no password, ever. Every other provider connects via IMAP with an app-specific password stored in your OS keychain, never on disk. Connect as many accounts as you like and switch between them in one click.
+    </p>
+
+    <div class="provider-bands">
+      <div class="provider-band">
+        <div class="provider-band-label">OAuth2 — no password stored</div>
+        <div class="provider-pills">
+          <span class="provider-pill strong">Gmail</span>
+          <span class="provider-pill strong">Outlook · Hotmail · Microsoft 365</span>
+        </div>
+      </div>
+      <div class="provider-band">
+        <div class="provider-band-label">IMAP — app password, stored in OS keychain</div>
+        <div class="provider-pills">
+          <span class="provider-pill">iCloud</span>
+          <span class="provider-pill">Yahoo Mail</span>
+          <span class="provider-pill">AOL</span>
+          <span class="provider-pill">Fastmail</span>
+          <span class="provider-pill">GMX</span>
+          <span class="provider-pill">Zoho Mail</span>
+          <span class="provider-pill">Mail.com</span>
+          <span class="provider-pill">Comcast</span>
+          <span class="provider-pill">AT&amp;T</span>
+          <span class="provider-pill">Cox</span>
+          <span class="provider-pill">Spectrum</span>
+          <span class="provider-pill">Verizon</span>
+          <span class="provider-pill">EarthLink</span>
+          <span class="provider-pill">T-Online</span>
+          <span class="provider-pill">Web.de</span>
+          <span class="provider-pill">IONOS</span>
+          <span class="provider-pill">BT Internet</span>
+          <span class="provider-pill">Bell Canada</span>
+          <span class="provider-pill">Orange</span>
+          <span class="provider-pill">Telstra</span>
+          <span class="provider-pill">Rogers</span>
+          <span class="provider-pill muted" style="color:var(--ink-3);">+ 11 regional providers</span>
+          <span class="provider-pill accent">Custom IMAP server</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="rule"/>
 
 <!-- ─── TRIAGE CALLOUT ────────────────────────────────────────────── -->
 <section class="bay tight">
@@ -777,6 +878,50 @@
   </div>
 </section>
 
+<!-- ─── FEATURE HIGHLIGHTS ─────────────────────────────────────────── -->
+<section class="bay tight">
+  <div class="wide">
+    <span class="section-eyebrow">More capabilities</span>
+    <h2 class="section-title">Track history. Automate cleanup. <span class="em">Understand your inbox.</span></h2>
+    <p class="section-lede">
+      Ciela does more than bulk-trash. It keeps a full record of every clean, surfaces the senders that keep coming back, and lets you set rules so the next scan handles them automatically.
+    </p>
+
+    <div class="feature-grid">
+      <div class="feature-cell">
+        <div class="fc-label">History</div>
+        <h4>Scan Reports</h4>
+        <p>Every scan is logged with a before/after count per category. Click any scan to see exactly what was trashed, rescued, or permanently gone — with per-message Undo for anything still recoverable.</p>
+      </div>
+      <div class="feature-cell">
+        <div class="fc-label">Automation</div>
+        <h4>Auto-clean rules</h4>
+        <p>Set a rule once — "always trash Dead marketing older than 90 days" — and Ciela runs it automatically at the end of every full scan. No clicking required.</p>
+      </div>
+      <div class="feature-cell">
+        <div class="fc-label">Outlook</div>
+        <h4>Server-side rules</h4>
+        <p>Outlook users can create and manage inbox rules directly in Microsoft 365 from Ciela's Settings. Mail is sorted before it even reaches your inbox.</p>
+      </div>
+      <div class="feature-cell">
+        <div class="fc-label">Repeat offenders</div>
+        <h4>Smart Purge Tray</h4>
+        <p>After a scan, Ciela watches for senders that immediately return with new mail — and surfaces them in a single tray so you can deal with them in one step.</p>
+      </div>
+      <div class="feature-cell">
+        <div class="fc-label">Inbox intelligence</div>
+        <h4>Insights Panel</h4>
+        <p>Noise percentage, read rate by category, ghost subscriptions you haven't opened in months, peak mail hours, inbox health trend across your last 8 scans — all computed locally from your scan data.</p>
+      </div>
+      <div class="feature-cell">
+        <div class="fc-label">Multiple accounts</div>
+        <h4>All your inboxes</h4>
+        <p>Connect Gmail, Outlook, iCloud, and Yahoo side by side. Add accounts from Settings and switch between them in a single click — each scanned and tracked independently.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
 <hr class="rule"/>
 
 <!-- ─── JEWEL PRINCIPLE ────────────────────────────────────────────── -->
@@ -821,7 +966,7 @@
           <span class="chk"><svg width="10" height="10" viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5" fill="none" stroke="var(--sage-deep)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
           <div>
             <div class="t">Every action is reversible.</div>
-            <div class="s">Ciela moves to Trash, never deletes. Gmail's thirty-day window is yours.</div>
+            <div class="s">Ciela moves to Trash, never deletes. Nothing is permanent until you empty it.</div>
           </div>
         </div>
         <div class="ruth-test">
@@ -852,8 +997,8 @@
         <div class="item">
           <span class="yes"><svg width="10" height="10" viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5" fill="none" stroke="var(--sage-deep)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
           <div>
-            <div class="t">Connects to Gmail and Outlook directly from your device.</div>
-            <div class="s">Standard OAuth2 PKCE for both providers — the same flow your iPhone uses. Read access only. Revoke anytime from Google or Microsoft.</div>
+            <div class="t">Connects to Gmail, Outlook, and IMAP servers directly from your device.</div>
+            <div class="s">Standard OAuth2 PKCE for Gmail and Outlook — the same flow your iPhone uses. IMAP providers (iCloud, Yahoo, etc.) use an app-specific password stored in your OS keychain, never on disk. Read access only. Revoke anytime from your provider.</div>
           </div>
         </div>
         <div class="item">
@@ -881,7 +1026,7 @@
           <span class="no"><svg width="10" height="10" viewBox="0 0 24 24"><path d="M6 6l12 12M6 18L18 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></span>
           <div>
             <div class="t">No accounts to create. No password to store.</div>
-            <div class="s">There's nothing to sign up for. Download, connect Gmail or Outlook, done.</div>
+            <div class="s">There's nothing to sign up for. Download, connect your email, done.</div>
           </div>
         </div>
       </div>
@@ -936,28 +1081,28 @@
         Useful software should be accessible to everyone — the college student who can't afford a subscription and the parent who doesn't understand why email costs money to clean. Ciela is not venture-backed. The personal edition is free and always will be.
       </p>
       <div class="row">
-        <a class="btn big" href="https://github.com/ciela-app/ciela-app.github.io/releases/download/v0.5.6/Ciela_0.5.6_x64-setup.exe">
+        <a class="btn big" href="https://github.com/ciela-app/ciela-app.github.io/releases/download/v0.6.2/Ciela_0.6.2_x64-setup.exe">
           <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M3 5.5l8-1.1v8.1H3zm0 8h8v8.1l-8-1.1zm9-9.2l11-1.6v10.8H12zm0 10.2h11v10.8l-11-1.6z"/></svg>
-          Download for Windows <span class="v-current">v0.5.6</span>
+          Download for Windows <span class="v-current">v0.6.2</span>
         </a>
-        <a class="btn big" href="https://github.com/ciela-app/ciela-app.github.io/releases/download/v0.5.6/Ciela_0.5.6_universal.dmg">
+        <a class="btn big" href="https://github.com/ciela-app/ciela-app.github.io/releases/download/v0.6.2/Ciela_0.6.2_universal.dmg">
           <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
-          Download for Mac <span class="v-current">v0.5.6</span>
+          Download for Mac <span class="v-current">v0.6.2</span>
         </a>
         <div class="dl-split" id="dl-linux">
-          <a class="btn big dl-main" href="https://github.com/ciela-app/ciela-app.github.io/releases/download/v0.5.6/Ciela_0.5.6_amd64.AppImage">
+          <a class="btn big dl-main" href="https://github.com/ciela-app/ciela-app.github.io/releases/download/v0.6.2/Ciela_0.6.2_amd64.AppImage">
             <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14H9V8h2v8zm4 0h-2V8h2v8z"/><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"/></svg>
-            Download for Linux <span class="v-current">v0.5.6</span>
+            Download for Linux <span class="v-current">v0.6.2</span>
           </a>
           <button class="dl-caret" onclick="document.getElementById('dl-linux').classList.toggle('open')" aria-label="Choose Linux package format">▾</button>
           <div class="dl-menu">
-            <a href="https://github.com/ciela-app/ciela-app.github.io/releases/download/v0.5.6/Ciela_0.5.6_amd64.AppImage">
+            <a href="https://github.com/ciela-app/ciela-app.github.io/releases/download/v0.6.2/Ciela_0.6.2_amd64.AppImage">
               AppImage <span class="badge">Universal</span>
             </a>
-            <a href="https://github.com/ciela-app/ciela-app.github.io/releases/download/v0.5.6/Ciela_0.5.6_amd64.deb">
+            <a href="https://github.com/ciela-app/ciela-app.github.io/releases/download/v0.6.2/Ciela_0.6.2_amd64.deb">
               .deb <span class="badge">Debian · Ubuntu</span>
             </a>
-            <a href="https://github.com/ciela-app/ciela-app.github.io/releases/download/v0.5.6/Ciela-0.5.6-1.x86_64.rpm">
+            <a href="https://github.com/ciela-app/ciela-app.github.io/releases/download/v0.6.2/Ciela-0.6.2-1.x86_64.rpm">
               .rpm <span class="badge">Fedora · RHEL</span>
             </a>
           </div>
@@ -968,7 +1113,8 @@
         </a>
       </div>
       <div class="micro">WINDOWS 10+ · macOS (INTEL + APPLE SILICON) · LINUX (AMD64)</div>
-      <div class="micro"><a href="https://www.virustotal.com/gui/file/11079a0b048cb0561d91fee465407ac2d67f10486a5ef7748ac8de72ba199894" target="_blank" rel="noopener">VirusTotal — Windows v0.5.6</a> · 3/70 &nbsp;·&nbsp; <a href="https://www.virustotal.com/gui/file/60e5b6c2a669a0a7295b4347d3a1734b33aa2a745c0254a4eeba937915774873" target="_blank" rel="noopener">Mac</a> · 0/61 &nbsp;·&nbsp; <a href="https://www.virustotal.com/gui/file-analysis/MjBlMmUyNDUwZGU5NWEwM2IzOThjZjg4MjYzZGQ3ZDg6MTc4MDk0ODg5MQ==" target="_blank" rel="noopener">AppImage</a> · 0/63 &nbsp;·&nbsp; <a href="https://www.virustotal.com/gui/file-analysis/YzMwMTg4OGVjOGY2YTYyMDVlYTMzOGRjNWI3M2MzNjE6MTc4MDk0ODg0Mg==" target="_blank" rel="noopener">.deb</a> · 0/61 &nbsp;·&nbsp; <a href="https://www.virustotal.com/gui/file/bd8df94c3d045013ed3460d77df5558e2e350fdbccac00ff97ec016ab4b8e19b" target="_blank" rel="noopener">.rpm</a> · 0/60</div>
+      <div class="micro" style="margin-top:10px;">ALL PLATFORM BINARIES COMPILED BY GITHUB ACTIONS &nbsp;·&nbsp; <a href="https://github.com/ciela-app/ciela-app.github.io/releases" target="_blank" rel="noopener" style="color:rgba(255,255,255,.45);border-bottom:1px solid rgba(255,255,255,.15);">FULL RELEASE HISTORY ON GITHUB ↗</a></div>
+      <div class="micro" style="margin-top:10px;">VIRUSTOTAL v0.6.2: <a href="https://www.virustotal.com/gui/file/c824fa6e02a3d0760c29433dc63ae4814e55d012d33cd4e8fbfffe9def534f19" target="_blank" rel="noopener" style="color:rgba(255,255,255,.45);border-bottom:1px solid rgba(255,255,255,.15);">WINDOWS 2/70</a> &nbsp;·&nbsp; <a href="https://www.virustotal.com/gui/file/039defdf575ad2036d9c93bf65d37c20af44300fcd059ac1ab41cb9220d3a13c" target="_blank" rel="noopener" style="color:rgba(255,255,255,.45);border-bottom:1px solid rgba(255,255,255,.15);">macOS 0/61</a> &nbsp;·&nbsp; <a href="https://www.virustotal.com/gui/file/71b4853c79aea99550f34b08636037080a02d94353ce52da4034284477ae1e35" target="_blank" rel="noopener" style="color:rgba(255,255,255,.45);border-bottom:1px solid rgba(255,255,255,.15);">APPIMAGE 0/62</a> &nbsp;·&nbsp; <a href="https://www.virustotal.com/gui/file/8ec17b8cadd35eb44ce5e3ec7520d1fb5bc80a1c35056ecc54640ebfec90211a" target="_blank" rel="noopener" style="color:rgba(255,255,255,.45);border-bottom:1px solid rgba(255,255,255,.15);">DEB 0/61</a> &nbsp;·&nbsp; <a href="https://www.virustotal.com/gui/file/ca2a3f0e5b9f769fb454d3908a2c78767141917b07c049fce8844ab84536880c" target="_blank" rel="noopener" style="color:rgba(255,255,255,.45);border-bottom:1px solid rgba(255,255,255,.15);">RPM 0/60</a></div>
     </div>
   </div>
 </section>
@@ -990,15 +1136,15 @@
         </div>
         <div class="faq-item">
           <h4 class="faq-q">Does Ciela read the body of my emails?</h4>
-          <p class="faq-a">No. Ciela reads only sender address, subject line, message snippet (the first ~150 characters Gmail already shows in your inbox), and the <span class="mono" style="font-size:12.5px;color:var(--ink-2);">List-Unsubscribe</span> header. Attachments and full message bodies are never downloaded.</p>
+          <p class="faq-a">No. Ciela reads only sender address, subject line, and the <span class="mono" style="font-size:12.5px;color:var(--ink-2);">List-Unsubscribe</span> header. For Gmail and Outlook accounts it also reads the message snippet (the first ~150 characters already shown in your inbox list). IMAP accounts (iCloud, Yahoo, etc.) have no snippet — only sender and subject. Full message bodies and attachments are never downloaded.</p>
         </div>
         <div class="faq-item">
           <h4 class="faq-q">What happens when I click "Move to Trash"?</h4>
-          <p class="faq-a">Ciela calls Gmail's API and moves those messages to your Trash folder — exactly the same place they'd go if you trashed them by hand. Gmail keeps Trash for thirty days, so anything you change your mind on can be restored from Gmail itself.</p>
+          <p class="faq-a">Ciela calls your email provider's API (or IMAP server) and moves those messages to your Trash folder — exactly the same place they'd go if you trashed them by hand in your email app. Anything you change your mind on can be restored from your provider's Trash.</p>
         </div>
         <div class="faq-item">
           <h4 class="faq-q">Why does the first scan take so long?</h4>
-          <p class="faq-a">Gmail's API limits how fast a single app can read from a single mailbox. Ciela batches requests to stay safely under the ceiling — typically 5–20 minutes for a 100,000-email inbox. After that, incremental scans take seconds. Scans resume from a checkpoint if interrupted, so you can close the app at any time.</p>
+          <p class="faq-a">Gmail's API limits how fast a single app can read from a single mailbox. Ciela batches requests to stay safely under the ceiling — typically 5–20 minutes for a 100,000-email inbox. IMAP accounts (iCloud, Yahoo, etc.) are slower than Gmail or Outlook because there's no batch API; expect a few minutes for a typical inbox. After the first scan, incremental rescans take seconds. Scans resume from a checkpoint if interrupted, so you can close the app at any time.</p>
         </div>
         <div class="faq-item">
           <h4 class="faq-q">macOS and Linux?</h4>
@@ -1010,7 +1156,19 @@
         </div>
         <div class="faq-item">
           <h4 class="faq-q">Does Ciela work with Outlook?</h4>
-          <p class="faq-a">Yes. Gmail and Outlook / Hotmail / Microsoft 365 are both supported. Connect as many accounts as you like — add them from Settings and switch between them in one click. iCloud, Yahoo, AOL, and other IMAP providers are on the roadmap.</p>
+          <p class="faq-a">Yes. Gmail and Outlook / Hotmail / Microsoft 365 connect via OAuth2 — no password stored. iCloud, Yahoo, Zoho Mail, AOL, Fastmail, GMX, and 32+ other providers connect via IMAP using an app-specific password stored in your OS keychain. Connect as many accounts as you like — add them from Settings and switch between them in one click.</p>
+        </div>
+        <div class="faq-item">
+          <h4 class="faq-q">Which providers does Ciela support?</h4>
+          <p class="faq-a">Gmail and Outlook / Hotmail / Microsoft 365 connect via OAuth2. Ciela also ships with 32 preset IMAP providers: iCloud, Yahoo Mail, AOL, Fastmail, GMX, Zoho Mail, Mail.com, Comcast, AT&amp;T, Cox, Spectrum, Verizon, EarthLink, T-Online, Web.de, IONOS, BT Internet, Bell Canada, Rogers, Orange, Telstra, and more. A Custom IMAP option covers any provider not on the list — just enter your host and port.</p>
+        </div>
+        <div class="faq-item">
+          <h4 class="faq-q">How do I connect iCloud or Yahoo?</h4>
+          <p class="faq-a">Select your provider from the list on the Connect screen, then enter your email and an app-specific password (a separate password you generate in your provider's security settings — not your main login). Ciela tests the connection live and stores the credential in your OS keychain. Your main account password is never used or stored. Setup takes about two minutes.</p>
+        </div>
+        <div class="faq-item">
+          <h4 class="faq-q">Can Ciela automatically clean my inbox without me clicking every time?</h4>
+          <p class="faq-a">Yes. Auto-clean rules let you tell Ciela to always trash a specific category or sender at the end of every full scan — set it once, runs automatically. Outlook users can also create server-side inbox rules directly from Ciela's Settings, so mail is handled by Microsoft before it even arrives in your inbox.</p>
         </div>
       </div>
     </div>

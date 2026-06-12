@@ -4,7 +4,7 @@
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
 <title>Privacy Policy — Ciela</title>
-<meta name="description" content="Privacy policy for Ciela, the free Gmail and Outlook inbox cleaner for Windows, macOS, and Linux. Ciela is local-only — your email never leaves your device. No cloud, no accounts, no telemetry." />
+<meta name="description" content="Privacy policy for Ciela, the free inbox cleaner for Gmail, Outlook, iCloud, Yahoo, Fastmail, and 32+ IMAP providers on Windows, macOS, and Linux. Local-only — your email never leaves your device. No cloud, no accounts, no telemetry." />
 <meta name="robots" content="index, follow" />
 <link rel="canonical" href="https://ciela.app/Privacy.html" />
 <meta name="theme-color" content="#faf7f2" />
@@ -166,10 +166,10 @@
 
     <article class="prose">
       <h2 id="summary"><span class="num">01 · The short version</span>What you need to know.</h2>
-      <p>Ciela is a desktop application. When you connect it to Gmail or Outlook, it reads metadata from your inbox <strong>on your computer</strong>, classifies it locally, and stores the results in a local encrypted database on your machine. We do not run servers that hold a copy of your mail. We do not have user accounts. We have no way to identify you.</p>
+      <p>Ciela is a desktop application. When you connect it to Gmail, Outlook, iCloud, Yahoo, or any IMAP provider, it reads metadata from your inbox <strong>on your computer</strong>, classifies it locally, and stores the results in a local encrypted database on your machine. We do not run servers that hold a copy of your mail. We do not have user accounts. We have no way to identify you.</p>
       <blockquote>Your email stays yours. Your computer stays yours. We're not in the middle.</blockquote>
       <div class="callout">
-        <strong>The network surface.</strong> Ciela only reaches out to your email provider: Google's OAuth endpoint and Gmail's API (Gmail users), or Microsoft's OAuth endpoint and the Graph API (Outlook users). That is the entire network surface.
+        <strong>The network surface.</strong> Ciela only reaches out to your email provider: Google's OAuth endpoint and Gmail's API (Gmail users), Microsoft's OAuth endpoint and the Graph API (Outlook users), or your IMAP server directly (iCloud, Yahoo, and all other IMAP providers). That is the entire network surface. No Ciela servers are involved.
       </div>
 
       <h2 id="data"><span class="num">02 · Data we touch</span>What we read, and what we don't.</h2>
@@ -187,7 +187,7 @@
         <li>Attachments</li>
         <li>Contacts, calendar, drive, or any other service beyond your inbox</li>
       </ul>
-      <p>Ciela requests the narrowest scope that supports its features (<span class="mono">gmail.modify</span> for Gmail; <span class="mono">Mail.ReadWrite</span> for Outlook). You can revoke that access at any time from your Google account or Microsoft account security settings, or by removing the account within Ciela.</p>
+      <p>Ciela requests the narrowest scope that supports its features (<span class="mono">gmail.modify</span> for Gmail; <span class="mono">Mail.ReadWrite</span> for Outlook). IMAP providers (iCloud, Yahoo, etc.) use an app-specific password rather than OAuth; that credential is stored in your OS credential vault and is never sent to Ciela's servers (there are none). You can revoke access at any time from your provider's security settings, or by removing the account within Ciela.</p>
       <h3>Triage: what Ciela shows when you open a sender</h3>
       <p>When you open a sender in the triage view, Ciela fetches all email threads involving that address — including messages from your Sent folder. This is intentional: to decide whether to keep or remove a sender, you want the full picture of your correspondence with them, not just what arrived in your inbox. Nothing is sent anywhere; the fetch happens over the provider API directly to your device.</p>
 

@@ -4,7 +4,7 @@
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
 <title>White Paper — Ciela: The Inbox Curator™</title>
-<meta name="description" content="A full technical and product overview of Ciela — architecture, privacy model, classifier design, and roadmap. Free Gmail and Outlook inbox cleaner for Windows, Mac, and Linux." />
+<meta name="description" content="A full technical and product overview of Ciela — architecture, privacy model, classifier design, and roadmap. Free inbox cleaner for Gmail, Outlook, iCloud, Yahoo, Fastmail, and 32+ IMAP providers on Windows, Mac, and Linux." />
 <meta name="robots" content="index, follow" />
 <link rel="canonical" href="https://ciela.app/Whitepaper.html" />
 <meta name="theme-color" content="#faf7f2" />
@@ -399,9 +399,9 @@
         A full technical and product overview — architecture, privacy model, classification system, and what's coming next.
       </p>
       <div class="wp-meta">
-        <span>Last updated May 21, 2026</span>
+        <span>Last updated June 11, 2026</span>
         <span class="sep">·</span>
-        <span>v0.5.5</span>
+        <span>v0.6.2</span>
         <span class="sep">·</span>
         <span>Independent, not venture-backed</span>
       </div>
@@ -440,7 +440,7 @@
         <span class="section-eyebrow">01</span>
         <h2>Executive Summary</h2>
         <p>
-          Ciela is a free, local-only desktop application that helps people clean, understand, and take control of their email inbox. It connects to Gmail and Outlook via secure OAuth2, scans your mailbox entirely on your own device, classifies emails into twenty-one categories, and gives you the tools to clean years of unwanted email in minutes.
+          Ciela is a free, local-only desktop application that helps people clean, understand, and take control of their email inbox. It connects to Gmail and Outlook via secure OAuth2, and to iCloud, Yahoo, Zoho Mail, AOL, Fastmail, and 30+ other providers via IMAP. Scanning happens entirely on your own device, emails are classified into twenty-one categories, and you have the tools to clean years of unwanted email in minutes.
         </p>
         <p>
           <strong>No cloud. No servers. No accounts. No ads. No subscriptions.</strong> Your email stays yours.
@@ -535,8 +535,17 @@
               <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="var(--sage-deep)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
             </span>
             <div>
+              <div class="t">Connects to iCloud, Yahoo, and 30+ IMAP providers via app passwords</div>
+              <div class="s">IMAP app passwords never leave your device — stored in the OS credential vault and wrapped in zeroing memory for their entire in-memory lifetime.</div>
+            </div>
+          </div>
+          <div class="item">
+            <span class="yes">
+              <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="var(--sage-deep)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
+            </span>
+            <div>
               <div class="t">Reads email metadata locally on your device</div>
-              <div class="s">Sender, subject line, snippet — never the full body or attachments.</div>
+              <div class="s">Sender, subject line, and List-Unsubscribe header only — never the full body or attachments. IMAP uses PEEK fetch so emails are never marked read.</div>
             </div>
           </div>
           <div class="item">
@@ -582,7 +591,7 @@
               <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M18 6L6 18M6 6l12 12"/></svg>
             </span>
             <div>
-              <div class="t">Never stores credentials in plaintext</div>
+              <div class="t">Never stores OAuth tokens or IMAP credentials in plaintext</div>
             </div>
           </div>
           <div class="item">
@@ -618,7 +627,7 @@
 
         <h3><span class="num">5.2</span>Credential storage</h3>
         <p>
-          OAuth tokens are held in memory during a session. When persistence is needed, credentials are stored in the OS-level encrypted vault — Windows Credential Manager, macOS Keychain, or Linux Secret Service — never in a plaintext file.
+          OAuth tokens are held in memory during a session. When persistence is needed, credentials are stored in the OS-level encrypted vault — Windows Credential Manager, macOS Keychain, or Linux Secret Service — never in a plaintext file. IMAP app passwords follow the same path and are additionally wrapped in zeroing memory (<span class="stack-label">Zeroizing&lt;String&gt;</span>) for their entire in-memory lifetime, ensuring they are overwritten rather than garbage-collected when no longer needed.
         </p>
 
         <h3><span class="num">5.3</span>Database encryption</h3>
@@ -644,18 +653,21 @@
 
         <h3><span class="num">1</span>Connection</h3>
         <p>
-          The user selects Gmail or Outlook on the connect screen. A browser window opens to the provider's sign-in page. After authentication, the browser redirects to a local loopback server (<span class="mono" style="font-size:12px;">http://127.0.0.1</span>) that Ciela has opened for exactly this purpose. The authorization code is exchanged for access and refresh tokens entirely on the user's device. Multiple accounts can be connected; each is isolated in its own keyring entry and DB partition.
+          <strong>Gmail &amp; Outlook (OAuth2):</strong> The user selects their provider on the connect screen. A browser window opens to the provider's sign-in page. After authentication, the browser redirects to a local loopback server (<span class="stack-label">http://127.0.0.1</span>) that Ciela has opened for exactly this purpose. The authorization code is exchanged for access and refresh tokens entirely on the user's device. OAuth policy requires the system browser — embedded webviews are prohibited for security reasons. Ciela makes this seamless: the app shows a waiting screen, and the browser tab closes automatically after authentication completes.
         </p>
         <p>
-          OAuth policy requires the system browser — embedded webviews are prohibited for security reasons. Ciela makes this seamless: the app shows a waiting screen, and the browser tab closes automatically after authentication completes.
+          <strong>IMAP (iCloud, Yahoo, Zoho Mail, and 30+ providers):</strong> The user fills in an inline form — choose provider, enter email and app password, done. Ciela tests the live TLS connection before saving anything, then stores the app password in the OS credential vault. No browser redirect, no waiting screen — a successful IMAP connect takes the user directly to their inbox.
+        </p>
+        <p>
+          Multiple accounts can be connected across all three provider types; each is isolated in its own keyring entry and database partition.
         </p>
 
         <h3><span class="num">2</span>Scan</h3>
         <p>
-          Ciela fetches your inbox using the provider's API, reading only the metadata fields needed for classification: sender, subject line, message snippet, and the <span class="mono" style="font-size:12px;">List-Unsubscribe</span> header. Full email content is never downloaded.
+          Ciela fetches only the metadata fields needed for classification: sender, subject line, and the <span class="stack-label">List-Unsubscribe</span> header. Full email content is never downloaded.
         </p>
         <p>
-          For Gmail, messages are fetched in batches of up to 100 per HTTP call using Gmail's batch API. For Outlook, Microsoft Graph API is used with batch sizes up to 20. Rate limiting is tuned to stay safely below each provider's quota ceiling. A first scan of a 100,000-email inbox typically takes 5–20 minutes; API rate limits, not hardware, are the constraining factor.
+          <strong>Gmail:</strong> Messages are fetched in batches of up to 100 per HTTP call using Gmail's batch API, with 10 concurrent requests and a 200 req/s rate limiter. <strong>Outlook:</strong> Microsoft Graph API with batch sizes up to 20. <strong>IMAP:</strong> UIDs fetched via <span class="stack-label">UID SEARCH</span> (capped at 10,000 per run), then headers fetched in 500-UID batches with a 50ms pause between batches — slower than OAuth providers due to IMAP protocol constraints. Rate limiting is tuned to stay safely below each provider's quota ceiling. A first scan of a 100,000-email inbox typically takes 5–20 minutes; API rate limits, not hardware, are the constraining factor.
         </p>
         <p>
           Scan state is checkpointed after every page of results. If the scan is interrupted — app closed, connection lost — it resumes from the last checkpoint rather than starting over.
@@ -716,7 +728,7 @@
           For bulk category cleaning, clicking "Clean all" on a cleanup category (Active Marketing, Dead Marketing, Subscription, Notifications) first checks whether any unprotected sender in that category was recently active. If so, an OutlierView review screen appears before any action is taken. The user can protect recently-active senders one by one; the summary panel updates in real time to show exactly how many senders and emails will be affected. Protected senders are excluded from the clean without needing to dismiss the modal or lose their place.
         </p>
         <p>
-          Ciela moves emails to the provider's Trash (Gmail) or Deleted Items (Outlook) folder — it does not permanently delete. Standard 30-day retention applies, giving users a safety net. The trash operation batches up to 1,000 messages per API call; trashing a 10,000-email sender takes roughly the same time as a single network round-trip.
+          Ciela moves emails to the provider's trash folder — Gmail uses Trash, Outlook uses Deleted Items, iCloud uses Deleted Messages. It does not permanently delete. Standard 30-day retention applies, giving users a safety net. The trash operation batches up to 1,000 messages per API call; trashing a 10,000-email sender takes roughly the same time as a single network round-trip.
         </p>
 
         <h3><span class="num">5</span>Stats &amp; Intelligence</h3>
@@ -746,7 +758,7 @@
 
         <div class="callout">
           <div class="k">Backend — Rust</div>
-          <p>Gmail and Outlook (Microsoft Graph) API clients with automatic token refresh and rate limiting · Local rule-based email classifier (twenty-one categories) · Tauri command layer exposing backend functionality to the frontend · SQLite via rusqlite + SQLCipher encryption</p>
+          <p>Gmail and Outlook (Microsoft Graph) API clients with automatic token refresh and rate limiting · IMAP client (async-imap) supporting implicit TLS (port 993) and STARTTLS (port 143); 32 providers pre-configured · Local rule-based email classifier (twenty-one categories) · Tauri command layer exposing backend functionality to the frontend · SQLite via rusqlite + SQLCipher encryption</p>
         </div>
 
         <div class="callout">
@@ -763,6 +775,11 @@
           <div class="k">Installer — NSIS</div>
           <p>currentUser install mode — no administrator rights required · WebView2 bootstrapper (pre-installed on Windows 10/11, downloaded silently if missing) · Sub-10MB installer target</p>
         </div>
+
+        <div class="callout">
+          <div class="k">Build Pipeline — GitHub Actions</div>
+          <p>All three platform binaries — Windows (.exe), macOS (.dmg), and Linux (AppImage / .deb / .rpm) — are compiled by GitHub Actions on a specific commit in the private development repository. No manual compilation step exists in the release process. Every release is tied to a commit hash and a build log, available on request.</p>
+        </div>
       </section>
 
       <!-- 8. What Ciela Does Today -->
@@ -773,6 +790,7 @@
         <h3><span class="num">Connect &amp; Scan</span></h3>
         <ul>
           <li>Connect Gmail or Outlook via secure OAuth2 — no credentials to enter, no account to create</li>
+          <li>Connect iCloud, Yahoo, Zoho Mail, AOL, Fastmail, and 30+ providers via IMAP app password — inline form, live TLS connection test, password stored in OS credential vault</li>
           <li>Multiple accounts supported — switch between connected inboxes in one click; add or remove from Settings</li>
           <li>Full mailbox scan across your entire email history</li>
           <li>Incremental rescans — fast, checks only new mail since the last scan</li>
@@ -833,11 +851,16 @@
         <span class="section-eyebrow">09</span>
         <h2>What's <em>Coming</em></h2>
 
-        <h3><span class="num">Platform</span></h3>
+        <h3><span class="num">Distribution Reliability</span></h3>
         <ul>
-          <li><strong>Microsoft Store — MSIX packaging</strong> (v0.6.0) — pass Windows App Certification Kit; distribute via the Store for zero-friction Windows discovery</li>
-          <li><strong>Microsoft Store — listing &amp; submit</strong> (v0.6.1) — go live on the Microsoft Store</li>
-          <li><strong>Auto-updater + EV code signing</strong> (v0.7.0) — silent background updates; Extended Validation certificate permanently eliminates SmartScreen warnings</li>
+          <li><strong>Auto-updater</strong> — silent background updates via Tauri updater + GitHub Releases manifest</li>
+          <li><strong>EV code signing</strong> — eliminates Windows SmartScreen "Unknown publisher" warning for direct download users</li>
+        </ul>
+
+        <h3><span class="num">Microsoft Store — deprioritized</span></h3>
+        <ul>
+          <li>MSIX packaging + Windows App Certification Kit (WACK)</li>
+          <li>Store listing and submission</li>
         </ul>
 
         <h3><span class="num">Ciela Pro</span></h3>
@@ -891,6 +914,7 @@
               <tr><td>Database</td><td>SQLite via rusqlite (bundled)</td></tr>
               <tr><td>Encryption</td><td>SQLCipher / AES-GCM</td></tr>
               <tr><td>HTTP client</td><td>reqwest (rustls, no OpenSSL dependency)</td></tr>
+              <tr><td>IMAP client</td><td>async-imap 0.9 + async-native-tls</td></tr>
               <tr><td>Rate limiting</td><td>governor crate (token bucket)</td></tr>
               <tr><td>OAuth</td><td>PKCE desktop flow, loopback redirect</td></tr>
               <tr><td>Installer</td><td>NSIS (Windows), DMG (macOS), AppImage (Linux)</td></tr>
