@@ -1,0 +1,15 @@
+{
+  "version": "0.6.3",
+  "notes": "Upgrade-safe installer, uninstall checkbox fix, 44 new classifier rules.",
+  "pub_date": "2026-06-14T00:00:00Z",
+  "platforms": {
+    "windows-x86_64": {
+      "signature": "dW50cnVzdGVkIGNvbW1lbnQ6IHNpZ25hdHVyZSBmcm9tIHJzaWduIHNlY3JldCBrZXkKUlVSbVBiL0tTYVJDM2FhUXJJQ29uSC9wWnFWRGRKd3htN3JwT2UxMko2TmRRMFBjckpYSWdFeUpoR1hJWDk5cUNMZ1FmREVLOEJmOVdNZFR6RzM0Q0pHQ0t0M0szSERGMEFJPQp0cnVzdGVkIGNvbW1lbnQ6IHRpbWVzdGFtcDoxNzgxNTI5MDczClVPLzJCNFRSMFJGaHlJRG02MXhoRkRLVkNZZEQ3V28zMHZkemwzWG9VU2dBQk01ZGEzTEluN0dkdkRDdE5zT3JjYmFqNWxMTHFQL2tqdUJ6SHI4RkF3PT0K",
+      "url": "https://github.com/ciela-app/ciela-app.github.io/releases/download/v0.6.3/Ciela_0.6.3_x64-setup.exe"
+    },
+    "linux-x86_64": {
+      "signature": "dW50cnVzdGVkIGNvbW1lbnQ6IHNpZ25hdHVyZSBmcm9tIHJzaWduIHNlY3JldCBrZXkKUlVSbVBiL0tTYVJDM2Y2VlMyYUx0NFVIbEZsV0FaWTlqeUdlNlNyTm9OQnVzd3VXQmtGYWp6TXh3QWg5dXNmbmFGR1hqSmo2YmlDVW83R2lDV0NIV1ZEZnFkOTVva3NmalFZPQp0cnVzdGVkIGNvbW1lbnQ6IHRpbWVzdGFtcDoxNzgxNTI5MDgxCjNBRW9uL3Q1eDVrcTRsSzk2L3pBU1JPa1RWT0VFSnpQWjVBaVF6dUF3eTNYaW0yeTFMUUJPc1c5ZHJtcW01SW4vei9qcjBBeFJQTHFJQnRBT2ZmU0F3PT0K",
+      "url": "https://github.com/ciela-app/ciela-app.github.io/releases/download/v0.6.3/Ciela_0.6.3_amd64.AppImage"
+    }
+  }
+}
