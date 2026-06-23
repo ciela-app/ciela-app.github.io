@@ -1,7 +1,8 @@
-<!doctype html>
+﻿<!doctype html>
 <html lang="en">
 <head>
 <meta charset="utf-8" />
+<link rel="icon" type="image/png" href="favicon.png" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
 <title>Terms of Service — Ciela</title>
 <meta name="description" content="Terms of service for Ciela, the free inbox cleaner for Gmail, Outlook, iCloud, Yahoo, Fastmail, and 32+ IMAP providers on Windows, macOS, and Linux. Free to use, no accounts required." />
@@ -106,10 +107,14 @@
 <nav class="nav">
   <div class="wide nav-inner">
     <a class="brand" href="https://ciela.app/" aria-label="Ciela home">
-      <svg width="26" height="26" viewBox="0 0 100 100" aria-hidden>
-        <circle cx="50" cy="50" r="42" fill="none" stroke="currentColor" stroke-width="6"/>
-        <path d="M 78 30 A 42 42 0 0 0 78 70" fill="none" stroke="var(--paper)" stroke-width="11"/>
-        <path d="M 78 30 A 42 42 0 0 0 78 70" fill="none" stroke="#7a9382" stroke-width="6" stroke-linecap="round"/>
+      <svg width="28" height="28" viewBox="0 0 100 100" aria-hidden style="border-radius:8px;">
+        <defs>
+          <radialGradient id="nav-sky" cx="0.7" cy="0.3" r="1.05"><stop offset="0%" stop-color="#56708a"/><stop offset="48%" stop-color="#2f435a"/><stop offset="100%" stop-color="#16203a"/></radialGradient>
+          <mask id="nav-cre"><rect width="100" height="100" fill="black"/><circle cx="50" cy="50" r="31" fill="white"/><circle cx="61" cy="47" r="31" fill="black"/></mask>
+        </defs>
+        <rect width="100" height="100" rx="22" fill="url(#nav-sky)"/>
+        <circle cx="50" cy="50" r="31" fill="#3a3f4a"/>
+        <rect width="100" height="100" fill="#f5efe4" mask="url(#nav-cre)"/>
       </svg>
       <span class="word">ciela</span>
       <span class="sub">the inbox curator</span>
@@ -210,10 +215,14 @@
     <div class="foot-grid">
       <div>
         <a class="brand" href="https://ciela.app/" style="margin-bottom:14px;">
-          <svg width="24" height="24" viewBox="0 0 100 100" aria-hidden>
-            <circle cx="50" cy="50" r="42" fill="none" stroke="currentColor" stroke-width="6"/>
-            <path d="M 78 30 A 42 42 0 0 0 78 70" fill="none" stroke="var(--paper-2)" stroke-width="11"/>
-            <path d="M 78 30 A 42 42 0 0 0 78 70" fill="none" stroke="#7a9382" stroke-width="6" stroke-linecap="round"/>
+          <svg width="26" height="26" viewBox="0 0 100 100" aria-hidden style="border-radius:7px;">
+            <defs>
+              <radialGradient id="foot-sky" cx="0.7" cy="0.3" r="1.05"><stop offset="0%" stop-color="#56708a"/><stop offset="48%" stop-color="#2f435a"/><stop offset="100%" stop-color="#16203a"/></radialGradient>
+              <mask id="foot-cre"><rect width="100" height="100" fill="black"/><circle cx="50" cy="50" r="31" fill="white"/><circle cx="61" cy="47" r="31" fill="black"/></mask>
+            </defs>
+            <rect width="100" height="100" rx="22" fill="url(#foot-sky)"/>
+            <circle cx="50" cy="50" r="31" fill="#3a3f4a"/>
+            <rect width="100" height="100" fill="#f5efe4" mask="url(#foot-cre)"/>
           </svg>
           <span class="word">ciela</span>
         </a>
