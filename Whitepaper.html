@@ -404,9 +404,9 @@
         A full technical and product overview — architecture, privacy model, classification system, and what's coming next.
       </p>
       <div class="wp-meta">
-        <span>Last updated June 11, 2026</span>
+        <span>Last updated June 24, 2026</span>
         <span class="sep">·</span>
-        <span>v0.6.2</span>
+        <span>v0.7.0</span>
         <span class="sep">·</span>
         <span>Independent, not venture-backed</span>
       </div>
@@ -719,10 +719,7 @@
           </table>
         </div>
         <p>
-          Senders with mixed email behavior — Amazon sending both receipts and marketing, for example — display their primary category alongside secondary category badges.
-        </p>
-        <p>
-          The sender-type model treats email type as the primary entity. "Amazon Receipts" and "Amazon Marketing" are distinct, independently actionable entries — trash all marketing from a sender while leaving every receipt untouched.
+          The sender-type model treats email type as the primary entity. Senders with mixed behavior — Amazon sending both receipts and marketing, for example — appear as separate rows. "Amazon Receipts" and "Amazon Marketing" are distinct, independently actionable entries — trash all marketing from a sender while leaving every receipt untouched.
         </p>
 
         <h3><span class="num">4</span>Cleanup</h3>
@@ -839,16 +836,35 @@
           <li>Inactive Subscriptions panel — surfaces newsletters you haven't opened in months</li>
           <li>Unsubscribe status tracking — "Unsubscribed", "Still sending", or "Confirmed ✓"</li>
           <li>Inbox growth trend — sparkline showing how your inbox has grown across scans</li>
+          <li>Inbox health trend — noise % trend chart across the last 8 scans; sender delta indicator showing change vs. the previous scan</li>
           <li>Storage breakdown — explains the gap between the provider's total and Ciela's scanned count; empty Trash and clear Spam directly from the app</li>
+          <li>Scan History — every scan listed with date, email and sender counts, and Unknown delta; click any row to open its Scan Report</li>
+          <li>Scan Reports — per-scan detail: category changes since last scan; full cleanup history with recoverable, rescued, and permanently gone status; Undo available for recoverable operations</li>
+          <li>Smart Purge Tray — after a scan, if senders you previously trashed have returned, a compact tray appears: "These senders are back. You trashed them last time." Options: Trash all, Look at them first, or Not now</li>
+        </ul>
+
+        <h3><span class="num">Auto-Clean Rules</span></h3>
+        <ul>
+          <li>Rule creation — after manually cleaning the same category 3 times, Ciela offers to save it as a rule; rules run automatically at the end of every full scan</li>
+          <li>Pre-scan confirmation — a screen lists all active rules and what they will do before each scan, with a link to change them</li>
+          <li>Post-scan summary — a banner after the scan reports which rules ran and how many emails were moved</li>
+          <li>Settings rules panel — lists all active rules with Turn On/Off and Delete controls; minimum age threshold 7 days enforced backend-side</li>
+        </ul>
+
+        <h3><span class="num">Your Outlook Filters (Outlook accounts)</span></h3>
+        <ul>
+          <li>Server-side filtering — when a sender has been trashed in 2+ different scans, Ciela can create an Outlook inbox rule that routes those emails to Trash automatically, even when Ciela isn't open</li>
+          <li>Transparent disclosure — required copy before any rule is created: "Outlook will send [sender] emails straight to trash — even when Ciela isn't open. You can remove this anytime from Settings → Your Outlook Filters."</li>
+          <li>Settings panel — lists all active Outlook rules with a Remove button for each; removal calls the Microsoft Graph API immediately</li>
         </ul>
 
         <h3><span class="num">Settings &amp; Safety</span></h3>
         <ul>
-          <li>Settings screen — account info, default date filter preference, disconnect</li>
-          <li>Security audit log — recent history for destructive operations (trash, disconnect, data clear)</li>
+          <li>Settings screen — account info, app version, default date filter preference, auto-clean rules list, Your Outlook Filters panel, disconnect</li>
           <li>Sort and filter — by email volume, engagement, or recency; state persists across navigation</li>
           <li>No admin rights required — installs per-user on Windows</li>
         </ul>
+
       </section>
 
       <!-- 9. What's Coming -->
@@ -858,8 +874,7 @@
 
         <h3><span class="num">Distribution Reliability</span></h3>
         <ul>
-          <li><strong>Auto-updater</strong> — silent background updates via Tauri updater + GitHub Releases manifest</li>
-          <li><strong>EV code signing</strong> — eliminates Windows SmartScreen "Unknown publisher" warning for direct download users</li>
+          <li><strong>EV code signing</strong> — eliminates Windows SmartScreen "Unknown publisher" warning for direct download users; CI build pipeline and auto-updater already shipped</li>
         </ul>
 
         <h3><span class="num">Microsoft Store — deprioritized</span></h3>
@@ -923,7 +938,7 @@
               <tr><td>Rate limiting</td><td>governor crate (token bucket)</td></tr>
               <tr><td>OAuth</td><td>PKCE desktop flow, loopback redirect</td></tr>
               <tr><td>Installer</td><td>NSIS (Windows), DMG (macOS), AppImage (Linux)</td></tr>
-              <tr><td>Auto-update</td><td>Tauri updater via GitHub Releases (v0.7.0)</td></tr>
+              <tr><td>Auto-update</td><td>Tauri updater via GitHub Releases</td></tr>
             </tbody>
           </table>
         </div>
