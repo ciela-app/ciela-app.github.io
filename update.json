@@ -1,15 +1,15 @@
 {
-  "version": "0.7.0",
-  "notes": "Brand grouping, financial sender protection, confidence-graded triage, DMARC authentication, new icon, and a guided first-run experience.",
-  "pub_date": "2026-06-22T00:00:00Z",
+  "version": "0.8.0",
+  "notes": "Trash History and Undo are fully restored. Blank inbox after first scan fixed. OAuth refresh token rotation fixed. Outlook rules cleanup on disconnect.",
+  "pub_date": "2026-06-26T00:00:00Z",
   "platforms": {
     "windows-x86_64": {
-      "signature": "dW50cnVzdGVkIGNvbW1lbnQ6IHNpZ25hdHVyZSBmcm9tIHRhdXJpIHNlY3JldCBrZXkKUlVRUGxNT1RKV1VudTM0WC8yUHl1QzFtY05UWEtzVjNxNUI4RUZuOVEzWCtXanhqY1hPOHg1VzV4T2xVK0d0NzZjdzU0M0tJRjhMYTlxYTZqRzFvNi9FQmpFc3cveC8vOVFrPQp0cnVzdGVkIGNvbW1lbnQ6IHRpbWVzdGFtcDoxNzgyMjM1MzUxCWZpbGU6Q2llbGFfMC43LjBfeDY0LXNldHVwLmV4ZQpIcjVwZDZQUFdOK053eVA5amZ3aHFJcFVEVXphc2x5bWN1MnArTlhZYUlxclFwWld2NDQ4bE0zV0FGTmROejQ2VDhSeG14VWZuUitVSE4rek8xdHBEQT09Cg==",
-      "url": "https://github.com/ciela-app/ciela-app.github.io/releases/download/v0.7.0/Ciela_0.7.0_x64-setup.exe"
+      "signature": "dW50cnVzdGVkIGNvbW1lbnQ6IHNpZ25hdHVyZSBmcm9tIHRhdXJpIHNlY3JldCBrZXkKUlVRUUtvSmhkdEI0QTdBMHZTMHlmUjN2U0Y3bUFUbUx6RFpuSHJlU2VBUGt1OS9ZQ3B5S2VScFJNdWRPMlUvREdUWUdIUTRibDZMZktnMGsxbDVBS252b05MWUpPd1dmQWd3PQp0cnVzdGVkIGNvbW1lbnQ6IHRpbWVzdGFtcDoxNzgyNDkxNzM0CWZpbGU6Q2llbGFfMC44LjBfeDY0LXNldHVwLmV4ZQp3SENWVVBUQjFzQkF2WjA1VjNsVGoyOVQrbkZBQzd0c3lTZGhpdmtGbWlSRXJsTmM5V0pvVkZTK2hhMC9kc3lBZE94ZkRwK0wxd2hCeG4xNUdPdmdDQT09Cg==",
+      "url": "https://github.com/ciela-app/ciela-app.github.io/releases/download/v0.8.0/Ciela_0.8.0_x64-setup.exe"
     },
     "linux-x86_64": {
-      "signature": "dW50cnVzdGVkIGNvbW1lbnQ6IHNpZ25hdHVyZSBmcm9tIHRhdXJpIHNlY3JldCBrZXkKUlVRUGxNT1RKV1VudTRQSDJJRDhheGFxbW4xQWt6aE1XVG5FQ2w2ek1hc05ET2dQSllUcGNndlVhS3pxTlZtOHlzNDdKYzVRSTIreGVVektqU2s4ZHdFK296cjh4USt5WFFnPQp0cnVzdGVkIGNvbW1lbnQ6IHRpbWVzdGFtcDoxNzgyMjM1Mzk1CWZpbGU6Q2llbGFfMC43LjBfYW1kNjQuQXBwSW1hZ2UKZnJYODZIbndRanZxbDNpWHFaYTB3Ykl3YXF6M2MrcSt6bVpwZjlWU1kraXR6RVZNK3VVT3B2RXRLUTV1ZzlBWDlnejdNQVVIR2E2ZmdaZjFEZlNxQWc9PQo=",
-      "url": "https://github.com/ciela-app/ciela-app.github.io/releases/download/v0.7.0/Ciela_0.7.0_amd64.AppImage"
+      "signature": "dW50cnVzdGVkIGNvbW1lbnQ6IHNpZ25hdHVyZSBmcm9tIHRhdXJpIHNlY3JldCBrZXkKUlVRUUtvSmhkdEI0QTVadThzYUEreHZzT0d5STFycFI4VE1zdjFWUTdCcElqTGoxNXJHb0lSNU1ySjQxaW9Da3EvZE1aRVlnWVhWMzdEeDcrc2dUZGxGK2syMWdjWnpIbndzPQp0cnVzdGVkIGNvbW1lbnQ6IHRpbWVzdGFtcDoxNzgyNDkxNzM3CWZpbGU6Q2llbGFfMC44LjBfYW1kNjQuQXBwSW1hZ2UKaUNYWTlrb0JROXVaejd2bzh2WGJIS0RrUldGVDJ4U243RlU1QWlwK1FtTnI3NTJNcVNFSisrZXUvWnMwSUZTaTFDVzNXNzkzNFN2NWV6RzVCc0x3Q2c9PQo=",
+      "url": "https://github.com/ciela-app/ciela-app.github.io/releases/download/v0.8.0/Ciela_0.8.0_amd64.AppImage"
     }
   }
 }
