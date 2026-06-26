@@ -188,11 +188,11 @@
       A quiet record of every shipped version of Ciela, newest first, in plain language. No internal acronyms, no test counts, no celebration. Just what got better, and when.
     </p>
     <div class="meta">
-      <span>28 RELEASES</span>
-      <span>121 UPDATES</span>
-      <span>LATEST · v0.7.0 · 2026-06-22</span>
+      <span>29 RELEASES</span>
+      <span>122 UPDATES</span>
+      <span>LATEST · v0.8.0 · 2026-06-26</span>
       <span>FIRST · v0.1.0 · 2026-04-28</span>
-      <span>LAST UPDATED · JUNE 22, 2026</span>
+      <span>LAST UPDATED · JUNE 26, 2026</span>
     </div>
   </div>
 </header>
@@ -207,9 +207,18 @@
       <h4>Releases</h4>
 
       <div class="toc-release">
+        <a class="toc-rel" href="#rel-restored">
+          <span class="toc-rel-name">Restored.</span>
+          <span class="toc-badge">Current</span>
+        </a>
+        <div class="toc-pushes">
+          <a href="#v-0-8-0"><span class="tnum">0.8.0</span><span class="tdate">Jun 26</span></a>
+        </div>
+      </div>
+
+      <div class="toc-release">
         <a class="toc-rel" href="#rel-knownfaces">
           <span class="toc-rel-name">Known Faces.</span>
-          <span class="toc-badge">Current</span>
         </a>
         <div class="toc-pushes">
           <a href="#v-0-7-0"><span class="tnum">0.7.0</span><span class="tdate">Jun 22</span></a>
@@ -415,11 +424,61 @@
     <div class="stream">
 
       <!-- ══════════════════════════════════════════
+           RESTORED — current public release
+      ══════════════════════════════════════════ -->
+      <section class="release" id="rel-restored">
+        <div class="rel-eyebrow">
+          <span class="rel-badge">Current Release</span>
+          <span>v0.8.0 · June 2026</span>
+        </div>
+        <h2 class="rel-title"><em>Restored.</em></h2>
+        <p class="rel-lede">Trash History and Undo were silently broken since v0.7.0 — emails moved to trash, but the record was never written, so nothing could be undone and the history was always empty. This release fixes it completely, along with a blank inbox bug on first scan and an OAuth token rotation issue that could eventually force you to reconnect.</p>
+        <div style="display:flex;gap:10px;flex-wrap:wrap;margin-bottom:6px;">
+          <a class="btn dark rel-download" href="https://github.com/ciela-app/ciela-app.github.io/releases/download/v0.8.0/Ciela_0.8.0_x64-setup.exe">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M3 5.5l8-1.1v8.1H3zm0 8h8v8.1l-8-1.1zm9-9.2l11-1.6v10.8H12zm0 10.2h11v10.8l-11-1.6z"/></svg>
+            Download v0.8.0 for Windows
+          </a>
+          <a class="btn dark rel-download" href="https://github.com/ciela-app/ciela-app.github.io/releases/download/v0.8.0/Ciela_0.8.0_universal.dmg">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+            Download v0.8.0 for Mac
+          </a>
+          <a class="btn dark rel-download" href="https://github.com/ciela-app/ciela-app.github.io/releases/download/v0.8.0/Ciela_0.8.0_amd64.AppImage">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"/></svg>
+            Download v0.8.0 for Linux
+          </a>
+        </div>
+        <div class="micro">VirusTotal: <a href="https://www.virustotal.com/gui/file/addf239100e56629a28e7bc359c956a1bdb79e058a1a9929dac1241d036a3c92" target="_blank" rel="noopener">Windows 2/71</a> · <a href="https://www.virustotal.com/gui/file/fcee7dc5d1c8b6790de94ed850d4c61ba14729766d45f668bc1b323fceb94f35" target="_blank" rel="noopener">macOS 0/60</a> · <a href="https://www.virustotal.com/gui/file/4253583bece664e52ec0b7669552bb21bfbd3f7621477b5936ddc55a36f66a40" target="_blank" rel="noopener">Linux AppImage 0/62</a> · <a href="https://www.virustotal.com/gui/file/2234fd382397d9553af8aacdef42b20bcfa3f58dea0a91224b425e2cf71c24f7" target="_blank" rel="noopener">deb 0/61</a> · <a href="https://www.virustotal.com/gui/file/1cc777ac39229cf158c286dd967e3920af002e28a6c4121f2f3ca28c25cce374" target="_blank" rel="noopener">rpm 0/60</a></div>
+        <div class="micro" style="margin-top:4px;">All platform binaries compiled by GitHub Actions · <a href="https://github.com/ciela-app/ciela-app.github.io/releases/tag/v0.8.0" target="_blank" rel="noopener" style="color:var(--ink-3);border-bottom:1px solid var(--rule);">Release on GitHub ↗</a></div>
+
+        <details class="sub-releases" open>
+          <summary>1 update in this release</summary>
+          <div class="sub-stream">
+
+            <article class="version" id="v-0-8-0">
+              <header class="ver-head">
+                <h2><span class="vnum">0.8.0</span></h2>
+                <span class="vdate">2026-06-26</span>
+              </header>
+              <p class="summary">Bug fix release. Trash History and Undo restored, blank inbox on first scan fixed, OAuth refresh token rotation fixed, Outlook rules cleanup on disconnect.</p>
+              <ul class="notes">
+                <li><strong>Trash History and Undo restored.</strong> Both were silently broken since v0.7.0. Emails moved to trash correctly, but the record was never written — so Trash History was always empty and Undo did nothing. Fixed: the undo record is now written immediately after each clean operation completes.</li>
+                <li><strong>Blank inbox on first scan fixed.</strong> After a fresh install, the first scan completed but showed zero senders. Caused by a race between the scan finishing and the UI reading the results. Scan now returns results directly — one round-trip, race eliminated.</li>
+                <li><strong>OAuth refresh token fix.</strong> When Gmail or Outlook refreshed an access token mid-session, any rotated refresh token was silently dropped. On app restart, the stale token would fail, forcing you to reconnect. The new refresh token is now saved to the system keychain every time.</li>
+                <li><strong>Outlook rules cleanup on disconnect.</strong> Ciela-created Outlook inbox rules now delete automatically when you disconnect. Previously they stayed in your Microsoft account indefinitely after uninstalling.</li>
+                <li><strong>Outlook rules panel always visible.</strong> The "Your Outlook Filters" section in Settings was hidden when no rule suggestions existed, making active rules unmanageable. It now appears whenever rules are present.</li>
+                <li><strong>Post-scan Outlook filter suggestions.</strong> After scanning, if Outlook senders have been trashed two or more times with no active rule, the top candidate surfaces in a banner. One tap creates the rule; dismiss to skip for the session.</li>
+              </ul>
+            </article>
+
+          </div>
+        </details>
+      </section>
+
+      <!-- ══════════════════════════════════════════
            KNOWN FACES — current public release
       ══════════════════════════════════════════ -->
       <section class="release" id="rel-knownfaces">
         <div class="rel-eyebrow">
-          <span class="rel-badge">Current Release</span>
           <span>v0.7.0 · June 2026</span>
         </div>
         <h2 class="rel-title"><em>Known Faces.</em></h2>
