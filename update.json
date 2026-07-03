@@ -1,15 +1,15 @@
 {
-  "version": "0.8.0",
-  "notes": "Trash History and Undo are fully restored. Blank inbox after first scan fixed. OAuth refresh token rotation fixed. Outlook rules cleanup on disconnect.",
-  "pub_date": "2026-06-26T00:00:00Z",
+  "version": "0.9.1",
+  "notes": "Settings correctness: Text Size now scales the entire app, Show me toggle now works. Signing key rotated -- existing v0.8.0 users must download manually once.",
+  "pub_date": "2026-07-03T00:00:00Z",
   "platforms": {
     "windows-x86_64": {
-      "signature": "dW50cnVzdGVkIGNvbW1lbnQ6IHNpZ25hdHVyZSBmcm9tIHRhdXJpIHNlY3JldCBrZXkKUlVRUUtvSmhkdEI0QTdBMHZTMHlmUjN2U0Y3bUFUbUx6RFpuSHJlU2VBUGt1OS9ZQ3B5S2VScFJNdWRPMlUvREdUWUdIUTRibDZMZktnMGsxbDVBS252b05MWUpPd1dmQWd3PQp0cnVzdGVkIGNvbW1lbnQ6IHRpbWVzdGFtcDoxNzgyNDkxNzM0CWZpbGU6Q2llbGFfMC44LjBfeDY0LXNldHVwLmV4ZQp3SENWVVBUQjFzQkF2WjA1VjNsVGoyOVQrbkZBQzd0c3lTZGhpdmtGbWlSRXJsTmM5V0pvVkZTK2hhMC9kc3lBZE94ZkRwK0wxd2hCeG4xNUdPdmdDQT09Cg==",
-      "url": "https://github.com/ciela-app/ciela-app.github.io/releases/download/v0.8.0/Ciela_0.8.0_x64-setup.exe"
+      "signature": "dW50cnVzdGVkIGNvbW1lbnQ6IHNpZ25hdHVyZSBmcm9tIHRhdXJpIHNlY3JldCBrZXkKUlVTWEVtVVU4TzRsb3g2SnlGZlZOYzlIVTN6N1pzbGplV1dSQ3o0WmlCZFg1M2dlajVPVjlhOGh3OG1GSGpHOFdiMzl5b3FRQml2QWpRb2krcE53Z0VpUERyVG1ad2FyRUFzPQp0cnVzdGVkIGNvbW1lbnQ6IHRpbWVzdGFtcDoxNzgzMDUzNDYwCWZpbGU6Q2llbGFfMC45LjFfeDY0LXNldHVwLmV4ZQp6di9yTzFWYkRrRDBiUTZSR3ZGWjBrVmJoWlRCTXVMaVJsUkxFTUJYRHhkSXV1WWtnalJtQVpYakdFK3g3cHR1d25MbU83dnIvcWVNYnBSL3E3NlFEUT09Cg==",
+      "url": "https://github.com/ciela-app/ciela-app.github.io/releases/download/v0.9.1/Ciela_0.9.1_x64-setup.exe"
     },
     "linux-x86_64": {
-      "signature": "dW50cnVzdGVkIGNvbW1lbnQ6IHNpZ25hdHVyZSBmcm9tIHRhdXJpIHNlY3JldCBrZXkKUlVRUUtvSmhkdEI0QTVadThzYUEreHZzT0d5STFycFI4VE1zdjFWUTdCcElqTGoxNXJHb0lSNU1ySjQxaW9Da3EvZE1aRVlnWVhWMzdEeDcrc2dUZGxGK2syMWdjWnpIbndzPQp0cnVzdGVkIGNvbW1lbnQ6IHRpbWVzdGFtcDoxNzgyNDkxNzM3CWZpbGU6Q2llbGFfMC44LjBfYW1kNjQuQXBwSW1hZ2UKaUNYWTlrb0JROXVaejd2bzh2WGJIS0RrUldGVDJ4U243RlU1QWlwK1FtTnI3NTJNcVNFSisrZXUvWnMwSUZTaTFDVzNXNzkzNFN2NWV6RzVCc0x3Q2c9PQo=",
-      "url": "https://github.com/ciela-app/ciela-app.github.io/releases/download/v0.8.0/Ciela_0.8.0_amd64.AppImage"
+      "signature": "dW50cnVzdGVkIGNvbW1lbnQ6IHNpZ25hdHVyZSBmcm9tIHRhdXJpIHNlY3JldCBrZXkKUlVTWEVtVVU4TzRsb3hyVzVIN05XaGhCVVRRYXhZa2w5N2VNSUNzckFoY2FQSXRpRVA1YnExekZqRjdnYWxOVmFSb1RXYitKYzBuUmY1UWN1TXYxbVBSSGpDbFpKVUgzQ0FVPQp0cnVzdGVkIGNvbW1lbnQ6IHRpbWVzdGFtcDoxNzgzMDUzMzY2CWZpbGU6Q2llbGFfMC45LjFfYW1kNjQuQXBwSW1hZ2UKK0tOekZON09aNk5mMWxNNFRNOTRNRWQwQ1NYZURvL2szN1pnOGpTejdGUjJ6TEI4aTFMWUdhSWlDOWU0S0VCK3FVS3B3Mi8renNtcWlYcG1TNUE2Q1E9PQo=",
+      "url": "https://github.com/ciela-app/ciela-app.github.io/releases/download/v0.9.1/Ciela_0.9.1_amd64.AppImage"
     }
   }
 }

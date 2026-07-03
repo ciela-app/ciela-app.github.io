@@ -188,11 +188,11 @@
       A quiet record of every shipped version of Ciela, newest first, in plain language. No internal acronyms, no test counts, no celebration. Just what got better, and when.
     </p>
     <div class="meta">
-      <span>29 RELEASES</span>
+      <span>31 RELEASES</span>
       <span>122 UPDATES</span>
-      <span>LATEST · v0.8.0 · 2026-06-26</span>
+      <span>LATEST · v0.9.1 · 2026-07-03</span>
       <span>FIRST · v0.1.0 · 2026-04-28</span>
-      <span>LAST UPDATED · JUNE 26, 2026</span>
+      <span>LAST UPDATED · JULY 3, 2026</span>
     </div>
   </div>
 </header>
@@ -207,9 +207,19 @@
       <h4>Releases</h4>
 
       <div class="toc-release">
+        <a class="toc-rel" href="#rel-rebuilt">
+          <span class="toc-rel-name">Rebuilt.</span>
+          <span class="toc-badge">Current</span>
+        </a>
+        <div class="toc-pushes">
+          <a href="#v-0-9-1"><span class="tnum">0.9.1</span><span class="tdate">Jul 3</span></a>
+          <a href="#v-0-9-0"><span class="tnum">0.9.0</span><span class="tdate">Jul 2</span></a>
+        </div>
+      </div>
+
+      <div class="toc-release">
         <a class="toc-rel" href="#rel-restored">
           <span class="toc-rel-name">Restored.</span>
-          <span class="toc-badge">Current</span>
         </a>
         <div class="toc-pushes">
           <a href="#v-0-8-0"><span class="tnum">0.8.0</span><span class="tdate">Jun 26</span></a>
@@ -424,11 +434,76 @@
     <div class="stream">
 
       <!-- ══════════════════════════════════════════
-           RESTORED — current public release
+           REBUILT — current public release
+      ══════════════════════════════════════════ -->
+      <section class="release" id="rel-rebuilt">
+        <div class="rel-eyebrow">
+          <span class="rel-badge">Current Release</span>
+          <span>v0.9.0 – v0.9.1 · July 2026</span>
+        </div>
+        <h2 class="rel-title"><em>Rebuilt.</em></h2>
+        <p class="rel-lede">The entire desktop UI was redesigned from scratch — new navigation shell, three-column inbox with a persistent detail pane, rebuilt Insights, History, Cleaned, Settings, and Connect panels. A follow-on release corrected two settings controls that shipped wired but ineffective.</p>
+        <div style="display:flex;gap:10px;flex-wrap:wrap;margin-bottom:6px;">
+          <a class="btn dark rel-download" href="https://github.com/ciela-app/ciela-app.github.io/releases/download/v0.9.1/Ciela_0.9.1_x64-setup.exe">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M3 5.5l8-1.1v8.1H3zm0 8h8v8.1l-8-1.1zm9-9.2l11-1.6v10.8H12zm0 10.2h11v10.8l-11-1.6z"/></svg>
+            Download v0.9.1 for Windows
+          </a>
+          <a class="btn dark rel-download" href="https://github.com/ciela-app/ciela-app.github.io/releases/download/v0.9.1/Ciela_0.9.1_universal.dmg">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+            Download v0.9.1 for Mac
+          </a>
+          <a class="btn dark rel-download" href="https://github.com/ciela-app/ciela-app.github.io/releases/download/v0.9.1/Ciela_0.9.1_amd64.AppImage">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"/></svg>
+            Download v0.9.1 for Linux
+          </a>
+        </div>
+        <div class="micro">VirusTotal: <a href="https://www.virustotal.com/gui/file/02b1a6f713bf5a78153e78f7231cd4ce24d635d090fb624fead144bec8ebfbbc" target="_blank" rel="noopener">Windows 3/70</a> · <a href="https://www.virustotal.com/gui/file/27f716c8ec05261962c54c58aa79d77f1d6e3a4c7e2c13b501e091c54af0b78d" target="_blank" rel="noopener">macOS 1/61</a> · <a href="https://www.virustotal.com/gui/file/d400dc968a80aa0030df52005b7ee04a3c64a0d8bdbb40150b0fd6f4f32603d7" target="_blank" rel="noopener">Linux AppImage 0/63</a> · <a href="https://www.virustotal.com/gui/file/6df6795cafdc35f8c04a454ff79bbc134031a6e4d498ac22961385fd7cdd49dc" target="_blank" rel="noopener">deb 0/60</a> · <a href="https://www.virustotal.com/gui/file/ebdc37bf36cbbf5ab0062518497ac8415ea126a02a1c31a58cde2ccde3850a8c" target="_blank" rel="noopener">rpm 0/60</a></div>
+        <div class="micro" style="margin-top:4px;">All platform binaries compiled by GitHub Actions · <a href="https://github.com/ciela-app/ciela-app.github.io/releases/tag/v0.9.1" target="_blank" rel="noopener" style="color:var(--ink-3);border-bottom:1px solid var(--rule);">Release on GitHub ↗</a></div>
+
+        <details class="sub-releases" open>
+          <summary>2 updates in this release</summary>
+          <div class="sub-stream">
+
+            <article class="version" id="v-0-9-1">
+              <header class="ver-head">
+                <h2><span class="vnum">0.9.1</span></h2>
+                <span class="vdate">2026-07-03</span>
+              </header>
+              <p class="summary">Settings correctness. Two controls that shipped wired but ineffective in v0.9.0 are now fixed.</p>
+              <ul class="notes">
+                <li><strong>Text Size now scales everything.</strong> The previous implementation wired a CSS variable that most components ignored — nav tabs, buttons, headings, and action buttons all used hardcoded pixel sizes. Replaced with CSS zoom on the root element, which scales every pixel value in the app uniformly. The four steps (Small / Default / Large / Larger) are now meaningfully perceptible.</li>
+                <li><strong>Show me toggle now works.</strong> The Just the essentials / All the detail switch was wired to local state that never reached the Insights panel. Switching it did nothing. Fixed: view mode is now lifted to InboxView and shared as a prop. Charts and expanded stats appear only in detail mode; ghost subscriptions and never-opened senders stay visible in both.</li>
+                <li><strong>Removed a misleading button from Start Here.</strong> The "Not now — you can come back any time" escape called the same skip function as "I'll explore on my own" while falsely implying the user could return. Removed.</li>
+                <li><strong>Backend: failed trash IDs now tracked individually.</strong> Previously only a count was kept when a batch trash operation partially failed, losing the specific message IDs from logs. Now each failed ID is tracked and logged at error level.</li>
+                <li><strong>Reclassification overrides now follow sender subdomain changes.</strong> If you reclassified a sender from one category to another, and they later started sending from a different subdomain, the override didn't apply. Now applies via root-domain fallback.</li>
+              </ul>
+            </article>
+
+            <article class="version" id="v-0-9-0">
+              <header class="ver-head">
+                <h2><span class="vnum">0.9.0</span></h2>
+                <span class="vdate">2026-07-02</span>
+              </header>
+              <p class="summary">Complete desktop UI redesign. New navigation shell, three-column inbox with persistent sender detail pane, rebuilt panels across the entire app.</p>
+              <ul class="notes">
+                <li><strong>New navigation shell.</strong> Five-tab bar (Inbox, Insights, History, Cleaned, Settings) replaces the old tab strip. A persistent StatusBar sits at the bottom with account info and scan controls. UndoBar spans the full width above it.</li>
+                <li><strong>Three-column inbox.</strong> Category rail on the left, sender list in the center, sender detail pane on the right — all visible simultaneously. No more navigating away from the list to see sender stats.</li>
+                <li><strong>Rebuilt Insights panel.</strong> Signal vs. Noise, read rate by category, ghost subscriptions, peak mail hours, storage breakdown, and Inbox Health trend — all in one panel with a simple/detail mode toggle.</li>
+                <li><strong>Rebuilt History and Cleaned panels.</strong> History shows every scan with category deltas. Cleaned shows emails recovered, trashed, and gone with per-item Undo buttons.</li>
+                <li><strong>Rebuilt Settings and Connect panels.</strong> Settings now shows account info, default filter, auto-clean rules, and Outlook filters in one place. Connect panel redesigned for clarity.</li>
+                <li><strong>Date filter restored.</strong> The per-sender date scope picker (trash emails older than N days) was dropped mid-redesign. Restored in the sender-level clean confirmation modal.</li>
+              </ul>
+            </article>
+
+          </div>
+        </details>
+      </section>
+
+      <!-- ══════════════════════════════════════════
+           RESTORED — previous public release
       ══════════════════════════════════════════ -->
       <section class="release" id="rel-restored">
         <div class="rel-eyebrow">
-          <span class="rel-badge">Current Release</span>
           <span>v0.8.0 · June 2026</span>
         </div>
         <h2 class="rel-title"><em>Restored.</em></h2>
