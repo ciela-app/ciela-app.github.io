@@ -162,6 +162,7 @@
       <a href="#summary">The short version</a>
       <a href="#data">What data we touch</a>
       <a href="#storage">Where it lives</a>
+      <a href="#retention">Retention &amp; deletion</a>
       <a href="#telemetry">Telemetry &amp; analytics</a>
       <a href="#third-parties">Third parties</a>
       <a href="#children">Children</a>
@@ -211,11 +212,22 @@
         </tbody>
       </table>
 
-      <h2 id="telemetry"><span class="num">04 · Telemetry</span>None.</h2>
+      <h2 id="retention"><span class="num">04 · Retention &amp; deletion</span>You're in control.</h2>
+      <p>All data Ciela holds lives on your device. There is no server-side retention to worry about because there is no server.</p>
+      <p><strong>Retention:</strong> Email metadata remains in the local encrypted database for as long as you keep the account connected. Nothing ages out automatically — Ciela holds it until you say otherwise.</p>
+      <p><strong>Deletion:</strong> You have three ways to delete your data:</p>
+      <ul>
+        <li><strong>Remove a single account</strong> — Settings → your account → Disconnect. Ciela immediately deletes all metadata for that account from the local database and revokes the OAuth token from your OS credential vault.</li>
+        <li><strong>Reset everything</strong> — Settings → Reset App Data. Wipes the entire local database and all stored credentials.</li>
+        <li><strong>Uninstall</strong> — Removing Ciela from your system removes the application and its local database.</li>
+      </ul>
+      <p>For Gmail and Outlook accounts specifically: disconnecting revokes Ciela's OAuth access at the OS level. To fully revoke at the Google or Microsoft level, visit your provider's connected apps page — we include a link to that page in the disconnect flow.</p>
+
+      <h2 id="telemetry"><span class="num">05 · Telemetry</span>None.</h2>
       <p>Ciela does not include analytics, crash reporting, usage tracking, A/B testing, install pings, feature-flag checks, or any other form of telemetry. The application never connects to <em>any</em> server other than your email provider's OAuth and API endpoints. We do not know how many people use Ciela, which features they use, or whether they exist at all.</p>
       <p>This is a deliberate trade-off: it means we cannot detect bugs you do not report. It also means we cannot accidentally betray you.</p>
 
-      <h2 id="third-parties"><span class="num">05 · Third parties</span>The whole list.</h2>
+      <h2 id="third-parties"><span class="num">06 · Third parties</span>The whole list.</h2>
       <p>Up to three, depending on which accounts you connect:</p>
       <ul>
         <li><strong>Google</strong> — Gmail users only. To authenticate you (OAuth2 PKCE) and to read your mailbox over Gmail's API. Their <a href="https://policies.google.com/privacy">privacy policy</a> governs that side of the connection.</li>
@@ -224,13 +236,13 @@
       </ul>
       <p>This website (the page you're reading) loads a font from Google Fonts. The Ciela application itself does not load fonts or anything else over the network.</p>
 
-      <h2 id="children"><span class="num">06 · Children</span>Not intended for under-13s.</h2>
+      <h2 id="children"><span class="num">07 · Children</span>Not intended for under-13s.</h2>
       <p>Ciela is not directed to children under 13, and we do not knowingly process any data from them — though, since we do not process data from <em>anyone</em>, this is largely a formality.</p>
 
-      <h2 id="changes"><span class="num">07 · Changes</span>If anything here changes.</h2>
+      <h2 id="changes"><span class="num">08 · Changes</span>If anything here changes.</h2>
       <p>We will update this page and bump the version stamp at the top. The application will not change its data behaviour without a visible release note. There is no mailing list to inform you, by design — checking the <a href="https://ciela.app/Changelog.html">changelog</a> when you update is the right way to stay current.</p>
 
-      <h2 id="contact"><span class="num">08 · Contact</span>If you need to reach us.</h2>
+      <h2 id="contact"><span class="num">09 · Contact</span>If you need to reach us.</h2>
       <p>We don't run a support inbox — for reasons that should now be obvious. If you've spotted a bug or have a question, the in-app "Report an issue" link is the right path; it opens a private form, not an email thread.</p>
     </article>
   </div>
