@@ -1,15 +1,15 @@
 {
-  "version": "0.9.1",
-  "notes": "Settings correctness: Text Size now scales the entire app, Show me toggle now works. Signing key rotated -- existing v0.8.0 users must download manually once.",
-  "pub_date": "2026-07-03T00:00:00Z",
+  "version": "0.9.2",
+  "notes": "Gmail now connects via IMAP - no OAuth verification required, works for all Gmail accounts. Outlook OAuth unaffected.",
+  "pub_date": "2026-07-10T00:00:00Z",
   "platforms": {
     "windows-x86_64": {
-      "signature": "dW50cnVzdGVkIGNvbW1lbnQ6IHNpZ25hdHVyZSBmcm9tIHRhdXJpIHNlY3JldCBrZXkKUlVTWEVtVVU4TzRsb3g2SnlGZlZOYzlIVTN6N1pzbGplV1dSQ3o0WmlCZFg1M2dlajVPVjlhOGh3OG1GSGpHOFdiMzl5b3FRQml2QWpRb2krcE53Z0VpUERyVG1ad2FyRUFzPQp0cnVzdGVkIGNvbW1lbnQ6IHRpbWVzdGFtcDoxNzgzMDUzNDYwCWZpbGU6Q2llbGFfMC45LjFfeDY0LXNldHVwLmV4ZQp6di9yTzFWYkRrRDBiUTZSR3ZGWjBrVmJoWlRCTXVMaVJsUkxFTUJYRHhkSXV1WWtnalJtQVpYakdFK3g3cHR1d25MbU83dnIvcWVNYnBSL3E3NlFEUT09Cg==",
-      "url": "https://github.com/ciela-app/ciela-app.github.io/releases/download/v0.9.1/Ciela_0.9.1_x64-setup.exe"
+      "signature": "dW50cnVzdGVkIGNvbW1lbnQ6IHNpZ25hdHVyZSBmcm9tIHRhdXJpIHNlY3JldCBrZXkKUlVTWEVtVVU4TzRsb3d2bDViYkxZOGY3UHVNN3l0TVNUWGRJMW0zUit4YnVUWC9Jb1dMZ0F4VkhxbzRod1VvbE1UdFpKQ2tic0FQYUNEM01TUHlJRTdSL3FwOHdZMjZsZ2dZPQp0cnVzdGVkIGNvbW1lbnQ6IHRpbWVzdGFtcDoxNzgzNTMzMDAwCWZpbGU6Q2llbGFfMC45LjJfeDY0LXNldHVwLmV4ZQpUaFV6NTIrSFByYnhEeElaMDA1akx5UW9ic0NwMHZCTXYvNExPQ1ZHa2VXZkI1QTlYVDJUcjRwaG5NN2hHS3pBbnFCYnlCYzI0b045VE9PVjdHS2ZEZz09Cg==",
+      "url": "https://github.com/ciela-app/ciela-app.github.io/releases/download/v0.9.2/Ciela_0.9.2_x64-setup.exe"
     },
     "linux-x86_64": {
-      "signature": "dW50cnVzdGVkIGNvbW1lbnQ6IHNpZ25hdHVyZSBmcm9tIHRhdXJpIHNlY3JldCBrZXkKUlVTWEVtVVU4TzRsb3hyVzVIN05XaGhCVVRRYXhZa2w5N2VNSUNzckFoY2FQSXRpRVA1YnExekZqRjdnYWxOVmFSb1RXYitKYzBuUmY1UWN1TXYxbVBSSGpDbFpKVUgzQ0FVPQp0cnVzdGVkIGNvbW1lbnQ6IHRpbWVzdGFtcDoxNzgzMDUzMzY2CWZpbGU6Q2llbGFfMC45LjFfYW1kNjQuQXBwSW1hZ2UKK0tOekZON09aNk5mMWxNNFRNOTRNRWQwQ1NYZURvL2szN1pnOGpTejdGUjJ6TEI4aTFMWUdhSWlDOWU0S0VCK3FVS3B3Mi8renNtcWlYcG1TNUE2Q1E9PQo=",
-      "url": "https://github.com/ciela-app/ciela-app.github.io/releases/download/v0.9.1/Ciela_0.9.1_amd64.AppImage"
+      "signature": "dW50cnVzdGVkIGNvbW1lbnQ6IHNpZ25hdHVyZSBmcm9tIHRhdXJpIHNlY3JldCBrZXkKUlVTWEVtVVU4TzRsbzNaMjlVdVV3M2xMaVcxNFFiUVRFbUd5bzlWcE5MZWhnYmEyMzV6M3Y4K3B0MWRVbUUxT3JoNWsxaWtpOTQxQkp2TDdDWHo2U01qb2ZvSUl0aHZqcGcwPQp0cnVzdGVkIGNvbW1lbnQ6IHRpbWVzdGFtcDoxNzgzNTMyMDgwCWZpbGU6Q2llbGFfMC45LjJfYW1kNjQuQXBwSW1hZ2UKU3VKbWdGRnhSRGlWakdLdTBkQ2hqcmdTS1ZTcUFpRHRmUHNqcmphd1BBOWszNmdwVjhmSlp6SUN3NThQRi94enZPMmk0YXAvS0psR2dhU3NjNnFKQ1E9PQo=",
+      "url": "https://github.com/ciela-app/ciela-app.github.io/releases/download/v0.9.2/Ciela_0.9.2_amd64.AppImage"
     }
   }
 }
