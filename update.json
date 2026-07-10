@@ -1,15 +1,15 @@
 {
-  "version": "0.9.2",
-  "notes": "Gmail now connects via IMAP - no OAuth verification required, works for all Gmail accounts. Outlook OAuth unaffected.",
+  "version": "0.9.3",
+  "notes": "Classifier improvements across nine categories, Outlook OAuth recovery buttons, UndoBar scrolling fix.",
   "pub_date": "2026-07-10T00:00:00Z",
   "platforms": {
     "windows-x86_64": {
-      "signature": "dW50cnVzdGVkIGNvbW1lbnQ6IHNpZ25hdHVyZSBmcm9tIHRhdXJpIHNlY3JldCBrZXkKUlVTWEVtVVU4TzRsb3d2bDViYkxZOGY3UHVNN3l0TVNUWGRJMW0zUit4YnVUWC9Jb1dMZ0F4VkhxbzRod1VvbE1UdFpKQ2tic0FQYUNEM01TUHlJRTdSL3FwOHdZMjZsZ2dZPQp0cnVzdGVkIGNvbW1lbnQ6IHRpbWVzdGFtcDoxNzgzNTMzMDAwCWZpbGU6Q2llbGFfMC45LjJfeDY0LXNldHVwLmV4ZQpUaFV6NTIrSFByYnhEeElaMDA1akx5UW9ic0NwMHZCTXYvNExPQ1ZHa2VXZkI1QTlYVDJUcjRwaG5NN2hHS3pBbnFCYnlCYzI0b045VE9PVjdHS2ZEZz09Cg==",
-      "url": "https://github.com/ciela-app/ciela-app.github.io/releases/download/v0.9.2/Ciela_0.9.2_x64-setup.exe"
+      "signature": "dW50cnVzdGVkIGNvbW1lbnQ6IHNpZ25hdHVyZSBmcm9tIHRhdXJpIHNlY3JldCBrZXkKUlVTWEVtVVU4TzRsb3lHeFhEeFI2OVJBY1FmeWw4aityckc3TXpGbTVFNTlVZFhjR0JQbG9WV2hDNDBNQXJ6MngybUM0Tnk3dHB6Yy8wSVlQZ1FQT0RYTEp0M2FPT3A4UlFVPQp0cnVzdGVkIGNvbW1lbnQ6IHRpbWVzdGFtcDoxNzgzNzA0Nzc1CWZpbGU6Q2llbGFfMC45LjNfeDY0LXNldHVwLmV4ZQp2RDZKazBXTWlUR1IrMGFsZjhxZVNhUmFIUHFQbldtd2p1TmVyU0RhZDZlUkt3UXhYblNuN2JwMEsrbE1jRTY3bm5rblJ6L2RkRU9EbDZGOWFyRkNDZz09Cg==",
+      "url": "https://github.com/ciela-app/ciela-app.github.io/releases/download/v0.9.3/Ciela_0.9.3_x64-setup.exe"
     },
     "linux-x86_64": {
-      "signature": "dW50cnVzdGVkIGNvbW1lbnQ6IHNpZ25hdHVyZSBmcm9tIHRhdXJpIHNlY3JldCBrZXkKUlVTWEVtVVU4TzRsbzNaMjlVdVV3M2xMaVcxNFFiUVRFbUd5bzlWcE5MZWhnYmEyMzV6M3Y4K3B0MWRVbUUxT3JoNWsxaWtpOTQxQkp2TDdDWHo2U01qb2ZvSUl0aHZqcGcwPQp0cnVzdGVkIGNvbW1lbnQ6IHRpbWVzdGFtcDoxNzgzNTMyMDgwCWZpbGU6Q2llbGFfMC45LjJfYW1kNjQuQXBwSW1hZ2UKU3VKbWdGRnhSRGlWakdLdTBkQ2hqcmdTS1ZTcUFpRHRmUHNqcmphd1BBOWszNmdwVjhmSlp6SUN3NThQRi94enZPMmk0YXAvS0psR2dhU3NjNnFKQ1E9PQo=",
-      "url": "https://github.com/ciela-app/ciela-app.github.io/releases/download/v0.9.2/Ciela_0.9.2_amd64.AppImage"
+      "signature": "dW50cnVzdGVkIGNvbW1lbnQ6IHNpZ25hdHVyZSBmcm9tIHRhdXJpIHNlY3JldCBrZXkKUlVTWEVtVVU4TzRsb3lHeFhEeFI2OVJBY1FmeWw4aityckc3TXpGbTVFNTlVZFhjR0JQbG9WV2hDNDBNQXJ6MngybUM0Tnk3dHB6Yy8wSVlQZ1FQT0RYTEp0M2FPT3A4UlFVPQp0cnVzdGVkIGNvbW1lbnQ6IHRpbWVzdGFtcDoxNzgzNzAzODk3CWZpbGU6Q2llbGFfMC45LjNfYW1kNjQuQXBwSW1hZ2UKeHlRTHhTYXFIL0QzaHRPSVl5L0pRTld5VlBXd1VFYUFwMGhtQlFJQ0ZwOFZ3Z0JKN2ZIdGFYa1UvUW5TaFRrU1g0cjl3MC9WQ1JWRmQvSFRpYkdmQ1E9PQo=",
+      "url": "https://github.com/ciela-app/ciela-app.github.io/releases/download/v0.9.3/Ciela_0.9.3_amd64.AppImage"
     }
   }
 }
