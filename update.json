@@ -1,15 +1,15 @@
 {
-  "version": "0.9.3",
-  "notes": "Classifier improvements across nine categories, Outlook OAuth recovery buttons, UndoBar scrolling fix.",
-  "pub_date": "2026-07-10T00:00:00Z",
+  "version": "0.9.5",
+  "notes": "Unknown Reduction: retroactive re-classification pass after every scan. 2-column inbox layout restored. Classifier and TD sweep.",
+  "pub_date": "2026-07-12T00:00:00Z",
   "platforms": {
     "windows-x86_64": {
-      "signature": "dW50cnVzdGVkIGNvbW1lbnQ6IHNpZ25hdHVyZSBmcm9tIHRhdXJpIHNlY3JldCBrZXkKUlVTWEVtVVU4TzRsbzhUcDZnUCtwSmVqU3hCN2NkK3NsSUxxbGcwcWcyK3k3dm1JV3BRSjVFTDBuc2M2TEtYM3ZNdHd2alovWFg0cVJDMHF3bENPZlpSSU90OG9HMGlrUHdJPQp0cnVzdGVkIGNvbW1lbnQ6IHRpbWVzdGFtcDoxNzgzNzA0Nzc1CWZpbGU6Q2llbGFfMC45LjNfeDY0LXNldHVwLmV4ZQp2RDZKazBXTWlUR1IrMGFsZjhxZVNhUmFIUHFQbldtd2p1TmVyU0RhZDZlUkt3UXhYblNuN2JwMEsrbE1jRTY3bm5rblJ6L2RkRU9EbDZGOWFyRkNDZz09Cg==",
-      "url": "https://github.com/ciela-app/ciela-app.github.io/releases/download/v0.9.3/Ciela_0.9.3_x64-setup.exe"
+      "signature": "dW50cnVzdGVkIGNvbW1lbnQ6IHNpZ25hdHVyZSBmcm9tIHRhdXJpIHNlY3JldCBrZXkKUlVTWEVtVVU4TzRsbzBYQjczR2t2LzRJcjVpZGkxUHZ6RDViS0diZkJESUh0dzZUdnQxYVk3SHoxUzhEZ3ducCtGSUhMcEZINHdtbFpIZHY5QUtPMzIwYnRURFZ3Kzd1ZXdFPQp0cnVzdGVkIGNvbW1lbnQ6IHRpbWVzdGFtcDoxNzgzOTEyMTQ5CWZpbGU6Q2llbGFfMC45LjVfeDY0LXNldHVwLmV4ZQpoVTBZSGdtZ0JuTDJWaTV4S3NrS2UzN09LTTJudWpTaUYwWmhsM2tjd2J4dTlPb1JySFY5UWVmNzJpbFJ5ckVRUlROMjIyRGVSekxMVFdBc0Jac2VCUT09Cg==",
+      "url": "https://github.com/ciela-app/ciela-app.github.io/releases/download/v0.9.5/Ciela_0.9.5_x64-setup.exe"
     },
     "linux-x86_64": {
-      "signature": "dW50cnVzdGVkIGNvbW1lbnQ6IHNpZ25hdHVyZSBmcm9tIHRhdXJpIHNlY3JldCBrZXkKUlVTWEVtVVU4TzRsb3lHeFhEeFI2OVJBY1FmeWw4aityckc3TXpGbTVFNTlVZFhjR0JQbG9WV2hDNDBNQXJ6MngybUM0Tnk3dHB6Yy8wSVlQZ1FQT0RYTEp0M2FPT3A4UlFVPQp0cnVzdGVkIGNvbW1lbnQ6IHRpbWVzdGFtcDoxNzgzNzAzODk3CWZpbGU6Q2llbGFfMC45LjNfYW1kNjQuQXBwSW1hZ2UKeHlRTHhTYXFIL0QzaHRPSVl5L0pRTld5VlBXd1VFYUFwMGhtQlFJQ0ZwOFZ3Z0JKN2ZIdGFYa1UvUW5TaFRrU1g0cjl3MC9WQ1JWRmQvSFRpYkdmQ1E9PQo=",
-      "url": "https://github.com/ciela-app/ciela-app.github.io/releases/download/v0.9.3/Ciela_0.9.3_amd64.AppImage"
+      "signature": "dW50cnVzdGVkIGNvbW1lbnQ6IHNpZ25hdHVyZSBmcm9tIHRhdXJpIHNlY3JldCBrZXkKUlVTWEVtVVU4TzRsb3lKckxDL3pESStxbHZFVXhHdTFoYm5aQmo1S3Z6bVM0RS91V0xrSTRDZVMwTjAvb0E0ZXZSbk1XV1NJK0ZpSlFDL0trNVRjQzBNbmhyWExPeWl6NEFBPQp0cnVzdGVkIGNvbW1lbnQ6IHRpbWVzdGFtcDoxNzgzOTExNzI0CWZpbGU6Q2llbGFfMC45LjVfYW1kNjQuQXBwSW1hZ2UKUjVyY1JORGxRS0F6SENEeXA4TnBHMFNrMnZXRGtYYXhPVkZtQ2RFNnZyamxnNGR4clhIcENJNzREWWV5azhJcG05OUpwODNwY3RHYStqQkNCa1NkQkE9PQo=",
+      "url": "https://github.com/ciela-app/ciela-app.github.io/releases/download/v0.9.5/Ciela_0.9.5_amd64.AppImage"
     }
   }
 }
