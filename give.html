@@ -189,7 +189,7 @@
   // ── config ───────────────────────────────────────────────────────────────
   const EO_KEY        = 'pk_live_5d817379cdae1b9bb4ba0099cd051d43';
   const WEBHOOK_TOKEN = '290f156eed18';
-  const PP_BASE       = 'https://projects.propublica.org/nonprofits/api/v2/organizations';
+  const PP_PROXY      = 'https://script.google.com/macros/s/AKfycbyEE4h6T2YEluhnrBOfqvtCVD3a_RO_ZsaJDrwi27Z0ur56Jz2xAXoHkz3NeWuWvChlZQ/exec';
 
   // ── search ───────────────────────────────────────────────────────────────
   const input   = document.getElementById('search');
@@ -289,20 +289,18 @@
     }).join('');
   }
 
-  // ── ProPublica 990 fetch ──────────────────────────────────────────────────
+  // ── ProPublica 990 fetch (via Apps Script proxy) ──────────────────────────
   async function fetchProPublicaData(ein) {
     if (!ein) return null;
     const cleanEin = ein.replace(/[^0-9]/g, '');
     const controller = new AbortController();
     const timeout = setTimeout(() => controller.abort(), 8000);
     try {
-      const res = await fetch(`${PP_BASE}/${cleanEin}.json`, { signal: controller.signal });
+      const res = await fetch(`${PP_PROXY}?ein=${cleanEin}`, { signal: controller.signal });
       clearTimeout(timeout);
-      if (res.status === 404) return null;
-      if (!res.ok) throw new Error(`ProPublica ${res.status}`);
       const data = await res.json();
-      const filings = data.filings_with_data || [];
-      return filings.length > 0 ? (filings[0].tax_prd_yr || true) : null;
+      if (data.error) return undefined;
+      return data.filings > 0 ? (data.lastYear || true) : null;
     } catch {
       clearTimeout(timeout);
       return undefined;
