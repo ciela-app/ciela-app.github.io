@@ -1,15 +1,15 @@
 {
-  "version": "0.9.6",
-  "notes": "POMPC C4-C7: RFC headers, single-pass scan, confidence log. Classifier hardening CS-1-CS-4: chain ordering bugs fixed, financial subdomain fix. Gmail metadataHeaders expansion.",
-  "pub_date": "2026-07-16T00:00:00Z",
+  "version": "0.9.7",
+  "notes": "IMAP hardening: full inbox scan (10K cap removed), Gmail IMAP trash folder fix ([Gmail]/Trash + RFC 6154), silent trash failure fixes, undo reliability, TrashError reason in toast.",
+  "pub_date": "2026-07-21T00:00:00Z",
   "platforms": {
     "windows-x86_64": {
-      "signature": "dW50cnVzdGVkIGNvbW1lbnQ6IHNpZ25hdHVyZSBmcm9tIHRhdXJpIHNlY3JldCBrZXkKUlVTWEVtVVU4TzRsb3hHVS8zOXZRQ0xnSCtPOGhyQ1FocmY1VHVUYVY2QUFZTmcvS3hNVitpd1RVRG94R1huUVU5VTV4bHNRQWxEaG9YdmlCdExtaFpzd2RBUHk0N2s5NkE0PQp0cnVzdGVkIGNvbW1lbnQ6IHRpbWVzdGFtcDoxNzg0MjMwNjAwCWZpbGU6Q2llbGFfMC45LjZfeDY0LXNldHVwLmV4ZQpYSzFOUW90bzV6VHJwemlEMXQvbjM4UDR3Y2FHQ2VBbFpEWFJYVUM2TnlZWkw4UGJNTE5rU2JKSVdlOVdNMCtPVWVMWjFKeWxibWdZekY2bzBsVDREUT09Cg==",
-      "url": "https://github.com/ciela-app/ciela-app.github.io/releases/download/v0.9.6/Ciela_0.9.6_x64-setup.exe"
+      "signature": "dW50cnVzdGVkIGNvbW1lbnQ6IHNpZ25hdHVyZSBmcm9tIHRhdXJpIHNlY3JldCBrZXkKUlVTWEVtVVU4TzRsbzNzZDA2bXZRVlhuRmZMVDZ4WXlxSXlUMWE5R0ZuZTdHbFh3YnpITUEwNUk3ZnVNMG9Yc0lwRFk5MW1ROGZKVFRLWHg0THNIaVN5YVhmMFhYMXV0cmdnPQp0cnVzdGVkIGNvbW1lbnQ6IHRpbWVzdGFtcDoxNzg0NjQ5NTc0CWZpbGU6Q2llbGFfMC45LjdfeDY0LXNldHVwLmV4ZQoyWko4OU4xbmJVcjg2T29TdGtER1NyTExTWXI4d0ZEM2Q0cEpUSXNGb3hpQ1ZJeTkzWE1zak9JMzJZRlptMURTWVJqOHhNTHJGMmxjUXJWR2JhRU9DZz09Cg==",
+      "url": "https://github.com/ciela-app/ciela-app.github.io/releases/download/v0.9.7/Ciela_0.9.7_x64-setup.exe"
     },
     "linux-x86_64": {
-      "signature": "dW50cnVzdGVkIGNvbW1lbnQ6IHNpZ25hdHVyZSBmcm9tIHRhdXJpIHNlY3JldCBrZXkKUlVTWEVtVVU4TzRsbysrY1lSQXExalZrSFM3WGNsSFlxaTFmWHJzU29pZ3hBdHdOeGI0NE9oU0xJRTRCaGJoS3pJNUMwL1RDSVFSeGRacENKQUE1c0ROZUxIR0RHcWI4OUEwPQp0cnVzdGVkIGNvbW1lbnQ6IHRpbWVzdGFtcDoxNzg0MjI5NzUwCWZpbGU6Q2llbGFfMC45LjZfYW1kNjQuQXBwSW1hZ2UKUmtoQmNjSDlwSkFPZ2ZNci8yTVYzVWh2OGt0d1BtWnJuanlBazNPWk9Cck5zU0N2eUMveEVZRjJCMm9YYnVMWmhuNjBLeS9lM3pnbFdFRHlPUUhEQ0E9PQo=",
-      "url": "https://github.com/ciela-app/ciela-app.github.io/releases/download/v0.9.6/Ciela_0.9.6_amd64.AppImage"
+      "signature": "dW50cnVzdGVkIGNvbW1lbnQ6IHNpZ25hdHVyZSBmcm9tIHRhdXJpIHNlY3JldCBrZXkKUlVTWEVtVVU4TzRsb3hraXBBeWpWK0JrdnpRanQxSmtEQUhRdityUjNVanpLVVg0dTRCS3ZtV3RMbjRuNHE5REVYdTlhZlNRZVpEbkNpbXhrcFZwbm4xUFZxSmZHalEyNVFjPQp0cnVzdGVkIGNvbW1lbnQ6IHRpbWVzdGFtcDoxNzg0NjQ4ODEyCWZpbGU6Q2llbGFfMC45LjdfYW1kNjQuQXBwSW1hZ2UKeVV4U25ZSmx6TDZaM294bmt1b3ZoaXNJL01jc3JCcGdBRnB2eFlEQU5ucDVnQW5malhNUXIyKzFiYzVqQWt2MTdpUnlUNFRVRk5tS3ZjcWxXeUp5Qnc9PQo=",
+      "url": "https://github.com/ciela-app/ciela-app.github.io/releases/download/v0.9.7/Ciela_0.9.7_amd64.AppImage"
     }
   }
 }
