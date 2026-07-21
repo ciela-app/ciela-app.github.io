@@ -63,7 +63,6 @@
     cursor:default;
   }
   .result-card:hover{border-color:var(--rule);box-shadow:0 2px 8px rgba(0,0,0,.05);}
-  .result-card:hover .link-pp{opacity:1;}
   .result-logo{
     width:40px;height:40px;border-radius:8px;
     object-fit:cover;flex-shrink:0;background:var(--paper-3);
@@ -82,8 +81,9 @@
   .badge-irs{font-family:"Geist Mono",monospace;font-size:9.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-3);background:var(--paper-2);border:1px solid var(--rule-soft);border-radius:4px;padding:2px 6px;white-space:nowrap;flex-shrink:0;}
   .result-meta{display:flex;align-items:center;gap:10px;margin-top:3px;}
   .result-desc{color:var(--ink-3);font-size:12.5px;line-height:1.5;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;flex:1;min-width:0;}
-  .link-pp{font-size:11.5px;color:var(--ink-4);white-space:nowrap;border-bottom:1px solid var(--rule-soft);opacity:0;transition:opacity .15s;}
-  .link-pp:hover{color:var(--ink-3);}
+  .result-links{display:flex;gap:14px;margin-top:5px;}
+  .result-link{font-size:11px;color:var(--ink-4);white-space:nowrap;text-decoration:none;border-bottom:1px solid transparent;transition:color .12s,border-color .12s;}
+  .result-link:hover{color:var(--ink-3);border-bottom-color:var(--rule);}
   .result-actions{display:flex;flex-direction:column;align-items:flex-end;gap:6px;flex-shrink:0;}
   .btn-donate{
     display:inline-flex;align-items:center;
@@ -261,12 +261,13 @@
       const logo = np.logoUrl
         ? `<img class="result-logo" src="${np.logoUrl}" alt="" loading="lazy" />`
         : `<div class="result-logo-placeholder">♡</div>`;
-      const verifiedBadge = np.hasAdmin ? `<span class="badge-verified">Verified</span>` : '';
-      const irsBadge      = (!allFailed && np._pp) ? `<span class="badge-irs">IRS 990</span>` : '';
+      const verifiedBadge = np.hasAdmin ? `<span class="badge-verified" title="This charity has claimed and verified their profile on Every.org">Verified</span>` : '';
+      const irsBadge      = (!allFailed && np._pp) ? `<span class="badge-irs" title="This charity has filed Form 990 financial disclosures with the IRS, confirming they are an active registered nonprofit">IRS 990</span>` : '';
       const desc          = np.description ? `<div class="result-desc">${escHtml(np.description.slice(0,100))}</div>` : '';
       const cleanEin      = (np.ein || '').replace(/[^0-9]/g, '');
       const ppUrl         = cleanEin ? `https://projects.propublica.org/nonprofits/organizations/${cleanEin}` : '';
-      const ppLink        = ppUrl ? `<a class="link-pp" href="${ppUrl}" target="_blank" rel="noopener">View IRS filings ↗</a>` : '';
+      const cnUrl         = `https://www.charitynavigator.org/search?q=${encodeURIComponent(np.name)}`;
+      const ppLink        = ppUrl ? `<a class="result-link" href="${ppUrl}" target="_blank" rel="noopener">IRS filings ↗</a>` : '';
       const donateUrl     = `https://www.every.org/${encodeURIComponent(np.slug)}?webhook_token=${WEBHOOK_TOKEN}#donate`;
       return `
         <div class="result-card">
@@ -279,7 +280,10 @@
             </div>
             <div class="result-meta">
               ${desc}
+            </div>
+            <div class="result-links">
               ${ppLink}
+              <a class="result-link" href="${cnUrl}" target="_blank" rel="noopener">Charity Navigator ↗</a>
             </div>
           </div>
           <div class="result-actions">
