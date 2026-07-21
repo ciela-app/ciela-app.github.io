@@ -191,8 +191,9 @@
       const res  = await fetch(`https://partners.every.org/v0.2/search/${encodeURIComponent(q)}?apiKey=${API_KEY}`);
       const data = await res.json();
       render(data.nonprofits || []);
-    } catch {
-      results.innerHTML = '<p class="status err">Search failed — check your connection and try again.</p>';
+    } catch(err) {
+      console.error('Every.org search error:', err);
+      results.innerHTML = `<p class="status err">Search failed: ${err.message}</p>`;
     }
   }
 
