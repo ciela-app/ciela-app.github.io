@@ -1,0 +1,320 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<link rel="icon" type="image/png" href="favicon.png" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Support — Ciela</title>
+<meta name="description" content="Report a bug, ask a question, or suggest an improvement for Ciela — the free local inbox cleaner for Gmail, Outlook, and 32+ IMAP providers." />
+<meta name="robots" content="index, follow" />
+<link rel="canonical" href="https://ciela.app/support.html" />
+<meta name="theme-color" content="#faf7f2" />
+
+<!-- Open Graph -->
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://ciela.app/support.html" />
+<meta property="og:title" content="Support — Ciela" />
+<meta property="og:description" content="Report a bug or ask a question about Ciela." />
+<meta property="og:site_name" content="Ciela" />
+<meta property="og:locale" content="en_US" />
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:title" content="Support — Ciela" />
+<meta name="twitter:description" content="Report a bug or ask a question about Ciela." />
+<meta name="twitter:site" content="@Cielaapp" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Geist:wght@300;400;500;600&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#faf7f2; --paper-2:#f3efe6; --paper-3:#efece6;
+    --ink:#2a2620; --ink-2:#5d564b; --ink-3:#8a8275; --ink-4:#b6ad9c;
+    --rule:#d9d3c6; --rule-soft:#e8e3d6;
+    --sage:#7a9382; --sage-soft:#e3ebe3; --sage-deep:#5b7565;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  body{background:var(--paper);color:var(--ink);font-family:"Geist",ui-sans-serif,system-ui,sans-serif;font-size:15px;line-height:1.6;-webkit-font-smoothing:antialiased;}
+  a{color:inherit;text-decoration:none;}
+  .muted{color:var(--ink-3);}
+
+  /* nav */
+  .nav{position:sticky;top:0;z-index:30;background:rgba(250,247,242,.86);backdrop-filter:saturate(140%) blur(8px);-webkit-backdrop-filter:saturate(140%) blur(8px);border-bottom:1px solid var(--rule-soft);}
+  .nav-inner{display:flex;align-items:center;justify-content:space-between;padding:18px 0;}
+  .wide{max-width:1240px;margin:0 auto;padding:0 40px;}
+  .brand{display:flex;align-items:center;gap:11px;color:var(--ink);}
+  .brand .word{font-family:"Instrument Serif",serif;font-size:24px;letter-spacing:-0.01em;line-height:1;}
+  .brand .sub{font-family:"Geist Mono",monospace;font-size:9.5px;color:var(--ink-3);letter-spacing:.2em;text-transform:uppercase;margin-left:4px;border-left:1px solid var(--rule);padding-left:10px;}
+  .nav-links{display:flex;gap:30px;align-items:center;color:var(--ink-2);font-size:13.5px;}
+  .nav-links a:hover{color:var(--ink);}
+  .btn{display:inline-flex;align-items:center;gap:8px;padding:10px 16px;border-radius:8px;border:1px solid var(--rule);background:#fff;color:var(--ink);font:inherit;font-size:13.5px;font-weight:500;letter-spacing:-0.005em;cursor:pointer;transition:border-color .15s,background .15s;}
+  .btn:hover{border-color:var(--ink-3);background:var(--paper-2);}
+  .btn.dark{background:var(--ink);color:#fff;border-color:var(--ink);}
+  .btn.dark:hover{background:#3d3830;}
+  .btn.small{padding:8px 12px;font-size:12.5px;}
+
+  /* page header */
+  .pagehead{padding:80px 0 32px;}
+  .crumbs{font-family:"Geist Mono",monospace;font-size:10.5px;letter-spacing:.18em;color:var(--ink-3);text-transform:uppercase;display:flex;align-items:center;gap:10px;}
+  .crumbs .sep{opacity:.5;}
+  h1.title{font-family:"Instrument Serif",serif;font-weight:400;font-size:72px;line-height:1;letter-spacing:-0.025em;margin:18px 0 0;}
+  h1.title .em{font-style:italic;color:var(--ink-2);}
+  .lede{color:var(--ink-2);font-size:17px;line-height:1.65;margin-top:22px;max-width:620px;}
+
+  hr.rule{border:none;border-top:1px solid var(--rule-soft);margin:0;}
+
+  /* layout */
+  .layout{display:grid;grid-template-columns:300px 1fr;gap:80px;padding:56px 0 96px;align-items:start;}
+
+  /* sidebar */
+  .sidebar h4{font-family:"Geist Mono",monospace;font-size:10.5px;letter-spacing:.18em;color:var(--ink-3);text-transform:uppercase;margin:0 0 14px;font-weight:500;}
+  .tip-card{background:var(--paper-2);border:1px solid var(--rule-soft);border-radius:12px;padding:20px 22px;margin-bottom:20px;}
+  .tip-card p{font-size:13.5px;color:var(--ink-2);line-height:1.6;margin:0;}
+  .tip-card p+p{margin-top:10px;}
+  .tip-card strong{color:var(--ink);font-weight:500;}
+  .tip-card a{color:var(--sage-deep);border-bottom:1px solid var(--sage-soft);}
+  .github-link{display:flex;align-items:center;gap:9px;font-size:13.5px;color:var(--ink-2);padding:10px 14px;border:1px solid var(--rule-soft);border-radius:8px;margin-top:8px;transition:border-color .15s,color .15s;}
+  .github-link:hover{border-color:var(--ink-3);color:var(--ink);}
+  .github-link svg{flex-shrink:0;opacity:.6;}
+
+  /* form */
+  .form-wrap{max-width:600px;}
+  .form-wrap h2{font-family:"Instrument Serif",serif;font-weight:400;font-size:32px;letter-spacing:-0.02em;line-height:1.15;margin:0 0 6px;}
+  .form-wrap .sub{color:var(--ink-3);font-size:13.5px;margin:0 0 32px;}
+
+  .field{margin-bottom:22px;}
+  label{display:block;font-size:13px;font-weight:500;color:var(--ink);margin-bottom:7px;letter-spacing:-0.005em;}
+  label .opt{font-weight:400;color:var(--ink-3);margin-left:5px;}
+  select,input[type=email],textarea{
+    width:100%;padding:11px 14px;border:1px solid var(--rule);border-radius:8px;
+    background:var(--paper);color:var(--ink);font:inherit;font-size:14.5px;
+    outline:none;transition:border-color .15s,box-shadow .15s;
+    -webkit-appearance:none;appearance:none;
+  }
+  select{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%238a8275' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 14px center;padding-right:36px;}
+  select:focus,input[type=email]:focus,textarea:focus{border-color:var(--sage);box-shadow:0 0 0 3px var(--sage-soft);}
+  textarea{resize:vertical;min-height:140px;line-height:1.55;}
+  .row-2{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+
+  .submit-row{display:flex;align-items:center;gap:16px;margin-top:28px;}
+  button[type=submit]{display:inline-flex;align-items:center;gap:8px;padding:12px 24px;border-radius:8px;border:none;background:var(--ink);color:#fff;font:inherit;font-size:14px;font-weight:500;letter-spacing:-0.005em;cursor:pointer;transition:background .15s;}
+  button[type=submit]:hover{background:#3d3830;}
+  .submit-note{font-size:12.5px;color:var(--ink-3);line-height:1.5;}
+
+  /* success state */
+  .success-msg{display:none;background:var(--sage-soft);border:1px solid var(--sage);border-radius:12px;padding:20px 24px;margin-top:20px;}
+  .success-msg p{margin:0;font-size:14.5px;color:var(--sage-deep);line-height:1.6;}
+  .success-msg strong{color:var(--sage-deep);}
+
+  /* footer */
+  footer{border-top:1px solid var(--rule-soft);padding:48px 0 36px;background:var(--paper-2);}
+  .foot-grid{display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr;gap:48px;}
+  .foot-grid h4{font-family:"Geist Mono",monospace;font-size:10.5px;letter-spacing:.16em;color:var(--ink-3);text-transform:uppercase;margin:0 0 14px;font-weight:500;}
+  .foot-grid a{display:block;color:var(--ink-2);font-size:13.5px;padding:4px 0;}
+  .foot-grid a:hover{color:var(--ink);}
+  .foot-bottom{display:flex;justify-content:space-between;align-items:center;margin-top:40px;padding-top:24px;border-top:1px solid var(--rule-soft);color:var(--ink-3);font-family:"Geist Mono",monospace;font-size:11px;letter-spacing:.06em;}
+  .foot-bottom .right{display:flex;gap:18px;align-items:center;}
+
+  @media(max-width:900px){
+    .layout{grid-template-columns:1fr;gap:32px;}
+    .row-2{grid-template-columns:1fr;}
+    h1.title{font-size:48px;}
+    .foot-grid{grid-template-columns:1fr 1fr;}
+    .nav-links{display:none;}
+    .nav-right{display:none;}
+    .brand .sub{display:none;}
+    .foot-bottom{flex-direction:column;gap:12px;text-align:center;}
+    .foot-bottom .right{justify-content:center;}
+  }
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="wide nav-inner">
+    <a class="brand" href="https://ciela.app/" aria-label="Ciela home">
+      <svg width="28" height="28" viewBox="0 0 100 100" aria-hidden style="border-radius:8px;">
+        <defs>
+          <radialGradient id="nav-sky" cx="0.7" cy="0.3" r="1.05"><stop offset="0%" stop-color="#56708a"/><stop offset="48%" stop-color="#2f435a"/><stop offset="100%" stop-color="#16203a"/></radialGradient>
+          <mask id="nav-cre"><rect width="100" height="100" fill="black"/><circle cx="50" cy="50" r="31" fill="white"/><circle cx="61" cy="47" r="31" fill="black"/></mask>
+        </defs>
+        <rect width="100" height="100" rx="22" fill="url(#nav-sky)"/>
+        <circle cx="50" cy="50" r="31" fill="#3a3f4a"/>
+        <rect width="100" height="100" fill="#f5efe4" mask="url(#nav-cre)"/>
+      </svg>
+      <span class="word">ciela</span>
+      <span class="sub">the inbox curator</span>
+    </a>
+    <div class="nav-links">
+      <a href="https://ciela.app/#how">How it works</a>
+      <a href="https://ciela.app/#free">What it costs</a>
+      <a href="https://ciela.app/#faq">FAQ</a>
+      <a href="support.html" style="color:var(--ink);">Support</a>
+    </div>
+    <div class="nav-right">
+      <a class="btn dark small" href="https://ciela.app/#download">Download for Windows</a>
+    </div>
+  </div>
+</nav>
+
+<header class="pagehead">
+  <div class="wide">
+    <div class="crumbs"><a href="https://ciela.app/">Ciela</a><span class="sep">/</span><span>Support</span></div>
+    <h1 class="title">Get in <span class="em">touch.</span></h1>
+    <p class="lede">Something not working? Something confusing? We read every message. Ciela is a small team and your feedback shapes what gets fixed next.</p>
+  </div>
+</header>
+
+<hr class="rule"/>
+
+<section class="wide">
+  <div class="layout">
+
+    <aside>
+      <h4>Before you write</h4>
+
+      <div class="tip-card">
+        <p><strong>Check the FAQ first.</strong> Connection issues, SmartScreen warnings, and scan questions are answered at <a href="https://ciela.app/#faq">ciela.app/#faq</a>.</p>
+      </div>
+
+      <div class="tip-card">
+        <p><strong>Include your platform and version.</strong> It helps narrow down the cause immediately. You can find the version in <strong>Settings → About</strong>.</p>
+      </div>
+
+      <div class="tip-card">
+        <p><strong>Technical user?</strong> Open an issue directly on GitHub — it goes into our tracker immediately.</p>
+        <a class="github-link" href="https://github.com/ciela-app/ciela-app.github.io/issues/new?labels=bug&template=bug_report.yml" target="_blank" rel="noopener">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
+          Open a GitHub issue
+        </a>
+      </div>
+    </aside>
+
+    <div class="form-wrap">
+      <h2>Send us a message</h2>
+      <p class="sub">We'll follow up by email if you leave one. No account needed.</p>
+
+      <form id="support-form" action="https://formspree.io/f/xlgqlobj" method="POST">
+        <div class="row-2">
+          <div class="field">
+            <label for="type">Type</label>
+            <select id="type" name="type" required>
+              <option value="">Select one…</option>
+              <option value="bug">Bug report</option>
+              <option value="question">Question</option>
+              <option value="feature">Feature request</option>
+              <option value="other">Other</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="platform">Platform</label>
+            <select id="platform" name="platform">
+              <option value="">Select one…</option>
+              <option value="windows">Windows</option>
+              <option value="mac">macOS</option>
+              <option value="linux">Linux</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="row-2">
+          <div class="field">
+            <label for="version">Ciela version <span class="opt">optional</span></label>
+            <input type="text" id="version" name="version" placeholder="e.g. 0.9.7" />
+          </div>
+          <div class="field">
+            <label for="email">Email <span class="opt">optional</span></label>
+            <input type="email" id="email" name="email" placeholder="For a reply" />
+          </div>
+        </div>
+
+        <div class="field">
+          <label for="message">Description</label>
+          <textarea id="message" name="message" placeholder="What happened? What were you trying to do? Any error messages?" required></textarea>
+        </div>
+
+        <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off" />
+
+        <div class="submit-row">
+          <button type="submit">Send message</button>
+          <p class="submit-note">Submitted securely.<br>We aim to respond within a few days.</p>
+        </div>
+      </form>
+
+      <div class="success-msg" id="success-msg">
+        <p><strong>Message received — thank you.</strong> If you left an email address we'll be in touch. For urgent issues, you can also reach us at <a href="https://x.com/Cielaapp" target="_blank" rel="noopener">@Cielaapp</a>.</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<footer>
+  <div class="wide">
+    <div class="foot-grid">
+      <div>
+        <a class="brand" href="https://ciela.app/" style="margin-bottom:14px;">
+          <svg width="26" height="26" viewBox="0 0 100 100" aria-hidden style="border-radius:7px;">
+            <defs>
+              <radialGradient id="foot-sky" cx="0.7" cy="0.3" r="1.05"><stop offset="0%" stop-color="#56708a"/><stop offset="48%" stop-color="#2f435a"/><stop offset="100%" stop-color="#16203a"/></radialGradient>
+              <mask id="foot-cre"><rect width="100" height="100" fill="black"/><circle cx="50" cy="50" r="31" fill="white"/><circle cx="61" cy="47" r="31" fill="black"/></mask>
+            </defs>
+            <rect width="100" height="100" rx="22" fill="url(#foot-sky)"/>
+            <circle cx="50" cy="50" r="31" fill="#3a3f4a"/>
+            <rect width="100" height="100" fill="#f5efe4" mask="url(#foot-cre)"/>
+          </svg>
+          <span class="word">ciela</span>
+        </a>
+        <p class="muted" style="font-size:13px;line-height:1.6;max-width:300px;margin:14px 0 0;">A free, local-only desktop app that helps you clean, understand, and take control of your inbox.</p>
+      </div>
+      <div>
+        <h4>Product</h4>
+        <a href="https://ciela.app/#how">How it works</a>
+        <a href="https://ciela.app/#privacy">Privacy</a>
+        <a href="https://ciela.app/#free">What it costs</a>
+        <a href="https://ciela.app/#faq">FAQ</a>
+      </div>
+      <div>
+        <h4>Legal</h4>
+        <a href="Privacy.html">Privacy policy</a>
+        <a href="Terms.html">Terms</a>
+        <a href="Changelog.html">Changelog</a>
+      </div>
+      <div>
+        <h4>Get in touch</h4>
+        <a href="support.html">Report an issue</a>
+        <a href="https://x.com/Cielaapp" target="_blank" rel="noopener">@Cielaapp on X</a>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>CIELA · THE INBOX CURATOR™</span>
+      <span class="right">
+        <a href="https://ciela.app/Privacy.html">Privacy</a>
+        <span>·</span>
+        <a href="https://ciela.app/Terms.html">Terms</a>
+        <span>·</span>
+        <span>NOT AFFILIATED WITH GOOGLE OR MICROSOFT</span>
+      </span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const form = document.getElementById('support-form');
+  const success = document.getElementById('success-msg');
+  form.addEventListener('submit', async function(e) {
+    e.preventDefault();
+    const data = new FormData(form);
+    const res = await fetch(form.action, { method: 'POST', body: data, headers: { 'Accept': 'application/json' } });
+    if (res.ok) {
+      form.style.display = 'none';
+      success.style.display = 'block';
+    } else {
+      alert('Something went wrong. Please try again or email us directly.');
+    }
+  });
+</script>
+<script data-goatcounter="https://ciela.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+</body>
+</html>
