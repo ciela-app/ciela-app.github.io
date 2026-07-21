@@ -1,0 +1,229 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<link rel="icon" type="image/png" href="favicon.png" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Give Back — Ciela</title>
+<meta name="description" content="Ciela is free. If it's helped you, donate to a charity you care about — you pick who benefits." />
+<meta name="robots" content="noindex, nofollow" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Geist:wght@300;400;500;600&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#faf7f2;--paper-2:#f3efe6;--paper-3:#efece6;
+    --ink:#2a2620;--ink-2:#5d564b;--ink-3:#8a8275;--ink-4:#b6ad9c;
+    --rule:#d9d3c6;--rule-soft:#e8e3d6;
+    --sage:#7a9382;--sage-soft:#e3ebe3;--sage-deep:#5b7565;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  body{background:var(--paper);color:var(--ink);font-family:"Geist",ui-sans-serif,system-ui,sans-serif;font-size:15px;line-height:1.6;-webkit-font-smoothing:antialiased;}
+  a{color:inherit;text-decoration:none;}
+  .muted{color:var(--ink-3);}
+  .wide{max-width:860px;margin:0 auto;padding:0 32px;}
+
+  /* nav */
+  .nav{position:sticky;top:0;z-index:30;background:rgba(250,247,242,.88);backdrop-filter:saturate(140%) blur(8px);-webkit-backdrop-filter:saturate(140%) blur(8px);border-bottom:1px solid var(--rule-soft);}
+  .nav-inner{display:flex;align-items:center;justify-content:space-between;padding:16px 0;}
+  .brand{display:flex;align-items:center;gap:10px;}
+  .brand .word{font-family:"Instrument Serif",serif;font-size:22px;letter-spacing:-0.01em;}
+
+  /* hero */
+  .hero{padding:72px 0 48px;}
+  .crumbs{font-family:"Geist Mono",monospace;font-size:10px;letter-spacing:.18em;color:var(--ink-3);text-transform:uppercase;display:flex;gap:8px;align-items:center;margin-bottom:20px;}
+  .hero h1{font-family:"Instrument Serif",serif;font-weight:400;font-size:56px;line-height:1;letter-spacing:-0.025em;margin:0 0 16px;}
+  .hero h1 em{font-style:italic;color:var(--ink-2);}
+  .hero p{color:var(--ink-2);font-size:17px;line-height:1.65;margin:0;max-width:520px;}
+
+  /* search */
+  .search-section{padding:40px 0 64px;}
+  .search-label{font-family:"Geist Mono",monospace;font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-3);margin-bottom:10px;}
+  .search-wrap{position:relative;}
+  .search-input{
+    width:100%;padding:16px 20px;
+    border:1px solid var(--rule);border-radius:10px;
+    background:#fff;color:var(--ink);
+    font:inherit;font-size:16px;
+    outline:none;transition:border-color .15s,box-shadow .15s;
+    appearance:none;
+  }
+  .search-input:focus{border-color:var(--sage);box-shadow:0 0 0 3px var(--sage-soft);}
+  .search-input::placeholder{color:var(--ink-4);}
+
+  /* results */
+  .results{margin-top:8px;}
+  .result-card{
+    display:flex;align-items:center;gap:14px;
+    padding:14px 16px;border-radius:8px;
+    border:1px solid var(--rule-soft);background:#fff;
+    margin-bottom:6px;transition:border-color .12s;
+  }
+  .result-card:hover{border-color:var(--rule);}
+  .result-logo{
+    width:40px;height:40px;border-radius:8px;
+    object-fit:cover;flex-shrink:0;background:var(--paper-3);
+    border:1px solid var(--rule-soft);
+  }
+  .result-logo-placeholder{
+    width:40px;height:40px;border-radius:8px;flex-shrink:0;
+    background:var(--paper-3);border:1px solid var(--rule-soft);
+    display:flex;align-items:center;justify-content:center;
+    color:var(--ink-4);font-size:18px;
+  }
+  .result-info{flex:1;min-width:0;}
+  .result-name{font-weight:500;font-size:14px;letter-spacing:-0.005em;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+  .result-desc{color:var(--ink-3);font-size:12.5px;line-height:1.5;margin-top:2px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+  .btn-donate{
+    flex-shrink:0;
+    display:inline-flex;align-items:center;
+    padding:8px 16px;border-radius:7px;
+    background:var(--ink);color:#fff;
+    font:inherit;font-size:13px;font-weight:500;
+    cursor:pointer;text-decoration:none;
+    transition:background .12s;white-space:nowrap;
+  }
+  .btn-donate:hover{background:#3d3830;}
+
+  .status{padding:12px 0;color:var(--ink-3);font-size:13.5px;}
+  .status.err{color:#b04040;}
+
+  /* note */
+  .note{margin-top:40px;padding:20px 24px;border-radius:10px;background:var(--paper-2);border:1px solid var(--rule-soft);}
+  .note p{color:var(--ink-3);font-size:13px;line-height:1.6;margin:0;}
+  .note strong{color:var(--ink-2);font-weight:500;}
+
+  /* footer */
+  footer{border-top:1px solid var(--rule-soft);padding:32px 0;margin-top:80px;}
+  .foot-inner{display:flex;justify-content:space-between;align-items:center;color:var(--ink-3);font-size:13px;}
+  .foot-inner a:hover{color:var(--ink);}
+
+  @media(max-width:600px){
+    .hero h1{font-size:38px;}
+    .result-desc{display:none;}
+    .foot-inner{flex-direction:column;gap:10px;text-align:center;}
+  }
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="wide nav-inner">
+    <a class="brand" href="https://ciela.app/">
+      <svg width="26" height="26" viewBox="0 0 100 100" style="border-radius:7px;" aria-hidden>
+        <defs>
+          <radialGradient id="g" cx="0.7" cy="0.3" r="1.05"><stop offset="0%" stop-color="#56708a"/><stop offset="48%" stop-color="#2f435a"/><stop offset="100%" stop-color="#16203a"/></radialGradient>
+          <mask id="m"><rect width="100" height="100" fill="black"/><circle cx="50" cy="50" r="31" fill="white"/><circle cx="61" cy="47" r="31" fill="black"/></mask>
+        </defs>
+        <rect width="100" height="100" rx="22" fill="url(#g)"/>
+        <circle cx="50" cy="50" r="31" fill="#3a3f4a"/>
+        <rect width="100" height="100" fill="#f5efe4" mask="url(#m)"/>
+      </svg>
+      <span class="word">ciela</span>
+    </a>
+    <a href="https://ciela.app/" class="muted" style="font-size:13.5px;">← Back to Ciela</a>
+  </div>
+</nav>
+
+<section class="hero">
+  <div class="wide">
+    <div class="crumbs"><a href="https://ciela.app/">Ciela</a><span style="opacity:.5;">/</span><span>Give back</span></div>
+    <h1>Ciela is free.<br><em>Pay it forward.</em></h1>
+    <p>No subscription, no unlock, no catch. If Ciela has helped you, consider donating to a charity you actually care about — you choose who benefits.</p>
+  </div>
+</section>
+
+<section class="search-section">
+  <div class="wide">
+    <div class="search-label">Search any charity</div>
+    <div class="search-wrap">
+      <input
+        id="search"
+        class="search-input"
+        type="text"
+        placeholder="Type a name, cause, or keyword…"
+        autocomplete="off"
+        spellcheck="false"
+      />
+    </div>
+    <div id="results" class="results"></div>
+
+    <div class="note">
+      <p><strong>How it works:</strong> Search finds any verified 501(c)(3) on Every.org. When you donate, the money goes directly to your chosen charity — Ciela never handles your payment or personal details. Every.org is a nonprofit themselves and charges no platform fee.</p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wide">
+    <div class="foot-inner">
+      <span>© Aetheric Labs LLC</span>
+      <span style="display:flex;gap:20px;">
+        <a href="Privacy.html" class="muted">Privacy</a>
+        <a href="Terms.html" class="muted">Terms</a>
+        <a href="contact.html" class="muted">Get in touch</a>
+      </span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // ── config ───────────────────────────────────────────────────────────────
+  const API_KEY       = 'YOUR_PUBLIC_API_KEY';   // Every.org developer dashboard
+  const WEBHOOK_TOKEN = 'YOUR_WEBHOOK_TOKEN';    // Every.org developer dashboard → Webhooks
+
+  // ── search ───────────────────────────────────────────────────────────────
+  const input   = document.getElementById('search');
+  const results = document.getElementById('results');
+  let timer;
+
+  input.addEventListener('input', () => {
+    clearTimeout(timer);
+    const q = input.value.trim();
+    if (q.length < 2) { results.innerHTML = ''; return; }
+    timer = setTimeout(() => search(q), 320);
+  });
+
+  async function search(q) {
+    results.innerHTML = '<p class="status">Searching…</p>';
+    try {
+      const res  = await fetch(`https://partners.every.org/v0.2/search/${encodeURIComponent(q)}?apiKey=${API_KEY}`);
+      const data = await res.json();
+      render(data.nonprofits || []);
+    } catch {
+      results.innerHTML = '<p class="status err">Search failed — check your connection and try again.</p>';
+    }
+  }
+
+  function render(list) {
+    if (!list.length) {
+      results.innerHTML = '<p class="status">No results. Try a different name or keyword.</p>';
+      return;
+    }
+    results.innerHTML = list.slice(0, 8).map(np => {
+      const logo = np.logoUrl
+        ? `<img class="result-logo" src="${np.logoUrl}" alt="" loading="lazy" />`
+        : `<div class="result-logo-placeholder">♡</div>`;
+      const desc = np.description
+        ? `<div class="result-desc">${np.description.slice(0, 120)}</div>`
+        : '';
+      const donateUrl = `https://www.every.org/${encodeURIComponent(np.slug)}?webhook_token=${WEBHOOK_TOKEN}#donate`;
+      return `
+        <div class="result-card">
+          ${logo}
+          <div class="result-info">
+            <div class="result-name">${escHtml(np.name)}</div>
+            ${desc}
+          </div>
+          <a class="btn-donate" href="${donateUrl}" target="_blank" rel="noopener">Donate</a>
+        </div>`;
+    }).join('');
+  }
+
+  function escHtml(s) {
+    return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+  }
+</script>
+</body>
+</html>
