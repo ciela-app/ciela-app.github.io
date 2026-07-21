@@ -182,8 +182,7 @@
   // ── config ───────────────────────────────────────────────────────────────
   const EO_KEY        = 'pk_live_5d817379cdae1b9bb4ba0099cd051d43';
   const WEBHOOK_TOKEN = '290f156eed18';
-  const CN_KEY        = 'eyJvcmciOiI2NzM2OTIyMThhYTc3MjAwMDEwMjU3NmMiLCJpZCI6IjQ0ZmQyM2RhOGIwNjQyODQ4ZThkNDU0YWQ2ZjgyOGU0IiwiaCI6Im11cm11cjEyOCJ9';
-  const CN_ENDPOINT   = 'https://api.charitynavigator.org/graphql';
+  const CN_PROXY      = 'https://script.google.com/macros/s/AKfycbyEE4h6T2YEluhnrBOfqvtCVD3a_RO_ZsaJDrwi27Z0ur56Jz2xAXoHkz3NeWuWvChlZQ/exec';
   const MIN_STARS     = 3;
 
   // ── search ───────────────────────────────────────────────────────────────
@@ -203,36 +202,57 @@
     try {
       const res  = await fetch(`https://partners.every.org/v0.2/search/${encodeURIComponent(q)}?apiKey=${EO_KEY}`);
       const data = await res.json();
-      const list = data.nonprofits || [];
-      if (!list.length) { results.innerHTML = '<p class="status">No results. Try a different name or keyword.</p>'; return; }
-      // sort verified first, then render immediately
-      const sorted = [...list].sort((a,b) => (b.hasAdmin?1:0)-(a.hasAdmin?1:0)).slice(0,8);
-      render(sorted);
-      // fetch CN ratings in background, update cards as they arrive
-      enrichWithRatings(sorted);
+      const list = (data.nonprofits || [])
+        .sort((a,b) => (b.hasAdmin?1:0)-(a.hasAdmin?1:0))
+        .slice(0, 12); // fetch more to account for filtering
+
+      if (!list.length) {
+        results.innerHTML = '<p class="status">No results. Try a different name or keyword.</p>';
+        return;
+      }
+
+      results.innerHTML = '<p class="status">Checking ratings…</p>';
+
+      // fetch all CN ratings in parallel before showing anything
+      const ratings = await Promise.all(list.map(np => fetchCNRating(np.ein)));
+
+      // if every single CN call failed, show all results (proxy is down)
+      const allFailed = ratings.every(r => r === undefined);
+
+      const filtered = list
+        .map((np, i) => ({ ...np, _rating: ratings[i] }))
+        .filter(np => allFailed || (np._rating !== undefined && np._rating !== null && np._rating >= MIN_STARS));
+
+      if (!filtered.length) {
+        results.innerHTML = '<p class="status">No results with 3+ star Charity Navigator ratings. Try a broader search.</p>';
+        return;
+      }
+
+      render(filtered, allFailed);
     } catch {
       results.innerHTML = '<p class="status err">Search failed — check your connection and try again.</p>';
     }
   }
 
-  // ── render cards (no stars yet) ──────────────────────────────────────────
-  function render(list) {
-    results.innerHTML = list.map((np, i) => {
+  // ── render ────────────────────────────────────────────────────────────────
+  function render(list, noRatings) {
+    results.innerHTML = list.map(np => {
       const logo = np.logoUrl
         ? `<img class="result-logo" src="${np.logoUrl}" alt="" loading="lazy" />`
         : `<div class="result-logo-placeholder">♡</div>`;
-      const verified = np.hasAdmin ? `<span class="badge-verified">Verified</span>` : '';
-      const desc = np.description ? `<div class="result-desc">${escHtml(np.description.slice(0,100))}</div>` : '';
+      const verified  = np.hasAdmin ? `<span class="badge-verified">Verified</span>` : '';
+      const starsHtml = noRatings ? '' : `<span class="stars">${'★'.repeat(np._rating)}${'☆'.repeat(4 - np._rating)}</span>`;
+      const desc      = np.description ? `<div class="result-desc">${escHtml(np.description.slice(0,100))}</div>` : '';
       const cnUrl     = `https://www.charitynavigator.org/search?q=${encodeURIComponent(np.name)}`;
       const donateUrl = `https://www.every.org/${encodeURIComponent(np.slug)}?webhook_token=${WEBHOOK_TOKEN}#donate`;
       return `
-        <div class="result-card" id="card-${i}">
+        <div class="result-card">
           ${logo}
           <div class="result-info">
             <div class="result-name-row">
               <span class="result-name">${escHtml(np.name)}</span>
               ${verified}
-              <span class="stars" id="stars-${i}"></span>
+              ${starsHtml}
             </div>
             <div class="result-meta">
               ${desc}
@@ -246,59 +266,24 @@
     }).join('');
   }
 
-  // ── CN rating fetch + card update ────────────────────────────────────────
-  async function enrichWithRatings(list) {
-    await Promise.all(list.map((np, i) => fetchAndApply(np, i)));
-  }
-
-  async function fetchAndApply(np, i) {
-    const rating = await fetchCNRating(np.ein);
-    const starsEl = document.getElementById(`stars-${i}`);
-    const card    = document.getElementById(`card-${i}`);
-    if (!starsEl || !card) return;
-
-    if (rating === undefined) {
-      // CN failed for this card — leave visible, no stars shown
-      return;
-    }
-    if (rating === null) {
-      // Not in CN database — show label, keep visible
-      starsEl.className = 'stars-unrated';
-      starsEl.textContent = 'Not rated';
-      return;
-    }
-    // Has a rating — show stars, hide if below minimum
-    starsEl.textContent = '★'.repeat(rating) + '☆'.repeat(4 - rating);
-    if (rating < MIN_STARS) {
-      card.style.display = 'none';
-    }
-  }
-
+  // ── CN proxy fetch ────────────────────────────────────────────────────────
   async function fetchCNRating(ein) {
     if (!ein) return null;
-    const cleanEin = ein.replace('-', '');
-    const query = `{ publicSearchFaceted(filters:{ein:"${cleanEin}"},take:1){ organizations{ ein encompass_star_rating } } }`;
+    const cleanEin = ein.replace(/[^0-9]/g, '');
     const controller = new AbortController();
-    const timeout = setTimeout(() => controller.abort(), 4000);
+    const timeout = setTimeout(() => controller.abort(), 8000);
     try {
-      const res = await fetch(CN_ENDPOINT, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json', 'Authorization': `authToken ${CN_KEY}` },
-        body: JSON.stringify({ query }),
-        signal: controller.signal
-      });
+      const res  = await fetch(`${CN_PROXY}?ein=${cleanEin}`, { signal: controller.signal });
       clearTimeout(timeout);
       const data = await res.json();
-      const orgs = data?.data?.publicSearchFaceted?.organizations;
-      if (orgs && orgs.length) return orgs[0].encompass_star_rating ?? null;
-      return null;
+      return data.rating ?? null;
     } catch {
       clearTimeout(timeout);
-      return undefined; // failed — graceful fallback
+      return undefined;
     }
   }
 
-  // ── util ─────────────────────────────────────────────────────────────────
+  // ── util ──────────────────────────────────────────────────────────────────
   function escHtml(s) {
     return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
   }
