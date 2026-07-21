@@ -6,7 +6,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1" />
 <title>Give Back — Ciela</title>
 <meta name="description" content="Ciela is free. If it's helped you, donate to a charity you care about — you pick who benefits." />
-<meta name="robots" content="noindex, nofollow" />
+<meta name="robots" content="index, follow" />
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Geist:wght@300;400;500;600&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -191,9 +191,8 @@
       const res  = await fetch(`https://partners.every.org/v0.2/search/${encodeURIComponent(q)}?apiKey=${API_KEY}`);
       const data = await res.json();
       render(data.nonprofits || []);
-    } catch(err) {
-      console.error('Every.org search error:', err);
-      results.innerHTML = `<p class="status err">Search failed: ${err.message}</p>`;
+    } catch {
+      results.innerHTML = '<p class="status err">Search failed — check your connection and try again.</p>';
     }
   }
 
