@@ -17,37 +17,23 @@
 <meta name="twitter:title" content="Give Back — Ciela" />
 <meta name="twitter:description" content="Ciela is free. If it's saved you time, donate to a charity you care about — you pick who benefits. Every.org handles it; we never touch a cent." />
 <meta name="twitter:site" content="@Cielaapp" />
+<link rel="canonical" href="https://ciela.app/give.html" />
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Geist:wght@300;400;500;600&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="shared.css">
 <style>
-  :root{
-    --paper:#faf7f2;--paper-2:#f3efe6;--paper-3:#efece6;
-    --ink:#2a2620;--ink-2:#5d564b;--ink-3:#8a8275;--ink-4:#b6ad9c;
-    --rule:#d9d3c6;--rule-soft:#e8e3d6;
-    --sage:#7a9382;--sage-soft:#e3ebe3;--sage-deep:#5b7565;
-  }
-  *{box-sizing:border-box;}
-  html,body{margin:0;padding:0;}
-  body{background:var(--paper);color:var(--ink);font-family:"Geist",ui-sans-serif,system-ui,sans-serif;font-size:15px;line-height:1.6;-webkit-font-smoothing:antialiased;}
-  a{color:inherit;text-decoration:none;}
-  .muted{color:var(--ink-3);}
-  .wide{max-width:860px;margin:0 auto;padding:0 32px;}
+  /* ── page-specific ── */
+  .crumbs{margin-bottom:20px;}
+  footer{margin-top:80px;}
 
-  /* nav */
-  .nav{position:sticky;top:0;z-index:30;background:rgba(250,247,242,.88);backdrop-filter:saturate(140%) blur(8px);-webkit-backdrop-filter:saturate(140%) blur(8px);border-bottom:1px solid var(--rule-soft);}
-  .nav-inner{display:flex;align-items:center;justify-content:space-between;padding:16px 0;}
-  .brand{display:flex;align-items:center;gap:10px;}
-  .brand .word{font-family:"Instrument Serif",serif;font-size:22px;letter-spacing:-0.01em;}
-
-  /* hero */
+  /* ── hero ── */
   .hero{padding:72px 0 48px;}
-  .crumbs{font-family:"Geist Mono",monospace;font-size:10px;letter-spacing:.18em;color:var(--ink-3);text-transform:uppercase;display:flex;gap:8px;align-items:center;margin-bottom:20px;}
   .hero h1{font-family:"Instrument Serif",serif;font-weight:400;font-size:56px;line-height:1;letter-spacing:-0.025em;margin:0 0 16px;}
   .hero h1 em{font-style:italic;color:var(--ink-2);}
   .hero p{color:var(--ink-2);font-size:17px;line-height:1.65;margin:0;max-width:520px;}
 
-  /* search */
+  /* ── search ── */
   .search-section{padding:40px 0 64px;}
   .search-label{font-family:"Geist Mono",monospace;font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-3);margin-bottom:10px;}
   .search-wrap{position:relative;}
@@ -62,7 +48,7 @@
   .search-input:focus{border-color:var(--sage);box-shadow:0 0 0 3px var(--sage-soft);}
   .search-input::placeholder{color:var(--ink-4);}
 
-  /* results */
+  /* ── results ── */
   .results{margin-top:8px;}
   .result-card{
     display:flex;align-items:center;gap:14px;
@@ -116,20 +102,14 @@
   }
   @keyframes spin{to{transform:rotate(360deg);}}
 
-  /* note */
+  /* ── note ── */
   .note{margin-top:40px;padding:20px 24px;border-radius:10px;background:var(--paper-2);border:1px solid var(--rule-soft);}
   .note p{color:var(--ink-3);font-size:13px;line-height:1.6;margin:0;}
   .note strong{color:var(--ink-2);font-weight:500;}
 
-  /* footer */
-  footer{border-top:1px solid var(--rule-soft);padding:32px 0;margin-top:80px;}
-  .foot-inner{display:flex;justify-content:space-between;align-items:center;color:var(--ink-3);font-size:13px;}
-  .foot-inner a:hover{color:var(--ink);}
-
   @media(max-width:600px){
     .hero h1{font-size:38px;}
     .result-desc{display:none;}
-    .foot-inner{flex-direction:column;gap:10px;text-align:center;}
   }
 </style>
 </head>
@@ -137,19 +117,31 @@
 
 <nav class="nav">
   <div class="wide nav-inner">
-    <a class="brand" href="https://ciela.app/">
-      <svg width="26" height="26" viewBox="0 0 100 100" style="border-radius:7px;" aria-hidden>
+    <a class="brand" href="https://ciela.app/" aria-label="Ciela home">
+      <svg width="28" height="28" viewBox="0 0 100 100" aria-hidden style="border-radius:8px;">
         <defs>
-          <radialGradient id="g" cx="0.7" cy="0.3" r="1.05"><stop offset="0%" stop-color="#56708a"/><stop offset="48%" stop-color="#2f435a"/><stop offset="100%" stop-color="#16203a"/></radialGradient>
-          <mask id="m"><rect width="100" height="100" fill="black"/><circle cx="50" cy="50" r="31" fill="white"/><circle cx="61" cy="47" r="31" fill="black"/></mask>
+          <radialGradient id="give-sky" cx="0.7" cy="0.3" r="1.05"><stop offset="0%" stop-color="#56708a"/><stop offset="48%" stop-color="#2f435a"/><stop offset="100%" stop-color="#16203a"/></radialGradient>
+          <mask id="give-cre"><rect width="100" height="100" fill="black"/><circle cx="50" cy="50" r="31" fill="white"/><circle cx="61" cy="47" r="31" fill="black"/></mask>
         </defs>
-        <rect width="100" height="100" rx="22" fill="url(#g)"/>
+        <rect width="100" height="100" rx="22" fill="url(#give-sky)"/>
         <circle cx="50" cy="50" r="31" fill="#3a3f4a"/>
-        <rect width="100" height="100" fill="#f5efe4" mask="url(#m)"/>
+        <rect width="100" height="100" fill="#f5efe4" mask="url(#give-cre)"/>
       </svg>
       <span class="word">ciela</span>
+      <span class="sub">the inbox curator</span>
     </a>
-    <a href="https://ciela.app/" class="muted" style="font-size:13.5px;">← Back to Ciela</a>
+    <div class="nav-links">
+      <a href="https://ciela.app/#how">How it works</a>
+      <a href="https://ciela.app/#free">What it costs</a>
+      <a href="https://ciela.app/#faq">FAQ</a>
+      <a href="Changelog.html" class="muted">Changelog</a>
+      <a href="user-guide.pdf" class="muted">User guide</a>
+      <a href="contact.html" class="muted">Get in touch</a>
+      <a href="give.html" class="nav-accent">Give back</a>
+    </div>
+    <div class="nav-right">
+      <a class="btn dark small" href="https://ciela.app/#download">Download</a>
+    </div>
   </div>
 </nav>
 
@@ -184,12 +176,55 @@
 
 <footer>
   <div class="wide">
-    <div class="foot-inner">
-      <span>© Aetheric Labs LLC</span>
-      <span style="display:flex;gap:20px;">
-        <a href="Privacy.html" class="muted">Privacy</a>
-        <a href="Terms.html" class="muted">Terms</a>
-        <a href="contact.html" class="muted">Get in touch</a>
+    <div class="foot-grid">
+      <div>
+        <a class="brand" href="https://ciela.app/" style="margin-bottom:14px;">
+          <svg width="26" height="26" viewBox="0 0 100 100" aria-hidden style="border-radius:7px;">
+            <defs>
+              <radialGradient id="foot-sky" cx="0.7" cy="0.3" r="1.05"><stop offset="0%" stop-color="#56708a"/><stop offset="48%" stop-color="#2f435a"/><stop offset="100%" stop-color="#16203a"/></radialGradient>
+              <mask id="foot-cre"><rect width="100" height="100" fill="black"/><circle cx="50" cy="50" r="31" fill="white"/><circle cx="61" cy="47" r="31" fill="black"/></mask>
+            </defs>
+            <rect width="100" height="100" rx="22" fill="url(#foot-sky)"/>
+            <circle cx="50" cy="50" r="31" fill="#3a3f4a"/>
+            <rect width="100" height="100" fill="#f5efe4" mask="url(#foot-cre)"/>
+          </svg>
+          <span class="word">ciela</span>
+        </a>
+        <p class="muted" style="font-size:13px;line-height:1.6;max-width:300px;margin:14px 0 0;">A free, local-only desktop app that helps you clean, understand, and take control of your inbox. From the Italian <em>cielo</em> — sky.</p>
+      </div>
+      <div>
+        <h4>Product</h4>
+        <a href="https://ciela.app/#how">How it works</a>
+        <a href="https://ciela.app/#privacy">Privacy</a>
+        <a href="https://ciela.app/#free">What it costs</a>
+      </div>
+      <div>
+        <h4>Resources</h4>
+        <a href="https://ciela.app/#faq">FAQ</a>
+        <a href="Changelog.html">Changelog</a>
+        <a href="Whitepaper.html">White paper</a>
+        <a href="user-guide.pdf">User guide</a>
+      </div>
+      <div>
+        <h4>Legal</h4>
+        <a href="Privacy.html">Privacy policy</a>
+        <a href="Terms.html">Terms</a>
+      </div>
+      <div>
+        <h4>Get in touch</h4>
+        <a href="contact.html">Report an issue</a>
+        <a href="give.html">Give back</a>
+        <a href="https://x.com/Cielaapp" target="_blank" rel="noopener">@Cielaapp on X</a>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>CIELA · THE INBOX CURATOR™ · INDEPENDENT, NOT VENTURE-BACKED</span>
+      <span class="right">
+        <a href="Privacy.html">Privacy</a>
+        <span>·</span>
+        <a href="Terms.html">Terms</a>
+        <span>·</span>
+        <span>NOT AFFILIATED WITH GOOGLE OR MICROSOFT</span>
       </span>
     </div>
   </div>

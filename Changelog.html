@@ -26,41 +26,16 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Geist:wght@300;400;500;600&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="shared.css">
 <style>
-  :root{
-    --paper:#faf7f2; --paper-2:#f3efe6; --paper-3:#efece6;
-    --ink:#2a2620; --ink-2:#5d564b; --ink-3:#8a8275; --ink-4:#b6ad9c;
-    --rule:#d9d3c6; --rule-soft:#e8e3d6;
-    --sage:#7a9382; --sage-soft:#e3ebe3; --sage-deep:#5b7565;
-  }
-  *{box-sizing:border-box;}
-  html,body{margin:0;padding:0;}
-  body{background:var(--paper);color:var(--ink);font-family:"Geist",ui-sans-serif,system-ui,sans-serif;font-size:15px;line-height:1.6;-webkit-font-smoothing:antialiased;}
-  a{color:inherit;text-decoration:none;}
   strong{color:var(--ink);font-weight:500;}
   em{font-style:italic;color:var(--ink-2);}
   code{font-family:"Geist Mono",monospace;font-size:12.5px;background:var(--paper-2);padding:1px 5px;border-radius:3px;}
-  .wide{max-width:1240px;margin:0 auto;padding:0 40px;}
 
-  .nav{position:sticky;top:0;z-index:30;background:rgba(250,247,242,.86);backdrop-filter:saturate(140%) blur(8px);-webkit-backdrop-filter:saturate(140%) blur(8px);border-bottom:1px solid var(--rule-soft);}
-  .nav-inner{display:flex;align-items:center;justify-content:space-between;padding:18px 0;}
-  .brand{display:flex;align-items:center;gap:11px;color:var(--ink);}
-  .brand .word{font-family:"Instrument Serif",serif;font-size:24px;letter-spacing:-0.01em;line-height:1;}
-  .brand .sub{font-family:"Geist Mono",monospace;font-size:9.5px;color:var(--ink-3);letter-spacing:.2em;text-transform:uppercase;margin-left:4px;border-left:1px solid var(--rule);padding-left:10px;}
-  .nav-links{display:flex;gap:30px;align-items:center;color:var(--ink-2);font-size:13.5px;}
-  .nav-links a:hover{color:var(--ink);}
-  .btn{display:inline-flex;align-items:center;gap:8px;padding:10px 16px;border-radius:8px;border:1px solid var(--rule);background:#fff;color:var(--ink);font:inherit;font-size:13.5px;font-weight:500;letter-spacing:-0.005em;cursor:pointer;}
-  .btn.dark{background:var(--ink);color:#fff;border-color:var(--ink);}
-  .btn.small{padding:8px 12px;font-size:12.5px;}
-
-  .pagehead{padding:80px 0 32px;}
-  .crumbs{font-family:"Geist Mono",monospace;font-size:10.5px;letter-spacing:.18em;color:var(--ink-3);text-transform:uppercase;display:flex;align-items:center;gap:10px;}
-  .crumbs .sep{opacity:.5;}
   h1.title{font-family:"Instrument Serif",serif;font-weight:400;font-size:72px;line-height:1;letter-spacing:-0.025em;margin:18px 0 0;}
   h1.title .em{font-style:italic;color:var(--ink-2);}
-  .lede{color:var(--ink-2);font-size:17px;line-height:1.65;margin-top:22px;max-width:680px;}
-  .meta{display:flex;gap:24px;margin-top:24px;font-family:"Geist Mono",monospace;font-size:11px;letter-spacing:.14em;color:var(--ink-3);text-transform:uppercase;}
-  hr.rule{border:0;height:1px;background:var(--rule-soft);margin:0;}
+
+  footer{margin-top:24px;}
 
   /* ── Layout ── */
   .layout{display:grid;grid-template-columns:220px 1fr;gap:80px;padding:56px 0 96px;align-items:start;}
@@ -130,26 +105,13 @@
   .tech-body li::before{content:"";position:absolute;left:0;top:12px;width:6px;height:1px;background:var(--ink-4);}
   .tech-body li+li{border-top:1px dashed var(--rule-soft);}
 
-  /* ── Footer ── */
-  footer{border-top:1px solid var(--rule-soft);padding:48px 0 36px;background:var(--paper-2);margin-top:24px;}
-  .foot-grid{display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr;gap:48px;}
-  .foot-grid h4{font-family:"Geist Mono",monospace;font-size:10.5px;letter-spacing:.16em;color:var(--ink-3);text-transform:uppercase;margin:0 0 14px;font-weight:500;}
-  .foot-grid a{display:block;color:var(--ink-2);font-size:13.5px;padding:4px 0;}
-  .foot-grid a:hover{color:var(--ink);}
-  .foot-bottom{display:flex;justify-content:space-between;align-items:center;margin-top:40px;padding-top:24px;border-top:1px solid var(--rule-soft);color:var(--ink-3);font-family:"Geist Mono",monospace;font-size:11px;letter-spacing:.06em;}
-  .foot-bottom .right{display:flex;gap:18px;align-items:center;}
-  .muted{color:var(--ink-3);}
+  /* ── rel-download-row ── */
+  .rel-download-row{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:6px;}
 
   @media (max-width:900px){
     .layout{grid-template-columns:1fr;gap:24px;}
     .toc{position:static;max-height:none;}
     h1.title{font-size:48px;}
-    .foot-grid{grid-template-columns:1fr 1fr;}
-    .nav-links{display:none;}
-    .nav-right{display:none;}
-    .brand .sub{display:none;}
-    .foot-bottom{flex-direction:column;gap:12px;text-align:center;}
-    .foot-bottom .right{justify-content:center;}
   }
 </style>
 </head>
@@ -175,7 +137,7 @@
       <a href="https://ciela.app/#free">What it costs</a>
       <a href="https://ciela.app/#faq">FAQ</a>
       <a href="contact.html" class="muted">Get in touch</a>
-      <a href="give.html" style="color:var(--sage-deep);">Give back</a>
+      <a href="give.html" class="nav-accent">Give back</a>
     </div>
     <div class="nav-right">
       <a class="btn dark small" href="https://ciela.app/#download">Download for Windows</a>
@@ -451,7 +413,7 @@
         </div>
         <h2 class="rel-title"><em>Rebuilt.</em></h2>
         <p class="rel-lede">The entire desktop UI was redesigned from scratch — new navigation shell, rebuilt Insights, History, Cleaned, Settings, and Connect panels. Follow-on releases rerouted Gmail through IMAP, restored the 2-column inbox layout, added retroactive re-classification so Unknown senders resolve automatically on every scan, sharpened the classifier across nine categories, made the Outlook sign-in recovery buttons actually work, hardened the classifier engine with RFC 3834/2369 header detection and a full correctness pass, and in v0.9.7 fixed three production IMAP bugs found in first real-world testing — silent trash failures, a 10K scan cap, and an incorrect Gmail trash folder path.</p>
-        <div style="display:flex;gap:10px;flex-wrap:wrap;margin-bottom:6px;">
+        <div class="rel-download-row">
           <a class="btn dark rel-download" href="https://github.com/ciela-app/ciela-app.github.io/releases/download/v0.9.7/Ciela_0.9.7_x64-setup.exe">
             <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M3 5.5l8-1.1v8.1H3zm0 8h8v8.1l-8-1.1zm9-9.2l11-1.6v10.8H12zm0 10.2h11v10.8l-11-1.6z"/></svg>
             Download v0.9.7 for Windows
@@ -628,7 +590,7 @@
         </div>
         <h2 class="rel-title"><em>Restored.</em></h2>
         <p class="rel-lede">Trash History and Undo were silently broken since v0.7.0 — emails moved to trash, but the record was never written, so nothing could be undone and the history was always empty. This release fixes it completely, along with a blank inbox bug on first scan and an OAuth token rotation issue that could eventually force you to reconnect.</p>
-        <div style="display:flex;gap:10px;flex-wrap:wrap;margin-bottom:6px;">
+        <div class="rel-download-row">
           <a class="btn dark rel-download" href="https://github.com/ciela-app/ciela-app.github.io/releases/download/v0.8.0/Ciela_0.8.0_x64-setup.exe">
             <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M3 5.5l8-1.1v8.1H3zm0 8h8v8.1l-8-1.1zm9-9.2l11-1.6v10.8H12zm0 10.2h11v10.8l-11-1.6z"/></svg>
             Download v0.8.0 for Windows
@@ -678,7 +640,7 @@
         </div>
         <h2 class="rel-title"><em>Known Faces.</em></h2>
         <p class="rel-lede">Ciela now runs cleaning jobs in the background — queue what you want gone, close the window, and come back to a finished inbox. It also recognizes companies across their many sender addresses, so all emails from the same brand appear as one. Financial senders are protected from accidental bulk cleaning. And first-time users get a clear, calm path in from the moment they connect.</p>
-        <div style="display:flex;gap:10px;flex-wrap:wrap;margin-bottom:6px;">
+        <div class="rel-download-row">
           <a class="btn dark rel-download" href="https://github.com/ciela-app/ciela-app.github.io/releases/download/v0.7.0/Ciela_0.7.0_x64-setup.exe">
             <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M3 5.5l8-1.1v8.1H3zm0 8h8v8.1l-8-1.1zm9-9.2l11-1.6v10.8H12zm0 10.2h11v10.8l-11-1.6z"/></svg>
             Download v0.7.0 for Windows
@@ -729,7 +691,7 @@
         </div>
         <h2 class="rel-title"><em>Any Inbox.</em></h2>
         <p class="rel-lede">Ciela now connects to iCloud, Yahoo, Zoho Mail, AOL, Fastmail, and 30+ other email providers — any account that speaks IMAP. OAuth is still available for Gmail and Outlook. If you have a mailbox, Ciela can clean it.</p>
-        <div style="display:flex;gap:10px;flex-wrap:wrap;margin-bottom:6px;">
+        <div class="rel-download-row">
           <a class="btn dark rel-download" href="https://github.com/ciela-app/ciela-app.github.io/releases/download/v0.6.3/Ciela_0.6.3_x64-setup.exe">
             <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M3 5.5l8-1.1v8.1H3zm0 8h8v8.1l-8-1.1zm9-9.2l11-1.6v10.8H12zm0 10.2h11v10.8l-11-1.6z"/></svg>
             Download v0.6.3 for Windows
@@ -806,7 +768,7 @@
         </div>
         <h2 class="rel-title"><em>Set It.</em></h2>
         <p class="rel-lede">Ciela now works between visits. Auto-clean rules trash recurring junk automatically after every scan. The Smart Purge Tray catches repeat offenders the moment they return. Scan History shows you exactly what changed and what was cleaned.</p>
-        <div style="display:flex;gap:10px;flex-wrap:wrap;margin-bottom:6px;">
+        <div class="rel-download-row">
           <a class="btn dark rel-download" href="https://github.com/ciela-app/ciela-app.github.io/releases/download/v0.5.6/Ciela_0.5.6_x64-setup.exe">
             <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M3 5.5l8-1.1v8.1H3zm0 8h8v8.1l-8-1.1zm9-9.2l11-1.6v10.8H12zm0 10.2h11v10.8l-11-1.6z"/></svg>
             Download v0.5.6 for Windows
@@ -859,7 +821,7 @@
         </div>
         <h2 class="rel-title"><em>Clean Record.</em></h2>
         <p class="rel-lede">The inbox list works correctly for large mailboxes. Stale sender records from old classification runs are pruned on upgrade and after every full scan. Trash operations now respect your manual reclassifications. Your active account choice survives a restart. The macOS build now runs natively on every Mac made in the last decade.</p>
-        <div style="display:flex;gap:10px;flex-wrap:wrap;margin-bottom:6px;">
+        <div class="rel-download-row">
           <a class="btn dark rel-download" href="https://github.com/ciela-app/ciela-app.github.io/releases/download/v0.5.5/Ciela_0.5.5_x64-setup.exe">
             <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M3 5.5l8-1.1v8.1H3zm0 8h8v8.1l-8-1.1zm9-9.2l11-1.6v10.8H12zm0 10.2h11v10.8l-11-1.6z"/></svg>
             Download v0.5.5 for Windows
@@ -921,7 +883,7 @@
         </div>
         <h2 class="rel-title">Side by Side.</h2>
         <p class="rel-lede">Ciela gets a dashboard, a cleaner codebase, and multi-account switching that actually works. Connect Gmail and Outlook accounts side by side, switch between them with one click, and always know which inbox you're in.</p>
-        <div style="display:flex;gap:10px;flex-wrap:wrap;margin-bottom:6px;">
+        <div class="rel-download-row">
           <a class="btn dark rel-download" href="https://github.com/ciela-app/ciela-app.github.io/releases/download/v0.5.3/Ciela_0.5.3_x64-setup.exe">
             <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M3 5.5l8-1.1v8.1H3zm0 8h8v8.1l-8-1.1zm9-9.2l11-1.6v10.8H12zm0 10.2h11v10.8l-11-1.6z"/></svg>
             Download v0.5.3 for Windows
@@ -1015,7 +977,7 @@
         </div>
         <h2 class="rel-title"><em>Connected.</em></h2>
         <p class="rel-lede">Ciela can now manage multiple inboxes at once. Connect a Gmail and an Outlook account, switch between them with one click, and remove either from Settings. Every scan, clean, and triage operation is scoped to the active account — data never leaks between them.</p>
-        <div style="display:flex;gap:10px;flex-wrap:wrap;margin-bottom:6px;">
+        <div class="rel-download-row">
           <a class="btn dark rel-download" href="https://github.com/ciela-app/ciela-app.github.io/releases/download/v0.4.10/Ciela_0.4.10_x64-setup.exe">
             <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M3 5.5l8-1.1v8.1H3zm0 8h8v8.1l-8-1.1zm9-9.2l11-1.6v10.8H12zm0 10.2h11v10.8l-11-1.6z"/></svg>
             Download v0.4.10 for Windows
@@ -1097,7 +1059,7 @@
         </div>
         <h2 class="rel-title">The Ruth <em>Experience.</em></h2>
         <p class="rel-lede">A full visual redesign of the inbox view — stat cards, a new tab strip, a wider category panel — plus the biggest classifier expansion yet. Ciela now recognizes 70+ more senders across healthcare, finance, travel, jobs, subscriptions, and more, so fewer emails land in the Unknown pile. Now available on Windows, Mac (Apple Silicon), and Linux.</p>
-        <div style="display:flex;gap:10px;flex-wrap:wrap;margin-bottom:6px;">
+        <div class="rel-download-row">
           <a class="btn dark rel-download" href="https://github.com/ciela-app/ciela-app.github.io/releases/download/v0.4.3/Ciela_0.4.3_x64-setup.exe">
             <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M3 5.5l8-1.1v8.1H3zm0 8h8v8.1l-8-1.1zm9-9.2l11-1.6v10.8H12zm0 10.2h11v10.8l-11-1.6z"/></svg>
             Download v0.4.3 for Windows
@@ -2162,20 +2124,25 @@
           </svg>
           <span class="word">ciela</span>
         </a>
-        <p class="muted" style="font-size:13px;line-height:1.6;max-width:300px;margin:14px 0 0;">A free, local-only desktop app that helps you clean, understand, and take control of your inbox.</p>
+        <p class="muted" style="font-size:13px;line-height:1.6;max-width:300px;margin:14px 0 0;">A free, local-only desktop app that helps you clean, understand, and take control of your inbox. From the Italian <em>cielo</em> — sky.</p>
       </div>
       <div>
         <h4>Product</h4>
         <a href="https://ciela.app/#how">How it works</a>
         <a href="https://ciela.app/#privacy">Privacy</a>
         <a href="https://ciela.app/#free">What it costs</a>
+      </div>
+      <div>
+        <h4>Resources</h4>
         <a href="https://ciela.app/#faq">FAQ</a>
+        <a href="Changelog.html">Changelog</a>
+        <a href="Whitepaper.html">White paper</a>
+        <a href="user-guide.pdf">User guide</a>
       </div>
       <div>
         <h4>Legal</h4>
         <a href="Privacy.html">Privacy policy</a>
         <a href="Terms.html">Terms</a>
-        <a href="Changelog.html">Changelog</a>
       </div>
       <div>
         <h4>Get in touch</h4>
@@ -2185,7 +2152,7 @@
       </div>
     </div>
     <div class="foot-bottom">
-      <span>CIELA · THE INBOX CURATOR™</span>
+      <span>CIELA · THE INBOX CURATOR™ · INDEPENDENT, NOT VENTURE-BACKED</span>
       <span class="right">
         <a href="Privacy.html">Privacy</a>
         <span>·</span>

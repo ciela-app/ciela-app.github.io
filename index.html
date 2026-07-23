@@ -179,68 +179,24 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Geist:wght@300;400;500;600&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="shared.css">
 <style>
-  :root{
-    --paper:#faf7f2; --paper-2:#f3efe6; --paper-3:#efece6;
-    --ink:#2a2620; --ink-2:#5d564b; --ink-3:#8a8275; --ink-4:#b6ad9c;
-    --rule:#d9d3c6; --rule-soft:#e8e3d6;
-    --sage:#7a9382; --sage-soft:#e3ebe3; --sage-deep:#5b7565;
-    --warn:#c98a4b; --warn-soft:#f3e6d3;
-  }
-  *{box-sizing:border-box;}
-  html,body{margin:0;padding:0;}
-  body{
-    background:var(--paper);
-    color:var(--ink);
-    font-family:"Geist",ui-sans-serif,system-ui,sans-serif;
-    font-size:15px;
-    line-height:1.55;
-    -webkit-font-smoothing:antialiased;
-    text-rendering:optimizeLegibility;
-  }
+  /* ── page-specific overrides ── */
   .display{font-family:"Instrument Serif",serif;font-weight:400;letter-spacing:-0.02em;}
-  .mono{font-family:"Geist Mono",monospace;letter-spacing:.04em;}
-  .muted{color:var(--ink-3);}
+  .mono{letter-spacing:.04em;}
   .ink-2{color:var(--ink-2);}
   .it{font-style:italic;}
-  a{color:inherit;text-decoration:none;}
-  hr.rule{border:0;height:1px;background:var(--rule-soft);margin:0;}
+  .lede{margin-top:26px;max-width:520px;line-height:1.6;}
 
-  /* ── shell ───────────────────────────── */
-  .container{max-width:1240px;margin:0 auto;padding:0 40px;}
-  .wide{max-width:1320px;margin:0 auto;padding:0 40px;}
+  /* ── dossier ── */
+  .dossier-row{display:grid;grid-template-columns:1fr auto;padding:14px 0;border-top:1px solid var(--rule-soft);align-items:baseline;}
+  .dossier-row:last-child{border-bottom:1px solid var(--rule-soft);}
+  .dossier-value{font-size:11.5px;color:var(--sage-deep);}
+  .dossier-value.muted{color:var(--ink-3);}
 
-  /* ── nav ─────────────────────────────── */
-  .nav{
-    position:sticky;top:0;z-index:30;
-    background:rgba(250,247,242,.86);
-    backdrop-filter:saturate(140%) blur(8px);
-    -webkit-backdrop-filter:saturate(140%) blur(8px);
-    border-bottom:1px solid var(--rule-soft);
-  }
-  .nav-inner{display:flex;align-items:center;justify-content:space-between;padding:18px 0;}
-  .brand{display:flex;align-items:center;gap:11px;color:var(--ink);}
-  .brand .word{font-family:"Instrument Serif",serif;font-size:24px;letter-spacing:-0.01em;line-height:1;}
-  .brand .sub{font-family:"Geist Mono",monospace;font-size:9.5px;color:var(--ink-3);letter-spacing:.2em;text-transform:uppercase;margin-left:4px;border-left:1px solid var(--rule);padding-left:10px;}
-  .nav-links{display:flex;gap:30px;align-items:center;color:var(--ink-2);font-size:13.5px;}
-  .nav-links a:hover{color:var(--ink);}
-  .nav-right{display:flex;gap:14px;align-items:center;}
-  .btn{
-    display:inline-flex;align-items:center;gap:8px;
-    padding:10px 16px;border-radius:8px;
-    border:1px solid var(--rule);background:#fff;color:var(--ink);
-    font:inherit;font-size:13.5px;font-weight:500;letter-spacing:-0.005em;
-    cursor:pointer;transition:transform .12s ease, border-color .12s ease, background .12s ease;
-  }
-  .btn:hover{border-color:var(--ink-3);}
+  /* ── sage button variant ── */
   .btn.sage{background:var(--sage);color:#fff;border-color:var(--sage);}
   .btn.sage:hover{background:var(--sage-deep);border-color:var(--sage-deep);}
-  .btn.dark{background:var(--ink);color:#fff;border-color:var(--ink);}
-  .btn.dark:hover{background:#1d1a15;}
-  .btn.ghost{background:transparent;}
-  .btn.small{padding:8px 12px;font-size:12.5px;}
-  .btn.big{padding:14px 22px;font-size:14.5px;border-radius:10px;}
-  .btn svg{flex:0 0 auto;}
 
   /* ── hero ────────────────────────────── */
   .hero{padding:80px 0 56px;position:relative;overflow:hidden;}
@@ -260,9 +216,6 @@
   }
   .headline .em{font-style:italic;color:var(--ink-2);}
   .headline .sage{color:var(--sage-deep);font-style:italic;}
-  .lede{
-    color:var(--ink-2);font-size:17px;line-height:1.6;margin-top:26px;max-width:520px;
-  }
   .cta-row{display:flex;align-items:center;gap:14px;margin-top:30px;flex-wrap:wrap;}
   .cta-note{
     display:flex;align-items:center;gap:18px;margin-top:18px;color:var(--ink-3);font-size:12px;
@@ -493,22 +446,6 @@
   .faq-a{color:var(--ink-2);font-size:14px;line-height:1.65;margin:0;}
   .faq-a a{color:var(--sage-deep);border-bottom:1px solid var(--sage-soft);}
 
-  /* ── footer ─────────────────────────── */
-  footer{
-    border-top:1px solid var(--rule-soft);
-    padding:56px 0 40px;background:var(--paper-2);
-  }
-  .foot-grid{display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr 1fr;gap:48px;}
-  .foot-grid h4{font-family:"Geist Mono",monospace;font-size:10.5px;letter-spacing:.16em;color:var(--ink-3);text-transform:uppercase;margin:0 0 14px;font-weight:500;}
-  .foot-grid a{display:block;color:var(--ink-2);font-size:13.5px;padding:4px 0;}
-  .foot-grid a:hover{color:var(--ink);}
-  .foot-bottom{
-    display:flex;justify-content:space-between;align-items:center;
-    margin-top:48px;padding-top:24px;border-top:1px solid var(--rule-soft);
-    color:var(--ink-3);font-family:"Geist Mono",monospace;font-size:11px;letter-spacing:.06em;
-  }
-  .foot-bottom .right{display:flex;gap:18px;}
-
   /* ── providers ──────────────────────── */
   .provider-bands{display:flex;flex-direction:column;gap:36px;margin-top:52px;}
   .provider-band-label{font-family:"Geist Mono",monospace;font-size:10.5px;letter-spacing:.18em;color:var(--ink-3);text-transform:uppercase;margin-bottom:14px;}
@@ -541,16 +478,7 @@
     .ruth{padding:40px;}
     .ruth blockquote{font-size:36px;}
   }
-  @media (max-width:900px){
-    .nav-links{display:none;}
-    .nav-right{display:none;}
-    .brand .sub{display:none;}
-    .foot-grid{grid-template-columns:1fr 1fr;}
-    .foot-bottom{flex-direction:column;gap:12px;text-align:center;}
-    .foot-bottom .right{justify-content:center;}
-  }
   @media (max-width:640px){
-    .container,.wide{padding:0 20px;}
     h1.headline{font-size:44px;}
     h2.section-title{font-size:34px;}
     .free h2{font-size:44px;}
@@ -589,7 +517,7 @@
       <a href="Changelog.html" class="muted">Changelog</a>
       <a href="user-guide.pdf" class="muted">User guide</a>
       <a href="contact.html" class="muted">Get in touch</a>
-      <a href="give.html" style="color:var(--sage-deep);">Give back</a>
+      <a href="give.html" class="nav-accent">Give back</a>
     </div>
     <div class="nav-right">
       <a class="btn dark small" href="#download">
@@ -744,7 +672,7 @@
           <span class="provider-pill">Orange</span>
           <span class="provider-pill">Telstra</span>
           <span class="provider-pill">Rogers</span>
-          <span class="provider-pill muted" style="color:var(--ink-3);">+ 11 regional providers</span>
+          <span class="provider-pill muted">+ 11 regional providers</span>
           <span class="provider-pill accent">Custom IMAP server</span>
         </div>
       </div>
@@ -992,29 +920,29 @@
         Where your data lives.
       </div>
       <div style="margin-top:18px;font-size:13.5px;line-height:1.7;color:var(--ink-2);">
-        <div style="display:grid;grid-template-columns:1fr auto;padding:14px 0;border-top:1px solid var(--rule-soft);align-items:baseline;">
+        <div class="dossier-row">
           <span>Email metadata</span>
-          <span class="mono" style="font-size:11.5px;color:var(--sage-deep);">YOUR DEVICE</span>
+          <span class="mono dossier-value">YOUR DEVICE</span>
         </div>
-        <div style="display:grid;grid-template-columns:1fr auto;padding:14px 0;border-top:1px solid var(--rule-soft);align-items:baseline;">
+        <div class="dossier-row">
           <span>OAuth tokens</span>
-          <span class="mono" style="font-size:11.5px;color:var(--sage-deep);">OS KEYCHAIN</span>
+          <span class="mono dossier-value">OS KEYCHAIN</span>
         </div>
-        <div style="display:grid;grid-template-columns:1fr auto;padding:14px 0;border-top:1px solid var(--rule-soft);align-items:baseline;">
+        <div class="dossier-row">
           <span>Encryption key</span>
-          <span class="mono" style="font-size:11.5px;color:var(--sage-deep);">DERIVED, LOCAL</span>
+          <span class="mono dossier-value">DERIVED, LOCAL</span>
         </div>
-        <div style="display:grid;grid-template-columns:1fr auto;padding:14px 0;border-top:1px solid var(--rule-soft);align-items:baseline;">
+        <div class="dossier-row">
           <span>Classifier rules</span>
-          <span class="mono" style="font-size:11.5px;color:var(--sage-deep);">BUNDLED, RUST</span>
+          <span class="mono dossier-value">BUNDLED, RUST</span>
         </div>
-        <div style="display:grid;grid-template-columns:1fr auto;padding:14px 0;border-top:1px solid var(--rule-soft);align-items:baseline;">
+        <div class="dossier-row">
           <span>Telemetry</span>
-          <span class="mono" style="font-size:11.5px;color:var(--ink-3);">— NONE —</span>
+          <span class="mono dossier-value muted">— NONE —</span>
         </div>
-        <div style="display:grid;grid-template-columns:1fr auto;padding:14px 0;border-top:1px solid var(--rule-soft);border-bottom:1px solid var(--rule-soft);align-items:baseline;">
+        <div class="dossier-row">
           <span>Cloud copy of your mail</span>
-          <span class="mono" style="font-size:11.5px;color:var(--ink-3);">— NONE —</span>
+          <span class="mono dossier-value muted">— NONE —</span>
         </div>
       </div>
       <div style="margin-top:22px;display:flex;align-items:center;gap:10px;color:var(--ink-3);font-size:12px;">
@@ -1176,7 +1104,6 @@
         <a href="#how">How it works</a>
         <a href="#privacy">Privacy</a>
         <a href="#free">What it costs</a>
-        <a href="Changelog.html">Changelog</a>
       </div>
       <div>
         <h4>Resources</h4>

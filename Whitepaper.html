@@ -26,60 +26,10 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Geist:wght@300;400;500;600&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="shared.css">
 <style>
-  :root{
-    --paper:#faf7f2; --paper-2:#f3efe6; --paper-3:#efece6;
-    --ink:#2a2620; --ink-2:#5d564b; --ink-3:#8a8275; --ink-4:#b6ad9c;
-    --rule:#d9d3c6; --rule-soft:#e8e3d6;
-    --sage:#7a9382; --sage-soft:#e3ebe3; --sage-deep:#5b7565;
-    --warn:#c98a4b; --warn-soft:#f3e6d3;
-  }
-  *{box-sizing:border-box;}
-  html,body{margin:0;padding:0;}
-  body{
-    background:var(--paper);
-    color:var(--ink);
-    font-family:"Geist",ui-sans-serif,system-ui,sans-serif;
-    font-size:15px;
-    line-height:1.55;
-    -webkit-font-smoothing:antialiased;
-    text-rendering:optimizeLegibility;
-  }
-  .muted{color:var(--ink-3);}
   .ink-2{color:var(--ink-2);}
   .it{font-style:italic;}
-  a{color:inherit;text-decoration:none;}
-
-  /* ── shell ───────────────────────────── */
-  .container{max-width:1240px;margin:0 auto;padding:0 40px;}
-  .wide{max-width:1320px;margin:0 auto;padding:0 40px;}
-
-  /* ── nav ─────────────────────────────── */
-  .nav{
-    position:sticky;top:0;z-index:30;
-    background:rgba(250,247,242,.86);
-    backdrop-filter:saturate(140%) blur(8px);
-    -webkit-backdrop-filter:saturate(140%) blur(8px);
-    border-bottom:1px solid var(--rule-soft);
-  }
-  .nav-inner{display:flex;align-items:center;justify-content:space-between;padding:18px 0;}
-  .brand{display:flex;align-items:center;gap:11px;color:var(--ink);}
-  .brand .word{font-family:"Instrument Serif",serif;font-size:24px;letter-spacing:-0.01em;line-height:1;}
-  .brand .sub{font-family:"Geist Mono",monospace;font-size:9.5px;color:var(--ink-3);letter-spacing:.2em;text-transform:uppercase;margin-left:4px;border-left:1px solid var(--rule);padding-left:10px;}
-  .nav-links{display:flex;gap:30px;align-items:center;color:var(--ink-2);font-size:13.5px;}
-  .nav-links a:hover{color:var(--ink);}
-  .nav-right{display:flex;gap:14px;align-items:center;}
-  .btn{
-    display:inline-flex;align-items:center;gap:8px;
-    padding:10px 16px;border-radius:8px;
-    border:1px solid var(--rule);background:#fff;color:var(--ink);
-    font:inherit;font-size:13.5px;font-weight:500;letter-spacing:-0.005em;
-    cursor:pointer;transition:transform .12s ease, border-color .12s ease, background .12s ease;
-  }
-  .btn:hover{border-color:var(--ink-3);}
-  .btn.dark{background:var(--ink);color:#fff;border-color:var(--ink);}
-  .btn.dark:hover{background:#1d1a15;}
-  .btn.small{padding:8px 12px;font-size:12.5px;}
 
   /* ── whitepaper header ───────────────── */
   .wp-header{
@@ -323,43 +273,21 @@
     position:relative;z-index:1;
   }
 
-  /* ── footer ─────────────────────────── */
-  footer{
-    border-top:1px solid var(--rule-soft);
-    padding:56px 0 40px;background:var(--paper-2);
-    margin-top:80px;
-  }
-  .foot-grid{display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr 1fr;gap:40px;}
-  .foot-grid h4{font-family:"Geist Mono",monospace;font-size:10.5px;letter-spacing:.16em;color:var(--ink-3);text-transform:uppercase;margin:0 0 14px;font-weight:500;}
-  .foot-grid a, .foot-grid span{display:block;color:var(--ink-2);font-size:13.5px;padding:4px 0;}
-  .foot-grid a:hover{color:var(--ink);}
-  .foot-bottom{
-    display:flex;justify-content:space-between;align-items:center;
-    margin-top:48px;padding-top:24px;border-top:1px solid var(--rule-soft);
-    color:var(--ink-3);font-family:"Geist Mono",monospace;font-size:11px;letter-spacing:.06em;
-  }
-  .foot-bottom .right{display:flex;gap:18px;}
+  footer{margin-top:80px;}
 
   /* ── responsive ──────────────────────── */
   @media (max-width:1000px){
     .wp-layout{grid-template-columns:1fr;gap:0;}
     .toc{display:none;}
     .wp-header h1{font-size:52px;}
-    .nav-links{display:none;}
-    .nav-right{display:none;}
-    .brand .sub{display:none;}
   }
   @media (max-width:640px){
-    .container,.wide{padding:0 20px;}
     .wp-header h1{font-size:40px;}
     .wp-prose h2{font-size:32px;}
     .ruth-banner{padding:32px 28px;}
     .ruth-banner blockquote{font-size:26px;}
     .about-strip{padding:40px 32px;}
     .about-strip h2{font-size:34px;}
-    .foot-grid{grid-template-columns:1fr 1fr;}
-    .foot-bottom{flex-direction:column;gap:12px;text-align:center;}
-    .foot-bottom .right{justify-content:center;}
   }
 </style>
 </head>
@@ -387,7 +315,7 @@
       <a href="https://ciela.app/#faq">FAQ</a>
       <a href="Changelog.html" class="muted">Changelog</a>
       <a href="contact.html" class="muted">Get in touch</a>
-      <a href="give.html" style="color:var(--sage-deep);">Give back</a>
+      <a href="give.html" class="nav-accent">Give back</a>
     </div>
     <div class="nav-right">
       <a class="btn dark small" href="https://ciela.app/#download">
