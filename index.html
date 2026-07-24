@@ -756,6 +756,7 @@
         <div class="cat-row"><span class="dot"></span><div><div class="name">Gambling</div><div class="desc">Casinos, sports betting, and lotteries.</div></div></div>
         <div class="cat-row warn"><span class="dot"></span><div><div class="name">Unknown</div><div class="desc">Reviewed and reclassified by you.</div></div><span class="count">17,265</span></div>
       </div>
+      <p style="margin-top:14px;font-size:12px;color:var(--ink-3);font-family:'Geist Mono',monospace;letter-spacing:.06em;">Counts from a real scan on a 6-year-old Gmail account.</p>
     </div>
   </div>
 </section>
@@ -901,7 +902,7 @@
           <span class="no"><svg width="10" height="10" viewBox="0 0 24 24"><path d="M6 6l12 12M6 18L18 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></span>
           <div>
             <div class="t">No analytics. No telemetry. No usage reports.</div>
-            <div class="s">The app never connects to anything other than your mail provider. We don't know you exist, and we like it that way.</div>
+            <div class="s">The app never connects to anything other than your mail provider. I literally don't know who is using Ciela — and I like it that way.</div>
           </div>
         </div>
         <div class="item">
@@ -1034,6 +1035,10 @@
         <div class="faq-item">
           <h4 class="faq-q">Why does the first scan take so long?</h4>
           <p class="faq-a">Outlook has a batch API and is typically fast. Gmail and IMAP accounts (iCloud, Yahoo, etc.) use IMAP, which has no batch API — expect a few minutes for a typical inbox, longer for very large ones. After the first scan, incremental rescans take seconds. Scans resume from a checkpoint if interrupted, so you can close the app at any time.</p>
+        </div>
+        <div class="faq-item">
+          <h4 class="faq-q">Why does Gmail need an app password instead of a sign-in button?</h4>
+          <p class="faq-a">Gmail originally connected via OAuth2 — the same secure sign-in flow Outlook still uses. Google requires an annual third-party security audit (CASA, ~$675/year) for apps using restricted Gmail API scopes. That cost isn't justified for a free, independent app. Gmail now connects via IMAP with an app-specific password instead. The honest tradeoff: an IMAP app password grants broader account access than the OAuth scope would have needed. The upside is it works for every Gmail account with no usage cap and no dependency on Google's review process — and all processing still happens on your device. The credential is stored in your OS keychain, never written to disk.</p>
         </div>
         <div class="faq-item">
           <h4 class="faq-q">macOS and Linux?</h4>
