@@ -1,15 +1,15 @@
 {
-  "version": "0.9.7",
-  "notes": "IMAP hardening: full inbox scan (10K cap removed), Gmail IMAP trash folder fix ([Gmail]/Trash + RFC 6154), silent trash failure fixes, undo reliability, TrashError reason in toast.",
-  "pub_date": "2026-07-21T00:00:00Z",
+  "version": "0.9.8",
+  "notes": "Provider rule banner fix: Outlook banner and filters now only shown for Outlook accounts. Single-instance guard: prevents two Ciela processes from running simultaneously.",
+  "pub_date": "2026-07-24T00:00:00Z",
   "platforms": {
     "windows-x86_64": {
-      "signature": "dW50cnVzdGVkIGNvbW1lbnQ6IHNpZ25hdHVyZSBmcm9tIHRhdXJpIHNlY3JldCBrZXkKUlVTWEVtVVU4TzRsbzNzZDA2bXZRVlhuRmZMVDZ4WXlxSXlUMWE5R0ZuZTdHbFh3YnpITUEwNUk3ZnVNMG9Yc0lwRFk5MW1ROGZKVFRLWHg0THNIaVN5YVhmMFhYMXV0cmdnPQp0cnVzdGVkIGNvbW1lbnQ6IHRpbWVzdGFtcDoxNzg0NjQ5NTc0CWZpbGU6Q2llbGFfMC45LjdfeDY0LXNldHVwLmV4ZQoyWko4OU4xbmJVcjg2T29TdGtER1NyTExTWXI4d0ZEM2Q0cEpUSXNGb3hpQ1ZJeTkzWE1zak9JMzJZRlptMURTWVJqOHhNTHJGMmxjUXJWR2JhRU9DZz09Cg==",
-      "url": "https://github.com/ciela-app/ciela-app.github.io/releases/download/v0.9.7/Ciela_0.9.7_x64-setup.exe"
+      "signature": "dW50cnVzdGVkIGNvbW1lbnQ6IHNpZ25hdHVyZSBmcm9tIHRhdXJpIHNlY3JldCBrZXkKUlVTWEVtVVU4TzRsbzBFSFV1N09RZFV3Q1FoWUdEbFc5ZXdkREVXeDdSa29MeWZwa0EwSTMrS1A5Z0JML1dyaHduOTFpaEZnMHVOd3BnMlNuL3M1SzdubkI0ZEl6R3RUUWdNPQp0cnVzdGVkIGNvbW1lbnQ6IHRpbWVzdGFtcDoxNzg0OTIxNjg0CWZpbGU6Q2llbGFfMC45LjhfeDY0LXNldHVwLmV4ZQozQ0NRWjVQS2QwS0tQT1F0UGFUSGZLbWphaTFDc3kwVGxueG5jcUV6aVBuQ0RxT0dFTEc2QmZCU1VYTzJhdmYwS2t4UUp4YTUxZmUrVU9uTlBxdkFCQT09Cg==",
+      "url": "https://github.com/Opoohwan/Ciela/releases/download/v0.9.8/Ciela_0.9.8_x64-setup.exe"
     },
     "linux-x86_64": {
-      "signature": "dW50cnVzdGVkIGNvbW1lbnQ6IHNpZ25hdHVyZSBmcm9tIHRhdXJpIHNlY3JldCBrZXkKUlVTWEVtVVU4TzRsb3hraXBBeWpWK0JrdnpRanQxSmtEQUhRdityUjNVanpLVVg0dTRCS3ZtV3RMbjRuNHE5REVYdTlhZlNRZVpEbkNpbXhrcFZwbm4xUFZxSmZHalEyNVFjPQp0cnVzdGVkIGNvbW1lbnQ6IHRpbWVzdGFtcDoxNzg0NjQ4ODEyCWZpbGU6Q2llbGFfMC45LjdfYW1kNjQuQXBwSW1hZ2UKeVV4U25ZSmx6TDZaM294bmt1b3ZoaXNJL01jc3JCcGdBRnB2eFlEQU5ucDVnQW5malhNUXIyKzFiYzVqQWt2MTdpUnlUNFRVRk5tS3ZjcWxXeUp5Qnc9PQo=",
-      "url": "https://github.com/ciela-app/ciela-app.github.io/releases/download/v0.9.7/Ciela_0.9.7_amd64.AppImage"
+      "signature": "dW50cnVzdGVkIGNvbW1lbnQ6IHNpZ25hdHVyZSBmcm9tIHRhdXJpIHNlY3JldCBrZXkKUlVTWEVtVVU4TzRsbzZmYk9hQ210bTFUUkpVNmlQZ3g4WUM3b25SUkw4bnc4djZiQVk5WFd0cmVqMFg2TW1qcTVVSkp4WllEd2dFTnUxTGNTMHZQbDRhS0xONHhzS0srYVF3PQp0cnVzdGVkIGNvbW1lbnQ6IHRpbWVzdGFtcDoxNzg0OTIwOTU1CWZpbGU6Q2llbGFfMC45LjhfYW1kNjQuQXBwSW1hZ2UKekFJT1dtbER3bU9SUHpmY2oyN1B6RVl2eGhuRXQxZHMzeGFncGdVZm1scE8vQTJzdE1DZTJQdzQ1Y1lRYkhPMi9nZ2w5b0c5YTBQOTlJd1FjalViRFE9PQo=",
+      "url": "https://github.com/Opoohwan/Ciela/releases/download/v0.9.8/Ciela_0.9.8_amd64.AppImage"
     }
   }
 }
