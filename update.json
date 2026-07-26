@@ -1,15 +1,15 @@
 {
-  "version": "0.9.8",
-  "notes": "Provider rule banner fix: Outlook banner and filters now only shown for Outlook accounts. Single-instance guard: prevents two Ciela processes from running simultaneously.",
-  "pub_date": "2026-07-24T00:00:00Z",
+  "version": "0.9.9",
+  "notes": "Smart Purge Tray loop fix: after clicking Trash all, the same senders no longer reappear on the next rescan.",
+  "pub_date": "2026-07-25T00:00:00Z",
   "platforms": {
     "windows-x86_64": {
-      "signature": "dW50cnVzdGVkIGNvbW1lbnQ6IHNpZ25hdHVyZSBmcm9tIHRhdXJpIHNlY3JldCBrZXkKUlVTWEVtVVU4TzRsbzBFSFV1N09RZFV3Q1FoWUdEbFc5ZXdkREVXeDdSa29MeWZwa0EwSTMrS1A5Z0JML1dyaHduOTFpaEZnMHVOd3BnMlNuL3M1SzdubkI0ZEl6R3RUUWdNPQp0cnVzdGVkIGNvbW1lbnQ6IHRpbWVzdGFtcDoxNzg0OTIxNjg0CWZpbGU6Q2llbGFfMC45LjhfeDY0LXNldHVwLmV4ZQozQ0NRWjVQS2QwS0tQT1F0UGFUSGZLbWphaTFDc3kwVGxueG5jcUV6aVBuQ0RxT0dFTEc2QmZCU1VYTzJhdmYwS2t4UUp4YTUxZmUrVU9uTlBxdkFCQT09Cg==",
-      "url": "https://github.com/Opoohwan/Ciela/releases/download/v0.9.8/Ciela_0.9.8_x64-setup.exe"
+      "signature": "dW50cnVzdGVkIGNvbW1lbnQ6IHNpZ25hdHVyZSBmcm9tIHRhdXJpIHNlY3JldCBrZXkKUlVTWEVtVVU4TzRsb3p3WUt2WndoYlhPNlpYNzhkLzdUZ0Y4c0FYWVFsT21GWTUxMnBkTUl5eEI2UFNLUXp6a1M0UmIxWjFjcEp5T1pCMUo1QTF1dTNxeTFDZzRDcC9lZWdZPQp0cnVzdGVkIGNvbW1lbnQ6IHRpbWVzdGFtcDoxNzg1MDMwNTMwCWZpbGU6Q2llbGFfMC45LjlfeDY0LXNldHVwLmV4ZQpkL1BQWGpBRnpkSXdqVEJoS3pXSDF4NGdrUDB5WUpTWHFsOUlTSVhyNnh3dVVUTUsvMlBaaklZRXFKTzUwUXRVeEI4dE1ucGhPTnJQc3hselllL1ZBZz09Cg==",
+      "url": "https://github.com/ciela-app/ciela-app.github.io/releases/download/v0.9.9/Ciela_0.9.9_x64-setup.exe"
     },
     "linux-x86_64": {
-      "signature": "dW50cnVzdGVkIGNvbW1lbnQ6IHNpZ25hdHVyZSBmcm9tIHRhdXJpIHNlY3JldCBrZXkKUlVTWEVtVVU4TzRsbzZmYk9hQ210bTFUUkpVNmlQZ3g4WUM3b25SUkw4bnc4djZiQVk5WFd0cmVqMFg2TW1qcTVVSkp4WllEd2dFTnUxTGNTMHZQbDRhS0xONHhzS0srYVF3PQp0cnVzdGVkIGNvbW1lbnQ6IHRpbWVzdGFtcDoxNzg0OTIwOTU1CWZpbGU6Q2llbGFfMC45LjhfYW1kNjQuQXBwSW1hZ2UKekFJT1dtbER3bU9SUHpmY2oyN1B6RVl2eGhuRXQxZHMzeGFncGdVZm1scE8vQTJzdE1DZTJQdzQ1Y1lRYkhPMi9nZ2w5b0c5YTBQOTlJd1FjalViRFE9PQo=",
-      "url": "https://github.com/Opoohwan/Ciela/releases/download/v0.9.8/Ciela_0.9.8_amd64.AppImage"
+      "signature": "dW50cnVzdGVkIGNvbW1lbnQ6IHNpZ25hdHVyZSBmcm9tIHRhdXJpIHNlY3JldCBrZXkKUlVTWEVtVVU4TzRsbzVGcjJ5VGx3OXdKRGh4YXM3cFgvbExMMTlsN0Frd1RaYkNtbDhtUHpTMG5Ub0s4RVlScU5RbzdNZk5OVnNDWDJ2dndMVGc5Yi9zeVgyd2NIc3k4b0FRPQp0cnVzdGVkIGNvbW1lbnQ6IHRpbWVzdGFtcDoxNzg1MDMwMDk3CWZpbGU6Q2llbGFfMC45LjlfYW1kNjQuQXBwSW1hZ2UKNnprMm9zTTF0enJyQ3FHSk5kNXp4MzZ4NnFyMHdtU3l4Y0RTVG1sNUt4WDBmQTU3T2NrdGluT09zVlo0b3JGS1ZIWkxOTnFQU20rbE5KRXhRMlRmRFE9PQo=",
+      "url": "https://github.com/ciela-app/ciela-app.github.io/releases/download/v0.9.9/Ciela_0.9.9_amd64.AppImage"
     }
   }
 }
