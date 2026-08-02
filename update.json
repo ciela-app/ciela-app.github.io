@@ -1,15 +1,15 @@
 {
-  "version": "0.9.9",
-  "notes": "Smart Purge Tray loop fix: after clicking Trash all, the same senders no longer reappear on the next rescan.",
-  "pub_date": "2026-07-25T00:00:00Z",
+  "version": "0.9.10",
+  "notes": "Trash cache consistency fix: local message rows are now deleted when mail is trashed, permanently eliminating the Smart Purge Tray phantom loop and inflated Dashboard counts.",
+  "pub_date": "2026-08-02T00:00:00Z",
   "platforms": {
     "windows-x86_64": {
-      "signature": "dW50cnVzdGVkIGNvbW1lbnQ6IHNpZ25hdHVyZSBmcm9tIHRhdXJpIHNlY3JldCBrZXkKUlVTWEVtVVU4TzRsb3p3WUt2WndoYlhPNlpYNzhkLzdUZ0Y4c0FYWVFsT21GWTUxMnBkTUl5eEI2UFNLUXp6a1M0UmIxWjFjcEp5T1pCMUo1QTF1dTNxeTFDZzRDcC9lZWdZPQp0cnVzdGVkIGNvbW1lbnQ6IHRpbWVzdGFtcDoxNzg1MDMwNTMwCWZpbGU6Q2llbGFfMC45LjlfeDY0LXNldHVwLmV4ZQpkL1BQWGpBRnpkSXdqVEJoS3pXSDF4NGdrUDB5WUpTWHFsOUlTSVhyNnh3dVVUTUsvMlBaaklZRXFKTzUwUXRVeEI4dE1ucGhPTnJQc3hselllL1ZBZz09Cg==",
-      "url": "https://github.com/ciela-app/ciela-app.github.io/releases/download/v0.9.9/Ciela_0.9.9_x64-setup.exe"
+      "signature": "dW50cnVzdGVkIGNvbW1lbnQ6IHNpZ25hdHVyZSBmcm9tIHRhdXJpIHNlY3JldCBrZXkKUlVTWEVtVVU4TzRsbzV5TDV5bUJnYXFia25Pd0hRYzBBUXg0VmVQWU5rRlM1YkpzcjBFeGplQjF1Yk04V0w4R1NzVW5xZVZSaCtWVTdpQTBRNXRlbXVhdmVvendCWmdMOWdFPQp0cnVzdGVkIGNvbW1lbnQ6IHRpbWVzdGFtcDoxNzg1NzAyNDE1CWZpbGU6Q2llbGFfMC45LjEwX3g2NC1zZXR1cC5leGUKUDNQeXo5eWlQUDNuR21XdXlOdTZ2NnFkYWhQMEpJR0tmUUJ3dm5BbGpaRzRrS3dYbjVhUEthU2lVR0x5U2RoemptS0JuQ0lvY0FzWld1RVdOOUZBQ0E9PQo=",
+      "url": "https://github.com/ciela-app/ciela-app.github.io/releases/download/v0.9.10/Ciela_0.9.10_x64-setup.exe"
     },
     "linux-x86_64": {
-      "signature": "dW50cnVzdGVkIGNvbW1lbnQ6IHNpZ25hdHVyZSBmcm9tIHRhdXJpIHNlY3JldCBrZXkKUlVTWEVtVVU4TzRsbzVGcjJ5VGx3OXdKRGh4YXM3cFgvbExMMTlsN0Frd1RaYkNtbDhtUHpTMG5Ub0s4RVlScU5RbzdNZk5OVnNDWDJ2dndMVGc5Yi9zeVgyd2NIc3k4b0FRPQp0cnVzdGVkIGNvbW1lbnQ6IHRpbWVzdGFtcDoxNzg1MDMwMDk3CWZpbGU6Q2llbGFfMC45LjlfYW1kNjQuQXBwSW1hZ2UKNnprMm9zTTF0enJyQ3FHSk5kNXp4MzZ4NnFyMHdtU3l4Y0RTVG1sNUt4WDBmQTU3T2NrdGluT09zVlo0b3JGS1ZIWkxOTnFQU20rbE5KRXhRMlRmRFE9PQo=",
-      "url": "https://github.com/ciela-app/ciela-app.github.io/releases/download/v0.9.9/Ciela_0.9.9_amd64.AppImage"
+      "signature": "dW50cnVzdGVkIGNvbW1lbnQ6IHNpZ25hdHVyZSBmcm9tIHRhdXJpIHNlY3JldCBrZXkKUlVTWEVtVVU4TzRsbzZncUlYMVdraVFnNFNiU0xVa2VWaTE4Yzd6WWJuOExFa20vdEVxZHZkU1UvTjlwcFlPMFNFVlhkd1JlampaaVdXalltUCtTVmIxY1lQRG42clBpeEE0PQp0cnVzdGVkIGNvbW1lbnQ6IHRpbWVzdGFtcDoxNzg1NzAxNjE3CWZpbGU6Q2llbGFfMC45LjEwX2FtZDY0LkFwcEltYWdlClN5clhsNTRodEJSTGRIeDVhNHQ0dkE5MUVsSGhyWUU2cHdwUHVTdmpxbnlxYWdFL3ZPb3Mra1NWMGJEU3l2ZW9DQk1WUk9kQ0I2NHpuYjk2VmZvMERBPT0K",
+      "url": "https://github.com/ciela-app/ciela-app.github.io/releases/download/v0.9.10/Ciela_0.9.10_amd64.AppImage"
     }
   }
 }

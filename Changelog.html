@@ -153,11 +153,11 @@
       A quiet record of every shipped version of Ciela, newest first, in plain language. No internal acronyms, no test counts, no celebration. Just what got better, and when.
     </p>
     <div class="meta">
-      <span>38 RELEASES</span>
-      <span>146 UPDATES</span>
-      <span>LATEST · v0.9.9 · 2026-07-25</span>
+      <span>39 RELEASES</span>
+      <span>147 UPDATES</span>
+      <span>LATEST · v0.9.10 · 2026-08-02</span>
       <span>FIRST · v0.1.0 · 2026-04-28</span>
-      <span>LAST UPDATED · JULY 25, 2026</span>
+      <span>LAST UPDATED · AUGUST 2, 2026</span>
     </div>
   </div>
 </header>
@@ -177,6 +177,7 @@
           <span class="toc-badge">Current</span>
         </a>
         <div class="toc-pushes">
+          <a href="#v-0-9-10"><span class="tnum">0.9.10</span><span class="tdate">Aug 2</span></a>
           <a href="#v-0-9-9"><span class="tnum">0.9.9</span><span class="tdate">Jul 25</span></a>
           <a href="#v-0-9-8"><span class="tnum">0.9.8</span><span class="tdate">Jul 24</span></a>
           <a href="#v-0-9-7"><span class="tnum">0.9.7</span><span class="tdate">Jul 21</span></a>
@@ -411,32 +412,57 @@
       <section class="release" id="rel-rebuilt">
         <div class="rel-eyebrow">
           <span class="rel-badge">Current Release</span>
-          <span>v0.9.0 – v0.9.9 · July 2026</span>
+          <span>v0.9.0 – v0.9.10 · July–Aug 2026</span>
         </div>
         <h2 class="rel-title"><em>Rebuilt.</em></h2>
-        <p class="rel-lede">The entire desktop UI was redesigned from scratch — new navigation shell, rebuilt Insights, History, Cleaned, Settings, and Connect panels. Follow-on releases rerouted Gmail through IMAP, restored the 2-column inbox layout, added retroactive re-classification so Unknown senders resolve automatically on every scan, sharpened the classifier across nine categories, made the Outlook sign-in recovery buttons actually work, hardened the classifier engine with RFC 3834/2369 header detection and a full correctness pass, fixed three production IMAP bugs found in first real-world testing, fixed a provider-specific banner being shown to the wrong users and added a single-instance guard, and in v0.9.9 fixed a Smart Purge Tray loop that caused the same senders to reappear after every rescan.</p>
+        <p class="rel-lede">The entire desktop UI was redesigned from scratch — new navigation shell, rebuilt Insights, History, Cleaned, Settings, and Connect panels. Follow-on releases rerouted Gmail through IMAP, restored the 2-column inbox layout, added retroactive re-classification so Unknown senders resolve automatically on every scan, sharpened the classifier across nine categories, made the Outlook sign-in recovery buttons actually work, hardened the classifier engine with RFC 3834/2369 header detection and a full correctness pass, fixed three production IMAP bugs found in first real-world testing, fixed a provider-specific banner being shown to the wrong users and added a single-instance guard, fixed a Smart Purge Tray loop that caused the same senders to reappear after every rescan, and in v0.9.10 fixed the underlying root cause — Ciela's local caches now shrink when mail is trashed.</p>
         <div class="rel-download-row">
-          <a class="btn dark rel-download" href="https://github.com/ciela-app/ciela-app.github.io/releases/download/v0.9.9/Ciela_0.9.9_x64-setup.exe">
+          <a class="btn dark rel-download" href="https://github.com/ciela-app/ciela-app.github.io/releases/download/v0.9.10/Ciela_0.9.10_x64-setup.exe">
             <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M3 5.5l8-1.1v8.1H3zm0 8h8v8.1l-8-1.1zm9-9.2l11-1.6v10.8H12zm0 10.2h11v10.8l-11-1.6z"/></svg>
-            Download v0.9.9 for Windows
+            Download v0.9.10 for Windows
           </a>
-          <a class="btn dark rel-download" href="https://github.com/ciela-app/ciela-app.github.io/releases/download/v0.9.9/Ciela_0.9.9_universal.dmg">
+          <a class="btn dark rel-download" href="https://github.com/ciela-app/ciela-app.github.io/releases/download/v0.9.10/Ciela_0.9.10_universal.dmg">
             <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
-            Download v0.9.9 for Mac
+            Download v0.9.10 for Mac
           </a>
-          <a class="btn dark rel-download" href="https://github.com/ciela-app/ciela-app.github.io/releases/download/v0.9.9/Ciela_0.9.9_amd64.AppImage">
+          <a class="btn dark rel-download" href="https://github.com/ciela-app/ciela-app.github.io/releases/download/v0.9.10/Ciela_0.9.10_amd64.AppImage">
             <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"/></svg>
-            Download v0.9.9 for Linux
+            Download v0.9.10 for Linux
           </a>
         </div>
-        <div class="micro">VirusTotal v0.9.9: <a href="https://www.virustotal.com/gui/file/7114ecdcbf3abdb4963bc0b12e28759f3496a01f3e3d809d3a69b022e03bdc9d?nocache=1" target="_blank" rel="noopener">Windows 2/70</a> · <a href="https://www.virustotal.com/gui/file/461d0b81ddc6fb666fb1ad7b13af0f1787b1abcd367f590b7a98b40fd6623be1?nocache=1" target="_blank" rel="noopener">macOS 1/61</a> · <a href="https://www.virustotal.com/gui/file/18bb511e7db35f3a85e6bdc38db3ffe251429877ec0a4da52cf756ceaade10ac?nocache=1" target="_blank" rel="noopener">Linux AppImage 0/62</a> · <a href="https://www.virustotal.com/gui/file/ac11db0a9b73ed5bb91857aa8b419479490848f650d7dd8e62f628633c1a2415?nocache=1" target="_blank" rel="noopener">deb 0/60</a> · <a href="https://www.virustotal.com/gui/file/cc6a5d07a89908d5377aaa0d96474d58fe15f03ba6487fb5dfcb2487fa013f55?nocache=1" target="_blank" rel="noopener">rpm 0/61</a> · <a href="https://github.com/ciela-app/ciela-app.github.io/releases/tag/v0.9.9" target="_blank" rel="noopener" style="color:var(--ink-3);border-bottom:1px solid var(--rule);">Release on GitHub ↗</a></div>
+        <div class="micro">VirusTotal v0.9.10: <a href="https://www.virustotal.com/gui/file/418d3d4da897ba848e1b996be8b280d4cf8519e6d5755ea2103b64ec31c0f08c?nocache=1" target="_blank" rel="noopener">Windows 4/72</a> · <a href="https://www.virustotal.com/gui/file/4724facf23fa5a1836be1ce0558c7d383822797292b1606591e25819d35a9ea4?nocache=1" target="_blank" rel="noopener">macOS 0/61</a> · <a href="https://www.virustotal.com/gui/file/5cf4f014840e32de41c47c5c3079aecd7a6d7a019f0f441fad93251e29ddc923?nocache=1" target="_blank" rel="noopener">Linux AppImage 0/62</a> · <a href="https://www.virustotal.com/gui/file/e68b1b16033bebdb0b3a8579238e77bd530160f43d77b567b917354de1340206?nocache=1" target="_blank" rel="noopener">deb 0/60</a> · <a href="https://www.virustotal.com/gui/file/931d46cb158a5c84c5075542862aa15c12ee51e397985593d0b7ffa38772ce48?nocache=1" target="_blank" rel="noopener">rpm 0/60</a> · <a href="https://github.com/ciela-app/ciela-app.github.io/releases/tag/v0.9.10" target="_blank" rel="noopener" style="color:var(--ink-3);border-bottom:1px solid var(--rule);">Release on GitHub ↗</a></div>
+        <div class="micro" style="margin-top:2px;opacity:.6;">v0.9.9: <a href="https://www.virustotal.com/gui/file/7114ecdcbf3abdb4963bc0b12e28759f3496a01f3e3d809d3a69b022e03bdc9d?nocache=1" target="_blank" rel="noopener">Windows 2/70</a> · <a href="https://www.virustotal.com/gui/file/461d0b81ddc6fb666fb1ad7b13af0f1787b1abcd367f590b7a98b40fd6623be1?nocache=1" target="_blank" rel="noopener">macOS 1/61</a> · <a href="https://www.virustotal.com/gui/file/18bb511e7db35f3a85e6bdc38db3ffe251429877ec0a4da52cf756ceaade10ac?nocache=1" target="_blank" rel="noopener">Linux AppImage 0/62</a> · <a href="https://www.virustotal.com/gui/file/ac11db0a9b73ed5bb91857aa8b419479490848f650d7dd8e62f628633c1a2415?nocache=1" target="_blank" rel="noopener">deb 0/60</a> · <a href="https://www.virustotal.com/gui/file/cc6a5d07a89908d5377aaa0d96474d58fe15f03ba6487fb5dfcb2487fa013f55?nocache=1" target="_blank" rel="noopener">rpm 0/61</a></div>
         <div class="micro" style="margin-top:2px;opacity:.6;">v0.9.8: <a href="https://www.virustotal.com/gui/file/1c901f72d65179078f2f97eb158fbd277cdc0508396b802d53c3a824f4a9b2f3" target="_blank" rel="noopener">Windows 4/68</a> · <a href="https://www.virustotal.com/gui/file/c3a6ab49ed3e567e605f029e3176086b7f2fb8d483aef940bc910147552ac14f" target="_blank" rel="noopener">macOS 1/59</a> · <a href="https://www.virustotal.com/gui/file/83571ec46fc04d7888566917b321914692d487511634f62b0234ed03057a4b1c" target="_blank" rel="noopener">Linux AppImage 0/62</a> · <a href="https://www.virustotal.com/gui/file/54aaef014ee45f2947ddcfb710f50cf7503644fd17467b7bedfe39fc1b656573" target="_blank" rel="noopener">deb 0/61</a> · <a href="https://www.virustotal.com/gui/file/f590d610eb9edf1ff9546b9307110d8f12dc43496741750e555e1e994e690801" target="_blank" rel="noopener">rpm 0/60</a></div>
-        <div class="micro" style="margin-top:2px;opacity:.6;">v0.9.7: <a href="https://www.virustotal.com/gui/file/73d9209e8252225a3a30e1c828c2d6d5e97bf983e45adfd398dc64a398255cd9" target="_blank" rel="noopener">Windows 2/70</a> · <a href="https://www.virustotal.com/gui/file/d7538a11c0d0a07c7c31bbf2009e3f38b9c252a047b067ba27a17de146d03d41" target="_blank" rel="noopener">macOS 1/60</a> · <a href="https://www.virustotal.com/gui/file/95b715518550d944f5349b8278943e07857322b841001912974e81b68baac3b0" target="_blank" rel="noopener">Linux AppImage 0/63</a> · <a href="https://www.virustotal.com/gui/file/b2d3f7c3912bb9df5ff107f377acdb4072251680d00a65d2d1281a092fa16aa4" target="_blank" rel="noopener">deb 0/61</a> · <a href="https://www.virustotal.com/gui/file/033399af0fb0b5faf00fc8e0ac22de61fd0c4dd0cb23173e6231cae7652f87f9" target="_blank" rel="noopener">rpm 0/61</a></div>
         <div class="micro" style="margin-top:4px;">All platform binaries compiled by GitHub Actions</div>
 
         <details class="sub-releases" open>
-          <summary>9 updates in this release</summary>
+          <summary>10 updates in this release</summary>
           <div class="sub-stream">
+
+            <article class="version" id="v-0-9-10">
+              <header class="ver-head">
+                <h2><span class="vnum">0.9.10</span></h2>
+                <span class="vdate">2026-08-02</span>
+              </header>
+              <p class="summary">Bug fix. Ciela's local caches now shrink when mail is trashed — eliminating the phantom sender loop and inflated Dashboard counts permanently.</p>
+              <ul class="notes">
+                <li><strong>Trash cache consistency.</strong> v0.9.9 removed the phantom <em>sender</em> row after trashing. This release removes the phantom <em>message</em> rows. Every trash path now deletes local message rows at trash time, so a rescan can no longer find mail that Ciela already moved to Trash. Dashboard totals reflect reality; the Smart Purge Tray loop is gone at the root cause level.</li>
+                <li><strong>Undo is more reliable.</strong> The undo path now re-fetches message metadata directly from your email provider after restoring, so Ciela's local view matches what the provider actually sees — not a cached state that may have drifted.</li>
+              </ul>
+              <details class="tech-notes">
+                <summary>Technical notes</summary>
+                <div class="tech-body">
+                  <ul>
+                    <li>Root cause: no trash path deleted from the local <code>messages</code> table; incremental rescans use <code>INSERT OR IGNORE</code> and never clear them — so trashed mail's rows persisted indefinitely</li>
+                    <li>Fix: <code>reconcile_after_trash</code> shared helper called by all trash paths (sync <code>trash_sender</code>, background worker, <code>trash_category</code>, <code>rules_exec</code>, <code>triage</code>); runs <code>record_trash_op</code> + chunked <code>DELETE FROM messages</code> + <code>remove_sender</code> in one transaction</li>
+                    <li>Worker sourced from durable <code>job_items WHERE status='DONE'</code> — not in-memory <code>trashed_ids</code> — so resumed jobs reconcile correctly even when the prior execution already trashed the mail</li>
+                    <li><code>complete_job</code> reordered to run after cleanup; cleanup failure leaves job <code>RUNNING</code> so the startup sweep heals any crash mid-reconcile</li>
+                    <li>Schema v28 → v29: <code>ALTER TABLE trash_ops ADD COLUMN job_id TEXT</code> (nullable; migration runs automatically on first launch)</li>
+                    <li>499 frontend / 757 Rust tests</li>
+                  </ul>
+                </div>
+              </details>
+            </article>
 
             <article class="version" id="v-0-9-9">
               <header class="ver-head">
